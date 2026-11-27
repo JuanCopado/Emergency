@@ -1,0 +1,262 @@
+{
+  "id": "CORT-20261126",
+  "version": "2",
+  "date": "2026-11-26",
+  "base_sha": "228cd21d75d14e1012beb7f5dfe82c2c920c4ccc",
+  "branch": "codex/corticosteroids-therapeutic-review-20261126",
+  "module_id": "medication-selection-safety",
+  "authorization": {
+    "implementation": "Owner-authorized implementation dispatch received 2026-11-26",
+    "prior_acceptances_preserved": [
+      "adrenal-crisis 2026-11-13",
+      "pediatric-adrenal-crisis 2026-11-14",
+      "anaphylaxis 2026-11-13 and reviewed contracts 2026-11-16"
+    ],
+    "global_clinical_state": "CLINICALLY_PENDING",
+    "new_global_clinical_approval": false,
+    "focal_extension": "Owner-requested Bell palsy / short-course clarification incorporated under implementation dispatch; no new global clinical approval"
+  },
+  "sources": [
+    {
+      "id": "endotext-2018",
+      "title": "Endotext — Glucocorticoid Therapy and Adrenal Suppression",
+      "version": "2018-10-19",
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK279156/",
+      "locator": "Table 1: Glucocorticoid Equivalencies",
+      "access": "full chapter table retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ese-es-2024",
+      "title": "ESE / Endocrine Society — Glucocorticoid-induced adrenal insufficiency",
+      "version": "2024-05-08",
+      "url": "https://academic.oup.com/ejendo/article-pdf/190/5/G25/57417666/lvae029.pdf",
+      "locator": "Table 1, G28; footnotes a–c",
+      "access": "official full guideline PDF table retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "sfe-adrenal",
+      "title": "Society for Endocrinology — Adrenal crisis",
+      "version": "current online; checked 2026-11-26",
+      "url": "https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/",
+      "locator": "Management of adrenal crisis summary",
+      "access": "official indexed recommendations; direct page returned HTTP 403",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ssc-adult-2026",
+      "title": "SCCM / ESICM — Surviving Sepsis Campaign, adults",
+      "version": "2026",
+      "url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+      "locator": "Recommendation 79: IV Corticosteroids",
+      "access": "official recommendation retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "sccm-steroids-2024",
+      "title": "SCCM — Focused update: corticosteroids in sepsis, ARDS and CAP",
+      "version": "2024",
+      "url": "https://doi.org/10.1097/CCM.0000000000006172",
+      "locator": "Recommendations 1A–1B and Table 4 (common regimens)",
+      "access": "full indexed guideline recommendations and table retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "rch-adrenal-2024",
+      "title": "Royal Children's Hospital / PIC — Adrenal crisis and acute adrenal insufficiency",
+      "version": "2024-10",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Adrenal_crisis_and_acute_adrenal_insufficiency/",
+      "locator": "Treatment → Severely unwell/in crisis → stress hydrocortisone age table (not Surgery table)",
+      "access": "full primary institutional guideline and date retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ssc-pediatric-2026",
+      "title": "SCCM — Surviving Sepsis Campaign, children",
+      "version": "2026",
+      "url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-the-management-of-sepsis-and-septic-shock-in",
+      "locator": "Corticosteroid recommendations and adrenal insufficiency remark",
+      "access": "official recommendations retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "rcuk-anaphylaxis-2021",
+      "title": "Resuscitation Council UK — Emergency treatment of anaphylaxis",
+      "version": "2021-05; linked by RCUK 2025 special-circumstances guidance",
+      "url": "https://www.resus.org.uk/sites/default/files/2021-05/Emergency%20Treatment%20of%20Anaphylaxis%20May%202021_0.pdf",
+      "locator": "Section 5.5, page 33; section 6.7.4, page 39",
+      "access": "official full guideline PDF sections retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "aao-bell-2013",
+      "title": "AAO-HNSF — Clinical practice guideline: Bell's palsy",
+      "version": "2013-11; guideline still listed by AAO-HNSF on 2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24189771/",
+      "locator": "Action statements 1–6 and 11; oral steroids from age 16 within 72 hours",
+      "access": "primary guideline abstract and current society guideline listing retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "sullivan-bell-2007",
+      "title": "Sullivan et al. — Early treatment with prednisolone or acyclovir in Bell’s palsy",
+      "version": "2007-10-18",
+      "url": "https://doi.org/10.1056/NEJMoa072006",
+      "locator": "Methods: prednisolone 25 mg twice daily for 10 days; enrollment within 72 hours",
+      "access": "primary publisher indexed methods and abstract retrieved; direct publisher page returned HTTP 403",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "rch-bell-2023",
+      "title": "Royal Children's Hospital / PIC — Facial weakness and Bell palsy",
+      "version": "2023-02",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Facial_weakness_and_Bells_palsy/",
+      "locator": "Assessment; Treatment → Eye care / Steroids; specialist consultation and discharge",
+      "access": "full primary institutional guideline and update date retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "bellpic-2022",
+      "title": "Babl et al. — Efficacy of prednisolone for Bell palsy in children (BellPIC)",
+      "version": "2022-11-14; Neurology 99:e2241–e2252",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36008143/",
+      "locator": "Randomized trial abstract; 187 children, primary 1-month recovery outcome and precision limitation",
+      "access": "primary trial abstract retrieved; publisher PDF returned HTTP 403; no full-text review claimed",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "pontine-facial-2019",
+      "title": "Min and Jung — Patterns of pontine strokes mimicking Bell’s palsy",
+      "version": "2019-08-27",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6710861/",
+      "locator": "Primary case series: upper and lower facial involvement in pontine stroke",
+      "access": "primary published case-series text retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "idsa-lyme-2020",
+      "title": "AAN / ACR / IDSA — Lyme disease guideline",
+      "version": "2020-11-30; marked CURRENT on 2026-11-26",
+      "url": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+      "locator": "Sections X and XV: acute cranial neuropathy, exposure and facial palsy corticosteroid uncertainty",
+      "access": "official guideline recommendations retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ese-short-course-2024",
+      "title": "ESE / Endocrine Society — Glucocorticoid-induced adrenal insufficiency, short courses",
+      "version": "2024-05; official recommendation page dated 2024-05-13",
+      "url": "https://www.endocrine.org/clinical-practice-guidelines/glucocorticoid-induced-adrenal-insufficiency",
+      "locator": "Recommendations R2.1–R2.2 and risk context R2.9",
+      "access": "official recommendation text retrieved",
+      "checked_on": "2026-11-26"
+    }
+  ],
+  "supplementary_module_sources": [
+    {
+      "id": "gina-2026-adolescent-short-course",
+      "title": "GINA — Global Strategy for Asthma Management and Prevention 2026",
+      "version": "2026-05",
+      "url": "https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+      "locator": "Box 9-2, Severe exacerbations — all regimens; explicit adults/adolescents oral corticosteroid course",
+      "access": "official report retrieved; exact adolescent recommendation located in the source text",
+      "checked_on": "2026-11-26",
+      "module_id": "pediatric-acute-asthma",
+      "scope": "Explicit 12–17-year short-course reference; no automatic selection among pediatric age bands"
+    }
+  ],
+  "changes": [
+    "Versioned source-specific systemic equivalence catalog: eight corticosteroids, two separate tables, biological half-life and attributed mineralocorticoid activity.",
+    "Client-side deterministic comparison in mg using one explicit reference, oral/IV route and single-dose/24-hour-total basis; no patient data, dose selection, mg/kg, mL, taper or interval adjustment.",
+    "Adult hydrocortisone adrenal crisis reference and distinct RCH pediatric crisis table, reusing existing accepted regimen quantities.",
+    "Adult septic shock corticosteroid recommendation added with SSC 2026 conditional/low-certainty scope and SCCM 2024 common dosing regimen.",
+    "Anaphylaxis routine corticosteroid use explicitly discouraged while preserving existing adrenaline pathways.",
+    "Pediatric sepsis reference distinguishes restored stability, persistent instability with insufficient evidence, and suspected/documented adrenal insufficiency.",
+    "Bell palsy added as subsection bell-palsy of existing ent-emergencies, with five complete clinical domains and a separate pediatric boundary.",
+    "Short-course consultation shows the attributed Sullivan prednisolone regimen and the AAO-HNSF >=16-year recommendation; application adult draft boundary remains >=18, with reference/manual review for younger patients.",
+    "Explicit eye protection, stroke/Ramsay Hunt/Lyme differential, follow-up and ESE short-course withdrawal context; existing asthma/COPD/croup pathways linked rather than duplicated.",
+    "Final review completed the missing explicit 12–17-year systemic corticosteroid band inside pediatric-acute-asthma, preserving separate age bands and clinician dose selection. GINA 2026 Box 9-2 verified directly."
+  ],
+  "discrepancies": [
+    {
+      "issue": "Dexamethasone and betamethasone equivalence",
+      "resolution": "Endotext 2018 and ESE/ES 2024 remain separate complete presets. No averaging or silent substitution."
+    },
+    {
+      "issue": "Biological half-life ranges differ",
+      "resolution": "Each table supplies its own range. Plasma half-life is not substituted."
+    },
+    {
+      "issue": "ESE table excludes mineralocorticoid equivalence",
+      "resolution": "Mineralocorticoid values attributed only to Endotext and excluded from arithmetic."
+    },
+    {
+      "issue": "RCH crisis and surgery bands differ at age six",
+      "resolution": "Only existing crisis table is projected. No automatic age-band calculation or blending with BSPED/surgery."
+    },
+    {
+      "issue": "AAO-HNSF recommendation from age 16 versus application adult boundary of 18",
+      "resolution": "Both scopes are visible; ages 16–17 retain pediatric/reference/manual handling without an automatically prefilled adult regimen."
+    },
+    {
+      "issue": "BellPIC pediatric efficacy uncertainty",
+      "resolution": "Record underpowered 187-child trial and insufficient precision; no automatic pediatric regimen and no assertion that benefit is definitively excluded."
+    },
+    {
+      "issue": "Primary source access limits for Bell studies",
+      "resolution": "Sullivan dose confirmed in official publisher indexed methods; direct page HTTP 403. BellPIC primary abstract retrieved; publisher PDF HTTP 403. No full-text review of these studies is claimed."
+    }
+  ],
+  "checks": [
+    {
+      "command": "python -m unittest discover -s clinical/tests -p test_therapeutic_plan_sources.py -v",
+      "result": "PASS",
+      "tests": 13,
+      "scope": "Final source-projection check including explicit adolescent asthma course and retained individualization limits"
+    },
+    {
+      "command": "python -m unittest clinical/tests/test_corticosteroid_catalog.py",
+      "result": "PASS",
+      "tests": 7
+    },
+    {
+      "command": "npm test -- src/corticosteroids/calculator.test.ts src/test/corticosteroids.test.tsx --maxWorkers=2",
+      "result": "PASS",
+      "tests": 35
+    },
+    {
+      "command": "python clinical/scripts/build_corticosteroid_catalog.py --check",
+      "result": "PASS"
+    },
+    {
+      "command": "./node_modules/.bin/eslint src/corticosteroids src/pages/Corticosteroids.tsx src/test/corticosteroids.test.tsx",
+      "result": "PASS",
+      "working_directory": "app"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS"
+    },
+    {
+      "command": "git diff --exit-code -- clinical/calculators/registry.json clinical/references/evidence-registry.json",
+      "result": "PASS",
+      "meaning": "Formula and evidence registries unchanged at the earlier v1 focal verification; no new registry modification is claimed by this extension."
+    }
+  ],
+  "not_claimed": [
+    "prospective clinical validation",
+    "new global clinical approval",
+    "deployment",
+    "native Windows browser execution",
+    "full clinical language review"
+  ],
+  "integration_owner": "Root integrates navigation, package build check, shared documentation and global validation.",
+  "canonical_catalog_version": "2026-11-26.2",
+  "visual_qa": {
+    "status": "BLOCKED_ENVIRONMENT",
+    "observed": "Installed /usr/bin/chromium launcher has no /usr/lib/chromium/chromium; official Playwright Chromium download returned HTTP 403.",
+    "screenshots_created": 0,
+    "new_browser_attempt_for_v2": false
+  }
+}

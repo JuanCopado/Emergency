@@ -46,6 +46,24 @@ export function registerTests(test) {
     }
   });
 
+  test('corticosteroids requires its comparator and separate clinical references', () => {
+    const observed = { ...valid(), pathname: '/corticosteroids', heading: 'Corticoides', probes: {
+      'main form[aria-label="Comparador de equivalencias"] select': 4,
+      'main input[aria-describedby="corticosteroid-input-hint"]': 1,
+      'main form[aria-label="Comparador de equivalencias"] button[type="submit"]': 1,
+      'main section[aria-labelledby="hydrocortisone-adult"]': 1,
+      'main section[aria-labelledby="hydrocortisone-pediatric"]': 1,
+      'main section[aria-labelledby="short-course-title"]': 1,
+    } };
+    assert.deepEqual(identityProblems(observed, '/corticosteroids'), []);
+    for (const selector of Object.keys(observed.probes)) {
+      const incomplete = { ...observed, probes: { ...observed.probes, [selector]: observed.probes[selector] - 1 } };
+      assert.ok(identityProblems(incomplete, '/corticosteroids').includes(`MISSING_MODULE_CONTROL:${selector}`));
+    }
+    const genericForm = { ...observed, probes: { 'main form': 1, 'main select': 4, 'main input': 1 } };
+    assert.ok(identityProblems(genericForm, '/corticosteroids').some(problem => problem.startsWith('MISSING_MODULE_CONTROL')));
+  });
+
   test('the router wildcard never makes a dangling link valid', () => {
     const paths = registeredPaths(app);
     assert.equal(matchesRegisteredRoute('/pediatrics?regimen=synthetic#test', paths), true);

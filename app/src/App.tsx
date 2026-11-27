@@ -19,6 +19,7 @@ const ClinicalScores = lazy(() => import('./pages/ClinicalScores'));
 const AcuteMedications = lazy(() => import('./pages/AcuteMedications'));
 const InsulinUci = lazy(() => import('./pages/InsulinUci'));
 const BloodGas = lazy(() => import('./pages/BloodGas'));
+const Corticosteroids = lazy(() => import('./pages/Corticosteroids'));
 const T06Lab = lazy(() => import('./t06/T06Lab'));
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="drugs/:id" element={<DrugDetail />} />
           <Route path="calculator" element={<Calculator />} />
           <Route path="acute-medications" element={<AcuteMedications />} />
+          <Route path="corticosteroids" element={<Corticosteroids />} />
           <Route path="insulin-uci" element={<InsulinUci />} />
           <Route path="scores" element={<ClinicalScores />} />
           <Route path="pediatrics" element={<PediatricOutpatient />} />

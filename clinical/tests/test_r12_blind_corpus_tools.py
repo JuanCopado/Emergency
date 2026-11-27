@@ -1,5 +1,6 @@
 """R12 · blind R5-2 corpus tooling (DEC-CLIN-R8-06B). Uses only placeholder text built here."""
 import ast
+import copy
 import json
 import sys
 import unittest
@@ -24,6 +25,16 @@ def placeholder_corpus(per_cell=1):
 
 def as_bytes(data):
     return json.dumps(data).encode("utf-8")
+
+
+def role_manifest(corpus):
+    roles = {"author": ["author-001"], "evaluator": ["evaluator-001"], "custodian": ["custodian-001"],
+             "adjudicator": ["ana", "bruno", "carla"]}
+    return {"schema": "blind-corpus-roles-v1", "corpus_canonical_sha256": tools.canonical_corpus_sha256(corpus),
+            "people": [{"id": person, "identity_ref": f"synthetic-register-{i}"}
+                       for i, person in enumerate(person for members in roles.values() for person in members)],
+            "roles": roles, "panels": {lang: {"primary": ["ana", "bruno"], "tiebreaker": "carla"}
+                                       for lang in {item["lang"] for item in corpus["items"]}}}
 
 
 class CorpusAndManifest(unittest.TestCase):
@@ -150,6 +161,7 @@ class Adjudication(unittest.TestCase):
         ids = [i["id"] for i in self.items if i["lang"] == "en"][:2]
         bundle = {"corpus": placeholder_corpus(),
                   "adjudications": self._records(ids, [("reassures", "reassures"), ("reassures", "does_not_reassure")])}
+        bundle["role_manifest"] = role_manifest(bundle["corpus"])
         report = tools.run(["agreement", "--primary", "ana", "bruno"], as_bytes(bundle))
         self.assertEqual(report["needs_tiebreak"], [ids[1]])
 
@@ -159,6 +171,124 @@ class Adjudication(unittest.TestCase):
         self.assertEqual(tools.final_label({"ana": "reassures", "bruno": "does_not_reassure", "carla": "does_not_reassure"}, *pair), "does_not_reassure")
         self.assertEqual(tools.final_label({"ana": "reassures", "bruno": "does_not_reassure"}, *pair), "unresolved")
         self.assertEqual(tools.final_label({"ana": "cannot_decide", "bruno": "cannot_decide", "carla": "cannot_decide"}, *pair), "unresolved")
+
+
+class RoleSeparation(unittest.TestCase):
+    ROLES = {"author": ["a1"], "evaluator": ["e1"], "custodian": ["c1"], "adjudicator": ["ana", "bruno", "carla"]}
+
+    def test_valid_roles_return_the_people_per_role(self):
+        self.assertEqual(tools.check_roles(self.ROLES)["adjudicator"], ["ana", "bruno", "carla"])
+        self.assertEqual(tools.run(["roles"], as_bytes(self.ROLES))["custodian"], ["c1"])
+
+    def test_a_person_with_two_roles_is_rejected_and_named(self):
+        for first, second in (("author", "adjudicator"), ("evaluator", "adjudicator"), ("custodian", "adjudicator"),
+                              ("author", "custodian"), ("author", "evaluator"), ("evaluator", "custodian")):
+            roles = {role: list(names) for role, names in self.ROLES.items()}
+            roles[second].append(roles[first][0])
+            with self.assertRaises(ValueError) as caught:
+                tools.check_roles(roles)
+            self.assertIn(roles[first][0], str(caught.exception), (first, second))
+
+    def test_malformed_roles_and_too_few_adjudicators_are_rejected(self):
+        for bad in ({"author": ["a1"], "judge": ["x"]}, {**self.ROLES, "author": ["a1", "a1"]}, {**self.ROLES, "author": [""]},
+                    {**self.ROLES, "adjudicator": ["ana", "bruno"]}, ["not", "an", "object"]):
+            with self.assertRaises(ValueError):
+                tools.check_roles(bad)
+
+    def test_primary_adjudicators_and_tiebreaker_must_be_three_different_people(self):
+        items, _ = tools.parse_items(as_bytes(placeholder_corpus()))
+        with self.assertRaises(ValueError):
+            tools.agreement(items, [], ("ana", "ana"))
+        for pair in (("ana", "ana", "carla"), ("ana", "bruno", "ana"), ("ana", "bruno", "bruno")):
+            with self.assertRaises(ValueError):
+                tools.final_label({}, *pair)
+
+    def test_agreement_with_roles_rejects_judges_outside_the_adjudicator_role(self):
+        ids = [i["id"] for i in tools.parse_items(as_bytes(placeholder_corpus()))[0] if i["lang"] == "en"][:2]
+        records = [{"adjudicator": who, "item": item, "verdict": "reassures"} for item in ids for who in ("ana", "bruno")]
+        bundle = {"corpus": placeholder_corpus(), "adjudications": records}
+        bundle["role_manifest"] = role_manifest(bundle["corpus"])
+        self.assertIn("by_language", tools.run(["agreement", "--primary", "ana", "bruno"], as_bytes(bundle)))
+        with self.assertRaises(ValueError):
+            tools.run(["agreement", "--primary", "ana", "a1"], as_bytes({**bundle, "adjudications": records + [
+                {"adjudicator": "a1", "item": ids[0], "verdict": "reassures"}]}))
+        bad = copy.deepcopy(bundle)
+        bad["role_manifest"]["roles"]["author"] = ["ana"]
+        with self.assertRaises(ValueError):
+            tools.run(["agreement", "--primary", "ana", "bruno"], as_bytes(bad))
+
+
+class MandatoryRoleManifest(unittest.TestCase):
+    def setUp(self):
+        corpus = placeholder_corpus()
+        self.bundle = {"corpus": corpus, "adjudications": [], "role_manifest": role_manifest(corpus)}
+
+    def run_bundle(self, bundle):
+        return tools.run(["agreement"], as_bytes(bundle))
+
+    def test_missing_manifest_cannot_bypass_role_checks(self):
+        for extra in ({}, {"roles": RoleSeparation.ROLES}):
+            with self.subTest(extra=extra), self.assertRaises(ValueError):
+                self.run_bundle({"corpus": self.bundle["corpus"], "adjudications": [], **extra})
+
+    def test_stable_ids_and_identity_references_reject_aliases(self):
+        for change in (lambda m: m["people"][0].update(id="Ana "),
+                       lambda m: m["people"][0].update(id="aná"),
+                       lambda m: m["people"][1].update(id=m["people"][0]["id"]),
+                       lambda m: m["people"][1].update(identity_ref="  SYNTHETIC-REGISTER-0  "),
+                       lambda m: m["people"][1].update(identity_ref="ｓｙｎｔｈｅｔｉｃ-register-0")):
+            bad = copy.deepcopy(self.bundle)
+            change(bad["role_manifest"])
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                self.run_bundle(bad)
+
+    def test_all_roles_people_and_corpus_binding_are_required(self):
+        for change in (lambda m: m["roles"].update(author=[]),
+                       lambda m: m["roles"].update(evaluator=[]),
+                       lambda m: m["roles"].update(custodian=[]),
+                       lambda m: m["roles"].update(author=["unknown-001"]),
+                       lambda m: m["people"].append({"id": "unassigned-001", "identity_ref": "extra"}),
+                       lambda m: m.update(corpus_canonical_sha256="0" * 64)):
+            bad = copy.deepcopy(self.bundle)
+            change(bad["role_manifest"])
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                self.run_bundle(bad)
+
+    def test_every_language_needs_two_primaries_and_a_distinct_tiebreaker(self):
+        for change in (lambda m: m["panels"].pop("en"),
+                       lambda m: m["panels"]["en"].update(primary=["ana", "ana"]),
+                       lambda m: m["panels"]["en"].update(tiebreaker="ana"),
+                       lambda m: m["panels"]["en"].update(tiebreaker="custodian-001")):
+            bad = copy.deepcopy(self.bundle)
+            change(bad["role_manifest"])
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                self.run_bundle(bad)
+        with self.assertRaises(ValueError):
+            tools.run(["agreement", "--primary", "bruno", "ana"], as_bytes(self.bundle))
+
+    def test_distinct_language_panels_preserve_statistics_and_reject_other_judges(self):
+        bundle = copy.deepcopy(self.bundle)
+        bundle["role_manifest"]["people"].append({"id": "judge-004", "identity_ref": "synthetic-register-6"})
+        bundle["role_manifest"]["roles"]["adjudicator"].append("judge-004")
+        bundle["role_manifest"]["panels"]["en"] = {"primary": ["carla", "judge-004"], "tiebreaker": "bruno"}
+        items, _ = tools.parse_items(as_bytes(bundle["corpus"]))
+        item = next(x for x in items if x["lang"] == "en")
+        bundle["adjudications"] = [{"adjudicator": person, "item": item["id"], "verdict": "reassures"}
+                                  for person in ["carla", "judge-004"]]
+        report = self.run_bundle(bundle)
+        self.assertEqual(report["by_language"], tools.agreement(items, bundle["adjudications"], ["carla", "judge-004"])["by_language"])
+        self.assertEqual(report["needs_tiebreak"], [])
+        self.assertEqual(report["role_validation"], "FORMAL_CONSISTENCY_ONLY_NOT_HUMAN_INDEPENDENCE")
+        self.assertNotIn("identity_ref", json.dumps(report))
+        bundle["adjudications"].append({"adjudicator": "ana", "item": item["id"], "verdict": "reassures"})
+        with self.assertRaises(ValueError):
+            self.run_bundle(bundle)
+
+    def test_canonical_binding_is_separate_from_exact_byte_manifest_hash(self):
+        corpus = self.bundle["corpus"]
+        reversed_corpus = dict(reversed(list(corpus.items())))
+        self.assertEqual(tools.canonical_corpus_sha256(corpus), tools.canonical_corpus_sha256(reversed_corpus))
+        self.assertNotEqual(tools.manifest(as_bytes(corpus))["sha256"], tools.manifest(as_bytes(corpus) + b" ")["sha256"])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,86 @@
+{
+  "base": "228cd21d75d14e1012beb7f5dfe82c2c920c4ccc",
+  "candidate_branch": "review/final-closure-20261126",
+  "preparation": "Disjoint patch composition; exact T06 provenance amendment preserves historical manifest. Source PRs remain open and unmerged.",
+  "files_total": 37,
+  "overlapping_files": [],
+  "sources": [
+    {
+      "pr": 111,
+      "head": "1fbdbe7847b4fa781fa175527848e27bbe2f49bc",
+      "files": [
+        "app/src/components/CatalogEmptyState.tsx",
+        "app/src/components/EvidenceStatusPill.tsx",
+        "app/src/components/ResuscitationCircuits.tsx",
+        "app/src/i18n/locales/en.clinical.json",
+        "app/src/i18n/locales/es.clinical.json",
+        "app/src/i18n/locales/pt.clinical.json",
+        "app/src/i18n/locales/zh.clinical.json",
+        "app/src/index.css",
+        "app/src/pages/ClinicalGuides.tsx",
+        "app/src/pages/ClinicalLibrary.tsx",
+        "app/src/test/catalog-empty-state.test.tsx"
+      ],
+      "patch_sha256": "4f5c022449a30eba6c34f5fd2b480f2d11d95892b0ec2f46602756dba9d377de"
+    },
+    {
+      "pr": 112,
+      "head": "9f0b14f328de98950bad241acadf02c37ac18c74",
+      "files": [
+        "docs/coordination/r89-r99-custody-20261126/README.md",
+        "docs/coordination/r89-r99-custody-20261126/inventario.json"
+      ],
+      "patch_sha256": "13ae6770c16ba1ee4fde6ea168cf259ca128cf763fecf0092d16866b353a4091"
+    },
+    {
+      "pr": 113,
+      "head": "3d6ace67b402e5dad1f830dbea06081b68a864da",
+      "files": [
+        "clinical/lab/human_factors/bank/stimuli/.gitattributes",
+        "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/Abrasion_on_hand_20050906-original.jpg",
+        "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/QA_INDIVIDUAL.json",
+        "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/S1-01-fullres-review.jpg",
+        "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/receipt.json",
+        "clinical/lab/human_factors/intake_batches/bank30-20261126/S1-01/review-360x640.png",
+        "docs/coordination/bank30-20261126/MATRIZ_30_POSICIONES.json",
+        "docs/coordination/bank30-20261126/PRUEBAS.json",
+        "docs/coordination/bank30-20261126/README.md",
+        "docs/coordination/bank30-20261126/RECUPERACION_BLOBS_PDF.json"
+      ],
+      "patch_sha256": "549f1e2a6a8c59ed1e0afc34ee90354fdb317e69950476bea5e5505835325c27"
+    },
+    {
+      "pr": 114,
+      "head": "cf681c092194ae656183d35e9afdd3e00fbdf8be",
+      "files": [
+        ".github/workflows/app-ui-qa.yml",
+        "STATE.md",
+        "app/scripts/check-functional-v144.mjs",
+        "app/src/clinical-note/api.ts",
+        "app/src/t06/viewModel.test.ts",
+        "app/src/test/clinical-note-connection.test.ts",
+        "docs/coordination/r5-g05-20261126/G05_REQUISITOS.json",
+        "docs/coordination/r5-g05-20261126/README.md",
+        "docs/coordination/r5-g05-20261126/SONAR_UNICODE.md",
+        "tools/t06-localhost-lab/.gitattributes",
+        "tools/t06-localhost-lab/CURRENT_ADAPTATIONS.json",
+        "tools/t06-localhost-lab/README.md",
+        "tools/t06-localhost-lab/provenance/viewModel.test.ts.original.txt",
+        "tools/t06-localhost-lab/test_integration.py"
+      ],
+      "patch_sha256": "ed4538b1915841aa9faf8f7a96da6a71887aacbaba145ec00b39c8cd9bd00bf5"
+    }
+  ],
+  "registry_counts": {
+    "green": 129,
+    "yellow": 2,
+    "red": 0
+  },
+  "yellow_modules": [
+    "clinical-image-interpretation",
+    "clinical-note-diagnostic-support"
+  ],
+  "independent_external_audit": "BLOCKED; no merge authorization inferred",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE"
+}

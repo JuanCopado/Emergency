@@ -1,0 +1,91 @@
+{
+  "preparation_completed": [
+    "Verificados 10 originales históricos y 20 copias existentes",
+    "Validadas 30 referencias a fichas sin regenerarlas",
+    "Contrato de roles con IDs estables materializado sin inventar personas",
+    "Preservados IDs G05 y preparado registro de campos, usos, almacenamiento y retención",
+    "Identificado el ejecutable SCA histórico; corregida la atribución de su hash sin ejecutarlo"
+  ],
+  "pending": [
+    {
+      "id": "R5-1",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Custodio, revisores humanos y propietario",
+      "blocker": "Hay 10/30 archivos y cero adjudicaciones; sin casos reservados independientes elegibles acreditados.",
+      "next_action": "Aplicar admisión a las 30 fichas existentes y conservar el banco de desarrollo fuera de evaluación.",
+      "release_condition": "Archivos conformes, dos revisiones >=4/5, referencias 16/N/A14, dictamen institucional y consentimiento."
+    },
+    {
+      "id": "R5-2",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Custodio, redactores y jueces independientes",
+      "blocker": "Corpus ciego no construido; personas y tamaño/concordancia sin fijar.",
+      "next_action": "Completar identificadores, personas, competencias, pregunta y tamaños justificados antes de redactar.",
+      "release_condition": "Corpus separado de R8, manifiesto sellado, roles reales, dos jueces y dirimente."
+    },
+    {
+      "id": "R4-SCA-SILENT",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Equipo investigador y autoridad institucional",
+      "blocker": "No hay cohorte prospectiva autorizada ni definición de t0, ventanas y plan estadístico.",
+      "next_action": "Conservar los resultados sintéticos previos; preparar el expediente prospectivo específico.",
+      "release_condition": "Autorización institucional y plan de datos; sin reactivar funciones del producto."
+    },
+    {
+      "id": "G05-01",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Ingeniería",
+      "blocker": "Consumidor público no definido.",
+      "next_action": "Conservar 18 escenarios loopback y congelar finalidad, campos y destinatarios si se propone salir del laboratorio.",
+      "release_condition": "Contrato exacto del consumidor y QA/auditoría del mismo SHA."
+    },
+    {
+      "id": "G05-02",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Titular de fuentes y código",
+      "blocker": "No consta licencia propia asignada ni derechos para cada futuro campo/corpus real.",
+      "next_action": "Aplicar la lista de campos documentada y derechos por elemento/uso, sin asumir permiso para resúmenes o texto completo.",
+      "release_condition": "Licencia, custodia y atribución compatibles con el uso concreto."
+    },
+    {
+      "id": "G05-03",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Responsables de seguridad y privacidad",
+      "blocker": "Retención, acceso y responsables del ámbito público sin fijar.",
+      "next_action": "Usar la matriz de campos y los registros observados; fijar responsables y evento de eliminación antes de usar datos reales.",
+      "release_condition": "Plan aplicable y controles verificados sin transmitir PHI a proveedores."
+    },
+    {
+      "id": "G05-04",
+      "status": "DESARROLLO_FUTURO",
+      "responsible": "Ingeniería y autoridad clínica",
+      "blocker": "RAG público sin implementar; fuera del alcance actual.",
+      "next_action": "Mantener la propuesta futura inactiva; no crear un consumidor para certificarlo.",
+      "release_condition": "Si se propone habilitarlo: contrato de recuperación/consumo, auditoría y aceptación."
+    },
+    {
+      "id": "G05-05",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Work, QA y auditor independiente",
+      "blocker": "CI y dictamen del candidato final por consolidar por Work.",
+      "next_action": "Vincular el cierre al SHA final y dictamen actual sin heredar aprobaciones.",
+      "release_condition": "CI obligatoria y dictamen sobre el mismo SHA; estado clínico global pendiente."
+    },
+    {
+      "id": "G05-06",
+      "status": "BLOQUEADO_CON_CAUSA",
+      "responsible": "Ingeniería y propietario clínico",
+      "blocker": "PTBR-PIX carece de contrato literal y aceptación específica.",
+      "next_action": "Completar los campos mínimos del contrato de píxeles antes de presentar la decisión.",
+      "release_condition": "Contrato específico, privacidad, pruebas negativas, auditoría y respuesta expresa."
+    }
+  ],
+  "new_medical_decisions_mature": 0,
+  "medical_owner_appointment_needed": false,
+  "pharmacy_mandatory": false,
+  "clinical": "CLINICALLY_PENDING",
+  "bank": "NOT_FROZEN_NOT_VALIDATED",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "studies_started": false,
+  "human_adjudications": 0
+}

@@ -527,7 +527,8 @@ def export_note_bytes(note, fmt):
     if not suffix:
         raise ValueError("format must be docx, pdf or json")
     if fmt == "json":
-        return (json.dumps(note, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+        from therapeutic_plan_workflow import export_payload
+        return (json.dumps(export_payload(note), ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     with tempfile.TemporaryDirectory() as directory:
         out = Path(directory) / {"docx": "clinical-note.docx", "pdf": "clinical-note.pdf"}[fmt]
         if fmt == "docx":
@@ -609,6 +610,15 @@ def dispatch(path, payload):
         )
     if path == "/api/clinical-note/analyze":
         return HTTPStatus.OK, run_diagnostic_support(payload.get("note") or {})
+    if path == "/api/clinical-note/therapy/catalog":
+        from therapeutic_plan_sources import catalog
+        return HTTPStatus.OK, catalog()
+    if path == "/api/clinical-note/therapy/suggest":
+        from therapeutic_plan_workflow import suggest
+        return HTTPStatus.OK, suggest(payload)
+    if path == "/api/clinical-note/therapy/validate":
+        from therapeutic_plan_workflow import validate
+        return HTTPStatus.OK, validate(payload)
     if path == "/api/clinical-note/medication/preflight":
         return HTTPStatus.OK, medication_preflight(payload)
     if path == "/api/clinical-note/export":

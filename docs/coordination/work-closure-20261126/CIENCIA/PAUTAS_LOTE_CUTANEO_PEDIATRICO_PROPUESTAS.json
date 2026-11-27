@@ -1,0 +1,535 @@
+{
+  "candidate_head_at_mapping": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "scope": "Seven existing source-linked regimens reorganized into complete review fields; no newly invented dose, product, indication or duration. This does not close all59broad modules.",
+  "primary_focal_context": [
+    {
+      "url": "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/",
+      "locator": "SectionsII andVIII, source control and escalation only",
+      "review_scope": "Focal consultation, not a repeat complete guideline review"
+    },
+    {
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+      "review_scope": "Public route accessible; source already encoded in canonical records; no new global currency claim."
+    }
+  ],
+  "proposals": [
+    {
+      "canonical_regimen_id": "cellulitis-flucloxacillin-iv",
+      "canonical_module_ids": [
+        "empiric-antibiotics",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-antibiotics-by-syndrome.json",
+      "source_binary_sha256": "7c1ee280a889d15d6deee1956718a04d10ae5339dcf0fead263de24f47972f6c",
+      "source_locator": "/entries/8",
+      "canonical_regimen_unmodified": {
+        "id": "cellulitis-flucloxacillin-iv",
+        "syndrome": "cellulitis/erysipelas, age 1 month to 17 years, IV when unable oral or severely unwell",
+        "drug": "flucloxacillin",
+        "dose_per_kg_min": 12.5,
+        "dose_per_kg_max": 25,
+        "dose_unit": "mg/kg",
+        "max_dose": 1000,
+        "max_dose_unit": "mg",
+        "route": "IV",
+        "frequency": "four times daily",
+        "duration": "5 to 7 days total with review/step-down as appropriate",
+        "source": "NICE NG141",
+        "status": "source_verified_range"
+      },
+      "canonical_record_sha256": "64e6c5dcee3c9d4d133dfb6c5119817d05a635d50b549a31424b06249f5a9b44",
+      "indication_and_criteria": "cellulitis/erysipelas, age 1 month to 17 years, IV when unable oral or severely unwell",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    },
+    {
+      "canonical_regimen_id": "cellulitis-coamoxiclav-iv-3m-17y",
+      "canonical_module_ids": [
+        "empiric-antibiotics",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-antibiotics-by-syndrome.json",
+      "source_binary_sha256": "7c1ee280a889d15d6deee1956718a04d10ae5339dcf0fead263de24f47972f6c",
+      "source_locator": "/entries/9",
+      "canonical_regimen_unmodified": {
+        "id": "cellulitis-coamoxiclav-iv-3m-17y",
+        "syndrome": "cellulitis/erysipelas alternative regimen when co-amoxiclav is appropriate, age 3 months to 17 years",
+        "drug": "co-amoxiclav",
+        "dose_per_kg": 30,
+        "dose_unit": "mg/kg",
+        "max_dose": 1200,
+        "max_dose_unit": "mg",
+        "route": "IV",
+        "frequency": "three times daily",
+        "duration": "5 to 7 days",
+        "source": "NICE NG141",
+        "status": "source_verified"
+      },
+      "canonical_record_sha256": "ef9c4b02e671e573c117f7ce66ea4c0b29baf50275f3b8ddbaeeaee9635b46b4",
+      "indication_and_criteria": "cellulitis/erysipelas alternative regimen when co-amoxiclav is appropriate, age 3 months to 17 years",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    },
+    {
+      "canonical_regimen_id": "cefalexin-cellulitis",
+      "canonical_module_ids": [
+        "pediatric-outpatient-medications",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-outpatient-medications.json",
+      "source_binary_sha256": "b8035f9a3579bcebae133604f080c1a7267ab0ad3706ed0c2aafd59a7b472238",
+      "source_locator": "/entries/19",
+      "canonical_regimen_unmodified": {
+        "id": "cefalexin-cellulitis",
+        "category": "oral_antibiotic",
+        "drug": "cefalexin",
+        "diagnosis": "mild/moderate cellulitis suitable for oral outpatient therapy",
+        "route": "PO",
+        "weight_basis": "actual",
+        "dose_model": "mg_per_kg_per_dose",
+        "dose_mg_per_kg": 20,
+        "max_mg_per_dose": 750,
+        "doses_per_day": 3,
+        "frequency": "three times daily",
+        "duration_days": [
+          5,
+          10
+        ],
+        "liquid_capable": true,
+        "verified_concentrations": [
+          {
+            "mg_per_ml": 50,
+            "label": "250 mg/5 mL"
+          }
+        ],
+        "administration": "May be given without regard to meals. Reassess if rapidly progressive or systemic illness.",
+        "contraindications": [
+          "cephalosporin hypersensitivity",
+          "cephalosporin hypersensitivity"
+        ],
+        "cautions": [
+          "immediate severe beta-lactam allergy",
+          "marked renal impairment requires dose review",
+          "marked renal impairment requires dose reduction",
+          "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+        ],
+        "source": "RCH Antimicrobial guidelines; cefalexin SmPC",
+        "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+        "renal_adjustment": {
+          "mode": "block_standard_regimen",
+          "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+        },
+        "hepatic_adjustment": {
+          "mode": "no_specific_adjustment_encoded",
+          "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+        },
+        "required_patient_flags": [
+          {
+            "field": "cellulitis_outpatient_criteria_met",
+            "equals": true,
+            "message": "oral cellulitis treatment requires mild/moderate disease suitable for outpatient therapy with review if worsening or no improvement by ~48 hours"
+          }
+        ],
+        "min_age_months": 1
+      },
+      "canonical_record_sha256": "3f175debe299137336e15ac36f2908becd17318f83263d6ba767cbfc7110b7e4",
+      "indication_and_criteria": "mild/moderate cellulitis suitable for oral outpatient therapy",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    },
+    {
+      "canonical_regimen_id": "tmp-smx-mrsa-skin",
+      "canonical_module_ids": [
+        "pediatric-outpatient-medications",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-outpatient-medications.json",
+      "source_binary_sha256": "b8035f9a3579bcebae133604f080c1a7267ab0ad3706ed0c2aafd59a7b472238",
+      "source_locator": "/entries/24",
+      "canonical_regimen_unmodified": {
+        "id": "tmp-smx-mrsa-skin",
+        "category": "oral_antibiotic",
+        "drug": "trimethoprim/sulfamethoxazole",
+        "diagnosis": "mild MRSA-suspected/confirmed skin infection when TMP-SMX selected",
+        "route": "PO",
+        "weight_basis": "actual",
+        "min_age_months": 1.5,
+        "dose_model": "mg_per_kg_per_dose",
+        "dose_mg_per_kg": 4,
+        "max_mg_per_dose": 160,
+        "doses_per_day": 2,
+        "frequency": "twice daily",
+        "duration_days": 5,
+        "liquid_capable": true,
+        "verified_concentrations": [
+          {
+            "mg_per_ml": 8,
+            "label": "40 mg TMP/200 mg SMX per 5 mL; TMP 8 mg/mL"
+          }
+        ],
+        "administration": "Dose expressed as trimethoprim component. Taking with food or drink may reduce GI upset.",
+        "contraindications": [
+          "sulfonamide/trimethoprim hypersensitivity"
+        ],
+        "cautions": [
+          "significant renal impairment",
+          "folate deficiency",
+          "drug interactions including methotrexate/warfarin",
+          "hyperkalemia risk",
+          "renal impairment requires age-specific specialist review",
+          "monitor potassium/renal function when clinically indicated"
+        ],
+        "source": "RCH Antimicrobial guidelines; Co-Trimoxazole pediatric suspension SmPC 2026",
+        "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+        "renal_adjustment": {
+          "mode": "block_standard_regimen",
+          "message": "pediatric co-trimoxazole renal-failure dosing is not defined for children <=12 years in the cited SmPC; standard regimen is blocked in known renal impairment"
+        },
+        "hepatic_adjustment": {
+          "mode": "block_if_severe",
+          "block_if_severe": true,
+          "message": "significant hepatic dysfunction requires specialist/product-specific review"
+        }
+      },
+      "canonical_record_sha256": "d0d39166b89e11301687d24e9d85a97f9149c08fdd0f88cdef41fc96db0fc103",
+      "indication_and_criteria": "mild MRSA-suspected/confirmed skin infection when TMP-SMX selected",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    },
+    {
+      "canonical_regimen_id": "clindamycin-mrsa-skin",
+      "canonical_module_ids": [
+        "pediatric-outpatient-medications",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-outpatient-medications.json",
+      "source_binary_sha256": "b8035f9a3579bcebae133604f080c1a7267ab0ad3706ed0c2aafd59a7b472238",
+      "source_locator": "/entries/25",
+      "canonical_regimen_unmodified": {
+        "id": "clindamycin-mrsa-skin",
+        "category": "oral_antibiotic",
+        "drug": "clindamycin",
+        "diagnosis": "mild MRSA skin infection when clindamycin selected",
+        "route": "PO",
+        "weight_basis": "actual",
+        "dose_model": "mg_per_kg_per_dose",
+        "dose_mg_per_kg": 10,
+        "max_mg_per_dose": 450,
+        "doses_per_day": 4,
+        "frequency": "four times daily",
+        "duration_days": 5,
+        "liquid_capable": true,
+        "administration": "Oral solution; take at least 30 minutes before lying down to reduce oesophageal irritation.",
+        "cautions": [
+          "local clindamycin resistance/inducible resistance",
+          "history of C. difficile",
+          "C. difficile/antibiotic-associated colitis risk",
+          "renal/hepatic monitoring for prolonged therapy",
+          "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+        ],
+        "source": "RCH antimicrobial MRSA pathway",
+        "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+        "verified_concentrations": [
+          {
+            "mg_per_ml": 15,
+            "label": "75 mg/5 mL oral solution"
+          }
+        ],
+        "renal_adjustment": {
+          "mode": "none_required",
+          "detail": "No routine dose modification for renal insufficiency in cited oral SmPC; monitor in severe disease/prolonged therapy."
+        },
+        "hepatic_adjustment": {
+          "mode": "none_required",
+          "detail": "No routine dose modification for hepatic insufficiency; monitor severe hepatic disease/prolonged therapy."
+        },
+        "contraindications": [
+          "clindamycin/lincomycin hypersensitivity"
+        ],
+        "min_age_months": 1
+      },
+      "canonical_record_sha256": "a5cd470eaac5679a3edfcf24d6e5fb29984a9bc49f0506b9419b52aac34e4e1a",
+      "indication_and_criteria": "mild MRSA skin infection when clindamycin selected",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    },
+    {
+      "canonical_regimen_id": "mupirocin-localized-impetigo",
+      "canonical_module_ids": [
+        "pediatric-outpatient-medications",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-outpatient-medications.json",
+      "source_binary_sha256": "b8035f9a3579bcebae133604f080c1a7267ab0ad3706ed0c2aafd59a7b472238",
+      "source_locator": "/entries/35",
+      "canonical_regimen_unmodified": {
+        "id": "mupirocin-localized-impetigo",
+        "category": "topical_antibiotic",
+        "drug": "mupirocin 2%",
+        "diagnosis": "localized impetigo suitable for topical therapy",
+        "route": "topical",
+        "weight_basis": "topical",
+        "dose_model": "topical",
+        "topical_instructions": "Apply mupirocin 2% to affected area three times daily for 5 days.",
+        "doses_per_day": 3,
+        "duration_days": 5,
+        "liquid_capable": false,
+        "source": "RCH antimicrobial/skin infection guidance",
+        "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/"
+      },
+      "canonical_record_sha256": "8c90a954664b37a8f362198247728162ea9ec99816184fdb3501e34e2dad1deb",
+      "indication_and_criteria": "localized impetigo suitable for topical therapy",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    },
+    {
+      "canonical_regimen_id": "cefalexin-impetigo-extensive",
+      "canonical_module_ids": [
+        "pediatric-outpatient-medications",
+        "soft-tissue-infections"
+      ],
+      "status": "STRUCTURED_EDITABLE_REVIEW_PROPOSAL_NOT_PATIENT_PRESCRIPTION",
+      "population": "Pediatric; obey the exact canonical age/weight fields; no adult-to-child extrapolation",
+      "source_path": "clinical/qa/pediatric-outpatient-medications.json",
+      "source_binary_sha256": "b8035f9a3579bcebae133604f080c1a7267ab0ad3706ed0c2aafd59a7b472238",
+      "source_locator": "/entries/40",
+      "canonical_regimen_unmodified": {
+        "id": "cefalexin-impetigo-extensive",
+        "category": "oral_antibiotic",
+        "drug": "cefalexin",
+        "diagnosis": "impetigo that is extensive or unsuitable for localized topical therapy",
+        "route": "PO",
+        "weight_basis": "actual",
+        "dose_model": "mg_per_kg_per_dose",
+        "dose_mg_per_kg": 20,
+        "max_mg_per_dose": 750,
+        "doses_per_day": 3,
+        "frequency": "three times daily",
+        "duration_days": 5,
+        "liquid_capable": true,
+        "verified_concentrations": [
+          {
+            "mg_per_ml": 50,
+            "label": "250 mg/5 mL"
+          }
+        ],
+        "administration": "Can be taken without regard to meals; verify exact SmPC.",
+        "contraindications": [
+          "cephalosporin hypersensitivity",
+          "cephalosporin hypersensitivity"
+        ],
+        "cautions": [
+          "immediate severe beta-lactam allergy",
+          "renal impairment",
+          "marked renal impairment requires dose reduction",
+          "RCH general antimicrobial guidance does not apply to neonates unless specifically stated; neonatal infection requires a dedicated neonatal pathway."
+        ],
+        "source": "RCH Antimicrobial guidelines, updated Feb 2025",
+        "source_url": "https://www.rch.org.au/clinicalguide/guideline_index/Antimicrobial_guidelines/",
+        "renal_adjustment": {
+          "mode": "block_standard_regimen",
+          "message": "marked renal impairment requires cefalexin dose reduction/individualization; standard outpatient regimen is blocked"
+        },
+        "hepatic_adjustment": {
+          "mode": "no_specific_adjustment_encoded",
+          "detail": "No specific pediatric hepatic dose reduction is encoded; use product-specific review if significant liver disease."
+        },
+        "min_age_months": 1
+      },
+      "canonical_record_sha256": "4cf573d2861b1fedee2ba2e36ee6b57eaa17ce96e17110409dd40789e4dcceb4",
+      "indication_and_criteria": "impetigo that is extensive or unsuitable for localized topical therapy",
+      "required_data": [
+        "Confirmed indication and severity",
+        "Age and weight within exact source bounds",
+        "Allergy and concomitant treatment",
+        "Relevant renal/hepatic function and canonical safety flags",
+        "Exact formulation/concentration if a volume or preparation is required",
+        "Drainable collection, necrotizing features and host risk assessed by clinician"
+      ],
+      "initial_actions": [
+        "Assess systemic illness, perfusion and deep/necrotizing warning signs; escalate immediately when suspected.",
+        "If a collection is drainable, source-control assessment is a separate clinical action, not replaced by an antimicrobial calculator."
+      ],
+      "medication_selection": "Only use the linked canonical regimen if its own indication and safety contract passes. Do not choose automatically between these seven records.",
+      "route_frequency_duration": "Preserved literally in canonical_regimen_unmodified; an absent field remains unknown, not an inferred default.",
+      "limits_and_adjustments": "Preserve exact min/max age, weight, dose maxima, concentration, contraindications, renal/hepatic policies and required flags in the canonical record.",
+      "monitoring": [
+        "Clinical response, systemic signs, local progression and drug adverse effects; follow the exact source requirements."
+      ],
+      "reassessment": "Reevaluate deterioration or inadequate response, diagnosis and source control; do not extend a duration automatically.",
+      "disposition_and_followup": "Clinician decides outpatient suitability, admission/specialist review and follow-up from severity, function and host risk.",
+      "omissions_preventing_automatic_completion": [
+        "No patient data supplied",
+        "No automatic inference of formulation or renal function",
+        "No new independent complete primary-guideline review of all seven regimens in this execution"
+      ],
+      "owner_review": "PENDING_ON_EXACT_VERSION; editing invalidates any prior therapeutic receipt",
+      "runtime_enabled_by_this_proposal": false
+    }
+  ],
+  "no_clinical_code_change": true,
+  "new_mature_medical_decisions": 0,
+  "clinical": "CLINICALLY_PENDING"
+}

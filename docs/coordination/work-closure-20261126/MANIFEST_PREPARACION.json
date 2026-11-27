@@ -1,0 +1,93 @@
+{
+  "source_PR118": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "source_PR119": "16bf38bdae09a993c76add4651c1a98495781c80",
+  "source_scientific_local": "0bc22c77e4b333d46f0a89a5d1ddaeb2347c23a8",
+  "runtime_applied": false,
+  "clinical": "CLINICALLY_PENDING",
+  "files": [
+    {
+      "file": "R88/R88_CIRCUITO_OPERATIVO.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\R88\\R88_CIRCUITO_OPERATIVO.json",
+      "bytes": 12991,
+      "sha256": "810ba80c1a25bda6753783bb4441cbbfbfdb5dc5e118188f4924dbf1486cbe7d"
+    },
+    {
+      "file": "R88/G05_CAMPOS_USOS_RETENCION.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\R88\\G05_CAMPOS_USOS_RETENCION.json",
+      "bytes": 6134,
+      "sha256": "6375b02d4f0c6217185c2b9cd6ef9e0f7939bd87c39c912526454c0cbab567ff"
+    },
+    {
+      "file": "R88/R88_FUENTES_Y_RECIBOS.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\R88\\R88_FUENTES_Y_RECIBOS.json",
+      "bytes": 6497,
+      "sha256": "3f1c59c8fc73bfd8fd4edeacb1cfd319b084a00fba74aa374ac7b9b152712096"
+    },
+    {
+      "file": "R88/R88_PENDIENTES_OPERATIVOS.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\R88\\R88_PENDIENTES_OPERATIVOS.json",
+      "bytes": 4930,
+      "sha256": "7aaf490645c3c24e94de7bd80c571573c7920a783cb69a3d1318c5dbc071173c"
+    },
+    {
+      "file": "R88/R88_CIERRE_TECNICO.md",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\R88\\R88_CIERRE_TECNICO.md",
+      "bytes": 4185,
+      "sha256": "1cee245829026478b64a7b276ade22ee7b511bf0fc32e08d24ada8aee54bb345"
+    },
+    {
+      "file": "R88/SOURCE_DELTA_SONAR.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\R88\\SOURCE_DELTA_SONAR.json",
+      "bytes": 4086,
+      "sha256": "b3bfb4384406a8b14d631a4d4f23c505ad9e6eeb74bd06e4a0f2f97c06b3f2a7"
+    },
+    {
+      "file": "CIENCIA/AAD_IDENTIDAD_CONCILIADA_PROPUESTA.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\GEMINI_ENTREGA\\AAD_IDENTIDAD_CONCILIADA_PROPUESTA.json",
+      "bytes": 4759,
+      "sha256": "685351fddf9fcde131be67938a894cac7372297e45b679145e6b86f452182351"
+    },
+    {
+      "file": "CIENCIA/MIGRACION_src-b5e20534_PROPUESTA.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\MIGRACION_src-b5e20534_PROPUESTA.json",
+      "bytes": 16158,
+      "sha256": "e54bdd96eafe0aba79a12b90a260f01d31e4ac002b0a60b81b23aa65559e0bd0"
+    },
+    {
+      "file": "CIENCIA/AHA_ASA_MAPA_REGLAS_FOCAL.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\AHA_ASA_MAPA_REGLAS_FOCAL.json",
+      "bytes": 3977,
+      "sha256": "5a785e3442bfccb4340cbc79accda1d2245e6e6f9af49ee623fbcd1209ebeb8f"
+    },
+    {
+      "file": "CIENCIA/PAUTAS_LOTE_CUTANEO_PEDIATRICO_PROPUESTAS.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\PAUTAS_LOTE_CUTANEO_PEDIATRICO_PROPUESTAS.json",
+      "bytes": 31670,
+      "sha256": "49da1f359cf4b2f047be0c5ae7ab3fc99e4ca899d599a54439209811dcfc2e73"
+    },
+    {
+      "file": "CIENCIA/COBERTURA_59_MODULOS_REFERENCIA.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\COBERTURA_59_MODULOS_REFERENCIA.json",
+      "bytes": 495159,
+      "sha256": "a3034e36a92f0f46ce81a08029fa482410d94f82b2ce100f2e91b135de2db4cb"
+    },
+    {
+      "file": "CIENCIA/LOTE_19_CONTRATOS_ACEPTADOS_REUTILIZADOS.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\LOTE_19_CONTRATOS_ACEPTADOS_REUTILIZADOS.json",
+      "bytes": 132712,
+      "sha256": "f682e86dfdb5a7920d3fefcdef715d6ace50d8f3185df1c935b02795c4669b20"
+    },
+    {
+      "file": "CIENCIA/BIBLIOTECA_PAUTAS_CANONICAS_PARA_REVISION.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\BIBLIOTECA_PAUTAS_CANONICAS_PARA_REVISION.json",
+      "bytes": 840628,
+      "sha256": "c8800ed72d0954a3fb04aebc529437201a0a438dcffc6ccdfcdcf54b5372a8f2"
+    },
+    {
+      "file": "CIENCIA/CDC_COTEJO_PRIMARIO_FOCAL.json",
+      "source": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\CIENCIA\\CDC_COTEJO_PRIMARIO_FOCAL.json",
+      "bytes": 1083,
+      "sha256": "99d71dda3b42f02916a13ce12fe6fb21b6c5a45884a3725a2f920e4d508b5a5b"
+    }
+  ]
+}

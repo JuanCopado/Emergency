@@ -74,7 +74,8 @@
     "referenceCount_many": "{{count}} guías",
     "referenceCount_other": "{{count}} guías",
     "openReferences": "Ver guías",
-    "allReferenceGuides": "Ver todas las guías"
+    "allReferenceGuides": "Ver todas las guías",
+    "corticosteroids": "Corticoides · adultos y pediatría"
   },
   "groups": {
     "vasoactive": {

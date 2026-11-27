@@ -1,0 +1,59 @@
+{
+  "candidate_head_at_mapping": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "scope": "Only acute-ischemic-stroke and ct-mri-screenshot exact canonical source sections; not a repository-wide583-file rerun.",
+  "previous_reading_preserved": "121+7=128pages",
+  "known_guide_doi": "10.1161/STR.0000000000000513",
+  "known_correction_doi": "10.1161/STR.0000000000000530",
+  "rules": [
+    {
+      "module_id": "acute-ischemic-stroke",
+      "file": "clinical/modules/neurologic.md",
+      "sha256": "c01227ff111e193af2f6f615c8415e7b6354fe32e6812c927d62c4b7917f59ca",
+      "observed_rule": "Activate the stroke pathway immediately; obtain noncontrast brain imaging and vascular imaging according to local capability without avoidable delay.",
+      "numeric_dose_or_volume_in_this_rule": false,
+      "comparison_scope": "Candidate literal mapped to prior AHA/ASA2026 review; no new complete guideline read or claim of final supplement verification."
+    },
+    {
+      "module_id": "acute-ischemic-stroke",
+      "file": "clinical/modules/neurologic.md",
+      "sha256": "c01227ff111e193af2f6f615c8415e7b6354fe32e6812c927d62c4b7917f59ca",
+      "observed_rule": "Evaluate disabling deficit, hemorrhage, large-vessel occlusion and mimics. Do not use a low NIHSS alone to dismiss a disabling presentation.",
+      "numeric_dose_or_volume_in_this_rule": false,
+      "comparison_scope": "Candidate literal mapped to prior AHA/ASA2026 review; no new complete guideline read or claim of final supplement verification."
+    },
+    {
+      "module_id": "acute-ischemic-stroke",
+      "file": "clinical/modules/neurologic.md",
+      "sha256": "c01227ff111e193af2f6f615c8415e7b6354fe32e6812c927d62c4b7917f59ca",
+      "observed_rule": "Verify the current thrombolytic agent, weight-based dose, time/imaging window, blood-pressure requirement and contraindications. Pursue thrombectomy assessment independently of thrombolysis eligibility.",
+      "numeric_dose_or_volume_in_this_rule": false,
+      "comparison_scope": "Candidate literal mapped to prior AHA/ASA2026 review; no new complete guideline read or claim of final supplement verification."
+    },
+    {
+      "module_id": "acute-ischemic-stroke",
+      "file": "clinical/modules/neurologic.md",
+      "sha256": "c01227ff111e193af2f6f615c8415e7b6354fe32e6812c927d62c4b7917f59ca",
+      "observed_rule": "Monitor airway, glucose, temperature, BP and neurologic change; admit/transfer to a stroke-capable unit.",
+      "numeric_dose_or_volume_in_this_rule": false,
+      "comparison_scope": "Candidate literal mapped to prior AHA/ASA2026 review; no new complete guideline read or claim of final supplement verification."
+    },
+    {
+      "module_id": "ct-mri-screenshot",
+      "file": "clinical/modules/image-modalities.md",
+      "sha256": "aa2020ee6d50886321ab294c3bd82a60a5f38a599a2b012bd8c2ad9fe5204849",
+      "observed_rule": "Complete volumetric DICOM and specialist reading required by project safeguard; incomplete screenshots cannot exclude critical pathology.",
+      "scope_limit": "This is a project input-quality/abstention policy, not a newly verified literal universal DICOM-file mandate attributed to AHA/ASA.",
+      "unsupported_universal_hemorrhage_volume_threshold_in_this_module": false
+    },
+    {
+      "module_id": "ct-mri-screenshot",
+      "observed_rule": "No unsupported universal hemorrhage-volume threshold; traumatic hemorrhage/mass effect is routed to traumatic-intracranial-mass-effect.",
+      "scope_limit": "Do not conflate AIS eligibility with BTF traumatic EDH/SDH surgical thresholds or spontaneous ICH recommendations."
+    }
+  ],
+  "quarantined_0_5_and_0_9_mg_dl_not_introduced": true,
+  "supplement_editorial_access": "INACCESSIBLE_AT_KNOWN_OFFICIAL_ROUTE",
+  "current_map_status": "FOCAL_CANONICAL_RULE_MAP_PREPARED_EDITORIAL_NUMERIC_RESERVES_RETAINED",
+  "new_source_dose_recommendations": 0,
+  "runtime_changed": false
+}

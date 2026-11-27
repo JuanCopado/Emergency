@@ -411,34 +411,100 @@
         "en",
         "zh"
       ]
+    },
+    "therapeutic_plan": {
+      "$ref": "#/$defs/therapeutic_plan"
+    },
+    "therapeutic_review": {
+      "$ref": "#/$defs/therapeutic_review"
     }
   },
   "$defs": {
     "interpretation_fields": {
       "type": "object",
-      "required": ["official_report", "ai_interpretation", "findings", "impression", "limitations"],
+      "required": [
+        "official_report",
+        "ai_interpretation",
+        "findings",
+        "impression",
+        "limitations"
+      ],
       "properties": {
-        "official_report": {"type": ["string", "null"]},
-        "ai_interpretation": {"type": ["string", "null"]},
-        "findings": {"type": ["string", "null"]},
-        "impression": {"type": ["string", "null"]},
-        "limitations": {"type": "array", "items": {"type": "string"}}
+        "official_report": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ai_interpretation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "findings": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "impression": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
     "acceptance_provenance": {
       "type": "object",
-      "required": ["contract_version", "upload_id", "source_sha256", "prepared_integrity_token", "original", "accepted", "edited_fields"],
+      "required": [
+        "contract_version",
+        "upload_id",
+        "source_sha256",
+        "prepared_integrity_token",
+        "original",
+        "accepted",
+        "edited_fields"
+      ],
       "properties": {
-        "contract_version": {"const": "1.0"},
-        "upload_id": {"type": "string"},
-        "source_sha256": {"type": "string"},
-        "prepared_integrity_token": {"type": "string"},
-        "original": {"$ref": "#/$defs/interpretation_fields"},
-        "accepted": {"$ref": "#/$defs/interpretation_fields"},
+        "contract_version": {
+          "const": "1.0"
+        },
+        "upload_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "prepared_integrity_token": {
+          "type": "string"
+        },
+        "original": {
+          "$ref": "#/$defs/interpretation_fields"
+        },
+        "accepted": {
+          "$ref": "#/$defs/interpretation_fields"
+        },
         "edited_fields": {
           "type": "array",
-          "items": {"type": "string", "enum": ["official_report", "ai_interpretation", "findings", "impression", "limitations"]}
+          "items": {
+            "type": "string",
+            "enum": [
+              "official_report",
+              "ai_interpretation",
+              "findings",
+              "impression",
+              "limitations"
+            ]
+          }
         }
       },
       "additionalProperties": false
@@ -598,7 +664,9 @@
         "provenance"
       ],
       "properties": {
-        "acceptance_provenance": {"$ref": "#/$defs/acceptance_provenance"},
+        "acceptance_provenance": {
+          "$ref": "#/$defs/acceptance_provenance"
+        },
         "kind": {
           "type": "string"
         },
@@ -710,11 +778,23 @@
         },
         "score_basis": {
           "type": "object",
-          "required": ["remaining_points", "unconfirmed_points", "category_depends_on_unconfirmed"],
+          "required": [
+            "remaining_points",
+            "unconfirmed_points",
+            "category_depends_on_unconfirmed"
+          ],
           "properties": {
-            "remaining_points": {"type": "integer", "minimum": 0},
-            "unconfirmed_points": {"type": "integer", "minimum": 1},
-            "category_depends_on_unconfirmed": {"type": "boolean"}
+            "remaining_points": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "unconfirmed_points": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "category_depends_on_unconfirmed": {
+              "type": "boolean"
+            }
           },
           "additionalProperties": false
         },
@@ -762,6 +842,262 @@
           "items": {
             "type": "string"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "therapeutic_plan": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "plan_id",
+        "diagnosis",
+        "population",
+        "context",
+        "sections",
+        "source_refs",
+        "reference_text",
+        "source_revision",
+        "generated_from_digest",
+        "generation_token",
+        "suggested_content_digest",
+        "missing_requirements",
+        "medication_safety"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "1.0"
+        },
+        "plan_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagnosis": {
+          "type": "object",
+          "required": [
+            "label",
+            "module_id",
+            "selection"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "module_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "selection": {
+              "type": "string",
+              "enum": [
+                "diagnostic",
+                "manual"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "population": {
+          "type": "string",
+          "enum": [
+            "adult",
+            "pediatric"
+          ]
+        },
+        "context": {
+          "type": "object",
+          "required": [
+            "weight_kg",
+            "allergies_reviewed"
+          ],
+          "properties": {
+            "weight_kg": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "allergies_reviewed": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sections": {
+          "type": "object",
+          "required": [
+            "initial_actions",
+            "medications",
+            "monitoring",
+            "reassessment",
+            "disposition"
+          ],
+          "properties": {
+            "initial_actions": {
+              "type": "string"
+            },
+            "medications": {
+              "type": "string"
+            },
+            "monitoring": {
+              "type": "string"
+            },
+            "reassessment": {
+              "type": "string"
+            },
+            "disposition": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "module_id",
+              "path",
+              "sha256",
+              "language"
+            ],
+            "properties": {
+              "module_id": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string",
+                "minLength": 64
+              },
+              "language": {
+                "type": "string",
+                "const": "original"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "reference_text": {
+          "type": "string"
+        },
+        "source_revision": {
+          "type": "string",
+          "minLength": 64
+        },
+        "generated_from_digest": {
+          "type": "string",
+          "minLength": 64
+        },
+        "generation_token": {
+          "type": "string",
+          "minLength": 64
+        },
+        "suggested_content_digest": {
+          "type": "string",
+          "minLength": 64
+        },
+        "missing_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "medication_safety": {
+          "type": "object",
+          "required": [
+            "status",
+            "actionable",
+            "required_module"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "const": "REVIEW_REQUIRED"
+            },
+            "actionable": {
+              "type": "boolean",
+              "const": false
+            },
+            "required_module": {
+              "type": "string",
+              "const": "medication-selection-safety"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "therapeutic_review": {
+      "type": "object",
+      "required": [
+        "status",
+        "scope",
+        "mode",
+        "reviewed_at",
+        "plan_digest",
+        "context_digest",
+        "validation_token",
+        "confirmations"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "const": "validated"
+        },
+        "scope": {
+          "type": "string",
+          "const": "physician_review_of_this_version"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "as_suggested",
+            "edited"
+          ]
+        },
+        "reviewed_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan_digest": {
+          "type": "string",
+          "minLength": 64
+        },
+        "context_digest": {
+          "type": "string",
+          "minLength": 64
+        },
+        "validation_token": {
+          "type": "string",
+          "minLength": 64
+        },
+        "confirmations": {
+          "type": "object",
+          "required": [
+            "individualized",
+            "medication_safety_reviewed"
+          ],
+          "properties": {
+            "individualized": {
+              "type": "boolean",
+              "const": true
+            },
+            "medication_safety_reviewed": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

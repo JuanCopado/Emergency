@@ -70,7 +70,8 @@
     "referenceCount_one": "{{count}} guide",
     "referenceCount_other": "{{count}} guides",
     "openReferences": "View guides",
-    "allReferenceGuides": "View all guides"
+    "allReferenceGuides": "View all guides",
+    "corticosteroids": "Corticosteroids · adults and children"
   },
   "groups": {
     "vasoactive": {

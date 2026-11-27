@@ -1,3 +1,62 @@
+26/11 · Cierre coordinado en rama aislada `codex/work-cierre-coordinado-20261126`: composición de PR118 `b9f8d14` con PR119 revisada y corrección de sus roles opcionales, identidades y paneles por lengua. Tres valores PT corregidos sin cambiar claves. V05/PR117 y los 19 contratos aceptados se conservan. Preparación R88/G05 y propuestas científicas trazables en `docs/coordination/work-closure-20261126/README.md`; sin importación al runtime ni nuevas aprobaciones clínicas. CI y dictamen final se registran sobre el SHA exacto en los recibos de Work, sin atribuir PASS de los padres a esta composición. Sin merge, despliegue ni modificación de ramas protegidas. CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.
+
+Seguimiento de receptor: avance externo PR117 a `570aa11`; incorporado únicamente en las ramas aisladas de fuente/candidato. Catálogos actuales preservados, sin reaplicar PR111 ni modificar el receptor protegido. Se repite CI sobre el SHA resultante. CLINICALLY_PENDING.
+
+26/11 · Sonar: diagnóstico exacto recuperado por rama aislada de solo lectura. Los diccionarios ES/PT/EN/ZH pasan a recursos JSON con acceso tipado y valores íntegros; etiqueta then renombrada, ordenación canónica explícita sin depender de idioma. Se conservan los FAIL y se repite CI del nuevo SHA. CLINICALLY_PENDING.
+
+26/11 · Seguimiento de CI: corregida identidad de fuente corticoide bajo checkout Windows mediante atributo LF específico, con regresión Git real y negativo de metadatos; fuentes/dosis intactas. Se conserva el FAIL previo y se repite CI del SHA final. Antigravity: paquete y orden publicados para recogida según instrucción del propietario; dictamen pendiente.
+
+## 26/11/2026 · Candidato aislado PR115 + PR116
+
+Receptor leído `87a1730` con PR111 ya incorporada. Conciliación de PR115 `82278d3` y PR116 corregida `43d6201` en `codex/pr115-pr116-integrated-20261126`; sin reintroducir el delta PR111. Se conservan transporte fail-closed, errores tipados terapéuticos, procedencia T06 y controles médicos. Chromium integrado 16/16 API/UI/JSON y PDF/Word PASS; frontend 1.110 PASS, T06 Linux 9/9. QA completa/CI del SHA final en recibos; auditoría Antigravity y recepción pendientes. Entregables `CODEX_PR116_REGRESSION_RESULTS.md`, `CODEX_PR115_RECONCILIATION.md` y `CODEX_RESIDUAL_CLINICAL_CONTRACTS.json`. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Sin fusión ni despliegue. Cortes siguientes históricos.
+
+## 26/11/2026 · Regresión PR116
+
+El arnés funcional usa ahora generación y revisión terapéutica reales con contenido sintético no prescriptivo; se conservan las expectativas clínicas históricas. Notas sin tratamiento siguen exportándose con los controles existentes. Nuevas regresiones de recibo ausente/falso/obsoleto y privacidad; QA completa y conciliación PR115 se registran por SHA en los recibos de cierre. CLINICALLY_PENDING; sin fusión ni despliegue.
+
+# 26/11/2026 · Corticoides y pauta terapéutica por versión
+
+Candidato de implementación en `codex/corticosteroids-therapeutic-review-20261126`, desde `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`: consulta de corticoides adultos/pediatría y circuito de pauta editable, revisión roja/verde ligada a contenido y salida comprobada. Alcance, límites y evidencia: [THERAPY-20261126](clinical/qa/THERAPEUTIC_PLAN_REVIEW_20261126.md). Esta entrada no declara merge ni despliegue. Se conservan estados clínicos y aceptaciones previas.
+
+Actualización de cierre: Bell tiene acceso focal y el asma incorpora la banda explícita de 12–17 años; sus candidatos diagnósticos remiten al módulo apropiado a la edad conocida. La revisión de dosis sigue siendo médica. Navegación real pendiente y publicación no completada.
+
+# Supercoordinación final · candidato aislado · 26/11/2026
+
+Receptor confirmado `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`, protegido por
+C12 y sin modificar. Propuesta `review/final-closure-20261126`: composición
+de PR111–114, 37 archivos fuente sin solapamientos y dos documentos centrales;
+las PR fuente siguen abiertas.
+Se corrigen el manejo de cuerpos HTTP200, el arnés de nota localizado,
+metadatos textuales R89 mal codificados y dos literales de prueba cuyo AST
+reproduce UTF-8 inválido en Protobuf de Sonar. Sin retirar controles ni cambiar
+reglas/exclusiones. El fallo real del sello T06 se concilia manteniendo el
+manifiesto histórico y sus19 hashes:18 destinos idénticos y una adaptación
+exacta con original conservado. CI del candidato final por comprobar en su recibo.
+Registro confirmado 129 GREEN/2 YELLOW/0 RED, intacto. Banco 10/30 canónicos,
+20 pendientes, cero adjudicaciones; se recuperan cinco tomas físicas ya
+preparadas y cinco selecciones del propietario para preparación con límites.
+No repetir esas aceptaciones ni confundirlas con adjudicación clínica.
+Custodia R89/R99 verificada; AHA editorial, tabla IFEM legible, derechos,
+estudios R5 y G05 conservan bloqueos reales. Nueva auditoría Antigravity
+rechazada por permisos antes de leer; sin dictamen. Gemini previo recuperado,
+nuevo encargo no enviado por bloqueo de entrada. [Informe y fuentes](docs/coordination/final-closure-20261126/README.md).
+CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.
+No fusión en receptor protegido, despliegue o promoción. Cortes siguientes históricos.
+
+# R5/G05 · candidato técnico aislado · 26/11/2026
+
+Base internacional `228cd21d75d14e1012beb7f5dfe82c2c920c4ccc`; rama
+`fix/r5-g05-functional-20261126`. Corregida la resolución errónea de una
+respuesta HTTP 200 cuando falla su lectura JSON, por red o timeout en el
+cliente de nota clínica. Tres regresiones fallan antes y pasan después.
+React: 1.045 PASS y dos omitidas; suites Python de nota/HTTP y M10: 116 PASS.
+Sin cambio de dosis, fórmulas, lexicón, ámbito de abstención o contratos médicos.
+[Expediente y seis requisitos G05](docs/coordination/r5-g05-20261126/README.md).
+CI del candidato, pruebas nativas y auditoría independiente deben acreditarse
+por el SHA de entrega. PR108–110 ya integradas; no se repiten sus cambios.
+R5-1, R5-2 y G05 siguen pendientes por evidencia y alcance concretos;
+CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE. Cortes siguientes históricos.
+
 # R96 · Integración técnica comprobada · 25/11/2026
 
 PR106 integrada en `1733faa2a63ea93a63e2edb1b8fa4a37b21a3c3a`, árbol

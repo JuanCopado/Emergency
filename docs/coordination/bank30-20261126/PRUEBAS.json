@@ -1,0 +1,37 @@
+{
+  "test_r68_intake": {
+    "tests": 21,
+    "exit_code": 0
+  },
+  "test_r54_adjudication_dossiers": {
+    "tests": 12,
+    "exit_code": 0,
+    "runtime": "PYTHONUTF8=1",
+    "first_run": "28 subtests fallaron con lectura por defecto cp1252; nueva ejecución UTF8 PASS"
+  },
+  "test_r25_bank": {
+    "tests": 20,
+    "exit_code": 0
+  },
+  "canonical_bank_verify_problems": [],
+  "rx_sources_verified": 4,
+  "rx_monitor_panels_verified": 4,
+  "pocus_assets_intake": 7,
+  "new_s1_01_receipt": {
+    "status": "BYTES_VERIFIED_REVIEW_PENDING",
+    "assets": [
+      {
+        "stimulus_id": "S1-01",
+        "role": "original",
+        "bytes": 1876910,
+        "sha256": "b4e6e7a62ba07eb996464fca80a0603562cb0a146a03d8bf00861d7cd12e548a"
+      },
+      {
+        "stimulus_id": "S1-01",
+        "role": "derivative",
+        "bytes": 1965280,
+        "sha256": "3584e973cc0545d6207c06cf494735d018636c424bde4542ef1b9024033071d0"
+      }
+    ]
+  }
+}

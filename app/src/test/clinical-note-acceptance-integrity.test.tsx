@@ -44,15 +44,15 @@ it.each(['edit target','reject target','edit another accepted card','unchanged']
 
     // An already accepted second card lets the test detect restoration of an old collection.
     fireEvent.change(screen.getByLabelText('Nome do exame'), {target:{value:'synthetic-other'}});
-    fireEvent.change(screen.getByLabelText('Informe oficial / dados extraídos'), {target:{value:'SYNTHETIC_OTHER_A'}});
+    fireEvent.change(screen.getByLabelText('Relatório oficial / dados extraídos'), {target:{value:'SYNTHETIC_OTHER_A'}});
     fireEvent.click(screen.getByRole('button', {name:'Criar cartão para revisão'}));
     fireEvent.click(screen.getByRole('button', {name:'Aceitar'}));
-    const other = screen.getByLabelText('Informe oficial / extraído synthetic-other').closest('article')!;
+    const other = screen.getByLabelText('Relatório oficial / extraído synthetic-other').closest('article')!;
     expect(within(other).getByText('Aceite')).toBeInTheDocument();
 
     const user = userEvent.setup();
     await user.upload(screen.getByLabelText('Upload clínico'), new File(['SYNTHETIC'], 'synthetic.txt', {type:'text/plain'}));
-    const official = await screen.findByLabelText('Informe oficial / extraído synthetic.txt');
+    const official = await screen.findByLabelText('Relatório oficial / extraído synthetic.txt');
     const target = official.closest('article')!;
     await waitFor(() => expect(within(target).getByRole('button', {name:'Aceitar'})).toBeEnabled());
     fireEvent.click(within(target).getByRole('button', {name:'Aceitar'}));
@@ -63,7 +63,7 @@ it.each(['edit target','reject target','edit another accepted card','unchanged']
     if (action === 'edit target') fireEvent.change(official, {target:{value:'SYNTHETIC_REPORT_B'}});
     if (action === 'reject target') fireEvent.click(within(target).getByRole('button', {name:'Rejeitar'}));
     if (action === 'edit another accepted card') {
-      fireEvent.change(screen.getByLabelText('Informe oficial / extraído synthetic-other'), {target:{value:'SYNTHETIC_OTHER_B'}});
+      fireEvent.change(screen.getByLabelText('Relatório oficial / extraído synthetic-other'), {target:{value:'SYNTHETIC_OTHER_B'}});
       expect(within(other).getByText('Pendente')).toBeInTheDocument();
     }
     await act(async () => { resolve(response); await pending; });
