@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
 import ClinicalValue from '../components/ClinicalValue';
+import { localRevisionHeaders } from '../lib/individualTransport';
 
 import ScoreDocumentInput from '../components/ScoreDocumentInput';
 import type { Field } from '../lib/score-document';
@@ -13,7 +14,7 @@ class ScoreServiceError extends Error {}
 const base = (import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 async function post<T>(path:string, body:unknown, signal?:AbortSignal):Promise<T> {
   try {
-    const response = await fetch(`${base}/api/clinical-scores/${path}`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal,cache:'no-store'});
+    const response = await fetch(`${base}/api/clinical-scores/${path}`, {method:'POST',headers:{'Content-Type':'application/json',...localRevisionHeaders()},body:JSON.stringify(body),signal,cache:'no-store'});
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
     return data;

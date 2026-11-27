@@ -1,4 +1,5 @@
 import { useClinicalUi } from '../i18n/useClinicalUi';
+import { localRevisionHeaders } from '../lib/individualTransport';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { pediatricCatalog, type Fields } from './catalog';
@@ -14,7 +15,7 @@ export default function PediatricExport({report, calculation, result}: {report:P
     setBusy(true);setError('');
     try {
       const base=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE??'').replace(/\/$/,'');
-      const response=await fetch(`${base}/api/pediatric-outpatient/export`, {method:'POST',headers:{'Content-Type':'application/json'},cache:'no-store',body:JSON.stringify({calculation:{...calculation,source_revision:pediatricCatalog.source_revision},expected_result:result,format})});
+      const response=await fetch(`${base}/api/pediatric-outpatient/export`, {method:'POST',headers:{'Content-Type':'application/json',...localRevisionHeaders()},cache:'no-store',body:JSON.stringify({calculation:{...calculation,source_revision:pediatricCatalog.source_revision},expected_result:result,format})});
       const data=await response.json();
       if(!response.ok)throw new Error(data.error||`Error ${response.status}`);
       if(!mounted.current)return;
