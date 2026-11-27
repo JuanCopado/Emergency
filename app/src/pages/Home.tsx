@@ -5,6 +5,7 @@ import { Icon, type IconName } from '../components/Icon';
 import { drugs } from '../data';
 import { AVAILABLE_GROUPS, REFERENCE_GROUPS } from '../data/moduleGroups';
 import { DraftBanner } from '../components/DraftBanner';
+import { ClinicalMinimalIntro } from './ClinicalMinimalIntro';
 import './clinical-minimal.css';
 
 const GROUP_ICON: Record<string, IconName> = { vasoactive: 'heart', sedation: 'moon' };
@@ -33,11 +34,13 @@ export default function Home() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 -left-16 h-64 w-64 rounded-full bg-brand/10 blur-3xl" />
         <div className="relative">
-          <p className="section-title">{t('home.eyebrow')}</p>
-          <h1 id="home-title" className="mt-2 text-2xl font-extrabold tracking-tight sm:text-4xl">
-            {t('home.title')}
-          </h1>
-          <p className="mt-2 max-w-2xl text-muted sm:text-lg">{t('home.subtitle')}</p>
+          {clinicalMinimal ? <ClinicalMinimalIntro /> : <>
+            <p className="section-title">{t('home.eyebrow')}</p>
+            <h1 id="home-title" className="mt-2 text-2xl font-extrabold tracking-tight sm:text-4xl">
+              {t('home.title')}
+            </h1>
+            <p className="mt-2 max-w-2xl text-muted sm:text-lg">{t('home.subtitle')}</p>
+          </>}
           <form role="search" onSubmit={onSubmit} className="mt-5 flex max-w-2xl gap-2">
             <label htmlFor="home-search" className="sr-only">
               {t('search.label')}

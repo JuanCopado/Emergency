@@ -410,5 +410,9 @@
   "clinical": "CLINICALLY_PENDING",
   "release": "NO_GO_CLINICAL_RELEASE",
   "historical_parent_overlay_sha256": "6540e7e6c88ef9ff07868d641ae0cf77206341d34892ddd42828ff2f3cb915e7",
-  "current_parent_overlay_sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599"
+  "current_parent_overlay_sha256": "a8544722c2b65bcbb7598bc723b32ab7555494621e2de96a50ea7f56cd371c26",
+  "current_parent_overlay_sha256_scope": "REPOSITORY_GIT_BLOB_BYTES_LF",
+  "equivalent_workspace_parent_overlay_sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599",
+  "equivalent_workspace_parent_overlay_sha256_scope": "LOCAL_WORKSPACE_COPY_BYTES_CRLF",
+  "parent_hash_representation_note": "Identical content: Git LF and existing Windows CRLF representations. No Unicode or source/image change. The separate historical 6540 hash still denotes the earlier field version."
 }

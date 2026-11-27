@@ -1,0 +1,160 @@
+{
+  "scope": "Opt-in home introduction and token slice; not full prototype fidelity or clinical validation",
+  "transport": "Built artifacts fulfilled by Playwright; no HTTP server/network exercised",
+  "status": "PASS",
+  "browser": "158.0.8127.37",
+  "states": [
+    {
+      "lang": "es",
+      "theme": "light",
+      "width": 360,
+      "background": "rgb(245, 247, 250)",
+      "color": "rgb(16, 40, 59)",
+      "horizontalOverflow": false,
+      "htmlLang": "es",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 1,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "es",
+      "theme": "light",
+      "width": 1366,
+      "background": "rgb(245, 247, 250)",
+      "color": "rgb(16, 40, 59)",
+      "horizontalOverflow": false,
+      "htmlLang": "es",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 2,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "pt",
+      "theme": "dark",
+      "width": 360,
+      "background": "rgb(11, 20, 32)",
+      "color": "rgb(240, 246, 250)",
+      "horizontalOverflow": false,
+      "htmlLang": "pt-PT",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 1,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "pt",
+      "theme": "dark",
+      "width": 1366,
+      "background": "rgb(11, 20, 32)",
+      "color": "rgb(240, 246, 250)",
+      "horizontalOverflow": false,
+      "htmlLang": "pt-PT",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 2,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "en",
+      "theme": "light",
+      "width": 360,
+      "background": "rgb(245, 247, 250)",
+      "color": "rgb(16, 40, 59)",
+      "horizontalOverflow": false,
+      "htmlLang": "en",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 1,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "en",
+      "theme": "light",
+      "width": 1366,
+      "background": "rgb(245, 247, 250)",
+      "color": "rgb(16, 40, 59)",
+      "horizontalOverflow": false,
+      "htmlLang": "en",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 2,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "zh",
+      "theme": "dark",
+      "width": 360,
+      "background": "rgb(11, 20, 32)",
+      "color": "rgb(240, 246, 250)",
+      "horizontalOverflow": false,
+      "htmlLang": "zh-Hans",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 1,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    },
+    {
+      "lang": "zh",
+      "theme": "dark",
+      "width": 1366,
+      "background": "rgb(11, 20, 32)",
+      "color": "rgb(240, 246, 250)",
+      "horizontalOverflow": false,
+      "htmlLang": "zh-Hans",
+      "links": 30,
+      "search": "PASS",
+      "focusWidth": "3px",
+      "introduction": {
+        "headings": 1,
+        "columns": 2,
+        "illustration": "loaded",
+        "translatedAlt": true
+      }
+    }
+  ],
+  "errors": [],
+  "source_hashes": {
+    "app/src/pages/Home.tsx": "88af0cf93d44a622fdf9d5e808e1980613206e14a710cde2b23f91f7f0dd2f5e",
+    "app/src/pages/ClinicalMinimalIntro.tsx": "1c6f1c705c168bc213b2bebd338d5f4a40987d972fab2f494c34e2789f6a7ea1",
+    "app/src/pages/clinical-minimal-copy.json": "cf5dfd11544cc63a30693a8bf201d262801c9b48ae7dcb06713d33b4dad618be",
+    "app/src/pages/clinical-minimal.css": "391caf583cd5b44a3ca0cdc3deb81d3be6a97b728cd3c578d08d3d143940afb8",
+    "app/public/design/clinical-minimal-physician.svg": "56b484ee30913d5803a74b7b9aa13ff64a4bc1303caba1488492ad116a3bfce1"
+  }
+}

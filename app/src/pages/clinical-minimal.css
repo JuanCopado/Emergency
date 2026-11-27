@@ -67,6 +67,112 @@
   box-shadow: none;
 }
 
+.clinical-minimal-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 44px;
+  padding: 18px 0 24px;
+}
+
+.clinical-minimal-eyebrow {
+  margin: 0 0 18px;
+  color: rgb(var(--c-muted));
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.clinical-minimal-intro h1 {
+  margin: 0 0 25px;
+}
+
+.clinical-minimal-lede {
+  max-width: 480px;
+  color: rgb(var(--c-muted));
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.clinical-minimal-scene {
+  margin: 0;
+  overflow: hidden;
+  background: rgb(var(--c-surface));
+  border: 1px solid rgb(var(--c-border));
+  border-radius: 24px;
+  box-shadow: 0 20px 50px #10283b0a;
+}
+
+.clinical-minimal-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.clinical-minimal-scene-caption {
+  margin: 0;
+  padding: 19px 22px 0;
+  color: rgb(var(--c-muted));
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.clinical-minimal-scene-caption::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.clinical-minimal-scene figcaption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px 18px;
+  color: rgb(var(--c-muted));
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.clinical-minimal-scene figcaption::before {
+  content: '';
+  flex-shrink: 0;
+  width: 28px;
+  height: 2px;
+  background: #2379a7;
+}
+
+@media (max-width: 700px) {
+  .clinical-minimal-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-top: 0;
+  }
+
+  .clinical-minimal-scene {
+    max-width: 480px;
+  }
+
+  .clinical-minimal-lede {
+    font-size: 17px;
+  }
+
+  .clinical-minimal-intro h1 {
+    font-size: 48px;
+    line-height: 1.05;
+  }
+}
+
+@media (max-width: 370px) {
+  .clinical-minimal-intro h1 {
+    font-size: 43px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .clinical-minimal-preview *,
   .clinical-minimal-preview *::before,

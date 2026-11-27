@@ -253,8 +253,8 @@
       ],
       "status": "AUDITADA",
       "execution_evidence": "Gemini actual rendered response a0b8a6afefa04979,12700characters received",
-      "result": "GEMINI_EXECUTION_RECEIPTS.json",
-      "qa": "Two official EMA product focal readings direct, correction documented; three urology contexts remain indexed focal only",
+      "result": "science/B2_EMA_FOCAL_AUDIT.json; science/UROLOGY_DIRECT_PRIMARY_RECEIPT.json",
+      "qa": "Direct official primary focal readings for all five contexts; correction and scope limits documented",
       "blocker": "No local product/procedure validation or whole-module clinical closure",
       "next_action": "Responsible executor compares accepted canonical contexts; preserve no runtime effect"
     },
@@ -270,6 +270,32 @@
       "qa": "Existing modules and original source distinguished; no blanket dose approval",
       "blocker": "Some numerical/jurisdiction/product portions need exact primary evidence; no duplicate implementation",
       "next_action": "Original executor completes canonical comparisons and safe structural changes in isolated candidate"
+    },
+    {
+      "id": "D-CLINICAL-MINIMAL-02",
+      "responsible": "Codex design executor; separate Codex reviewer",
+      "dependencies": [
+        "D-CLINICAL-MINIMAL"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Source d1993307661cd8063d7bac2a3c4e444ae28ba84d; actual SVG load defect found and corrected; build/lint/40existing tests/8browser states PASS; functional test source95749224965f28cb511948da4b1f3b6b34a75017, three new focused tests and ESLint PASS",
+      "result": "../clinical-minimal-20261127/HERO_BROWSER_QA.json",
+      "qa": "Opt-in only; ES/PT-PT/EN/ZH; 30 links/search unchanged; source representation reconciliation DESIGN_SOURCE_HASH_NORMALIZATION.json; default/opt-in locale transition/safe reserved search text verified",
+      "blocker": "Final composed SHA independent audit and CI required; browser intercepted bundle is not HTTP/backend",
+      "next_action": "Review exact composed SHA; do not replace default interface"
+    },
+    {
+      "id": "E-DERM-DEVELOPMENT-SPECS-14",
+      "responsible": "Codex experimental preparation",
+      "dependencies": [
+        "C-DERM-OVERLAY"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Metadata selection builder executed; eight eligible SCIN metadata candidates, seven labels, fourteen development specifications, one reserve, sixteen exclusions",
+      "result": "experimental/DERMATOLOGY_DEVELOPMENT_ADAPTATION_14.json",
+      "qa": "No pixels opened/copied/generated, no canonical reassignment, paired views are not independent cases",
+      "blocker": "Pixel reuse/privacy by purpose and physical S2-11/S2-12 conditions remain; still10/30canonical",
+      "next_action": "Use specifications only for permitted future development preparation; no independent study claim"
     }
   ],
   "scope": "Living documentary follow-up; supersedes version1 state fields without rewriting the frozen PR121 tree",
@@ -316,14 +342,18 @@
       "pr": 122,
       "sha": "a625267c2aea5b23e1d517d59251eb3d4924856f",
       "tree": "cf01aba0df5143ee6093618de13cba73e8d37c18",
-      "source_ci": "IN_PROGRESS_AT_IMPORT"
+      "source_ci": "IN_PROGRESS_AT_IMPORT",
+      "source_ci_later_verified": "17of17checksPASS exact a625267; not inherited by composed head"
     }
   ],
   "isolated_composition": {
-    "status": "PREPARED_FOR_ISOLATED_PUBLICATION",
+    "status": "ISOLATED_CANDIDATE_PENDING_OWN_FINAL_CI_AND_REVIEW",
     "source_files_exactly_materialized": 15,
     "new_runtime_sources": "owner decision documentary validator only, not prescribing",
     "local_owner_regressions_passed": 18,
-    "new_ci_inherited_from_parents": false
+    "new_ci_inherited_from_parents": false,
+    "design_increment_source": "d1993307661cd8063d7bac2a3c4e444ae28ba84d",
+    "hash_format_reconciliation": "dermatology/HASH_FORMAT_RECONCILIATION.json",
+    "functional_test_source": "95749224965f28cb511948da4b1f3b6b34a75017"
   }
 }

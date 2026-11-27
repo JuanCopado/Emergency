@@ -1,0 +1,119 @@
+{
+  "artifact": "UROLOGY_THREE_CONTEXTS_DIRECT_PRIMARY_FOCAL_RECEIPT",
+  "author": "Codex",
+  "created_utc": "2026-11-27T07:59:51.000324+00:00",
+  "upstream_context": "Root reports GeminiB2 indexed snippets only for annotations24,25,28; this task replaces only source-access gap for the four named public pages. Annotation identities supplied by root, no claim of runtime code audit.",
+  "sources": [
+    {
+      "id": "BAUS-TORSION",
+      "url": "https://www.baus.org.uk/trainees/testicular_torsion.aspx",
+      "publisher": "BAUS",
+      "version": "Current educational HTML observed2026-11-27; page edition/update date not established. Linked2026GIRFT guideline not read in this task.",
+      "access": "DIRECT_OFFICIAL_HTML_READ_SUCCESS",
+      "localizers": [
+        "Immediate priorities lines401-403",
+        "Diagnosis lines445-452",
+        "Management lines453-457",
+        "Red flags lines476-482"
+      ],
+      "short_quote": "do not delay surgery for imaging if clinical suspicion is high.",
+      "quote_word_count": 11,
+      "paraphrase": "La sospecha alta requiere escalada urologica urgente y prioridad quirurgica; las pruebas de imagen no deben demorar ese circuito.",
+      "limit": "Pagina educativa para profesionales con aviso de no sustituir juicio clinico, orientacion senior o protocolo local; no se importan tiempos, edades, puntuaciones ni tasas de salvamento."
+    },
+    {
+      "id": "BAUS-HAEMATURIA",
+      "url": "https://www.baus.org.uk/trainees/visible_haematuria.aspx",
+      "publisher": "BAUS",
+      "version": "Current educational HTML observed2026-11-27; page edition/update date not established.",
+      "access": "DIRECT_OFFICIAL_HTML_READ_SUCCESS",
+      "localizers": [
+        "Scope lines397-401",
+        "Immediate priorities lines402-428",
+        "Clot retention lines456-458",
+        "Management anticoagulants/antiplatelets lines475-478",
+        "Escalation lines486-494"
+      ],
+      "short_quote": "Decisions should be individualised and discussed with a senior clinician",
+      "quote_word_count": 10,
+      "paraphrase": "El alcance es hematuria visible significativa con necesidad de cuidados hospitalarios. La retencion por coagulos y otros signos de gravedad requieren escalada. La posible suspension de antitromboticos se individualiza equilibrando sangrado y riesgo tromboembolico.",
+      "limit": "Suspender temporalmente no es revertir farmacologicamente. Este texto no demuestra una regla universal de reversion ni una contraindicacion universal; no aporta decision ni dosis para antidotos/productos concretos."
+    },
+    {
+      "id": "BAUS-WASHOUT",
+      "url": "https://www.baus.org.uk/trainees/bladder_washout_irrigation.aspx",
+      "publisher": "BAUS",
+      "version": "Current educational HTML observed2026-11-27; page edition/update date not established.",
+      "access": "DIRECT_OFFICIAL_HTML_READ_SUCCESS",
+      "localizers": [
+        "Indications lines403-407",
+        "Troubleshooting/escalation lines447-468",
+        "Purpose of continuous irrigation lines469-476",
+        "Warning lines505-506"
+      ],
+      "short_quote": "If still not working discuss with Urology SpR",
+      "quote_word_count": 8,
+      "paraphrase": "Respalda que coagulos, obstruccion y hematuria persistente son contextos urologicos concretos y que el fallo de drenaje, empeoramiento o inestabilidad exigen ayuda especializada.",
+      "limit": "La pagina incluye instrucciones instrumentales y cifras que quedan fuera del cotejo. No se extrae, publica o implementa aqui una nueva tecnica de sondaje/lavado ni pauta de irrigacion."
+    },
+    {
+      "id": "EAU-MALE-LUTS",
+      "url": "https://uroweb.org/guidelines/management-of-non-neurogenic-male-luts/chapter/diagnostic-evaluation",
+      "publisher": "EAU",
+      "version": "Current Non-neurogenic Male LUTS diagnostic-evaluation HTML observed2026-11-27. No full PDF/edition-wide reading claimed.",
+      "access": "DIRECT_OFFICIAL_HTML_READ_SUCCESS",
+      "localizers": [
+        "Chapter title lines18 and49-53",
+        "Section4.7 Renal function measurement lines131-142",
+        "Section4.10.1 Upper urinary tract lines165-173"
+      ],
+      "short_quote": "Assess renal function if renal impairment is suspected based on history and clinical examination",
+      "quote_word_count": 14,
+      "paraphrase": "En varones con LUTS no neurogenicos, valorar funcion renal ante sospecha de deterioro, hidronefrosis o plan quirurgico. El apartado de imagen describe ecografia en ese contexto, con recomendacion debil; no es un algoritmo universal de toda retencion aguda.",
+      "limit": "No extrapolar automaticamente a mujeres, ninos, causas neurogenicas o a todo paciente de urgencias. No se incorporan umbrales de residuo, frecuencias, productos ni tecnicas."
+    }
+  ],
+  "documentary_comparisons": [
+    {
+      "annotation": 24,
+      "context": "Torsion",
+      "module_id": "urologic-emergencies",
+      "source_refs": [
+        "BAUS-TORSION"
+      ],
+      "result": "DOCUMENTARY_PRIORITY_CONFIRMED_IN_SOURCE_SCOPE",
+      "conclusion": "Prioridad quirurgica/especialista y ausencia de demora por imagen en alta sospecha. No cierra revision integral por indicacion."
+    },
+    {
+      "annotation": 25,
+      "context": "Complicated retention",
+      "module_id": "urologic-emergencies",
+      "source_refs": [
+        "EAU-MALE-LUTS",
+        "BAUS-HAEMATURIA"
+      ],
+      "result": "POPULATION_AND_SOURCE_SCOPE_LIMIT_CONFIRMED",
+      "conclusion": "EAU4.7/4.10.1 sustenta evaluacion renal/imagen en varonesLUTS no neurogenicos; no constituye fuente unica universal de retencion complicada aguda. La hematuria con retencion por coagulos se atiende como contexto separado."
+    },
+    {
+      "annotation": 28,
+      "context": "Visible haematuria with clots",
+      "module_id": "urologic-emergencies",
+      "source_refs": [
+        "BAUS-HAEMATURIA",
+        "BAUS-WASHOUT"
+      ],
+      "result": "ESCALATION_AND_INDIVIDUALISED_ANTITHROMBOTIC_REVIEW_CONFIRMED",
+      "conclusion": "No se deriva reversion automatica de antitromboticos. La fuente habla de posible suspension individualizada y valoracion senior; antidotos/productos requieren evidencia especifica distinta."
+    }
+  ],
+  "primary_pages_read_directly": 4,
+  "whole_guideline_reviews": 0,
+  "runtime_changes": 0,
+  "new_doses_numbers_or_technique": false,
+  "new_medical_vote": false,
+  "candidate_941dd_changed": false,
+  "limits": "Scoped documentary corroboration only, not treatment authorization, full scientific review of37modules, or medical assessment of a patient.",
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

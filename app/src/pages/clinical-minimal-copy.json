@@ -1,0 +1,38 @@
+{
+  "es": {
+    "eyebrow": "CRITERIO HUMANO · APOYO CON EVIDENCIA",
+    "title": "La decisión clínica<br>empieza contigo.",
+    "lede": "Un espacio internacional para el especialista en urgencias. Evidencia, imagen, seguridad y documentación al servicio de una revisión médica informada.",
+    "scene": "URGENCIAS · REPRESENTACIÓN ILUSTRADA",
+    "human": "La persona dirige. Las herramientas apoyan.",
+    "doctorTitle": "Profesional de urgencias en una escena ilustrada",
+    "doctorDesc": "Ilustración vectorial genérica, sin persona real. Profesional con uniforme y estetoscopio en una sala de urgencias. Cuatro formas abstractas representan herramientas de apoyo, no personas."
+  },
+  "pt": {
+    "eyebrow": "CRITÉRIO HUMANO · APOIO COM EVIDÊNCIA",
+    "title": "A decisão clínica<br>começa consigo.",
+    "lede": "Um espaço internacional para o especialista em urgência. Evidência, imagem, segurança e documentação ao serviço de uma revisão médica informada.",
+    "scene": "URGÊNCIA · REPRESENTAÇÃO ILUSTRADA",
+    "human": "A pessoa dirige. As ferramentas apoiam.",
+    "doctorTitle": "Profissional de urgência numa cena ilustrada",
+    "doctorDesc": "Ilustração vetorial genérica, sem pessoa real. Profissional de uniforme e estetoscópio numa sala de urgência. Quatro formas abstratas representam ferramentas de apoio, não pessoas."
+  },
+  "en": {
+    "eyebrow": "HUMAN JUDGEMENT · EVIDENCE INFORMED SUPPORT",
+    "title": "Clinical decisions<br>start with you.",
+    "lede": "An international space for the emergency specialist. Evidence, imaging, safety and documentation support informed medical review.",
+    "scene": "EMERGENCY CARE · ILLUSTRATED SCENE",
+    "human": "People lead. Tools support.",
+    "doctorTitle": "Emergency professional in an illustrated scene",
+    "doctorDesc": "Generic vector illustration, not a real person. A uniformed professional with a stethoscope in an emergency room. Four abstract shapes represent support tools, not people."
+  },
+  "zh": {
+    "eyebrow": "人类判断 · 循证支持",
+    "title": "临床决策，<br>从您开始。",
+    "lede": "面向急诊专科医生的国际化空间。以证据、影像、安全和文档支持有依据的医疗审阅。",
+    "scene": "急诊环境 · 插画示意",
+    "human": "人来主导，工具辅助。",
+    "doctorTitle": "急诊专业人员的插画场景",
+    "doctorDesc": "通用矢量插画，并非真实人物。急诊室中的专业人员身穿制服并佩戴听诊器。四个抽象形状代表辅助工具，而非人物。"
+  }
+}
