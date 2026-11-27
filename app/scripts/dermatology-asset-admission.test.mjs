@@ -140,4 +140,34 @@ describe('product/repository dermatology admission contract', () => {
     expect(result).toMatchObject({ status: 'PASS', examined_raster_files: 0, product_catalog_size: 0 });
     // This explicitly documents the scan boundary; it is not a privacy certificate for ignored folders.
   }));
+
+  it('scans artifact basenames under public and arbitrary nested directories, including extensionless files', () => fixture(({ root, put }) => {
+    const locations = ['app/public/dist/a.png', 'app/public/nested/coverage/a.png',
+      'app/public/a/b/node_modules/a.png', 'docs/.cache/a.png', 'dist', 'app/public/coverage'];
+    for (const location of locations) put(location, bytes);
+    const result = scanMediaFiles(root, new Map([[hash(bytes), 'SYNTHETIC_EXACT_BYTE_IDENTITY']]));
+    expect(result.examined_raster_files).toBe(locations.length);
+    expect(result.issues).toHaveLength(locations.length);
+    expect(result.issues.every((issue) => issue.code === 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED')).toBe(true);
+  }));
+
+  it('retains reserved namespace protection below nested artifact and dependency names', () => fixture(({ root, put }) => {
+    const locations = ['app/public/dermatology/dist/a.png',
+      'app/public/dermatology/deep/node_modules/a.png',
+      'app/src/assets/dermatology/a/coverage/a.png', 'clinical/assets/dermatology/a/b/.venv/a.png'];
+    for (const location of locations) put(location, bytes);
+    const result = checkRepository(root);
+    expect(result.issues).toHaveLength(locations.length);
+    expect(result.issues.every((issue) => issue.code === 'DERM_RESERVED_MEDIA_NOT_ADMITTED')).toBe(true);
+  }));
+
+  it('rejects public artifact links and dependency junctions before path exclusions', () => fixture(({ root }) => {
+    const target = path.join(root, 'target'); fs.mkdirSync(target);
+    for (const location of ['app/public/dist', 'app/public/dermatology/coverage', 'app/node_modules']) {
+      const link = path.join(root, location); fs.mkdirSync(path.dirname(link), { recursive: true });
+      fs.symlinkSync(target, link, process.platform === 'win32' ? 'junction' : 'dir');
+    }
+    expect(checkRepository(root).issues).toEqual(
+      Array.from({ length: 3 }, () => ({ code: 'DERM_SCAN_LINK_FORBIDDEN' })));
+  }));
 });

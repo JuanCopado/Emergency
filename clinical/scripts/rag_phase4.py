@@ -152,7 +152,9 @@ def validate_response(request, response):
     for item in entries:
         require(type(item) is dict and isinstance(item.get("citation_id"), str), "INVALID_FIXTURE_CITATION")
         key = item["citation_id"]
-        require(key in expected and key not in seen and item == expected[key], "FIXTURE_CITATION_CONTENT_OR_PROVENANCE_MISMATCH")
+        # JSON bytes distinguish true/1.0 from integer1, unlike Python equality.
+        require(key in expected and key not in seen and canonical(item) == canonical(expected[key]),
+                "FIXTURE_CITATION_CONTENT_OR_PROVENANCE_MISMATCH")
         seen.add(key)
     require(seen == set(expected), "FIXTURE_CLAIM_COVERAGE_MISMATCH")
     return deepcopy(request["citations"])

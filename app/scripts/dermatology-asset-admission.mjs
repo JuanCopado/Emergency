@@ -21,8 +21,11 @@ const MEDIA_ADMISSIONS = ['product_media_admitted', 'repository_media_redistribu
   'independent_evaluation_admitted', 'ai_training_admitted', 'external_service_transfer_admitted'];
 const RECORD_KEYS = ['asset_id', 'case_id', 'source_sha256', 'technical_derivative_sha256',
   'local_reference_scope', ...MEDIA_ADMISSIONS].sort(compareCodeUnits);
-const SKIP_DIRECTORIES = new Set(['.git', 'node_modules', 'dist', 'coverage', '__pycache__',
-  '.pytest_cache', '.venv', '.cache']);
+// Exact repository-relative build/dependency boundaries, never arbitrary basenames.
+// Links are rejected before these exclusions, including dependency junctions.
+const SKIP_DIRECTORY_PATHS = new Set(['.git', 'node_modules', 'dist', 'coverage',
+  '__pycache__', '.pytest_cache', '.venv', '.cache',
+  'app/node_modules', 'app/dist', 'app/coverage']);
 const RASTER_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.tif', '.tiff']);
 const RESERVED_MEDIA = /^(app\/(public|src\/assets)|clinical\/assets)\/dermatology(?:\/|$)/i;
 const digest = (value) => createHash('sha256').update(value).digest('hex');
@@ -171,18 +174,18 @@ function inspectFile(file, relative, protectedHashes) {
 }
 
 function inspectEntry(directory, entry, state) {
-  if (SKIP_DIRECTORIES.has(entry.name)) return;
   const file = path.join(directory, entry.name);
+  const relative = path.relative(state.root, file).split(path.sep).join('/');
   if (entry.isSymbolicLink()) {
     state.issues.push({ code: 'DERM_SCAN_LINK_FORBIDDEN' });
     return;
   }
   if (entry.isDirectory()) {
+    if (SKIP_DIRECTORY_PATHS.has(relative)) return;
     walkDirectory(file, state);
     return;
   }
   if (!entry.isFile()) return;
-  const relative = path.relative(state.root, file).split(path.sep).join('/');
   const result = inspectFile(file, relative, state.protectedHashes);
   state.examined += result.examined;
   if (result.issue) state.issues.push(result.issue);

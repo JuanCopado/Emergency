@@ -186,6 +186,17 @@ class ControlledFixtureLab(unittest.TestCase):
             self.assertEqual(value["status"], "ABSTAIN")
             self.assertNotIn("SENTINEL", json.dumps(value))
 
+    def test_boolean_and_float_locators_are_not_exact_integer_provenance(self):
+        for field in ("line_start", "line_end"):
+            for value in (True, 1.0):
+                with self.subTest(field=field, locator_type=type(value).__name__):
+                    response = self.output()
+                    response["citations"][0][field] = value
+                    result = self.run_case(provider=lab.FixtureProvider(response))
+                    self.assertEqual(result["status"], "ABSTAIN")
+                    self.assertEqual(result["reason"], "FIXTURE_CITATION_CONTENT_OR_PROVENANCE_MISMATCH")
+                    self.assertFalse(result["generation_performed"])
+
     def test_reordered_valid_citations_normalize_to_canonical_request_order(self):
         response = self.output()
         response["citations"].reverse()

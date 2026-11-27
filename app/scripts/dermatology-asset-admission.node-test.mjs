@@ -173,6 +173,44 @@ test('directory links cannot redirect the repository scan to another location', 
   assert.equal(scanMediaFiles(root, new Map()).issues[0].code, 'DERM_SCAN_LINK_FORBIDDEN');
 }));
 
+test('artifact basenames at arbitrary depths cannot hide protected raster bytes', () => temporary((root) => {
+  const locations = ['app/public/dist/x.png', 'app/public/nested/coverage/x.png',
+    'app/public/a/b/node_modules/x.png', 'docs/dist/x.png', 'app/public/.cache/x.png',
+    'dist', 'app/public/coverage'];
+  for (const location of locations) put(root, location, fixtureBytes);
+  const result = scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']]));
+  assert.equal(result.examined_raster_files, locations.length);
+  assert.equal(result.issues.length, locations.length);
+  assert.ok(result.issues.every((issue) => issue.code === 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED'));
+}));
+
+test('reserved media remains rejected inside nested dependency and artifact names', () => temporary((root) => {
+  const locations = ['app/public/dermatology/dist/x.png',
+    'app/public/dermatology/deep/node_modules/x.png',
+    'app/src/assets/dermatology/a/coverage/x.png',
+    'clinical/assets/dermatology/a/b/.venv/x.png'];
+  for (const location of locations) put(root, location, fixtureBytes);
+  const result = scanMediaFiles(root, new Map());
+  assert.equal(result.issues.length, locations.length);
+  assert.ok(result.issues.every((issue) => issue.code === 'DERM_RESERVED_MEDIA_NOT_ADMITTED'));
+}));
+
+test('links named like excluded directories are rejected before exclusions', () => temporary((root) => {
+  const target = path.join(root, 'target'); fs.mkdirSync(target);
+  for (const location of ['app/public/dist', 'app/public/dermatology/coverage', 'app/node_modules']) {
+    const link = path.join(root, location); fs.mkdirSync(path.dirname(link), { recursive: true });
+    fs.symlinkSync(target, link, process.platform === 'win32' ? 'junction' : 'dir');
+  }
+  assert.deepEqual(scanMediaFiles(root, new Map()).issues,
+    Array.from({ length: 3 }, () => ({ code: 'DERM_SCAN_LINK_FORBIDDEN' })));
+}));
+
+test('only exact real dependency and build directory boundaries are ignored', () => temporary((root) => {
+  for (const location of ['node_modules/x.png', 'app/node_modules/x.png', 'dist/x.png',
+    'coverage/x.png', 'app/dist/x.png', 'app/coverage/x.png']) put(root, location, fixtureBytes);
+  assert.equal(scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']])).status, 'PASS');
+}));
+
 test('the actual base repository has no admitted corpus media and an empty product catalog', () => {
   const result = checkRepository(REPO);
   assert.equal(result.status, 'PASS');

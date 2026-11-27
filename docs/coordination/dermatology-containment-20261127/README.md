@@ -41,6 +41,25 @@ La contención se limita a identidades exactas y al espacio reservado existente;
 no es reconocimiento visual, detección universal de transformaciones ni garantía
 de privacidad en carpetas ignoradas. Los avisos y umbrales de CI no cambian.
 
+## Corrección de frontera del escáner sobre PR133
+
+Base: `7df868d501b7271b2bbd2571e141b70656b251f8`. Se elimina la exclusión
+por nombre de carpeta a cualquier profundidad: `dist`, `coverage` o
+`node_modules` dentro de `app/public` podían ocultar bytes protegidos que Vite
+publicaría. Las exclusiones son ahora rutas exactas relativas a la raíz:
+`.git`, `node_modules`, `dist`, `coverage`, `__pycache__`, `.pytest_cache`,
+`.venv`, `.cache`, `app/node_modules`, `app/dist` y `app/coverage`, únicamente
+cuando la entrada es un directorio real. Todos los enlaces y junctions se
+rechazan antes de aplicar las exclusiones, incluso `app/node_modules`.
+Un archivo raster llamado `dist` sin extensión tampoco queda excluido.
+
+Verificación focal adicional: 23/23 pruebas Node y 14/14 Vitest, con archivos
+sintéticos en varias profundidades de `public`, los tres espacios reservados,
+nombres de archivo engañosos y enlaces bajo rutas públicas y de dependencias.
+La configuración focal de Vitest reutiliza dependencias locales existentes;
+no instala paquetes ni sustituye la CI completa. No cambia el manifiesto ni
+la admisión de ningún activo.
+
 ```powershell
 npm.cmd run security:dermatology:test --prefix app
 node app/scripts/check-dermatology-asset-admission.mjs
