@@ -1,0 +1,320 @@
+{
+  "status": "PASS",
+  "scope": "CARDIO06 manual-circuit navigation and presentation only",
+  "transport": "Built artifact requests fulfilled by Playwright; no HTTP server/backend exercised",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "head": "e2a49e638fa329503e4f3a925de1f4026d452713",
+  "tree": "afec6633cb1f955890c56b0ef80b2566f8f1c9df",
+  "dirty": "",
+  "source_hashes": {
+    "app/src/components/ChestPainCircuits.tsx": "51f3dd67ac4ce6e06b806c77784823123eab8dead94acc8ecf21dc9b7139a3ec",
+    "app/src/pages/ClinicalLibrary.tsx": "40ca50bf63a99f8a701490876582b8114101492e0ab335bbf2ceee16cc43a0b7",
+    "app/src/pages/ClinicalGuides.tsx": "8b57861b564dea055ea15195b69ff3bfb76e507866bc9bec39aa0bba805246f4",
+    "app/src/i18n/locales/es.clinical.json": "53427618c7f8ea00bc876ac43544f15fee7d26ed80849068ac65018957923fb3",
+    "app/src/i18n/locales/pt.clinical.json": "ec4f3ee18e2a986f63dc910aa6b0fb3fa262a2eea14ee60de69e5cc39979ec69",
+    "app/src/i18n/locales/en.clinical.json": "2e3005a740f64ec9d983e695c9258b44ff7e756b8cb421c9d44df9d63a18e426",
+    "app/src/i18n/locales/zh.clinical.json": "757ef4b6da247affe2afa1b3850c9a2aaf55a019eb4d963b5c31427554a25e8f"
+  },
+  "dist_files": [
+    {
+      "path": "apple-touch-icon.png",
+      "sha256": "d8dd8cae46a26c4468c4e0f6d31fd8be83e75522e3f92047fe2dee5ea6979835"
+    },
+    {
+      "path": "assets\\About-Dk9noLRn.js",
+      "sha256": "827d4d70e0c035cdddafb7575c459b0d5bd1a6f2086ec7cd6cba0da70e6dc3ee"
+    },
+    {
+      "path": "assets\\About-Dk9noLRn.js.map",
+      "sha256": "40b9c20791c7afc4c4cdea2a7761a689087a4fbace8dd94233513c7022864bf4"
+    },
+    {
+      "path": "assets\\AcuteMedications-BcBdSu3X.js",
+      "sha256": "4fabefd8aba90a14b05a5f4675c3a1315c108650f8c6379cb8125d3dce739266"
+    },
+    {
+      "path": "assets\\AcuteMedications-BcBdSu3X.js.map",
+      "sha256": "09b6e548ef9f68d908be098984e3473e53d45ee1e0ee0a670fafbf20f12c5186"
+    },
+    {
+      "path": "assets\\BloodGas-CsNZM7jv.js",
+      "sha256": "6b5cb86805ab24a40219746647d1bdc71d4dedc9a495deffac3c64e56dda7cd9"
+    },
+    {
+      "path": "assets\\BloodGas-CsNZM7jv.js.map",
+      "sha256": "b79400ca090f73d9a7ced4e0531a1404dda40691bd10de89909b9a3588c5b004"
+    },
+    {
+      "path": "assets\\Calculator-BREUXF4_.js",
+      "sha256": "6b80f91b85587b35badc6ed4d0a50fc1e55ce3f358c69e4de3a6e7ce2a5a4912"
+    },
+    {
+      "path": "assets\\Calculator-BREUXF4_.js.map",
+      "sha256": "4f09a0b380dce3bf3276397c62c30a06bb7a6eeb1c77c23c4709985361a01dc0"
+    },
+    {
+      "path": "assets\\ChestPainCircuits-B1Yl5CsH.js",
+      "sha256": "b0832c62a86579bc9e49370bbcffc6f7207728a26570ae6046a9eb4d7f5bf5b4"
+    },
+    {
+      "path": "assets\\ChestPainCircuits-B1Yl5CsH.js.map",
+      "sha256": "8de0760169c403754edeb3f3f4be95b1011b834fcdc9f0c995c414bb5301daf9"
+    },
+    {
+      "path": "assets\\ClinicalGuides-Dx7Epmob.js",
+      "sha256": "d6b84de06bb08691142c1a11abf2a24f4839581e0c3acd699b3de5b9d3314691"
+    },
+    {
+      "path": "assets\\ClinicalGuides-Dx7Epmob.js.map",
+      "sha256": "8229f92f04e88257b95fae4b3a82cae9556076f47f5a648cefe213ba845a14d0"
+    },
+    {
+      "path": "assets\\ClinicalLibrary-DtcCbS04.js",
+      "sha256": "23bbf947b78ef7092d8cc7b631d1024277f3fd8f5a3289f16806e5858da4faaf"
+    },
+    {
+      "path": "assets\\ClinicalLibrary-DtcCbS04.js.map",
+      "sha256": "40c996855f10166c64c00ea2415f8a9197ff14e786af7f18c4c6917253245f1b"
+    },
+    {
+      "path": "assets\\ClinicalNote-D_QJL2Ce.js",
+      "sha256": "c048298393617d96a323c9f57c4f8673ab9ff1940b5e45d01f062f47001ca6fc"
+    },
+    {
+      "path": "assets\\ClinicalNote-D_QJL2Ce.js.map",
+      "sha256": "05db291d13886fd87e39f57fbf558adc0a91f391dd3e585653d24c794da69417"
+    },
+    {
+      "path": "assets\\ClinicalScores-f86cH4xy.js",
+      "sha256": "c505c14e8c6e341e058489deb97e50be1d71d95b52ae2f57f9fdc2a47555ff78"
+    },
+    {
+      "path": "assets\\ClinicalScores-f86cH4xy.js.map",
+      "sha256": "3ad856ffbb67b6034741cd0d0b8bcadaf0e88400edc99f64a887fe332242961c"
+    },
+    {
+      "path": "assets\\ClinicalValue-CiDWQKKU.js",
+      "sha256": "476e9522c2fc3dd149f7f5ee1d6465de4d4b95fe5325c9a22b2f53a9036cf833"
+    },
+    {
+      "path": "assets\\ClinicalValue-CiDWQKKU.js.map",
+      "sha256": "ed08e41a405b117eab04f639a6dba88dda34a0bb6ea5561ba27cd70147add609"
+    },
+    {
+      "path": "assets\\Corticosteroids-CzmI4KsD.js",
+      "sha256": "cc4d7070cbcb297e7248f0158bbd906d46d84553b6dee48fea8d685816554e30"
+    },
+    {
+      "path": "assets\\Corticosteroids-CzmI4KsD.js.map",
+      "sha256": "c5f574fedcfd42a23eef1c64a111178c77f2e5ecfdfbb5473a11d85d03cacc9d"
+    },
+    {
+      "path": "assets\\index-C1GH6blB.css",
+      "sha256": "56f5033b24654a201c352918be65988e563717d242487cdb31ae236c4356925c"
+    },
+    {
+      "path": "assets\\index-DVsTlWlI.js",
+      "sha256": "f51b8d9c88bdb1ebec3b83470d11c59bc134d217322bc14d23e5c504ffdd1bab"
+    },
+    {
+      "path": "assets\\index-DVsTlWlI.js.map",
+      "sha256": "bdd776f246c45064e1cbb6a484b69f3b618b86562d6171ea0a3e61195bfa9d96"
+    },
+    {
+      "path": "assets\\index-ugZ0EgZx.js",
+      "sha256": "ecc75bc9e8a6d7c5530224e136b2b911a71d9fb0eb9738ddd114f153894dc08d"
+    },
+    {
+      "path": "assets\\index-ugZ0EgZx.js.map",
+      "sha256": "c90dc8756f0014e9cb96f3fc95f046cb87212c8a77221f0b73aaf6d23a64ef56"
+    },
+    {
+      "path": "assets\\InsulinUci-CijYLtbX.js",
+      "sha256": "1e30ff373c41f5e6d8ff441f9a8cdeba263c2d5e9ee09806b92c5b5e6b6963d2"
+    },
+    {
+      "path": "assets\\InsulinUci-CijYLtbX.js.map",
+      "sha256": "7c422ed0b52ed24e2353f330a7a80b944bf0a91e9e694be81bda40ce15b773e2"
+    },
+    {
+      "path": "assets\\patientWeight-30zHUSnb.js",
+      "sha256": "8d48b588ea5305c389d75526dbe4d7fa406ac10b207b73c99caaec99827fd257"
+    },
+    {
+      "path": "assets\\patientWeight-30zHUSnb.js.map",
+      "sha256": "8a89b51c286f053aff8131414443077f67a18c239bbc16325b57ff13dd7117cb"
+    },
+    {
+      "path": "assets\\pdf.worker.min-CIqJB0yW.mjs",
+      "sha256": "1e64c8240e54735ec5913b37acd5134747799cb8c6bb3777c70adbc01232d2aa"
+    },
+    {
+      "path": "assets\\PediatricOutpatient-a8yzQqCB.js",
+      "sha256": "f196bb1bc1f6efb45534d327f9850a4f82da33de67e818c04d5bb51828b11f84"
+    },
+    {
+      "path": "assets\\PediatricOutpatient-a8yzQqCB.js.map",
+      "sha256": "0a3b1f987e336f598b29cdc12b8e2b48b44ef144bb2bca261877180968d26f90"
+    },
+    {
+      "path": "assets\\Procedures-By0bazz8.js",
+      "sha256": "ba6dee02863156b2740d8244ac91f233158d045f0388048f708652bfe6d68fd5"
+    },
+    {
+      "path": "assets\\Procedures-By0bazz8.js.map",
+      "sha256": "c3789f9f589798793ed2348bfec0db66e18a71a01bb5e6102736685ee67a6a76"
+    },
+    {
+      "path": "assets\\procedures-DW-L4hCk.js",
+      "sha256": "584223008baf60694df11b3fc58fab7429ce4ae90a3446d6f946d154ea1e0440"
+    },
+    {
+      "path": "assets\\procedures-DW-L4hCk.js.map",
+      "sha256": "938e1d183c19fa47fed3787701d65c7318747b6e9fcf0f66f21e16009ae91090"
+    },
+    {
+      "path": "assets\\score-pdf-CZW02C2W.js",
+      "sha256": "cead42cc3fa5b1bc2c7cf5fd441e82c5f72c63193f70f45f51dd78896375477b"
+    },
+    {
+      "path": "assets\\score-pdf-CZW02C2W.js.map",
+      "sha256": "bb9804939607835586e9e0c27da4cbd2fb67052995bdf066b2088a30881bcef9"
+    },
+    {
+      "path": "assets\\Settings-CgGYegQ2.js",
+      "sha256": "6116f9ab0c12f140a10b2411660d08ed2d55a7cceb144b629b4e3ddab0c6330c"
+    },
+    {
+      "path": "assets\\Settings-CgGYegQ2.js.map",
+      "sha256": "113e2adda9f358c74dc31410e0212e4daa62503efa205b0a4d7869a1c73e93e8"
+    },
+    {
+      "path": "assets\\T06Lab-8HxTW6Vv.js",
+      "sha256": "c77551d4bf1df3836c075a7ce13ca8a247a6156445cbd4d65203a9eaad751364"
+    },
+    {
+      "path": "assets\\T06Lab-8HxTW6Vv.js.map",
+      "sha256": "6cfaee13c731cedd736a2ecd1a0f7feea794c8f07b9369536ccef427051dd293"
+    },
+    {
+      "path": "assets\\T06Lab-bDqnutf8.css",
+      "sha256": "d09a91cc0966afb586dfe2b4db546cbf74d8aa9b7a7dc89d7658463c2e671863"
+    },
+    {
+      "path": "assets\\workbox-window.prod.es5-BBnX5xw4.js",
+      "sha256": "cadd21be4a88598a4dec91a26a025df0a5790ff6baec54a884e401c3f5c95557"
+    },
+    {
+      "path": "assets\\workbox-window.prod.es5-BBnX5xw4.js.map",
+      "sha256": "ab8068dd15ff297903fcfae1160527387d8e2ebd24fd41cb88345f28fd1d3e16"
+    },
+    {
+      "path": "design\\clinical-minimal-physician.svg",
+      "sha256": "56b484ee30913d5803a74b7b9aa13ff64a4bc1303caba1488492ad116a3bfce1"
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "3ff42192b9a299a2b34e74491d8335218aff32d06625bc9fc277b68382497738"
+    },
+    {
+      "path": "index.html",
+      "sha256": "44c2fcbb893eae127e471c63236f512d3730eaf323c4dfc528a03c08e2a95b6e"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "sha256": "4579af83c4f4f1d7f012be05357cd0b781b5b7da6e1fbedb312d8bf8022ac002"
+    },
+    {
+      "path": "maskable-512x512.png",
+      "sha256": "238ddf27a15e9572a9e31af821b4405451fdd9ee45b802fae7792a17f486dd51"
+    },
+    {
+      "path": "pwa-192x192.png",
+      "sha256": "5daa91ca632551011462b563ad3c0245c56e681be1cf7dc6d2f5dc37249def44"
+    },
+    {
+      "path": "pwa-512x512.png",
+      "sha256": "51aea219a98115abcca0b4d2258d305ead8d255875d4612fe08b40b5e3800483"
+    },
+    {
+      "path": "sw.js",
+      "sha256": "0e9389a978afcb87a2db6d1c8f2be77872a1284ffb4311c0e8c1916ccd058b9d"
+    },
+    {
+      "path": "sw.js.map",
+      "sha256": "ea737472e12b4781f0595caacd8f91463b34bb9bd8debe9f0374b7fa2e81e591"
+    },
+    {
+      "path": "workbox-9c191d2f.js",
+      "sha256": "7e309c8aa685d823ceda00413955fd83e4fb3055db29fc4c9a73610c0fe72d5b"
+    },
+    {
+      "path": "workbox-9c191d2f.js.map",
+      "sha256": "a6d59850a88f044376d5cc8c48afdca951d8f4ad19fb9273c633f128a59695e2"
+    }
+  ],
+  "states": [
+    {
+      "lang": "es",
+      "width": 1366,
+      "prefix": "/clinical",
+      "label": "Circuitos por causa de dolor torácico",
+      "heading": "Abrir un circuito existente",
+      "manualText": "Selección manual",
+      "sourcePath": "/clinical/non-coronary-chest-pain",
+      "sourceHeadings": [
+        "Non Coronary Chest Pain"
+      ],
+      "hrefs": [
+        "/clinical/acute-coronary-syndrome",
+        "/clinical/acute-aortic-syndrome",
+        "/clinical/pulmonary-embolism",
+        "/clinical/tension-pneumothorax",
+        "/clinical/cardiac-tamponade-pericardial-emergency"
+      ],
+      "pendingVisible": true,
+      "automaticNavigationObserved": false,
+      "overflow": false,
+      "manualDestination": "/clinical/acute-coronary-syndrome",
+      "destinationHeadings": [
+        "Acute Coronary Syndrome"
+      ],
+      "panelRemovedAfterNavigation": true
+    },
+    {
+      "lang": "pt",
+      "width": 360,
+      "prefix": "/guides",
+      "label": "Circuitos por causa de dor torácica",
+      "heading": "Abrir um circuito existente",
+      "manualText": "Seleção manual",
+      "sourcePath": "/guides/non-coronary-chest-pain",
+      "sourceHeadings": [
+        "Non Coronary Chest Pain"
+      ],
+      "hrefs": [
+        "/guides/acute-coronary-syndrome",
+        "/guides/acute-aortic-syndrome",
+        "/guides/pulmonary-embolism",
+        "/guides/tension-pneumothorax",
+        "/guides/cardiac-tamponade-pericardial-emergency"
+      ],
+      "pendingVisible": true,
+      "automaticNavigationObserved": false,
+      "overflow": false,
+      "manualDestination": "/guides/acute-coronary-syndrome",
+      "destinationHeadings": [
+        "Acute Coronary Syndrome"
+      ],
+      "panelRemovedAfterNavigation": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Two presentation states, not a clinical or triage evaluation.",
+    "No backend, HTTP server, native printing or PDF/Word export exercised.",
+    "No protected branch, author source or composition modified."
+  ],
+  "browser": "158.0.8127.37"
+}

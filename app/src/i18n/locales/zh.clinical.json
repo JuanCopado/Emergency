@@ -347,5 +347,8 @@
   "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "搜索和筛选适用于“所有临床模块”。",
   "Prueba otro término o restablece la búsqueda y los filtros.": "请尝试其他关键词，或重置搜索和筛选。",
   "No hay coincidencias.": "没有匹配项。",
-  "Prueba otro nombre, ID o filtro.": "请尝试其他名称、ID 或筛选条件。"
+  "Prueba otro nombre, ID o filtro.": "请尝试其他名称、ID 或筛选条件。",
+  "Circuitos por causa de dolor torácico": "胸痛病因路径",
+  "Abrir un circuito existente": "打开现有路径",
+  "CLINICALLY_PENDING · Selección manual según la evaluación clínica y la guía anterior. Estos enlaces no seleccionan un diagnóstico ni indican un tratamiento.": "CLINICALLY_PENDING · 根据临床评估和上述指南手动选择。这些链接不选择诊断，也不指示治疗。"
 }

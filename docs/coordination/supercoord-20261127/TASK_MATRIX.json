@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "date": "2026-11-27",
   "receiver": "2058e97179ae793914dcd016e4fd033395dbc3e2",
   "receiver_tree": "78e27cb900f7dd901eb5aeb48026276dc48b942c",
@@ -264,12 +264,12 @@
       "dependencies": [
         "A-CARDIO-FICHAS"
       ],
-      "status": "PENDIENTE",
-      "execution_evidence": "Six original structural scopes recovered and compared in PR122 independent Codex audit",
-      "result": "pr122-audit/AUDIT.json",
-      "qa": "Existing modules and original source distinguished; no blanket dose approval",
-      "blocker": "Some numerical/jurisdiction/product portions need exact primary evidence; no duplicate implementation",
-      "next_action": "Original executor completes canonical comparisons and safe structural changes in isolated candidate"
+      "status": "EN EJECUCIÓN",
+      "execution_evidence": "Six exact fiches compared to canonical bodies in CARDIO_STRUCTURE_DELTA.json; manual five-link CARDIO06 increment implemented and tested separately",
+      "result": "../cardio06-manual-circuits-20261127/",
+      "qa": "Existing content distinguished from missing scope; no new clinical body or numeric treatment changes",
+      "blocker": "Remaining lesion-specific focal evidence, numerical sequence and product/jurisdiction verification; panel does not close all six fiches",
+      "next_action": "Review and CI of isolated manual navigation increment; retain remaining exact-source work"
     },
     {
       "id": "D-CLINICAL-MINIMAL-02",
@@ -277,10 +277,10 @@
       "dependencies": [
         "D-CLINICAL-MINIMAL"
       ],
-      "status": "TERMINADA",
+      "status": "AUDITADA",
       "execution_evidence": "Source d1993307661cd8063d7bac2a3c4e444ae28ba84d; actual SVG load defect found and corrected; build/lint/40existing tests/8browser states PASS; functional test source95749224965f28cb511948da4b1f3b6b34a75017, three new focused tests and ESLint PASS",
       "result": "../clinical-minimal-20261127/HERO_BROWSER_QA.json",
-      "qa": "Opt-in only; ES/PT-PT/EN/ZH; 30 links/search unchanged; source representation reconciliation DESIGN_SOURCE_HASH_NORMALIZATION.json; default/opt-in locale transition/safe reserved search text verified",
+      "qa": "Opt-in only; ES/PT-PT/EN/ZH; 30 links/search unchanged; source representation reconciliation DESIGN_SOURCE_HASH_NORMALIZATION.json; default/opt-in locale transition/safe reserved search text verified; separate final Codex review favorable and exact PR123 CI6workflows17checksPASS",
       "blocker": "Final composed SHA independent audit and CI required; browser intercepted bundle is not HTTP/backend",
       "next_action": "Review exact composed SHA; do not replace default interface"
     },
@@ -296,6 +296,19 @@
       "qa": "No pixels opened/copied/generated, no canonical reassignment, paired views are not independent cases",
       "blocker": "Pixel reuse/privacy by purpose and physical S2-11/S2-12 conditions remain; still10/30canonical",
       "next_action": "Use specifications only for permitted future development preparation; no independent study claim"
+    },
+    {
+      "id": "A-CARDIO06-MANUAL-LINKS",
+      "responsible": "Codex implementation; separate Codex static and Chrome reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Source e2a49e638fa329503e4f3a925de1f4026d452713;28testsPASS,lintPASS,build-securityPASS;twoindependentChromeStatesPASS",
+      "result": "../cardio06-manual-circuits-20261127/QA_RESULTS.json",
+      "qa": "Five existing manual links only, two surfaces, translated labels, canonical states, no-print, unchanged clinical bodies; final candidate ownCI pending",
+      "blocker": "PartialCARDIO06: no invented modules for remaining causes; no clinical-release approval",
+      "next_action": "Verify final candidate exact tree and CI; no protected merge"
     }
   ],
   "scope": "Living documentary follow-up; supersedes version1 state fields without rewriting the frozen PR121 tree",
@@ -347,13 +360,32 @@
     }
   ],
   "isolated_composition": {
-    "status": "ISOLATED_CANDIDATE_PENDING_OWN_FINAL_CI_AND_REVIEW",
-    "source_files_exactly_materialized": 15,
-    "new_runtime_sources": "owner decision documentary validator only, not prescribing",
-    "local_owner_regressions_passed": 18,
-    "new_ci_inherited_from_parents": false,
-    "design_increment_source": "d1993307661cd8063d7bac2a3c4e444ae28ba84d",
-    "hash_format_reconciliation": "dermatology/HASH_FORMAT_RECONCILIATION.json",
-    "functional_test_source": "95749224965f28cb511948da4b1f3b6b34a75017"
+    "scope": "Additional CARDIO06 manual navigation increment based on frozen PR123",
+    "status": "PREPARED_PENDING_OWN_FINAL_CI",
+    "source_commit": "e2a49e638fa329503e4f3a925de1f4026d452713",
+    "clinical_body_or_numeric_changes": false,
+    "local_tests_passed": 28,
+    "independent_browser_states_passed": 2,
+    "new_ci_inherited_from_parents": false
+  },
+  "verified_previous_composition": {
+    "pr": 123,
+    "sha": "1ba53d4f755850348206e5ee3b953fb55cb98a90",
+    "tree": "6cf5c2e851a755afe0774fb5d315990d254c849d",
+    "ci_workflows_pass": 6,
+    "ci_checks_pass": 17,
+    "sonar_pr_new_coverage_percent": 89.4,
+    "sonar_pr_new_issues": 0,
+    "merged": false,
+    "draft": true,
+    "evidence": "https://github.com/JuanCopado/Emergency/pull/123#issuecomment-7213534479"
+  },
+  "insulin_product_owner_information": {
+    "date": "2026-11-27",
+    "literal_answer": "SIN IDENTIFICAR",
+    "product_state": "SHORT_ACTING_PRODUCT_UNSPECIFIED",
+    "evidence": "https://github.com/JuanCopado/Emergency/pull/123#issuecomment-7213473543",
+    "new_clinical_approval": false,
+    "inferred_product_concentration_or_equivalence": false
   }
 }

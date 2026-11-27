@@ -1,0 +1,186 @@
+{
+  "task": "CARDIO-STRUCTURE-AUDIT-20261127",
+  "read_only": true,
+  "base_head": "04063b5e0b60047b08041af62a6291231b6cb697",
+  "base_tree": "6cf5c2e851a755afe0774fb5d315990d254c849d",
+  "original_proposal": {
+    "path": "ChatGPT_Trabajo\\WORK_CIERRE_FINAL_20261127\\PROTO_CARDIO_PR122\\MED_RES_CARDIO_ORIGINAL_V1_TEXTO_RENDERIZADO.txt",
+    "bytes": 11634,
+    "sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036"
+  },
+  "acceptance": {
+    "path": "ChatGPT_Trabajo\\WORK_CIERRE_FINAL_20261127\\PROTO_CARDIO_PR122\\MED_RES_CARDIO_ACEPTACION_LITERAL.txt",
+    "bytes": 404,
+    "sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec"
+  },
+  "limits": [
+    "Originalfooter limits all six proposals to structure, not alldoses orcompleteprescriptions",
+    "No repeated primarysource review; currenttaskis exactstructuralcomparison",
+    "PR122documentaryregistration doesnot equalruntimeimplementation",
+    "No codeedited,nopromotedstates,nopublicclinicalrelease"
+  ],
+  "items": [
+    {
+      "decision_id": "MED-RES-CARDIO-01",
+      "module": "arrhythmias-cardiac-arrest",
+      "source": "clinical/modules/cardiovascular.md:31",
+      "existing": [
+        "Router y cuatro circuitos manuales en ResuscitationCircuits; /clinical y /guides",
+        "ECG, perfusión y compromisoABC en adult-arrhythmias",
+        "CapnografíaRCP y reevaluaciónROSC en adult-cardiac-arrest; ETCO2 no decide cese aislado",
+        "Excepción pediátrica y exclusión neonatal preservadas"
+      ],
+      "remaining": [
+        "Monitorización estructurada aún no visible como panel propio del selector; información distribuida en destinos"
+      ],
+      "safe_delta": "Posible panel informativo que reuse literalmente conceptos canónicos aprobados; no necesario para corregir los enlaces ya existentes. No volver a implementar selector."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-02",
+      "module": "critical-valvular-disease",
+      "source": "clinical/modules/cardiovascular.md:177",
+      "existing": [
+        "POCUS puente; ecocardiografía experta urgente y HeartTeam",
+        "Estenosiscrítica diferenciada de regurgitaciónaguda; no estrategiauniversal",
+        "Cardiología/cirugíaytratamientopuente"
+      ],
+      "remaining": [
+        "No ramas separadas MRaguda/ARaguda/disfunciónprotésica/endocarditis como en propuesta original",
+        "Monitorización completa listada por propuesta no agrupada aquí"
+      ],
+      "safe_delta": "Estructuración por lesión aceptada, pero rellenar nuevas ramas clínicas necesita cotejo focal exacto de fuentes aplicables; no inventar fármacos o reemplazar regla canónica."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-03",
+      "module": "device-complications",
+      "source": "clinical/modules/cardiovascular.md:208",
+      "existing": [
+        "RamasCIED,imán,infecciónyLVAD explícitas",
+        "Perfusiónmecánicayestimulación/desfibrilaciónexterna",
+        "Límiteimán,mantenimiento/restauraciónterapias y especialista",
+        "Cultivosyextracciónespecializada temprana cuandoindicada"
+      ],
+      "remaining": [
+        "No nuevo contenido estructural sustantivo faltante acreditado; UI muestra texto canónico"
+      ],
+      "safe_delta": "No duplicar ramas ya presentes. Convertir secciones en presentación visual sería opcional y comparte alcance deinterfaz."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-04",
+      "module": "hypertensive-emergencies",
+      "source": "clinical/modules/cardiovascular.md:76",
+      "existing": [
+        "Lesióndeórganodno cifraaislada",
+        "Objetivoreduccióninicialgeneral ya canónico",
+        "Excepcionesaorta/ictus/edemapulmonar/SCA/obstetricia ymonitorización"
+      ],
+      "remaining": [
+        "Secuencia posterior general160/100en2-6h figura en propuesta original pero no canónico; no se implementa como parte del incremento sinumbrales",
+        "Ramas específicas existen en módulos destinos pero no todas tienen enlaces desde este texto"
+      ],
+      "safe_delta": "Enlacesmanuales a víasexistentes pueden añadirse después. La secuencia temporal es contenido clínico numérico y exige cotejo focal AHA/ACC2025 antesdepatch; no nueva votación del mismo alcance."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-05",
+      "module": "iv-antihypertensive-selection",
+      "source": "clinical/modules/cardiovascular.md:82",
+      "existing": [
+        "Selecciónporlesión,contraindicaciones ycontexto",
+        "Nicardipino,labetalol,clevidipino,esmolol,nitrato,hidralazina,nitroprusiatoyprecauciones",
+        "Remisiónaembarazoaortaedemapulmonar yvalidaciónpreparaciones"
+      ],
+      "remaining": [
+        "Comparaciónproducto/jurisdicción ES/US depropuesta no es selectorproductosoperativo",
+        "Identidadexactalabetalol entreetiquetas mantiene conciliacióndocumental; no presumirproductoPT"
+      ],
+      "safe_delta": "No habilitar productosocalculadoras desde aprobaciónestructural. Presentaciónreferencial conproducto/país requiere catálogo/verificaciónexactaprevios."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-06",
+      "module": "non-coronary-chest-pain",
+      "source": "clinical/modules/cardiovascular.md:94",
+      "existing": [
+        "Diagnósticodiferencialetiológico; cincoIDsde circuitosexistentes en texto",
+        "ECGtemprano,hsTroponinaporensayo yreevaluación",
+        "Noantitrombóticogenérico,nialtaporprueba/escalaúnica",
+        "Miocarditis/pericarditis porriesgo yroturaesófagourgente ya en texto"
+      ],
+      "remaining": [
+        "LoscincoIDsestán renderizadoscomotextoplano, no comoenlacesmanualesdedicados",
+        "No hay módulosindependientescanónicosmyocarditis/pericarditis/esófago acreditados para inventar destinos"
+      ],
+      "safe_delta": "Único incremento propuesto: panel5enlacesmanualescon getCanonicalGuide(título,estado) en /clinical y /guides. Cuerpo clínico intacto."
+    }
+  ],
+  "recommended_increment": {
+    "id": "CARDIO06-MANUAL-CIRCUIT-LINKS",
+    "status": "READY_FOR_ISOLATED_IMPLEMENTATION",
+    "manual_only": true,
+    "clinical_source_body_changed": false,
+    "routes": [
+      {
+        "module_id": "acute-coronary-syndrome",
+        "title": "Acute Coronary Syndrome",
+        "status": "green",
+        "source_path": "clinical/modules/cardiovascular.md",
+        "clinical_href": "/clinical/acute-coronary-syndrome",
+        "guide_href": "/guides/acute-coronary-syndrome"
+      },
+      {
+        "module_id": "acute-aortic-syndrome",
+        "title": "Acute Aortic Syndrome",
+        "status": "green",
+        "source_path": "clinical/modules/cardiovascular.md",
+        "clinical_href": "/clinical/acute-aortic-syndrome",
+        "guide_href": "/guides/acute-aortic-syndrome"
+      },
+      {
+        "module_id": "pulmonary-embolism",
+        "title": "Pulmonary Embolism",
+        "status": "green",
+        "source_path": "clinical/modules/cardiovascular.md",
+        "clinical_href": "/clinical/pulmonary-embolism",
+        "guide_href": "/guides/pulmonary-embolism"
+      },
+      {
+        "module_id": "tension-pneumothorax",
+        "title": "Tension Pneumothorax",
+        "status": "green",
+        "source_path": "clinical/modules/infection-respiratory.md",
+        "clinical_href": "/clinical/tension-pneumothorax",
+        "guide_href": "/guides/tension-pneumothorax"
+      },
+      {
+        "module_id": "cardiac-tamponade-pericardial-emergency",
+        "title": "Cardiac Tamponade Pericardial Emergency",
+        "status": "green",
+        "source_path": "clinical/modules/cardiovascular.md",
+        "clinical_href": "/clinical/cardiac-tamponade-pericardial-emergency",
+        "guide_href": "/guides/cardiac-tamponade-pericardial-emergency"
+      }
+    ],
+    "consumer_files": [
+      "app/src/pages/ClinicalLibrary.tsx:111",
+      "app/src/pages/ClinicalGuides.tsx:231"
+    ],
+    "reuse": [
+      "app/src/components/ResuscitationCircuits.tsx",
+      "app/src/clinical-guides/canonical.ts"
+    ],
+    "implementation": "One component with canonical ID allowlist; resolve titles/status at render; no prescription/automaticclassification; show only on non-coronary-chest-pain. Existingclinicalmodulebody retained verbatim.",
+    "qa": [
+      "Renderbothroutefamiliesandcheck5href/existingdestinationheading/status",
+      "Negative: panelabsentothermodules; noauto navigation/clinicalresult",
+      "4languages/responsive/accessibility via existingharness; no clinicalcontentchanges"
+    ],
+    "excluded": [
+      "NewnumericalBPsequence",
+      "Newdosesformulasorproductselection",
+      "Newmodules oresophageal/myocarditisrouteswithoutcanonicaldestination"
+    ]
+  },
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "artifact_kind": "PRE_IMPLEMENTATION_READ_ONLY_ANALYSIS_SNAPSHOT",
+  "implementation_followup": "See README.md and QA_RESULTS.json for subsequent isolated implementation and observed QA; this snapshot is not the final implementation state."
+}
