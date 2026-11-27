@@ -1,0 +1,6 @@
+{
+  "synthetic": true,
+  "question": "Can a single normal ECG or troponin exclude time-critical disease in the synthetic chest pain scenario?",
+  "as_of": "2026-11-27",
+  "expected_version": "git:a3ae85412a868c105c64ca8b491e1cb3a1df065c"
+}
