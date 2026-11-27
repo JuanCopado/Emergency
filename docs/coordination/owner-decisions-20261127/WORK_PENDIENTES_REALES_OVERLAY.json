@@ -1,0 +1,50 @@
+{
+  "scope": "Decision-lane overlay; other Work dependencies retain their current records.",
+  "source_url": "https://drive.google.com/file/d/1FQ7aa5H25YfSW8Z79F8HqNyjdL95HqJF/view",
+  "source_snapshot_sha256": "8e3fda619cef331c71eeb55e6af99c16f989e577a1df3e57f6a46d26c998e063",
+  "receiving_base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "decision_registry_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+  "superseded_protamine_entry": {
+    "id": "GMA-P1-003:MED-RES-PROT-01-v1",
+    "status": "LISTO_PARA_DECISION_MEDICA_PREVIA_NO_REABIERTO",
+    "responsible": "Juan Copado Ceballos",
+    "blocker": "No se localizó respuesta explícita en los canales revisados; no se presume ausencia universal.",
+    "next_action": "Usar la pregunta v1 conservada en WORK_DECISIONES_MEDICAS_PENDIENTES.md, sin reabrir19contratos.",
+    "release_condition": "Respuesta explícita de Juan sobre su alcance; NO mantiene perfil inactivo y hallazgo abierto.",
+    "blocks_technical_candidate": false
+  },
+  "closed": [
+    {
+      "id": "GMA-P1-003:MED-RES-PROT-01-v1",
+      "status": "RESOLVED_HISTORICAL_PROFILE_SCOPE",
+      "owner_response_pending": false,
+      "current_disposition": "clinical/references/owner-decisions-2026-11-27.json#protamine"
+    }
+  ],
+  "pending": [
+    {
+      "id": "CARDIO-01..06:EXPEDIENT_TRACEABILITY",
+      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
+      "owner_response_pending": false,
+      "next_action": "Work: recover original 06:10:21Z message intact, hash and bind approval 06:12:33Z; compare before substantive clinical changes."
+    },
+    {
+      "id": "DERMA:ASSET_PRIVACY_AND_RIGHTS",
+      "owner_response_pending": false,
+      "owner_approved_cases": 23,
+      "photographs_inventoried": 24,
+      "next_action": "Image lane: reconcile binary identities, privacy and rights per asset; no publication or product incorporation inferred."
+    },
+    {
+      "id": "CLINICAL_MINIMAL:IMPLEMENTATION",
+      "owner_response_pending": false,
+      "next_action": "Separate incremental implementation and audit; UX2 preserved here."
+    },
+    {
+      "id": "ANTIGRAVITY:THIS_CANDIDATE",
+      "status": "AUDIT_NOT_PERFORMED"
+    }
+  ],
+  "clinical_status": "CLINICALLY_PENDING",
+  "shared_drive_sources_modified": false
+}

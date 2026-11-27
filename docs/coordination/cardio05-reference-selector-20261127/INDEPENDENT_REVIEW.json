@@ -1,0 +1,78 @@
+{
+  "reviewer": "Codex separate reviewer of CARDIO05; not its author",
+  "source_commit": "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+  "source_tree": "80a974ad1199f4be27c5b6e5a36e414ac37c9eea",
+  "base_commit": "83139c2a79486efae6b75ecff94558b1f48e24fc",
+  "base_tree": "9673199197aa4ccde09987685e44839c04905639",
+  "verdict": "FAVORABLE_FINAL_CARDIO05_SCOPE_NO_P1_P2_FOUND",
+  "checks": {
+    "seven_generic_rows_match_exact_accepted_owner_section5": true,
+    "five_product_reference_objects_match_scientific_source": true,
+    "portugal_product_RCM_stock_unknown_not_claimed_absent": true,
+    "two_US_labetalol_sources_separate_original_compound_product_unknown": true,
+    "clevidipine_ES_perioperative_indication_preserved_not_FDA_universalization": true,
+    "initial_drug_and_country_empty_manual_only_no_i18n_inference": true,
+    "operational_profiles_or_dose_inputs_calculations_added": false,
+    "only_module_and_two_existing_surfaces": true,
+    "guard_removal_restores_entire_prior_cardiovascular_git_blob": true,
+    "all_prior_numeric_tokens_exact": true,
+    "only_catalog_delta_from_base": "iv-antihypertensive-selection",
+    "other_130_catalog_records_equal": true,
+    "all_131_states_and_review_dates_preserved": true,
+    "registry_only_adds_module_followup": true,
+    "locale_new_keys_each": 26,
+    "locale_keysets_equal_and_previous_values_unchanged": true,
+    "private_profile_path_credential_pattern_terminal_control_findings": 0,
+    "exports": "Canonical generic verification requirement outside no-print; interactive reference section no-print. No actual PDF/Word/native print run claimed for05."
+  },
+  "resolved_finding": {
+    "priority": "P2",
+    "issue": "Initial guard wording implied universal prior product/country verification",
+    "resolution": "Final guard states exact product/jurisdiction verification is required before use, rather than claiming already verified"
+  },
+  "author_QA_attribution": "16 React tests,12 projection tests,131 module validator,focused ESLint,TypeScript and build:security PASS per author and README; no suites rerun by reviewer",
+  "pending": [
+    "Exact newly published composed candidate CI and final composition metadata review remain separate"
+  ],
+  "limits": [
+    "This reviewer does not independently adjudicate clinical care or claim Antigravity audit.",
+    "Prior CARDIO02/04 implementations were independently audited by another reviewer; here only byte-preservation relative to their source base is checked.",
+    "CLINICALLY_PENDING and NO_GO_CLINICAL_RELEASE remain."
+  ],
+  "final_commit": "2da1a664ee140337fdbe498703378bcb89cd029a",
+  "final_tree": "8174fc00667052383928390a7101e57bb8348db2",
+  "final_document_delta": {
+    "only_three_docs_changed": true,
+    "twelve_source_git_blob_and_workspace_raw_hashes_match_author_QA": true,
+    "eleven_browser_runtime_source_hashes_match_author_QA": true,
+    "twelfth_source_is_test_file_not_browser_runtime": true,
+    "fifty_nine_dist_manifest_entries_match": true,
+    "private_profile_credential_and_terminal_control_matches": 0
+  },
+  "browser_receipt_review": {
+    "executor": "CARDIO05 author; not independent clinical validation",
+    "source_commit": "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+    "source_tree": "80a974ad1199f4be27c5b6e5a36e414ac37c9eea",
+    "dirty": "",
+    "states": [
+      "ES1366/clinical",
+      "PT360/guides"
+    ],
+    "status": "PASS",
+    "transport": "Native Chrome158.0.8127.37, built artifacts fulfilled on synthetic origin; no backend/server/source fetch",
+    "checks": [
+      "Empty manual selections",
+      "ES perioperative source scope preserved",
+      "Distinct labetalol references and unknown PT product/RCM/stock",
+      "No numerical inputs or outputs",
+      "No horizontal overflow or page errors",
+      "Print CSS interactive panel hidden and canonical verification guard visible"
+    ],
+    "not_executed": [
+      "Native print preview",
+      "Fresh PDF/Word execution",
+      "Full clinical validation"
+    ],
+    "reviewer_new_tests_run": 0
+  }
+}

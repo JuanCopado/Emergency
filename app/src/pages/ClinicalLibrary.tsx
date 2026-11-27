@@ -8,6 +8,8 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { getRelatedProcedures } from '../clinical-guides/relatedProcedures';
 import { ResuscitationCircuits, ResuscitationShortcut } from '../components/ResuscitationCircuits';
+import { ChestPainCircuits } from '../components/ChestPainCircuits';
+import { IvAntihypertensiveReference } from '../components/IvAntihypertensiveReference';
 
 function CanonicalContent({ guide }: { guide: CanonicalGuide }) {
   return (
@@ -109,6 +111,8 @@ export default function ClinicalLibrary() {
         <CountryReferences key={guide.id} moduleId={guide.id} />
         <div className="mt-5"><CanonicalContent guide={guide} /></div>
         {guide.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/clinical" /> : null}
+        <ChestPainCircuits moduleId={guide.id} base="/clinical" />
+        <IvAntihypertensiveReference moduleId={guide.id} />
 
         <section id="related-procedures" className="mt-7 border-t border-border pt-5">
           <h2 className="text-xl font-bold">Procedimientos relacionados</h2>

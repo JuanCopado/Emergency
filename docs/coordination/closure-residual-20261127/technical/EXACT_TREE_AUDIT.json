@@ -1,0 +1,69 @@
+{
+  "observed_at_utc": "2026-11-27T10:41:49.994682+00:00",
+  "reviewer": "Separate Codex technical residual reviewer; not Antigravity or human clinical adjudicator",
+  "published_candidate_sha": "54285f88c3901c63dff017ad0413593c0e0a8271",
+  "local_head": "6bb1308c3f6030fa95a43617f0075a6bc280bd16",
+  "local_tree": "65f34f3f175f0b0604c5a17c875f59f564543018",
+  "expected_tree": "65f34f3f175f0b0604c5a17c875f59f564543018",
+  "worktree_status": "",
+  "runtime_checks": {
+    "catalog_ids_equal": true,
+    "changed_catalog_modules": [
+      "hypertensive-emergencies",
+      "iv-antihypertensive-selection",
+      "critical-valvular-disease"
+    ],
+    "unrelated_128_catalog_records_equal": true,
+    "all_131_status_dates_preserved": true,
+    "locale_checks": {
+      "es": {
+        "new_keys": 26,
+        "old_values_preserved": true
+      },
+      "pt": {
+        "new_keys": 26,
+        "old_values_preserved": true
+      },
+      "en": {
+        "new_keys": 26,
+        "old_values_preserved": true
+      },
+      "zh": {
+        "new_keys": 26,
+        "old_values_preserved": true
+      }
+    },
+    "protected_runtime_diff_paths": [],
+    "product_urls_https": true,
+    "product_jurisdictions": [
+      "ES",
+      "US"
+    ],
+    "generic_rows": 7,
+    "product_reference_rows": 5
+  },
+  "matrix_checks": {
+    "tasks": 26,
+    "duplicate_ids": [],
+    "dangling_dependencies": [],
+    "invalid_statuses": [],
+    "snapshot_frozen_candidate": 121,
+    "snapshot_composition_status": "PREPARED_PENDING_PUBLICATION_AND_OWN_CI",
+    "rows_still_stating_pending_final_ci": [
+      "A-CARDIO-IMPLEMENTATION",
+      "D-CLINICAL-MINIMAL-02",
+      "A-CARDIO02-FIVE-BRANCHES",
+      "A-CARDIO04-STABLE-PHASE"
+    ]
+  },
+  "not_executed": [
+    "Full test suite rerun",
+    "New browser run",
+    "Native print/PDF/Word",
+    "Backend integration",
+    "Clinical source re-review"
+  ],
+  "conclusion": "No new runtime defect reproduced in this limited static scope; stale current-control metadata requires consolidation.",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE"
+}

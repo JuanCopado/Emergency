@@ -1,0 +1,506 @@
+{
+  "version": 6,
+  "date": "2026-11-27",
+  "receiver": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "receiver_tree": "78e27cb900f7dd901eb5aeb48026276dc48b942c",
+  "owner_record": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "status_vocabulary": [
+    "PENDIENTE",
+    "EN EJECUCIÓN",
+    "TERMINADA",
+    "AUDITADA",
+    "BLOQUEADA",
+    "INTEGRADA"
+  ],
+  "tasks": [
+    {
+      "id": "BASE-01",
+      "responsible": "Codex coordinación",
+      "dependencies": [],
+      "status": "AUDITADA",
+      "execution_evidence": "GitHub comparación receptor idéntica; tres workflows push del receptor success",
+      "result": "README.md",
+      "qa": "Identidad y ramas verificadas; no heredar CI a nuevo candidato",
+      "blocker": null,
+      "next_action": "Comprobar identidad al proponer integración"
+    },
+    {
+      "id": "A-DECISIONES",
+      "responsible": "Codex",
+      "dependencies": [
+        "BASE-01"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Registro9018 íntegro y overlay59b90e6",
+      "result": "../owner-decisions-20261127/TASK_CONTROL.json",
+      "qa": "JSON coherente; 8 IDs; diff documental",
+      "blocker": null,
+      "next_action": "Conservar aprobación y alcance en candidato"
+    },
+    {
+      "id": "A-PROT-CANDIDATO",
+      "responsible": "Chat Codex previamente asignado",
+      "dependencies": [
+        "A-DECISIONES"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "PR122a62515blobs retrieved and hash-verified; isolated composed owner regressions18/18PASS; separate Codex review noP1/P2",
+      "result": "../owner-decisions-20261127/CODEX_OWNER_DECISIONS_RECONCILIATION.md",
+      "qa": "Candidate received; parentCI in progress; not merged",
+      "blocker": null,
+      "next_action": "Collect parentCI and exact finalSHA; do not duplicate active implementation"
+    },
+    {
+      "id": "A-CARDIO-FICHAS",
+      "responsible": "Codex coordinación y chat asignado",
+      "dependencies": [
+        "A-DECISIONES"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Original proposal11634bytes SHA2d4d303c... and acceptance404bytes SHA10f5dcb... directly read from Drive/local exact receipts",
+      "result": "../owner-decisions-20261127/README.md",
+      "qa": "Six structural acceptances confirmed; no blanket dose approval",
+      "blocker": null,
+      "next_action": "Original executor compares six canonical scopes and prepares any permitted structural delta; no repeat vote"
+    },
+    {
+      "id": "B-CIENCIA-RECUPERACION",
+      "responsible": "Codex recuperación",
+      "dependencies": [
+        "BASE-01"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Inventario37 y acusesGeminiV3 recuperados",
+      "result": "README.md",
+      "qa": "229 contextos;115 con subafirmación focal;114 sin cotejo nuevo;0 nuevas lecturas integrales",
+      "blocker": null,
+      "next_action": "Resolver por indicación sin forzar prescripción"
+    },
+    {
+      "id": "B-GEMINI-LOTE2",
+      "responsible": "Gemini; coordinación de transmisión",
+      "dependencies": [
+        "B-CIENCIA-RECUPERACION"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Visible Gemini final response04d32d259a966ea3; existing Work receipts recovered;15/15V3+8/8focals37IDs",
+      "result": "science/CIERRE_LECTURA_FINAL.json",
+      "qa": "FAVORABLE_ALCANCE_DOCUMENTAL; not integral primary/clinical validation",
+      "blocker": null,
+      "next_action": "Continue only remaining source/indication fields"
+    },
+    {
+      "id": "B-RESIDUALES-PRIMARIOS",
+      "responsible": "Gemini y Codex científico",
+      "dependencies": [
+        "B-GEMINI-LOTE2"
+      ],
+      "status": "PENDIENTE",
+      "execution_evidence": "Deltas previos recuperados ACEP/AAD/IFEM/AHA/CDC/WSES/AHA-ASA/src-b5e20534; direct official AHA2025PPTXslides144/145 and scoped ESCvalvular focal map now recovered for approved02/04 scope, not integral reads",
+      "result": "README.md",
+      "qa": "No nuevas reglas ni lecturas integrales declaradas",
+      "blocker": "Derechos/edición/aclaraciones primarias y cotejos por indicación insuficientes",
+      "next_action": "Resolver exclusivamente lagunas documentadas; sin repetir adquisiciones"
+    },
+    {
+      "id": "C-DERM-OVERLAY",
+      "responsible": "Codex documental, alternativa a Gemini",
+      "dependencies": [
+        "A-DECISIONES"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "23decisiones/23casos/24activos reconciliados",
+      "result": "dermatology/DERMATOLOGY_ADMISSIBILITY_OVERLAY.json",
+      "qa": "13 controles documentales PASS; hashes físicos históricos atribuidos",
+      "blocker": null,
+      "next_action": "Apply per-use documentary addenda separately; keep pixel/privacy and release gates"
+    },
+    {
+      "id": "C-DERM-ADMISION",
+      "responsible": "Responsable de derechos y privacidad; revisión científica Gemini pendiente",
+      "dependencies": [
+        "C-DERM-OVERLAY"
+      ],
+      "status": "BLOQUEADA",
+      "execution_evidence": "Restricciones por activo conservadas;21casosconsulta condicionada2representatividad; per-use24assetmanifest and exact20pendingIDs reconciled; falseSCIN_NCclaim corrected against exact primary license.",
+      "result": "dermatology/DERMATOLOGY_RECONCILIATION.md",
+      "qa": "0 activos habilitados producto/redistribución/validación independiente",
+      "blocker": "Asset-specific privacy, purpose/consumer and genuine experimental conditions remain; NOT an SCIN noncommercial copyright restriction.",
+      "next_action": "Apply per-use manifest; exclude two CDC faces with consent gap. No repeat medical vote."
+    },
+    {
+      "id": "D-CLINICAL-MINIMAL",
+      "responsible": "Codex interfaz",
+      "dependencies": [
+        "BASE-01"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Codex source817628caccd356d9c67b3e307007614dfa1e0d66; combined local cherry-pick fa54499; 16 states in Chrome158",
+      "result": "../clinical-minimal-20261127/BROWSER_QA.json",
+      "qa": "Separate Codex review favorable exact tree74b50;6/6workflows17/17checksPASS for frozen282863; existing browser/40tests attributed",
+      "blocker": "HTTP localhost/backend not exercised: network access denied",
+      "next_action": "Antigravity new audit remains blocked; no merge/default replacement"
+    },
+    {
+      "id": "E-EXPERIMENTAL-PREPARACION",
+      "responsible": "Codex preparación; no Antigravity",
+      "dependencies": [
+        "BASE-01"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "10 documentos y30IDs/30custodia verificados",
+      "result": "experimental/EXPERIMENTAL_PREPARATION_RECONCILIATION.json",
+      "qa": "PASS cero hallazgos;10canónicos20pendientes;0adjudicaciones",
+      "blocker": null,
+      "next_action": "Aplicar checklist a material que pueda obtenerse realmente"
+    },
+    {
+      "id": "E-S2-11-S2-12",
+      "responsible": "Captura física y responsable material",
+      "dependencies": [
+        "E-EXPERIMENTAL-PREPARACION"
+      ],
+      "status": "BLOQUEADA",
+      "execution_evidence": "S2-11moiré;S2-12sincondiciónpanelpermiso completos",
+      "result": "experimental/EXPERIMENTAL_PREPARATION_CHECKLIST.md",
+      "qa": "Sin retoque para simular toma conforme ni promoción",
+      "blocker": "Nueva toma física y fuente/condición adecuadas no disponibles",
+      "next_action": "Captura real y evidencia del montaje conforme"
+    },
+    {
+      "id": "E-ANTIGRAVITY-AUDITORIA",
+      "responsible": "Antigravity",
+      "dependencies": [
+        "D-CLINICAL-MINIMAL"
+      ],
+      "status": "BLOQUEADA",
+      "execution_evidence": "Historical PR122 audit recovered from updated Work Drive reports; not transferable to PR125. Current native pipe unavailable and Codex app thread-list failed; no new verified transmission.",
+      "result": null,
+      "qa": "Dictamen5494 previo no se transfiere al candidato nuevo",
+      "blocker": "No current effective channel to authenticated Antigravity session; no new exact-PR125 verdict.",
+      "next_action": "Send exact candidate through restored supported channel and collect actual independent verdict; separate Codex review is documented."
+    },
+    {
+      "id": "F4-GRAFO",
+      "responsible": "Codex arquitectura",
+      "dependencies": [
+        "BASE-01"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Generador existente ejecutado y pruebas existentes14/14PASS",
+      "result": "architecture/CAPABILITY_DEPENDENCY_MAP.json",
+      "qa": "131módulos254fuentes397nodos417relaciones;129GREEN2YELLOW intactos",
+      "blocker": null,
+      "next_action": "Reusar grafo como inventario de dependencias"
+    },
+    {
+      "id": "F4-RAG-FHIR-HL7-PACS-AGENTES-G05",
+      "responsible": "Codex arquitectura",
+      "dependencies": [
+        "F4-GRAFO"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Inventario de código y contratos existentes; preparación entregada",
+      "result": "architecture/ARCHITECTURE_INCREMENT.md",
+      "qa": "No FHIR/HL7/PACS consumers in reviewed scope; DICOM guards and RSNA renderer do not constitute PACS",
+      "blocker": "Ampliaciones operativas dependen de consumidor, derechos, privacidad/retención y contrato de píxeles",
+      "next_action": "Seleccionar incremento sólo con dependencias resueltas; no activar servicios reales"
+    },
+    {
+      "id": "R5-SCA-EVALUACION",
+      "responsible": "Revisores independientes e institución cuando disponibles",
+      "dependencies": [],
+      "status": "BLOQUEADA",
+      "execution_evidence": "Propietario declara no disponer actualmente de revisores independientes",
+      "result": "experimental/EXPERIMENTAL_PREPARATION_CHECKLIST.md",
+      "qa": "No participantes,adjudicaciones,cohorte ni autorizaciones inventados",
+      "blocker": "Recursos y autorizaciones externos",
+      "next_action": "Continuar preparación; aplazar exclusivamente evaluación independiente/prospectiva"
+    },
+    {
+      "id": "B-FOCAL-NEW-01",
+      "responsible": "Gemini + separate Codex primary audit",
+      "dependencies": [
+        "B-CIENCIA-RECUPERACION"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Gemini response9fc3a430f5c9115e and direct/fragment primary cross-check",
+      "result": "science/PRIMARY_FOCAL_AUDIT.json",
+      "qa": "5 primary focal anchors directly obtained after coordinator browser read of NICE1.2.3 and PubMedabstractKAS; no integral review or clinical activation",
+      "blocker": "Integral indication reviews,local products,and BSH TLS2025 not closed",
+      "next_action": "Use metadata only; no numerical or clinical activation"
+    },
+    {
+      "id": "C-LICENSE-NEW-01",
+      "responsible": "Codex primary metadata + Gemini documentary reviewer",
+      "dependencies": [
+        "C-DERM-OVERLAY"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Gemini sessiond1daf4ef68f7df05 response10998e0b60834e10",
+      "result": "dermatology/PRIMARY_LICENSE_ADDENDUM_15.json",
+      "qa": "9 first+15 remaining=24 public copyright permissions documented with conditions; no third-party warranty or all-image privacy clearance",
+      "blocker": "Two CDC facial consent gaps preserved; Frontiers publication consent does not authorize other uses; individual privacy remains separate",
+      "next_action": "Retain licensing/attribution/no-reidentification and review each permitted use before runtime admission"
+    },
+    {
+      "id": "B-FOCAL-NEW-02",
+      "responsible": "Gemini web scientific session",
+      "dependencies": [
+        "B-FOCAL-NEW-01"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Gemini actual rendered response a0b8a6afefa04979,12700characters received",
+      "result": "science/B2_EMA_FOCAL_AUDIT.json; science/UROLOGY_DIRECT_PRIMARY_RECEIPT.json",
+      "qa": "Direct official primary focal readings for all five contexts; correction and scope limits documented",
+      "blocker": "No local product/procedure validation or whole-module clinical closure",
+      "next_action": "Responsible executor compares accepted canonical contexts; preserve no runtime effect"
+    },
+    {
+      "id": "A-CARDIO-IMPLEMENTATION",
+      "responsible": "Original Codex executor and coordination",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "EN EJECUCIÓN",
+      "execution_evidence": "Owner-approved02fivebranches/04stablephase/05manualreference+countryguard implemented and independently reviewed;06manualpathways alreadypublished with17checksPASS",
+      "result": "../cardio02-04-review-20261127/CARDIO02_04_INDEPENDENT_REVIEW.json",
+      "qa": "Combined runtime matches independently reviewed source2da1a664;threecatalogue modules changed,128others and131states/datespreserved;dosecalculations and originalnumericparagraphs unchanged; final exact PR125 SHA54285:8/8workflows,19/19checksPASS,SonarPR94.0%,0newissues.",
+      "blocker": "CARDIO05 PT product/RCM/availability and original labetalol composite identity unknown; CARDIO06 remains partial; no clinical release.",
+      "next_action": "Use science/SCIENCE_CARDIO_TRACE.md for six exact scopes; continue only product/cause-specific unresolved work."
+    },
+    {
+      "id": "D-CLINICAL-MINIMAL-02",
+      "responsible": "Codex design executor; separate Codex reviewer",
+      "dependencies": [
+        "D-CLINICAL-MINIMAL"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Source d1993307661cd8063d7bac2a3c4e444ae28ba84d; actual SVG load defect found and corrected; build/lint/40existing tests/8browser states PASS; functional test source95749224965f28cb511948da4b1f3b6b34a75017, three new focused tests and ESLint PASS",
+      "result": "../clinical-minimal-20261127/HERO_BROWSER_QA.json",
+      "qa": "Opt-in only; ES/PT-PT/EN/ZH; 30 links/search unchanged; source representation reconciliation DESIGN_SOURCE_HASH_NORMALIZATION.json; default/opt-in locale transition/safe reserved search text verified; separate final Codex review favorable and exact PR123 CI6workflows17checksPASS; final exact PR125 SHA54285:8/8workflows,19/19checksPASS,SonarPR94.0%,0newissues.",
+      "blocker": "New Antigravity audit unavailable; prior browser evidence does not establish HTTP/backend or native printing.",
+      "next_action": "Keep opt-in pilot and source-attributed QA; no default replacement."
+    },
+    {
+      "id": "E-DERM-DEVELOPMENT-SPECS-14",
+      "responsible": "Codex experimental preparation",
+      "dependencies": [
+        "C-DERM-OVERLAY"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Metadata selection builder executed; eight eligible SCIN metadata candidates, seven labels, fourteen development specifications, one reserve, sixteen exclusions",
+      "result": "experimental/DERMATOLOGY_DEVELOPMENT_ADAPTATION_14.json",
+      "qa": "No pixels opened/copied/generated, no canonical reassignment, paired views are not independent cases",
+      "blocker": "Pixel reuse/privacy by purpose and physical S2-11/S2-12 conditions remain; still10/30canonical",
+      "next_action": "Use specifications only for permitted future development preparation; no independent study claim"
+    },
+    {
+      "id": "A-CARDIO06-MANUAL-LINKS",
+      "responsible": "Codex implementation; separate Codex static and Chrome reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Source e2a49e638fa329503e4f3a925de1f4026d452713;28testsPASS,lintPASS,build-securityPASS;twoindependentChromeStatesPASS",
+      "result": "../cardio06-manual-circuits-20261127/QA_RESULTS.json",
+      "qa": "Separate static review and two actual Chrome states PASS; exact PR124a9ce8ba6workflows17checksPASS, first setup403 preserved and targeted retry successful",
+      "blocker": "PartialCARDIO06: other causes without a canonical destination remain; no clinical release",
+      "next_action": "Verify final candidate exact tree and CI; no protected merge"
+    },
+    {
+      "id": "A-CARDIO02-FIVE-BRANCHES",
+      "responsible": "Codex author; separate Codex source and technical reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Source5588a4c1d9ff63205090baf5267de85d2e0cd776;five literal approved branches and six monitoring domains; source/hash proof and independent review favorable",
+      "result": "../cardio02-five-branches-20261127/QA_RESULTS.json",
+      "qa": "After final AS wording correction:1cardiovascular+12projection tests,131module/254sourcevalidator and securitybuildPASS; no PDF02claim; final exact PR125 SHA54285:8/8workflows,19/19checksPASS,SonarPR94.0%,0newissues.",
+      "blocker": "No independent human clinical validation or release claimed.",
+      "next_action": "Preserve exact approved scope; no repeat vote, merge, deploy or automatic promotion."
+    },
+    {
+      "id": "A-CARDIO04-STABLE-PHASE",
+      "responsible": "Codex author; separate Codex primary and technical reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "AUDITADA",
+      "execution_evidence": "Sourcee5f788a793ad84cc46d2c5d42dd6d8d957cab292;exact subsequent stable phase in owner-approved proposal;direct officialPPTX144/145 reading",
+      "result": "../cardio04-stable-phase-20261127/IMPLEMENTATION_PROVENANCE.json",
+      "qa": "Original firstphase/exceptions preserved;1cardio+12projection,131/254validators,securitybuildPASS;twoChromePDFtextchecksPASS attributed to04 source only; final exact PR125 SHA54285:8/8workflows,19/19checksPASS,SonarPR94.0%,0newissues.",
+      "blocker": "No independent human clinical validation or release claimed.",
+      "next_action": "Preserve exact approved scope; no repeat vote, merge, deploy or automatic promotion."
+    },
+    {
+      "id": "A-CARDIO05-REFERENCE-SELECTOR",
+      "responsible": "Codex UI author; separate Codex scientific and technical reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Codee58d33e8565e51aef9dfbdbb640c1e27a05bddb1 andQA2da1a664ee140337fdbe498703378bcb89cd029a;7manualgenerics/3manualjurisdictionsinitiallyempty;26labels4locales",
+      "result": "../cardio05-reference-selector-20261127/QA_RESULTS.json",
+      "qa": "16functionalReact+12projection/131validators,tsc/lint/buildsecurityPASS;2realChromeStatesPASS;source12/dist59fingerprints;printCSSpanelhidden/guardvisible,notnativePDFWord; final exact PR125 SHA54285:8/8workflows,19/19checksPASS,SonarPR94.0%,0newissues.",
+      "blocker": "PARTIAL05_INFORMATIONAL:sourcecheckeddoesnotmeanoperationalprofile;PTandoriginalcompoundlabidentitypending;noadministrationfieldsorcalculations",
+      "next_action": "Verify finalcombinedSHA CI; keepalloperativeprofilesdisabled pendingexactproduct/protocolverification"
+    }
+  ],
+  "scope": "Consolidated residual control; current PR125 technical evidence and per-use limits supersede historical snapshots, without clinical release.",
+  "dermatology_copyright_documented_assets": 24,
+  "dermatology_bank_wide_privacy_closed": false,
+  "composition_sources": [
+    {
+      "pr": 121,
+      "sha": "282863761b1d4e80f5afc3347bbc54b969adf350",
+      "tree": "74b50e9a83b65c4325304e438c1565bbac52f1f6",
+      "source_ci": "6workflows17checksPASS"
+    },
+    {
+      "pr": 122,
+      "sha": "a625267c2aea5b23e1d517d59251eb3d4924856f",
+      "tree": "cf01aba0df5143ee6093618de13cba73e8d37c18",
+      "source_ci": "IN_PROGRESS_AT_IMPORT",
+      "source_ci_later_verified": "17of17checksPASS exact a625267; not inherited by composed head"
+    }
+  ],
+  "isolated_composition": {
+    "scope": "Owner-approved02/04 plus informationalmanual05 withproduct/countryverificationguard",
+    "status": "PUBLISHED_OWN_CI_PASS_TECHNICAL_SCOPE_ONLY",
+    "base_pr": 124,
+    "base_sha": "a9ce8ba525bf23804fee8db50c7f9e88b32a1bf8",
+    "source_commits": [
+      "e5f788a793ad84cc46d2c5d42dd6d8d957cab292",
+      "5588a4c1d9ff63205090baf5267de85d2e0cd776",
+      "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+      "2da1a664ee140337fdbe498703378bcb89cd029a"
+    ],
+    "source_tree": "8174fc00667052383928390a7101e57bb8348db2",
+    "changed_clinical_modules": [
+      "critical-valvular-disease",
+      "hypertensive-emergencies",
+      "iv-antihypertensive-selection"
+    ],
+    "unrelated_catalogue_modules_preserved": 128,
+    "module_states_and_dates_preserved": 131,
+    "drug_dose_or_formula_changes": false,
+    "new_ci_inherited_from_parents": false,
+    "published_sha": "54285f88c3901c63dff017ad0413593c0e0a8271"
+  },
+  "verified_previous_composition": {
+    "pr": 123,
+    "sha": "1ba53d4f755850348206e5ee3b953fb55cb98a90",
+    "tree": "6cf5c2e851a755afe0774fb5d315990d254c849d",
+    "ci_workflows_pass": 6,
+    "ci_checks_pass": 17,
+    "sonar_pr_new_coverage_percent": 89.4,
+    "sonar_pr_new_issues": 0,
+    "merged": false,
+    "draft": true,
+    "evidence": "https://github.com/JuanCopado/Emergency/pull/123#issuecomment-7213534479"
+  },
+  "insulin_product_owner_information": {
+    "date": "2026-11-27",
+    "literal_answer": "SIN IDENTIFICAR",
+    "product_state": "SHORT_ACTING_PRODUCT_UNSPECIFIED",
+    "evidence": "https://github.com/JuanCopado/Emergency/pull/123#issuecomment-7213473543",
+    "new_clinical_approval": false,
+    "inferred_product_concentration_or_equivalence": false
+  },
+  "verified_cardio_manual_links": {
+    "pr": 124,
+    "sha": "a9ce8ba525bf23804fee8db50c7f9e88b32a1bf8",
+    "tree": "232155f763f44a3e8aa6b66e9c8e825cb0fa2fae",
+    "workflows_pass": 6,
+    "checks_pass": 17,
+    "sonar_pr_new_coverage_percent": 92.3,
+    "sonar_pr_new_issues": 0,
+    "security_push_attempt": 2,
+    "initial_infrastructure_failure": "HTTP403 from Microsoft apt repository before tests; no controls weakened; original attempt retained",
+    "merged": false
+  },
+  "environment_recovery": {
+    "local_environment_temporarily_unavailable": true,
+    "windows_access_reverified": true,
+    "local_source_head_reverified": "83139c2a79486efae6b75ecff94558b1f48e24fc",
+    "source_tree_reverified": "9673199197aa4ccde09987685e44839c04905639",
+    "no_simulated_local_operations": true,
+    "authorized_D_path_available": false
+  },
+  "administrative_pr_cleanup": {
+    "closed_superseded_prs": [
+      121,
+      122
+    ],
+    "source_heads_preserved_as_ancestors_of_pr123": true,
+    "branches_deleted": false,
+    "protected_merge_performed": false
+  },
+  "historical_candidate_snapshot": {
+    "frozen_candidate": {
+      "pr": 121,
+      "sha": "282863761b1d4e80f5afc3347bbc54b969adf350",
+      "tree": "74b50e9a83b65c4325304e438c1565bbac52f1f6",
+      "ci_workflows_success": 6,
+      "checks_success": 17,
+      "checks_total": 17,
+      "merged": false,
+      "draft": true,
+      "followup_runtime_changes": false
+    },
+    "sonar": {
+      "quality_gate_pr": "PASS",
+      "quality_gate_push": "PASS",
+      "pr_new_coverage_percent": 80.0,
+      "pr_new_issues": 0,
+      "push_new_coverage_percent": 85.5,
+      "push_new_issues": 1,
+      "security_hotspots": 0,
+      "inherited_issue": {
+        "id": "AaIb5N3HrcQHl0q_CDEq",
+        "rule": "javascript:S1313",
+        "severity": "LOW",
+        "path": "app/scripts/clinical-api-boundary.mjs",
+        "line": 2,
+        "introduced_date_as_shown": "2026-11-22",
+        "unchanged_blob": "61899bc338654684eb89ab0605791f5ae1a4453b",
+        "rule_suppressed": false
+      }
+    }
+  },
+  "current_candidate": {
+    "pr": 125,
+    "sha": "54285f88c3901c63dff017ad0413593c0e0a8271",
+    "tree": "65f34f3f175f0b0604c5a17c875f59f564543018",
+    "ci_workflows_success": 8,
+    "checks_success": 19,
+    "checks_total": 19,
+    "sonar_pr_new_coverage_percent": 94.0,
+    "sonar_pr_new_issues": 0,
+    "sonar_security_hotspots": 0,
+    "draft": true,
+    "merged": false,
+    "attestation": "https://github.com/JuanCopado/Emergency/pull/125#issuecomment-7215540492"
+  },
+  "residual_review": {
+    "inventory_unique_ids": 37,
+    "catalogue_green": 129,
+    "catalogue_yellow": 2,
+    "new_runtime_defect_demonstrated": false,
+    "scope": "Focal static/documentary review; no universal defect-free claim.",
+    "new_medical_yes_no_mature": 0,
+    "scin_noncommercial_claim": "WITHDRAWN_INCORRECT; exact license has no NC clause",
+    "canonical_stimuli_ready": 10,
+    "canonical_stimuli_pending": 20,
+    "new_images_created": 0,
+    "new_adjudications": 0,
+    "gemini_web_current": "Unauthenticated alternate browser, no recovered session",
+    "native_computer_use_current": "Native pipe unavailable; no simulated control",
+    "D_path_current": "Not exposed; local Windows C workspace accessible",
+    "gemini_cli_current": "Actual invocation returned authentication error41; no new scientific execution or receipt claimed."
+  }
+}

@@ -321,6 +321,13 @@
         "remaining_gate": "Evidence status only; individualized drug choice and institutional targets remain mandatory.",
         "report": "qa/FIRST_TEN_OVERDUE_REVIEW_2026-11-13.json",
         "limitations": "Primary AHA2025 recommendation table indexed; primary ESC2024 emergency section indexed; no new clinician/pharmacist signature or prospective/local release validation claimed."
+      },
+      "implementation_followup": {
+        "decision": "MED-RES-CARDIO-04 v1",
+        "scope": "Exact accepted stable subsequent phase only; initial rule and exceptions preserved",
+        "report": "../docs/coordination/cardio04-stable-phase-20261127/README.md",
+        "source_reused": "AHA/ACC BP2025 section6.2; DOI10.1161/CIR.0000000000001356; official slides144/145",
+        "global_release": "NO_GO_CLINICAL_RELEASE"
       }
     },
     "acute-heart-failure": {
@@ -400,6 +407,13 @@
         "remaining_gate": "Scope is emergency bridge, not selection of definitive device/surgery or local procedural approval.",
         "report": "qa/FIRST_TEN_OVERDUE_REVIEW_2026-11-13.json",
         "limitations": "Official ESC2025 guideline listing and primary published acute-decompensation sections indexed; no new clinician/pharmacist signature or prospective/local release validation claimed."
+      },
+      "implementation_followup": {
+        "decision": "MED-RES-CARDIO-02 v1",
+        "scope": "Five accepted lesion-specific contexts and severity-dependent six-domain monitoring; no new drugs or targets",
+        "report": "../docs/coordination/cardio02-five-branches-20261127/README.md",
+        "source_reused": "ESC/EACTS2025 valvular guidance and existing ESC2023 infective-endocarditis pathway; focal mapping7478b306",
+        "global_release": "NO_GO_CLINICAL_RELEASE"
       }
     },
     "airway-rsi": {
@@ -480,6 +494,15 @@
         "outcome": "green",
         "report": "qa/EVIDENCE_RENEWAL_2026-11-13.json",
         "limitations": "Bibliographic evidence status only; existing local/professional release gates retained."
+      },
+      "implementation_followup": {
+        "decision": "MED-RES-CARDIO-05 v1",
+        "scope": "Partial informational reference selector for seven accepted generics with explicit manual jurisdiction, distinct source provenance and operational verification; generic product-label guard appended without changing numerical examples",
+        "report": "../docs/coordination/cardio05-reference-selector-20261127/README.md",
+        "source_reused": "Original accepted section5; focal documentary product/jurisdiction receipt c3ddf224c6cd74d8067d182ee0296b3149c37d26; no new full label review by implementer",
+        "operational_administration_enabled": false,
+        "remaining": "Portuguese product/RCM/availability and original compound-source labetalol product remain unestablished; source metadata is not operational verification",
+        "global_release": "NO_GO_CLINICAL_RELEASE"
       }
     },
     "obstetric-emergencies": {

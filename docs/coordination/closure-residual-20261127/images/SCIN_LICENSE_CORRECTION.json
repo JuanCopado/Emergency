@@ -1,0 +1,25 @@
+{
+  "finding_id": "DERM-SCIN-NC-ERRATUM-20261127",
+  "status": "PRIMARY_SOURCE_VERIFIED_DOCUMENTARY_CORRECTION",
+  "source": "https://github.com/google-research-datasets/scin/blob/b5a498233ef23b24c2f9fdb41b53e162c6eeb98d/LICENSE",
+  "version": "b5a498233ef23b24c2f9fdb41b53e162c6eeb98d",
+  "git_blob_sha_as_previously_verified": "b73abe395e1a01467c215f456fe1b95f80a12a49",
+  "retrieval_this_cycle": "Exact version raw LICENSE retrieved successfully with GitHub connector; expected git blob URL also returned license text",
+  "incorrect_prior_claim": "Eight SCIN assets are subject to a non-commercial-use restriction",
+  "correction": "No non-commercial-use clause was found in the verified SCIN Data Use License. Do not create or maintain an NC contractual blocker from that claim.",
+  "locators": {
+    "copyright_grant": "Section 2(a)(1), reproduce/share and produce/share adapted material",
+    "formats": "Section 2(a)(4)",
+    "privacy_exclusion": "Section 2(b)(1)",
+    "attribution_changes_license_disclaimer": "Section 3(a)",
+    "no_reidentification_relinking": "Section 3(b)",
+    "as_is_no_warranties": "Section 5(a)"
+  },
+  "scope_limit": "This corrects a specific documentary error, not a universal legal clearance. The precise consumer/purpose and asset-specific privacy assessment still matter. Source consent/deidentification provenance is distinct from individual unlimited consent, operational product admission or a new independent clinical study.",
+  "existing_local_custody_preserved": true,
+  "new_pixel_use_or_transfer": false,
+  "runtime_admission": false,
+  "new_owner_medical_vote_required": false,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

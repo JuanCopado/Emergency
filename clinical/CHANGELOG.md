@@ -1,3 +1,11 @@
+27/11/2026 - CARDIO05: partial informational manual selector for seven accepted reference generics and explicit US/ES/PT source filtering; no administration profiles or calculations. Product/jurisdiction verification guard appended to the canonical module; all numerical examples, states and review dates preserved. Portuguese operational identity/RCM/availability and compound-source labetalol identity remain unresolved. See ../docs/coordination/cardio05-reference-selector-20261127/README.md. CLINICALLY_PENDING.
+
+27/11/2026 - CARDIO02: separate five accepted lesion-specific contexts and six monitoring domains according to severity; preserve expert echo/POCUS boundary and existing criticalAS safeguards. No drug regimen,numeric target or evidence promotion. See ../docs/coordination/cardio02-five-branches-20261127/README.md.
+
+27/11/2026 - CARDIO04: append the accepted conditional next2-6hour BP target below160/100 to hypertensive-emergencies; preserve the complete initial rule and syndrome-specific exclusions. No drug regimen, arithmetic, evidence state or review date changed. See ../docs/coordination/cardio04-stable-phase-20261127/README.md. CLINICALLY_PENDING.
+
+27/11/2026 · Decisiones del propietario: conciliación 9018e14 sobre 2058e971, cierre histórico limitado MED-RES-PROT-01/GMA-P1-003, seis aprobaciones CARDIO preservadas con comparación y trazabilidad pendiente, 23 DERMA y Clinical Minimal conservados. Regresiones de límites, activación, sustitución, privacidad y no liberación; fuentes/rutas activas sin cambios. CLINICALLY_PENDING.
+
 26/11/2026 · Cierre coordinado/PR119: agreement exige manifiesto de roles con IDs estables, referencias del custodio y paneles por idioma; solo consistencia formal, sin acreditar independencia humana. G05-01–06 y autoridad clínica de Juan conciliados; dos valores PT traducidos. Sin cálculo, regla clínica ni estado de aprobación alterados. CLINICALLY_PENDING.
 
 26/11/2026 · PR116/Sonar: separación de recursos localizados de la lógica y ordenación explícita de instantáneas; valores de texto y parámetros clínicos preservados. Sin cambio de gates o umbrales. CLINICALLY_PENDING.

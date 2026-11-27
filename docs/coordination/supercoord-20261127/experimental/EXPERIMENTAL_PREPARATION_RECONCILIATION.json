@@ -1,0 +1,494 @@
+{
+  "task_id": "E-R88-RECONCILIATION-20261127",
+  "executor": "Codex fallback coordination",
+  "not_antigravity_audit": true,
+  "source_observed_UTC": "2026-11-27T06:05:13.649953+00:00",
+  "canonical_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+  "receiver_declared_by_coordinator": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "source_admission": {
+    "relative_path": "WORK_CIERRE_FINAL_20261127/IMAGEN_R88/COORDINACION/ADMISION_OPERATIVA_30.json",
+    "bytes": 60640,
+    "sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168"
+  },
+  "new_verification": "Documentary bytes and structural reconciliation only; no image bytes decoded or rehashed",
+  "documentary_integrity": [
+    {
+      "file": "COORDINACION/ADMISION_OPERATIVA_30.json",
+      "matches": true,
+      "expected_sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168",
+      "actual": {
+        "bytes": 60640,
+        "sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168"
+      }
+    },
+    {
+      "file": "COORDINACION/DERMATOLOGIA_RECEPCION_23_CASOS.json",
+      "matches": true,
+      "expected_sha256": "c14548677089f00bc0085416f4abb3a658db93baff7d43ea09420fdc0fcd8653",
+      "actual": {
+        "bytes": 85340,
+        "sha256": "c14548677089f00bc0085416f4abb3a658db93baff7d43ea09420fdc0fcd8653"
+      }
+    },
+    {
+      "file": "COORDINACION/DESIGNACION_Y_TRANSFERENCIA_PREPARADA.json",
+      "matches": true,
+      "expected_sha256": "d2d3befd08506002a11e32c3691619e0ec33040b15d8ca766f11b2129e3d3789",
+      "actual": {
+        "bytes": 6479,
+        "sha256": "d2d3befd08506002a11e32c3691619e0ec33040b15d8ca766f11b2129e3d3789"
+      }
+    },
+    {
+      "file": "COORDINACION/REFERENCIAS_16_NA14_Y_CUSTODIA.json",
+      "matches": true,
+      "expected_sha256": "d292953881ca9957e530abd55202d3861b3a3d2dec3116e6e1d55d6514b85b25",
+      "actual": {
+        "bytes": 22815,
+        "sha256": "d292953881ca9957e530abd55202d3861b3a3d2dec3116e6e1d55d6514b85b25"
+      }
+    },
+    {
+      "file": "LEEME_RECEPCION_IMAGEN_R88.md",
+      "matches": true,
+      "expected_sha256": "b85eca7d47b0cbf0e1135b6eb83ac4bf1b39e92da0af642474e4e28c63258366",
+      "actual": {
+        "bytes": 2846,
+        "sha256": "b85eca7d47b0cbf0e1135b6eb83ac4bf1b39e92da0af642474e4e28c63258366"
+      }
+    },
+    {
+      "file": "PAQUETE_SEGURO/ENCARGO_AUDITOR_DOCUMENTAL.md",
+      "matches": true,
+      "expected_sha256": "e1ae58ca1efb1e704faef33bf4ba4145e336e0dddec9fd14c649c08ec2967771",
+      "actual": {
+        "bytes": 1716,
+        "sha256": "e1ae58ca1efb1e704faef33bf4ba4145e336e0dddec9fd14c649c08ec2967771"
+      }
+    },
+    {
+      "file": "PAQUETE_SEGURO/PAQUETE_IMAGEN_R88_DOCUMENTAL.json",
+      "matches": true,
+      "expected_sha256": "a40c77799ada951ec02c883a33cf8ae98706a266b77642d9b85f0bb3613c5940",
+      "actual": {
+        "bytes": 6430,
+        "sha256": "a40c77799ada951ec02c883a33cf8ae98706a266b77642d9b85f0bb3613c5940"
+      }
+    },
+    {
+      "file": "preparar_recepcion_imagen.py",
+      "matches": true,
+      "expected_sha256": "64f7d12411d9f31c4533a4b655b2f285473ade43557c860c6542ec708a5b715b",
+      "actual": {
+        "bytes": 26427,
+        "sha256": "64f7d12411d9f31c4533a4b655b2f285473ade43557c860c6542ec708a5b715b"
+      }
+    },
+    {
+      "file": "S2_12_COTEJO_PRIMARIO_NUEVO.json",
+      "matches": true,
+      "expected_sha256": "e2eab4d89d01a087d9d7a3e5aee67997330d92e06038cf5fb8bdff42fe19c06e",
+      "actual": {
+        "bytes": 2436,
+        "sha256": "e2eab4d89d01a087d9d7a3e5aee67997330d92e06038cf5fb8bdff42fe19c06e"
+      }
+    },
+    {
+      "file": "VERIFICACION_RECEPCION.json",
+      "matches": true,
+      "expected_sha256": "bc511b42ae415bcdc9e3f5c6bcf4346188eed7532b3641348a0fc078a8105a41",
+      "actual": {
+        "bytes": 1177,
+        "sha256": "bc511b42ae415bcdc9e3f5c6bcf4346188eed7532b3641348a0fc078a8105a41"
+      }
+    }
+  ],
+  "status": "PASS_DOCUMENTARY_RECONCILIATION_ONLY",
+  "findings": [],
+  "counts": {
+    "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION": 14,
+    "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO": 10,
+    "CAPTURA_CONDICIONAL_PARA_PREADMISION": 4,
+    "BLOQUEADO_REPETICION_FISICA_MOIRE": 1,
+    "BLOQUEADO_CONDICION_EXPERIMENTAL_Y_PANEL": 1
+  },
+  "canonical_present": 10,
+  "canonical_absent": 20,
+  "new_canonical_promotions": 0,
+  "diagnostic_reference_required": 16,
+  "diagnostic_reference_NA": 14,
+  "physical_asset_integrity_reused": {
+    "source": "WORK_CIERRE_FINAL_20261127/IMAGEN_R88/VERIFICACION_RECEPCION.json",
+    "canonical": 10,
+    "mobile_candidates": 5,
+    "dermatology": 24,
+    "scope": "Earlier Work receipt; not new pixel/privacy/diagnostic review"
+  },
+  "external_review_reused": {
+    "reviewer": "Gemini web",
+    "not_antigravity": true,
+    "verdict": "FAVORABLE_ALCANCE_DOCUMENTAL",
+    "source": "WORK_CIERRE_FINAL_20261127/GEMINI/DICTAMEN_IMAGEN_V2_RECIBIDO.md",
+    "scope": "Documentary preparation and A1-A8 only; no human independence or admission"
+  },
+  "inventory": [
+    {
+      "stimulus_id": "S1-01",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/0",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-01",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/1",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-02",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/2",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-02",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/3",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-03",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/4",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-03",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/5",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-04",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/6",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-04",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/7",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-05",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/8",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-05",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/9",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-06",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/10",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-06",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/11",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-07",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/12",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S2-07",
+      "canonical_file_present_in_record": false,
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/13",
+      "action": "Mantener la posición histórica sin reasignar. Preparar adaptación expresa a la línea clínica dermatológica gratuita antes de usar una fotografía real para este objetivo."
+    },
+    {
+      "stimulus_id": "S1-08",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "e1ef94da909021ada458d5f501b07d978c2fdc59bfc97ccfa613a69bcf957620",
+      "available_bytes": 91812,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/14",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S2-08",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "6b7ec6456cbdd04eee1dbed3357042199afbb4e08f6d34636087d7a22db32acd",
+      "available_bytes": 94285,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/15",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S1-09",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "38ff1bdd9a07434f017b01d74272dc1e1a38263f54a8e62aa493a7088ce79ebc",
+      "available_bytes": 16052,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/16",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S2-09",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "e55d2d35203147e3f92c95c61e464a80dca4a28f08a7de495dd46648a21fa077",
+      "available_bytes": 218418,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/17",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S1-10",
+      "canonical_file_present_in_record": false,
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "available_file_sha256": "5f7cc1e21d315c7f6ae649692de78bf07872a6b2c5ba69d263f4c0e85070fdde",
+      "available_bytes": 1286046,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/18",
+      "action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta."
+    },
+    {
+      "stimulus_id": "S2-10",
+      "canonical_file_present_in_record": false,
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "available_file_sha256": "6f3c24e7fe3704bad39098e4faaf5e2e3b0067af9214c15b623ada8353f340c9",
+      "available_bytes": 1514502,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/19",
+      "action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta."
+    },
+    {
+      "stimulus_id": "S1-11",
+      "canonical_file_present_in_record": false,
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "available_file_sha256": "04a1d6505774a4bba2cc20b83bbcacb78ac4d613023fa40709a60ce2e11d6717",
+      "available_bytes": 5189440,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/20",
+      "action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta."
+    },
+    {
+      "stimulus_id": "S2-11",
+      "canonical_file_present_in_record": false,
+      "status": "BLOQUEADO_REPETICION_FISICA_MOIRE",
+      "available_file_sha256": "e7c097728b6850708f178df072ad3721ded3deac366b775d5f034330a5c70bde",
+      "available_bytes": 2744043,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/21",
+      "action": "Repetir físicamente la captura para reducir el moiré a leve conforme a la ficha; conservar original. No corregirlo digitalmente."
+    },
+    {
+      "stimulus_id": "S1-12",
+      "canonical_file_present_in_record": false,
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "available_file_sha256": "53d12e498b1e86d90fe67331e337a825e3e22fb2a8cc7f0aa83cdf40ebea93f0",
+      "available_bytes": 1193704,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/22",
+      "action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta."
+    },
+    {
+      "stimulus_id": "S2-12",
+      "canonical_file_present_in_record": false,
+      "status": "BLOQUEADO_CONDICION_EXPERIMENTAL_Y_PANEL",
+      "available_file_sha256": null,
+      "available_bytes": null,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/23",
+      "action": "Obtener un original autorizado con ventana y condición sin derrame explícitamente documentadas; revisar metodología antes de preparar fotografía móvil."
+    },
+    {
+      "stimulus_id": "S1-13",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "2c61bbdf6e1f6b002218320f17abf57a5df1d615acfc4f86899bc07f98b27aa1",
+      "available_bytes": 2263,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/24",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S2-13",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "dab1bfeb66cba747b16927d245178e8d2cfdc8efcc9ab1c94aac9f835899d3de",
+      "available_bytes": 72047,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/25",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S1-14",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "3279ec6a55f2630d6f2996bb1600b3f426c3953e5f1aaf91cea847c39467de84",
+      "available_bytes": 8933,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/26",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S2-14",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "281353c78416bdd33faf21b3ca1db707f8894948db1b7013b11a77286fabd745",
+      "available_bytes": 1371,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/27",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S1-15",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "611db5fe62c256dcf243ecd9a54aa04bd07e9885ae15e88e8b5ee79379a43eca",
+      "available_bytes": 4693,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/28",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    },
+    {
+      "stimulus_id": "S2-15",
+      "canonical_file_present_in_record": true,
+      "status": "DISPONIBLE_PARA_PREADMISION_DOCUMENTAL_NO_ADMITIDO",
+      "available_file_sha256": "01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede",
+      "available_bytes": 1368,
+      "formal_admission": false,
+      "independent_reference_and_review": "PENDING",
+      "existing_dossier_pointer": "/dossiers/29",
+      "action": "Comprobar privacidad, legibilidad y equivalencia de la pareja conforme a la ficha; obtener dos revisiones humanas y adjudicación individual antes de admitir."
+    }
+  ],
+  "pending_stimulus_ids": [
+    "S1-01",
+    "S2-01",
+    "S1-02",
+    "S2-02",
+    "S1-03",
+    "S2-03",
+    "S1-04",
+    "S2-04",
+    "S1-05",
+    "S2-05",
+    "S1-06",
+    "S2-06",
+    "S1-07",
+    "S2-07",
+    "S1-10",
+    "S2-10",
+    "S1-11",
+    "S2-11",
+    "S1-12",
+    "S2-12"
+  ],
+  "clinical": "CLINICALLY_PENDING",
+  "bank": "NOT_FROZEN_NOT_VALIDATED",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "participants_started": false,
+  "clinical_adjudications_created": 0,
+  "new_external_transmissions": 0
+}

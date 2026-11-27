@@ -1,0 +1,18 @@
+{
+  "comparison_base": "5b695e9b7dacd5e2806d4fa94a0e832fda990b3a",
+  "only_changed_clinical_sections": [
+    "hypertensive-emergencies",
+    "critical-valvular-disease"
+  ],
+  "changed_catalog_modules": [
+    "hypertensive-emergencies",
+    "critical-valvular-disease"
+  ],
+  "other_129_catalog_records_exactly_equal": true,
+  "all_131_states_last_checked_and_original_registry_fields_exactly_equal_after_removing_two_documentary_followups": true,
+  "new_source_aliases": false,
+  "new_module_ids": false,
+  "new_drugs_doses_formulas_products": false,
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE"
+}

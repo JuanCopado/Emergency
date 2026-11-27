@@ -1,0 +1,34 @@
+{
+  "scope": "CARDIO04 subsequent phase display and headless browser PDF text, two route families",
+  "transport": "Real built artifact fulfillment on synthetic origin; no HTTP server/backend",
+  "browser": "158.0.8127.37",
+  "states": [
+    {
+      "path": "/clinical/hypertensive-emergencies",
+      "dom": "PASS",
+      "print_media": "PASS",
+      "pdf_text": "PASS",
+      "pdf_bytes": 60202,
+      "pdf_sha256": "b0baed024572dee9fed7b19360660a0d1d3e87cdd419ec7f31d7d5023be7d85d",
+      "pdf_pages": 2,
+      "strict_operator_unit_interval_retained": true,
+      "errors": []
+    },
+    {
+      "path": "/guides/hypertensive-emergencies",
+      "dom": "PASS",
+      "print_media": "PASS",
+      "pdf_text": "PASS",
+      "pdf_bytes": 40529,
+      "pdf_sha256": "867b4d7cdb4a47b514a4143bf3e493fae7a0c0c61a72c5b3527fb6efc96fee4b",
+      "pdf_pages": 1,
+      "strict_operator_unit_interval_retained": true,
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Not native operator printing, Word export, independent clinical validation or full browser regression."
+  ],
+  "status": "PASS",
+  "warnings": []
+}

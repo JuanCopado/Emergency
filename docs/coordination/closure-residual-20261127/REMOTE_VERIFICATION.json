@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-27",
+  "prs": [
+    {
+      "pr": 123,
+      "head": "1ba53d4f755850348206e5ee3b953fb55cb98a90",
+      "base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 124,
+      "head": "a9ce8ba525bf23804fee8db50c7f9e88b32a1bf8",
+      "base": "1ba53d4f755850348206e5ee3b953fb55cb98a90",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "pr": 125,
+      "head": "54285f88c3901c63dff017ad0413593c0e0a8271",
+      "base": "a9ce8ba525bf23804fee8db50c7f9e88b32a1bf8",
+      "draft": true,
+      "merged": false
+    }
+  ],
+  "checks": [
+    {
+      "name": "SonarCloud Code Analysis",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "sonarqube",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "sonarqube",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Native local review with measured Python coverage / t05 native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Native local review with measured Python coverage / t06 native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "semgrep",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "real-test-coverage",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "trivy",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "qa",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "ui",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "qa",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Native local review with measured Python coverage / t06 native (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "real-test-coverage",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Native local review with measured Python coverage / t05 native (windows-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "trivy",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "semgrep",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "ui",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "qa",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "qa",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "workflows": [
+    {
+      "id": 45975933772,
+      "name": "Evidence surveillance guardrails",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975933763,
+      "name": "App UI QA",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975933849,
+      "name": "Clinical QA",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975933834,
+      "name": "Security and quality",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975858472,
+      "name": "Evidence surveillance guardrails",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975858537,
+      "name": "App UI QA",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975858462,
+      "name": "Clinical QA",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45975858673,
+      "name": "Security and quality",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "protected": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "sonar": {
+    "title": "Quality Gate passed",
+    "summary": "Issues  \n![](https://sonarsource.github.io/sonarcloud-github-static-resources/v2/common/passed.svg '') [0 New issues](https://sonarcloud.io/project/issues?id=JuanCopado_Emergency&pullRequest=125&issueStatuses=OPEN,CONFIRMED&sinceLeakPeriod=true)  \n![](https://sonarsource.github.io/sonarcloud-github-static-resources/v2/common/accepted.svg '') [0 Accepted issues](https://sonarcloud.io/project/issues?id=JuanCopado_Emergency&pullRequest=125&issueStatuses=ACCEPTED)\n\nMeasures  \n![](https://sonarsource.github.io/sonarcloud-github-static-resources/v2/common/passed.svg '') [0 Security Hotspots](https://sonarcloud.io/project/security_hotspots?id=JuanCopado_Emergency&pullRequest=125&issueStatuses=OPEN,CONFIRMED&sinceLeakPeriod=true)  \n![](https://sonarsource.github.io/sonarcloud-github-static-resources/v2/common/passed.svg '') [94.0% Coverage on New Code](https://sonarcloud.io/component_measures?id=JuanCopado_Emergency&pullRequest=125&metric=new_coverage&view=list)  \n![](https://sonarsource.github.io/sonarcloud-github-static-resources/v2/common/passed.svg '') [0.0% Duplication on New Code](https://sonarcloud.io/component_measures?id=JuanCopado_Emergency&pullRequest=125&metric=new_duplicated_lines_density&view=list)  \n  \n[See analysis details on SonarQube Cloud](https://sonarcloud.io/dashboard?id=JuanCopado_Emergency&pullRequest=125)\n\n",
+    "text": null,
+    "annotations_count": 0,
+    "annotations_url": "https://api.github.com/repos/JuanCopado/Emergency/check-runs/140437689255/annotations"
+  }
+}

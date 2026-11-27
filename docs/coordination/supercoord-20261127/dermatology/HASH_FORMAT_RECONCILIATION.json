@@ -1,0 +1,47 @@
+{
+  "observed_utc": "2026-11-27T08:01:44.383266+00:00",
+  "cause": "WORKSPACE_CRLF_VERSUS_GIT_LF_ONLY_NOT_UNICODE_REPAIR",
+  "physical_workspace_sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599",
+  "physical_workspace_line_endings": "CRLF",
+  "repository_git_blob_sha256": "a8544722c2b65bcbb7598bc723b32ab7555494621e2de96a50ea7f56cd371c26",
+  "repository_git_blob_line_endings": "LF",
+  "physical_workspace_crlf_count": 2332,
+  "git_blob_crlf_count": 0,
+  "workspace_crlf_to_lf_equals_git_blob": true,
+  "pr121_blob_equals_pr123_blob": true,
+  "unicode_overlay_change": false,
+  "checks_reexecuted_on_current_metadata": {
+    "source_files_unchanged": true,
+    "cases_23": true,
+    "assets_24": true,
+    "unique_ids_24": true,
+    "unique_hashes_24": true,
+    "owner_decisions_23": true,
+    "every_owner_decision_matched": true,
+    "all_hashes_match_prior_21_plus_3_metadata": true,
+    "prior_audit_confirms_24_physical_hashes": true,
+    "no_runtime_admission": true,
+    "no_independent_dataset_admission": true,
+    "no_global_consent_asserted": true,
+    "historical_pending_unchanged": true
+  },
+  "new_pixel_decodes": 0,
+  "image_original_bytes_rehashed": 0,
+  "source_hashes_before": {
+    "cases": "049aaf53f5f0f4a629a008b890155f078a4b32451442496820e3574bc4b48ae2",
+    "bank": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1",
+    "receipt3": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63",
+    "audit": "96202bbdeee34d8bd80d06e5f4411ee2aaf4d79d49de0049e4ba3c4ea4cc381b",
+    "owner": "07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348"
+  },
+  "source_hashes_after": {
+    "cases": "049aaf53f5f0f4a629a008b890155f078a4b32451442496820e3574bc4b48ae2",
+    "bank": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1",
+    "receipt3": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63",
+    "audit": "96202bbdeee34d8bd80d06e5f4411ee2aaf4d79d49de0049e4ba3c4ea4cc381b",
+    "owner": "07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348"
+  },
+  "candidate": "941dd23596faa1edfcac1044e78dd59b9addf972",
+  "tree": "726257fa6559459112035bb4ffd801b1676a3101",
+  "prior_audit_cause_assumption": "The earlier Unicode-repair attribution was incorrect and is superseded by this measured byte comparison."
+}

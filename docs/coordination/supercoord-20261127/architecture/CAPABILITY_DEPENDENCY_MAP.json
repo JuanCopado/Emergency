@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0",
+  "task": "EMERGENCY-SUPERCOORD-20261127-PHASE4",
+  "agent": "Codex dependency audit; not Gemini/Antigravity",
+  "status": "TERMINADA",
+  "base_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+  "base_tree": "78e27cb900f7dd901eb5aeb48026276dc48b942c",
+  "receiver_reported_and_verified_by_coordinator": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "runtime_changes": false,
+  "external_network_calls": false,
+  "patient_data_processed": false,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "scope_of_search": "git-tracked app/src excluding generated data, clinical/scripts and tools; roadmap and residual coordination docs; absence claims limited to these paths",
+  "items": [
+    {
+      "id": "GRAPH",
+      "state": "TERMINADA",
+      "capability": "Grafo determinista de estructura y procedencia ejecutable; no inferencia clínica",
+      "sources": [
+        "clinical/scripts/build_project_graph.py",
+        "clinical/tests/test_project_graph.py",
+        "knowledge-graph/README.md"
+      ],
+      "next": "Reusar grafo existente para inspección de procedencia; no crear un segundo grafo."
+    },
+    {
+      "id": "RAG",
+      "state": "BLOQUEADA",
+      "capability": "Contrato de diseño y catálogo de procedencia; sin retrieval clínico operativo",
+      "sources": [
+        "rag/README.md",
+        "clinical/references/evidence-sources.json"
+      ],
+      "dependencies": [
+        "G05-01 consumidor",
+        "G05-02 derechos por campo/uso",
+        "G05-04 contrato de consumo/recuperación"
+      ],
+      "next": "Contrato de consulta sintética por source_id y module_id, sin textos prestados ni embeddings, solo tras especificación de consumidor."
+    },
+    {
+      "id": "FHIR",
+      "state": "PENDIENTE",
+      "capability": "No consumidor FHIR localizado en app/src, clinical/scripts o tools",
+      "sources": [
+        "docs/INTERNATIONAL_ROADMAP.md",
+        "docs/coordination/claude-residual-20261126/CLAUDE_INTEROPERABILITY_STATUS.md"
+      ],
+      "dependencies": [
+        "Contrato de intercambio y campos",
+        "Versión/perfil elegido y fuente oficial",
+        "Destino/sistema autorizado",
+        "Pruebas sintéticas y privacidad"
+      ],
+      "next": "Definir contrato de exportación de nota existente antes de elegir recurso/perfil; no se eligió versión ni se afirma conformidad FHIR."
+    },
+    {
+      "id": "HL7",
+      "state": "PENDIENTE",
+      "capability": "No parser ni conector HL7 localizado en ámbitos revisados",
+      "sources": [
+        "docs/INTERNATIONAL_ROADMAP.md"
+      ],
+      "dependencies": [
+        "Contrato de mensajes",
+        "Versión/eventos y mapeo",
+        "ACK/errores/destino autorizado",
+        "Datos sintéticos"
+      ],
+      "next": "Recuperar contrato de destino concreto antes de implementar mensajes; no se escogió versión."
+    },
+    {
+      "id": "PACS_DICOM",
+      "state": "BLOQUEADA",
+      "capability": "Existen guardas de exclusión DICOM y renderer local RSNA; no conector PACS ni visor completo",
+      "sources": [
+        "app/src/clinical-note/imageReview.ts",
+        "clinical/scripts/image_upload_guard.py",
+        "clinical/scripts/render_rsna_ich_dicom.py",
+        "clinical/scripts/prepare_rsna_ich_blinded_cohort.py"
+      ],
+      "dependencies": [
+        "Contrato de acceso a píxeles",
+        "Derechos/dataset",
+        "Privacidad y destino",
+        "Integración autorizada"
+      ],
+      "next": "Reusar renderer y guardas locales; no confundir renderizar archivos autorizados con conexión a PACS."
+    },
+    {
+      "id": "AGENTS",
+      "state": "PENDIENTE",
+      "capability": "Metadatos de agente y adaptador externo de visión; no orquestación clínica autónoma localizada",
+      "sources": [
+        "clinical/agents/openai.yaml",
+        "clinical/scripts/clinical_note_vision_adapter.py",
+        "models/MODEL_REGISTRY.md"
+      ],
+      "dependencies": [
+        "Contrato por capacidad/proveedor",
+        "Procedencia de resultados",
+        "Revisión humana",
+        "G05 exacto alcance"
+      ],
+      "next": "Reusar contratos y gates actuales; no anunciar agentes diagnósticos activos."
+    },
+    {
+      "id": "G05",
+      "state": "BLOQUEADA",
+      "capability": "Laboratorio T06/Q4 sintético de18escenarios y requisitosG05-01..06 existentes",
+      "sources": [
+        "tools/t06-localhost-lab/README.md",
+        "docs/coordination/r5-g05-20261126/G05_REQUISITOS.json",
+        "docs/coordination/work-closure-20261126/R88/G05_CAMPOS_USOS_RETENCION.json"
+      ],
+      "dependencies": [
+        "Consumidor público indefinido",
+        "Licencia propia y por campo/uso",
+        "Acceso/retención/responsables operativos",
+        "QA y auditoría del SHA propuesto",
+        "Contrato PTBR-PIX específico"
+      ],
+      "next": "Mantener laboratorio cerrado; completar dependencias sin crear consumidor público para poder certificarlo."
+    }
+  ],
+  "graph": {
+    "module_count": 131,
+    "source_count": 254,
+    "compound_source_count": 102,
+    "node_count": 397,
+    "edge_count": 417,
+    "evidence_status_counts": {
+      "yellow": 2,
+      "green": 129
+    },
+    "clinical_inference_performed": false
+  },
+  "verification": {
+    "command": "python -B -X utf8 -m unittest discover -s <candidate>/clinical/tests -p test_project_graph.py -v",
+    "tests_passed": 14,
+    "tests_failed": 0,
+    "log": "graph-tests.log",
+    "existing_negative_tests": [
+      "missing_module",
+      "unknown_source"
+    ],
+    "graph_sha256": "78c3fd153c44bebf4434a6456fb320819a1bfa3cf1e7ade160eddb52afd0112d",
+    "run_attribution": "direct execution by this Codex agent on stated base; not reused CI"
+  },
+  "source_records": [
+    {
+      "path": "app/src/clinical-note/imageReview.ts",
+      "git_blob": "9a0e1e920ce736c615719496ce9c1f0599862454",
+      "sha256_local_bytes": "caae1f175d00e7bc9cb3e35d02671ab7d65522f3778dad8aa6d6e5d6c502ce37"
+    },
+    {
+      "path": "clinical/agents/openai.yaml",
+      "git_blob": "f8b3075774d0f01b11fd3e63cbb50d0c5d7879bd",
+      "sha256_local_bytes": "7906eb16d9c017f17d5f5012db20ef0fe259c9502fe21cded2090d177e4ca3fa"
+    },
+    {
+      "path": "clinical/references/evidence-sources.json",
+      "git_blob": "58913b19e763f73d794af96b54b1af2babd01144",
+      "sha256_local_bytes": "f0d179b6df9836b8b40c44f1b96715125cab7b98ae25e722d43a59ac821b18d2"
+    },
+    {
+      "path": "clinical/scripts/build_project_graph.py",
+      "git_blob": "25634061f172bc45dc37e125f3393b11aa65a861",
+      "sha256_local_bytes": "b3a7bfdf19e86802546d4b376414833a1931021bb6f84b9cbc6dde1583715785"
+    },
+    {
+      "path": "clinical/scripts/clinical_note_vision_adapter.py",
+      "git_blob": "1b66deb9c9a2b8746dd6acad16a3e417bade68c8",
+      "sha256_local_bytes": "f665287b6bf18a7355ff8ba7331f51ac3921ae3f5768bb1e614b2b6822e6d17e"
+    },
+    {
+      "path": "clinical/scripts/image_upload_guard.py",
+      "git_blob": "0581304748d8a93f10156bd3cfcd96a5eaf1ce94",
+      "sha256_local_bytes": "cd5a5d99e306a02a6cb890938a5ecd0aaf9c6f91f68fdb421c516b6b01409f90"
+    },
+    {
+      "path": "clinical/scripts/prepare_rsna_ich_blinded_cohort.py",
+      "git_blob": "48c6e416f5e66372b2a56ef6a740c19d2becbbcf",
+      "sha256_local_bytes": "bd1e8f7754eb2c03d841ed6d5203b10de31175558a73b364d8ca989414cb7acf"
+    },
+    {
+      "path": "clinical/scripts/render_rsna_ich_dicom.py",
+      "git_blob": "be538306489aee7903dfbfbedcadbe2ea99a6a00",
+      "sha256_local_bytes": "f58be53b7e1569827fc43efbd5ac3f45f907c0be843f030bc4bc0a4abb90aa67"
+    },
+    {
+      "path": "clinical/tests/test_project_graph.py",
+      "git_blob": "a115969b868e12e7fec5d7602223a6f3bf08f57f",
+      "sha256_local_bytes": "7f9d4d30a2e9d076ac73e095c897e7e0a86542f85f2df8e0a8383f0bd6544d9c"
+    },
+    {
+      "path": "docs/INTERNATIONAL_ROADMAP.md",
+      "git_blob": "07c8e4124a58e2734f866c965414e4ef3526a4aa",
+      "sha256_local_bytes": "6f0911a940db832837ad218a482da73a9ab583210b613349aad62409fdd4df95"
+    },
+    {
+      "path": "docs/coordination/claude-residual-20261126/CLAUDE_INTEROPERABILITY_STATUS.md",
+      "git_blob": "739dc9e03034b23f455250f8aece29d73ed5d114",
+      "sha256_local_bytes": "3ad21da03c5687ab21057c70735375a3a11ba1a07b8d68da0262d35756fc25d1"
+    },
+    {
+      "path": "docs/coordination/r5-g05-20261126/G05_REQUISITOS.json",
+      "git_blob": "827df7cde7192ba005ffe84bb43a4e64ecd20691",
+      "sha256_local_bytes": "83211ca70a2243592789c2847ab21d7dc579f87984137db48fe3622028f19236"
+    },
+    {
+      "path": "docs/coordination/work-closure-20261126/R88/G05_CAMPOS_USOS_RETENCION.json",
+      "git_blob": "d152a41f0402fae6098a2244f416bd5a009fa01c",
+      "sha256_local_bytes": "6375b02d4f0c6217185c2b9cd6ef9e0f7939bd87c39c912526454c0cbab567ff"
+    },
+    {
+      "path": "knowledge-graph/README.md",
+      "git_blob": "84de1148e3240f162190598a4e80149f082de28c",
+      "sha256_local_bytes": "3a70d065c807304f2ec997bce53a21ff5d43ce223fb2c4d1e2b45c1886524a76"
+    },
+    {
+      "path": "models/MODEL_REGISTRY.md",
+      "git_blob": "4fa2ab8c871e58e80336900ab35269842a892fb8",
+      "sha256_local_bytes": "891076fab4c9db850e37194bde751987436e5b337c49f888e6413e942b6b5dbc"
+    },
+    {
+      "path": "rag/README.md",
+      "git_blob": "b0c4feb04f8f35dce3c431f3f008c979bee9b7dd",
+      "sha256_local_bytes": "bfce0e3069c11e3bda8407efbc4557ff63f1c353431045cdb7dcf2712249ec26"
+    },
+    {
+      "path": "tools/t06-localhost-lab/README.md",
+      "git_blob": "63d1db3181c481b27f2f3b923d4d9b2ab71cd474",
+      "sha256_local_bytes": "93e99db9354d95d246ca4268700c6371ed5af74e54d8cfdea224e3b8c1f970fd"
+    }
+  ],
+  "next_executable_increment": "Completed existing deterministic provenance graph materialization and its14tests; next expansion depends on explicit synthetic consumer contract, not owner medical votes already granted."
+}

@@ -1,0 +1,29 @@
+{
+  "artifact": "GEMINI_C9_DOCUMENTARY_REVIEW_RECEIPT",
+  "observed_result_reported_by": "Root coordinator; this Codex child did not operate or reread that browser response",
+  "conversation_url": "https://gemini.google.com/app/d1daf4ef68f7df05",
+  "dom_response_id": "model-response-message-contentr_10998e0b60834e10",
+  "reported_response_characters": 14355,
+  "status": "COMPLETED_AS_OBSERVED_BY_ROOT",
+  "summary_not_full_transcript": true,
+  "documentary_confirmations": {
+    "copyright_fields_9": 9,
+    "source_dataset_consent_provenance_8": 8
+  },
+  "precisions": [
+    "AS-IS and no guarantee of title or third-party rights must remain explicit.",
+    "SCIN Section2(b)(1) excludes general personality/privacy rights.",
+    "Restrictions on product activation and independent evaluation arise from internal governance, not a general SCIN license prohibition.",
+    "Gemini read README main; parity with pinned revision not verified by Gemini. Work separately retrieved the fixed README blob.",
+    "Gemini did not examine pixels, compute hashes or issue new human approval."
+  ],
+  "review_limits": {
+    "pixel_inspection": false,
+    "own_hashes": false,
+    "readme_main_pinned_parity_verified_by_gemini": false,
+    "new_human_approval": false
+  },
+  "changes_to_published_candidate": 0,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

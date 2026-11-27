@@ -1,3 +1,23 @@
+## 27/11/2026 - Consolidación residual verificada
+
+PR125 SHA54285f88c3901c63dff017ad0413593c0e0a8271 conserva 8/8 workflows y 19/19 checks SUCCESS; Sonar PR PASS,94.0% cobertura nueva,0 incidencias nuevas. Originales CARDIO recuperados;01/03 reutilizan ramas existentes,02/04 implementados,05/06 parciales. Matriz única v6 en ../docs/coordination/supercoord-20261127/TASK_MATRIX.json. La afirmación previa de restricción no comercial SCIN queda retirada tras cotejo de licencia exacta; privacidad y permisos por uso siguen separados. 37IDs conciliados,129GREEN/2YELLOW intactos,10/30estímulos canónicos. Revisión Codex separada, no nueva auditoría Antigravity ni revisión clínica independiente. CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
+## 27/11/2026 - CARDIO05 informational reference selector
+
+Seven accepted reference generics and explicit manual US/ES/PT source filtering are presented only in iv-antihypertensive-selection. Source review and operational verification remain distinct; no administration profile or calculation is enabled. The canonical numerical examples are unchanged, with a product/jurisdiction guard appended for screen/raw export. Product/RCM/availability in Portugal and original compound-source labetalol identity remain unknown. States and last_checked are preserved. See ../docs/coordination/cardio05-reference-selector-20261127/README.md. PARTIAL05_INFORMATIONAL / CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
+## 27/11/2026 - CARDIO02 five approved structural branches
+
+Five owner-approved lesion contexts and six severity-dependent monitoring domains materialized in critical-valvular-disease. No new medications,numeric targets,statuses,review dates or routes. Prior CARDIO04 increment retained. Sources and limits: ../docs/coordination/cardio02-five-branches-20261127/README.md. Partial structural increment only. CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
+## 27/11/2026 - CARDIO04 approved stable subsequent phase
+
+Isolated implementation of the exact accepted MED-RES-CARDIO-04 v1 subsequent phase: only stable nonpregnant/nonstroke adults without a compelling condition, following the existing initial phase. Existing initial SBP rule, exceptions, medication regimens, evidence states and last_checked remain unchanged. Focal official AHA/ACC2025 slides144/145, original proposal and literal acceptance are traced in ../docs/coordination/cardio04-stable-phase-20261127/README.md. CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
+## 27/11/2026 · Reconciliación de decisiones del propietario
+
+MED-RES-PROT-01 v1 aplicada en su alcance documental histórico: GMA-P1-003 cerrado sin activar producto, sustituirlo ni cambiar las rutas de reversión aceptadas. Registro vigente: `references/owner-decisions-2026-11-27.json`. CARDIO-01-06 conservan Sí estructural; el original y su aceptación ya fueron recuperados y trazados posteriormente en PR123-125. Se conserva este corte histórico; el estado vigente y los alcances parciales constan en docs/coordination/closure-residual-20261127/science/SCIENCE_CARDIO_TRACE.md. 23 decisiones dermatológicas y Clinical Minimal preservados, sin conceder derechos de publicación, validación diagnóstica o despliegue. QA/CI y auditoría del candidato por SHA en `../docs/coordination/owner-decisions-20261127/`. CLINICALLY_PENDING. Los cortes siguientes son históricos.
+
 ## 26/11/2026 · Conciliación técnica PR115/PR116
 
 Candidato aislado conserva los 19 contratos aceptados y todos los estados clínicos. Se adapta QA histórica al recibo terapéutico real; ninguna nueva dosis o decisión médica. Perfil de protamina GMA-P1-003 sigue abierto; inventario y límites en `../CODEX_RESIDUAL_CLINICAL_CONTRACTS.json`. CI y auditoría externa del SHA final por recibo. CLINICALLY_PENDING.

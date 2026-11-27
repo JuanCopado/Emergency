@@ -1,0 +1,241 @@
+{
+  "clinical_status": "CLINICALLY_PENDING",
+  "drive_url": "https://drive.google.com/file/d/1a1Hm5taErhZW_O4KxvSgyuSdGX4SAXHo/view",
+  "drive_sha256": "a3034e36a92f0f46ce81a08029fa482410d94f82b2ce100f2e91b135de2db4cb",
+  "repository_counterpart": "docs/coordination/work-closure-20261126/CIENCIA/COBERTURA_59_MODULOS_REFERENCIA.json",
+  "byte_identical": false,
+  "parsed_json_equal": true,
+  "differences_are_serialization_only": true,
+  "decisions": [
+    {
+      "decision_id": "MED-RES-CARDIO-01",
+      "version": "v1",
+      "response": "SÍ",
+      "approval_at_utc": "2026-11-27T06:12:33Z",
+      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
+      "scope_summary_not_original": "router de monitorización y cuatro circuitos de reanimación existentes, conservar decisiones ARR-SELECTOR y excepciones pediátricas; no cambiar dosis ni algoritmos.",
+      "module_id": "arrhythmias-cardiac-arrest",
+      "drive_locator_lines": [
+        791,
+        875
+      ],
+      "canonical_source": "clinical/modules/cardiovascular.md",
+      "canonical_body_sha256": "c486a1c36940419bc6af4e45ce202c35af10b814a27233e5735646ffc6625237",
+      "source_bindings": [
+        {
+          "source_id": "src-d05ca4d7",
+          "role": "canonical_registry_identity",
+          "claim_scope": "module-level"
+        },
+        {
+          "source_id": "src-rcuk-als-2025",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "adult ALS and rhythm algorithms"
+        },
+        {
+          "source_id": "src-erc-guidelines-2025",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "European resuscitation guidance"
+        }
+      ],
+      "canonical_metadata_equal_to_receiver": true,
+      "substantive_clinical_changes_applied": false,
+      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-02",
+      "version": "v1",
+      "response": "SÍ",
+      "approval_at_utc": "2026-11-27T06:12:33Z",
+      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
+      "scope_summary_not_original": "circuitos diferenciados por lesión valvular y situación hemodinámica; no pauta universal.",
+      "module_id": "critical-valvular-disease",
+      "drive_locator_lines": [
+        1895,
+        1955
+      ],
+      "canonical_source": "clinical/modules/cardiovascular.md",
+      "canonical_body_sha256": "fd33c8ea3b87fac29b2ef61c3359d41b197d0eb8d318487577030f1a7ec854c6",
+      "source_bindings": [
+        {
+          "source_id": "src-ed303b9b",
+          "role": "canonical_registry_identity",
+          "claim_scope": "module-level"
+        }
+      ],
+      "canonical_metadata_equal_to_receiver": true,
+      "substantive_clinical_changes_applied": false,
+      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-03",
+      "version": "v1",
+      "response": "SÍ",
+      "approval_at_utc": "2026-11-27T06:12:33Z",
+      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
+      "scope_summary_not_original": "circuitos específicos de dispositivo y complicación, con monitorización y especialista cuando corresponda; no pauta universal.",
+      "module_id": "device-complications",
+      "drive_locator_lines": [
+        2164,
+        2254
+      ],
+      "canonical_source": "clinical/modules/cardiovascular.md",
+      "canonical_body_sha256": "f553db5321ecc62b1b37d721f6c2c48e376ab8f676a77461c1d72de85e94a70f",
+      "source_bindings": [
+        {
+          "source_id": "src-e5335ffc",
+          "role": "canonical_registry_identity",
+          "claim_scope": "module-level"
+        }
+      ],
+      "canonical_metadata_equal_to_receiver": true,
+      "substantive_clinical_changes_applied": false,
+      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-04",
+      "version": "v1",
+      "response": "SÍ",
+      "approval_at_utc": "2026-11-27T06:12:33Z",
+      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
+      "scope_summary_not_original": "objetivos de presión arterial diferenciados según indicación, preservar vías específicas; la secuencia general requiere la fuente exacta y no sustituye las vías específicas.",
+      "module_id": "hypertensive-emergencies",
+      "drive_locator_lines": [
+        3366,
+        3445
+      ],
+      "canonical_source": "clinical/modules/cardiovascular.md",
+      "canonical_body_sha256": "2a7ff0e09e3c2ed80f2c7658a2c1c9c5bd6c146be10889fcb83dd50527cddcae",
+      "source_bindings": [
+        {
+          "source_id": "src-1a3b2533",
+          "role": "canonical_registry_identity",
+          "claim_scope": "module-level"
+        },
+        {
+          "source_id": "src-esc-hypertension-2024",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "general hypertensive emergency framework"
+        },
+        {
+          "source_id": "src-acc-aortic-2022",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "acute aortic syndrome blood-pressure strategy"
+        },
+        {
+          "source_id": "src-aha-ich-2022",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "intracerebral hemorrhage blood-pressure strategy"
+        },
+        {
+          "source_id": "src-esc-acs-2023",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "acute coronary syndrome context"
+        },
+        {
+          "source_id": "src-acog-severe-htn-pregnancy-2019",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "pregnancy/postpartum severe hypertension"
+        },
+        {
+          "source_id": "src-aha-asa-ischemic-stroke-2026",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "acute ischemic stroke blood-pressure context"
+        }
+      ],
+      "canonical_metadata_equal_to_receiver": true,
+      "substantive_clinical_changes_applied": false,
+      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-05",
+      "version": "v1",
+      "response": "SÍ",
+      "approval_at_utc": "2026-11-27T06:12:33Z",
+      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
+      "scope_summary_not_original": "selección por indicación, contraindicaciones, producto y jurisdicción; no habilitar cálculos con productos no verificados.",
+      "module_id": "iv-antihypertensive-selection",
+      "drive_locator_lines": [
+        3700,
+        3847
+      ],
+      "canonical_source": "clinical/modules/cardiovascular.md",
+      "canonical_body_sha256": "66e8becd545d4623f7251e1b41e50be19e69731c9d6c36fa29be1a911c6da416",
+      "source_bindings": [
+        {
+          "source_id": "src-05cc8d80",
+          "role": "canonical_registry_identity",
+          "claim_scope": "module-level"
+        },
+        {
+          "source_id": "src-esc-hypertension-2024",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "general hypertension framework"
+        },
+        {
+          "source_id": "src-acc-aortic-2022",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "aortic syndrome blood-pressure strategy"
+        },
+        {
+          "source_id": "src-aha-ich-2022",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "intracerebral hemorrhage blood-pressure strategy"
+        },
+        {
+          "source_id": "src-nicardipine-dailymed-2026",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "nicardipine formulation and dosing"
+        },
+        {
+          "source_id": "src-cleviprex-dailymed-2022",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "clevidipine formulation and labeled dosing"
+        },
+        {
+          "source_id": "src-acog-severe-htn-pregnancy-2019",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "pregnancy/postpartum severe hypertension"
+        }
+      ],
+      "canonical_metadata_equal_to_receiver": true,
+      "substantive_clinical_changes_applied": false,
+      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
+    },
+    {
+      "decision_id": "MED-RES-CARDIO-06",
+      "version": "v1",
+      "response": "SÍ",
+      "approval_at_utc": "2026-11-27T06:12:33Z",
+      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
+      "scope_summary_not_original": "dolor torácico no coronario por causa, no antitrombótico genérico ni alta automática por una sola prueba/puntuación.",
+      "module_id": "non-coronary-chest-pain",
+      "drive_locator_lines": [
+        4124,
+        4210
+      ],
+      "canonical_source": "clinical/modules/cardiovascular.md",
+      "canonical_body_sha256": "84ed22acee85a42a1779263cd04ce66d9b3e99e0af2edf8e746ef67ce5e808a8",
+      "source_bindings": [
+        {
+          "source_id": "src-3140cbdb",
+          "role": "canonical_registry_identity",
+          "claim_scope": "module-level"
+        },
+        {
+          "source_id": "src-aha-acc-chest-pain-2021",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "initial chest-pain evaluation and diagnostic framing"
+        },
+        {
+          "source_id": "src-legacy-noncoronary-chest-pain-set",
+          "role": "historical_component_pending_reconciliation",
+          "claim_scope": "ESC/ACR syndrome-specific non-coronary causes pending individual split"
+        }
+      ],
+      "canonical_metadata_equal_to_receiver": true,
+      "substantive_clinical_changes_applied": false,
+      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
+    }
+  ]
+}

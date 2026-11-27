@@ -1,0 +1,736 @@
+{
+  "task_id": "E-DERM-DEVELOPMENT-SPEC-14-20261127",
+  "author": "Codex technical preparation; not Antigravity or independent clinical review",
+  "status": "PREPARED_METADATA_SPECIFICATIONS_ONLY",
+  "scope": "Explicit development-only adaptation map; separate namespace, historical bank unchanged",
+  "source_hashes": [
+    {
+      "path_relative_to_project": "ChatGPT_Trabajo/WORK_CIERRE_COORDINADO_20261126/DERMATOLOGIA/DERMATOLOGIA_CASOS_HEREDADO.json",
+      "sha256": "049aaf53f5f0f4a629a008b890155f078a4b32451442496820e3574bc4b48ae2"
+    },
+    {
+      "path_relative_to_project": "supercoord-dermatology-20261127/DERMATOLOGY_ADMISSIBILITY_OVERLAY.json",
+      "sha256": "6540e7e6c88ef9ff07868d641ae0cf77206341d34892ddd42828ff2f3cb915e7"
+    },
+    {
+      "path_relative_to_project": "supercoord-dermatology-20261127/primary-license-worktree/docs/coordination/derm-primary-license-20261127/PRIMARY_LICENSE_ADDENDUM.json",
+      "sha256": "b17ac50bc4dcf8d60ebe5d9df726db954c3a0efa60ddf3353e08b91cbaf68316"
+    },
+    {
+      "path_relative_to_project": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/IMAGEN_R88/COORDINACION/ADMISION_OPERATIVA_30.json",
+      "sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168"
+    }
+  ],
+  "selection_rule": "SCIN only; recorded consultation/development owner scope; source dataset consent and curation documented by primary addendum; no known direct-identifier obstacle in available records; seven distinct labels sorted case-insensitive, duplicate label tie-break by case_id ascending",
+  "counts": {
+    "source_assets": 24,
+    "source_cases": 23,
+    "metadata_eligible_candidates": 8,
+    "distinct_selected_cases": 7,
+    "development_display_specs": 14,
+    "reserve_duplicate_label_cases": 1,
+    "excluded_from_selection": 16,
+    "images_generated": 0,
+    "image_bytes_read_or_copied": 0,
+    "canonical_slot_changes": 0,
+    "new_canonical_images": 0,
+    "independent_adjudications": 0
+  },
+  "development_pairs_share_sources_and_are_not_independent": true,
+  "unknown_or_unresolved_pixel_reuse_privacy_is_not_cleared_by_this_specification": true,
+  "rows": [
+    {
+      "development_spec_id": "DEV-DERM-01-1",
+      "historical_requirement_pointer_only": "S1-01",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_579682856480983647",
+      "metadata_candidate_asset_id": "DERMA_SCIN_579682856480983647",
+      "metadata_candidate_sha256": "959d44500b8f4f4c395f797bb95399a535f19aa8749ede48e0129e32322ca095",
+      "source_label_not_independent_diagnosis": "Abscess",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_579682856480983647",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-01",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-01-2",
+      "historical_requirement_pointer_only": "S2-01",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_579682856480983647",
+      "metadata_candidate_asset_id": "DERMA_SCIN_579682856480983647",
+      "metadata_candidate_sha256": "959d44500b8f4f4c395f797bb95399a535f19aa8749ede48e0129e32322ca095",
+      "source_label_not_independent_diagnosis": "Abscess",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_579682856480983647",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-01",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-02-1",
+      "historical_requirement_pointer_only": "S1-02",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_2600794538114860588",
+      "metadata_candidate_asset_id": "DERMA_SCIN_2600794538114860588",
+      "metadata_candidate_sha256": "0f274d2f1a9ddbb2c6a1c3ab4e94e7fc133620ae9f31e9b0d4441f23890ec8fc",
+      "source_label_not_independent_diagnosis": "Allergic Contact Dermatitis",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_2600794538114860588",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-02",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-02-2",
+      "historical_requirement_pointer_only": "S2-02",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_2600794538114860588",
+      "metadata_candidate_asset_id": "DERMA_SCIN_2600794538114860588",
+      "metadata_candidate_sha256": "0f274d2f1a9ddbb2c6a1c3ab4e94e7fc133620ae9f31e9b0d4441f23890ec8fc",
+      "source_label_not_independent_diagnosis": "Allergic Contact Dermatitis",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_2600794538114860588",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-02",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-03-1",
+      "historical_requirement_pointer_only": "S1-03",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_3730083867318674656",
+      "metadata_candidate_asset_id": "DERMA_SCIN_3730083867318674656",
+      "metadata_candidate_sha256": "65739b47eb0421f28a54b9c223fea5304feb76a24736689eaf61159b97ff12d6",
+      "source_label_not_independent_diagnosis": "Cellulitis",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_3730083867318674656",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-03",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-03-2",
+      "historical_requirement_pointer_only": "S2-03",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_3730083867318674656",
+      "metadata_candidate_asset_id": "DERMA_SCIN_3730083867318674656",
+      "metadata_candidate_sha256": "65739b47eb0421f28a54b9c223fea5304feb76a24736689eaf61159b97ff12d6",
+      "source_label_not_independent_diagnosis": "Cellulitis",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_3730083867318674656",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-03",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-04-1",
+      "historical_requirement_pointer_only": "S1-04",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_-3518984822601104202",
+      "metadata_candidate_asset_id": "DERMA_SCIN_-3518984822601104202",
+      "metadata_candidate_sha256": "30fd71d557dcd07a3055800d09bdce909237590eb35e9ecf491377c453c45512",
+      "source_label_not_independent_diagnosis": "Drug Rash",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_-3518984822601104202",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-04",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-04-2",
+      "historical_requirement_pointer_only": "S2-04",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_-3518984822601104202",
+      "metadata_candidate_asset_id": "DERMA_SCIN_-3518984822601104202",
+      "metadata_candidate_sha256": "30fd71d557dcd07a3055800d09bdce909237590eb35e9ecf491377c453c45512",
+      "source_label_not_independent_diagnosis": "Drug Rash",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_-3518984822601104202",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-04",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-05-1",
+      "historical_requirement_pointer_only": "S1-05",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_-3902972343084754168",
+      "metadata_candidate_asset_id": "DERMA_SCIN_-3902972343084754168",
+      "metadata_candidate_sha256": "d50cfafa33e3f59194b2b8fc8e1ddb88982f63a9b4754fac21bd882b63259d4f",
+      "source_label_not_independent_diagnosis": "Eczema",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_-3902972343084754168",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-05",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-05-2",
+      "historical_requirement_pointer_only": "S2-05",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_-3902972343084754168",
+      "metadata_candidate_asset_id": "DERMA_SCIN_-3902972343084754168",
+      "metadata_candidate_sha256": "d50cfafa33e3f59194b2b8fc8e1ddb88982f63a9b4754fac21bd882b63259d4f",
+      "source_label_not_independent_diagnosis": "Eczema",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_-3902972343084754168",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-05",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-06-1",
+      "historical_requirement_pointer_only": "S1-06",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_3689862615752795245",
+      "metadata_candidate_asset_id": "DERMA_SCIN_3689862615752795245",
+      "metadata_candidate_sha256": "e5f6eb8595b2a2d0dd79f368c79211e0ef73c3da4b509f120c246a12d7ba29fa",
+      "source_label_not_independent_diagnosis": "Folliculitis",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_3689862615752795245",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-06",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-06-2",
+      "historical_requirement_pointer_only": "S2-06",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_3689862615752795245",
+      "metadata_candidate_asset_id": "DERMA_SCIN_3689862615752795245",
+      "metadata_candidate_sha256": "e5f6eb8595b2a2d0dd79f368c79211e0ef73c3da4b509f120c246a12d7ba29fa",
+      "source_label_not_independent_diagnosis": "Folliculitis",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_3689862615752795245",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-06",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-07-1",
+      "historical_requirement_pointer_only": "S1-07",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_-3768594983498155183",
+      "metadata_candidate_asset_id": "DERMA_SCIN_-3768594983498155183",
+      "metadata_candidate_sha256": "85fabe1beffee91d62fb3a5bf7168dd1174527e9cf088a0a8a8bba53085bcff1",
+      "source_label_not_independent_diagnosis": "Urticaria",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_-3768594983498155183",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-07",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 1440,
+          "height": 900
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    },
+    {
+      "development_spec_id": "DEV-DERM-07-2",
+      "historical_requirement_pointer_only": "S2-07",
+      "canonical_slot_reassigned": false,
+      "canonical_mechanism_inherited": false,
+      "case_id": "SCIN_CASE_-3768594983498155183",
+      "metadata_candidate_asset_id": "DERMA_SCIN_-3768594983498155183",
+      "metadata_candidate_sha256": "85fabe1beffee91d62fb3a5bf7168dd1174527e9cf088a0a8a8bba53085bcff1",
+      "source_label_not_independent_diagnosis": "Urticaria",
+      "owner_decision_id": "MED-RES-DERMA-SCIN_CASE_-3768594983498155183",
+      "owner_decision_response": "YES_IN_RECORDED_SCOPE",
+      "purpose": "LOCAL_DEVELOPMENT_ENGINEERING_DISPLAY_SPEC_ONLY",
+      "comparison_pair": "DEV-DERM-07",
+      "same_source_case_in_both_variants": true,
+      "independent_validation_eligible": false,
+      "display_specification": {
+        "viewport_css_pixels": {
+          "width": 390,
+          "height": 844
+        },
+        "image_fit": "contain",
+        "crop": false,
+        "anatomy_edit": false,
+        "source_attribution_and_license_visible": true,
+        "show_source_differential_limitations": true,
+        "rendered_screen_is_not_physical_mobile_capture": true
+      },
+      "diagnostic_evidence_as_recorded": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+      "limitations_as_recorded": [
+        "Exploración presencial yconstantes",
+        "Pruebas complementarias oconfirmación etiológica",
+        "Diagnóstico clínico independiente firmado",
+        "Historia deexposición/medicación completa cuandoaplique"
+      ],
+      "license_as_recorded": "SCIN Data Use License",
+      "attribution_as_recorded": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "local_copyright_consent_basis": "PRIMARY_LICENSE_ADDENDUM SCIN-LICENSE/README/PUBLISHER-PRIVACY; source-level consent and curation, no unconditional consent certificate",
+      "pixel_use_current_state": "NOT_PERFORMED_METADATA_SPEC_ONLY",
+      "image_derivative_generated": false,
+      "asset_selected_for_physical_experimental_admission": false,
+      "specific_future_consumer_privacy_assessment": "REQUIRED_BEFORE_NEW_PIXEL_USE_OR_TRANSFER",
+      "status": "PREPARED_DEVELOPMENT_SPEC_NOT_RENDERED_NOT_ADMITTED"
+    }
+  ],
+  "reserve": [
+    {
+      "case_id": "SCIN_CASE_3083550471820565612",
+      "asset_id": "DERMA_SCIN_3083550471820565612",
+      "reason": "Duplicate source label; development reserve only"
+    }
+  ],
+  "excluded_assets": [
+    {
+      "asset_id": "DERMA_CDC_PHIL_5153",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_6478",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_6482",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_24379",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_28632",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_1337",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_2332",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_PMC7176330_FIG2",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_PMC7176330_FIG3",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_PMC11585283_FIG1",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_PMC8203330_fig1",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_PMC11619809_FIG1",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA-COMMONS-5de1c08f376a",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_FRONTIERS_1048480_F1",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_2874",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    },
+    {
+      "asset_id": "DERMA_CDC_27799",
+      "reason": "Not eligible under the narrow source-consent/deidentification and owner-scope metadata filter; no pixel reuse authorized"
+    }
+  ],
+  "remaining_physical_blocks": [
+    {
+      "id": "S2-11",
+      "block": "Real physical recapture required to address moire; no digital simulation"
+    },
+    {
+      "id": "S2-12",
+      "block": "Exact experimental condition, clean panel and applicable permission unresolved"
+    }
+  ],
+  "bank_counts_unchanged": {
+    "canonical": 10,
+    "pending": 20,
+    "adjudications": 0
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "no_external_transmissions": true
+}

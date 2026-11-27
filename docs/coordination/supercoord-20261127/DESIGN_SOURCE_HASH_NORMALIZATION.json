@@ -1,0 +1,48 @@
+{
+  "scope": "Representation reconciliation of D2 browser source receipts to exact composed Git blobs; no browser rerun",
+  "source_commit": "d1993307661cd8063d7bac2a3c4e444ae28ba84d",
+  "rows": [
+    {
+      "path": "app/src/pages/Home.tsx",
+      "recorded_local_hash": "88af0cf93d44a622fdf9d5e808e1980613206e14a710cde2b23f91f7f0dd2f5e",
+      "recorded_representation": "CRLF",
+      "git_lf_sha256": "f00d6c431c1bb18df752653b0941378f356d1b91b0bd02bbfbcb05843325818e",
+      "git_blob_sha1": "4d3e88341c67c504f9c6a93c94d96e2c0b83def2",
+      "content_equivalence": true
+    },
+    {
+      "path": "app/src/pages/ClinicalMinimalIntro.tsx",
+      "recorded_local_hash": "1c6f1c705c168bc213b2bebd338d5f4a40987d972fab2f494c34e2789f6a7ea1",
+      "recorded_representation": "LF",
+      "git_lf_sha256": "1c6f1c705c168bc213b2bebd338d5f4a40987d972fab2f494c34e2789f6a7ea1",
+      "git_blob_sha1": "720f14cad25a196c5e08a5ea7d020144341fce7a",
+      "content_equivalence": true
+    },
+    {
+      "path": "app/src/pages/clinical-minimal-copy.json",
+      "recorded_local_hash": "cf5dfd11544cc63a30693a8bf201d262801c9b48ae7dcb06713d33b4dad618be",
+      "recorded_representation": "CRLF",
+      "git_lf_sha256": "7759a8c8ca87aa197e9489329e56edec869ab3f5d938c16c9135c712f8ab2e9f",
+      "git_blob_sha1": "efb5c9e36297b3787fdb212d75a96c3de0cedc85",
+      "content_equivalence": true
+    },
+    {
+      "path": "app/src/pages/clinical-minimal.css",
+      "recorded_local_hash": "391caf583cd5b44a3ca0cdc3deb81d3be6a97b728cd3c578d08d3d143940afb8",
+      "recorded_representation": "LF",
+      "git_lf_sha256": "391caf583cd5b44a3ca0cdc3deb81d3be6a97b728cd3c578d08d3d143940afb8",
+      "git_blob_sha1": "c3047f998fa0e904759010e2b817311aa012a791",
+      "content_equivalence": true
+    },
+    {
+      "path": "app/public/design/clinical-minimal-physician.svg",
+      "recorded_local_hash": "56b484ee30913d5803a74b7b9aa13ff64a4bc1303caba1488492ad116a3bfce1",
+      "recorded_representation": "CRLF",
+      "git_lf_sha256": "f75d74d35aa3c84b879d06c03aaa9235cc2bac39f36685d6d87835031ee5cf01",
+      "git_blob_sha1": "50cd17906c945df7c1c7973b78999effdcac6d9e",
+      "content_equivalence": true
+    }
+  ],
+  "checks_passed": 5,
+  "clinical": "CLINICALLY_PENDING"
+}

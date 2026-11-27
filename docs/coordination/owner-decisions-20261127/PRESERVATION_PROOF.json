@@ -1,0 +1,69 @@
+{
+  "base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "decision_registry_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+  "decision_registry_exact": true,
+  "preserved": [
+    {
+      "path": "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json",
+      "sha256": "b42eb3007f2481de488bb4a8dbabd36f590cb325c4452628a4d1e70264aa1274",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/qa/global-medication-audit-v144/products.json",
+      "sha256": "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/references/acute-contract-owner-acceptance-2026-11-16.json",
+      "sha256": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/references/evidence-registry.json",
+      "sha256": "6fa010e4646bc0de288e799c2e8b5ce93231c71171339a4ce5a9d4b2847713d0",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/references/router.md",
+      "sha256": "65ee959e0a7e3ede06b985cbc9b0a073887b525320971173b45fc35f70421eb3",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/modules/cardiovascular.md",
+      "sha256": "22a3f6094c114ec7a50452e8246a29dfab778c60309a7c9bac8d315fc97d64e1",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/modules/special-populations.md",
+      "sha256": "4a9240a93d96993dc750bcb1060f9e01e8abab557812b8667b1d57ad847db025",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/scripts/acute_medication_contracts.py",
+      "sha256": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/scripts/acute_reviewed_reversal.py",
+      "sha256": "f4e78b6543b2faad35d1c66a1d709e367fc74a9b0b053d27c94596de09e85bb2",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "app/src/data/drugs.json",
+      "sha256": "084f4090a4d9ddd68b60c2b731eb17be632a22e795598cef8b6fa2276b032893",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "app/src/data/generatedPediatricOutpatient.json",
+      "sha256": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
+      "exact_match_to_base": true
+    },
+    {
+      "path": "clinical/pharmacology/corticosteroids.json",
+      "sha256": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499",
+      "exact_match_to_base": true
+    }
+  ],
+  "clinical_status": "CLINICALLY_PENDING",
+  "scope": "Observed candidate comparison, not a permanent freeze on future authorized edits."
+}

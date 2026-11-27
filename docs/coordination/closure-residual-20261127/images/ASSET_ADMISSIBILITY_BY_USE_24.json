@@ -1,0 +1,1601 @@
+{
+  "created_utc": "2026-11-27T10:42:20.252038+00:00",
+  "candidate": "54285f88c3901c63dff017ad0413593c0e0a8271",
+  "author": "Codex residual documentary auditor; not Antigravity/human clinical adjudication",
+  "sources": [
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/dermatology/DERMATOLOGY_ADMISSIBILITY_OVERLAY.json",
+      "bytes": 136499,
+      "sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/dermatology/PRIMARY_LICENSE_ADDENDUM_15.json",
+      "bytes": 32493,
+      "sha256": "03929c26fb0d4b64900c61763b2a7f1d581a1750a71c24167b89c557436ef99b"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/experimental/EXPERIMENTAL_PREPARATION_RECONCILIATION.json",
+      "bytes": 23179,
+      "sha256": "42198544cfda689017f5bed7a52ba4dc1ecab32de8e4a8cb9be610c1cf57aa00"
+    },
+    {
+      "path": "ChatGPT_Trabajo/BANCO_DERMATOLOGICO_GRATUITO_20261126/PAQUETE/MANIFIESTO_BANCO_DERMATOLOGICO.json",
+      "bytes": 190806,
+      "sha256": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_COORDINADO_20261126/DERMATOLOGIA/RECIBO_TRES_ORIGINALES_EXISTENTES.json",
+      "bytes": 8175,
+      "sha256": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/IMAGEN_R88/COORDINACION/ADMISION_OPERATIVA_30.json",
+      "bytes": 60640,
+      "sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168"
+    }
+  ],
+  "new_image_hashes": 0,
+  "image_bytes_opened": 0,
+  "image_transmissions": 0,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "assets": [
+    {
+      "asset_id": "DERMA_SCIN_-3768594983498155183",
+      "case_id": "SCIN_CASE_-3768594983498155183",
+      "original_file_name": "SCIN_9030372736485025618.png",
+      "recorded_original_sha256": "85fabe1beffee91d62fb3a5bf7168dd1174527e9cf088a0a8a8bba53085bcff1",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 1081957,
+        "expected_bytes": 1081957,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Urticaria",
+        "time_utc": "06:30:46",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_-3768594983498155183",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Urticaria",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_3083550471820565612",
+      "case_id": "SCIN_CASE_3083550471820565612",
+      "original_file_name": "SCIN_-9025828418294532416.png",
+      "recorded_original_sha256": "7bada9b46feeef61e243ca16c255ec967aafb6983e9e019c3622a974b13659ee",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 1843878,
+        "expected_bytes": 1843878,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Eccema",
+        "time_utc": "06:31:09",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_3083550471820565612",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Eczema",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_2600794538114860588",
+      "case_id": "SCIN_CASE_2600794538114860588",
+      "original_file_name": "SCIN_-4310457434092779564.png",
+      "recorded_original_sha256": "0f274d2f1a9ddbb2c6a1c3ab4e94e7fc133620ae9f31e9b0d4441f23890ec8fc",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 739619,
+        "expected_bytes": 739619,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Dermatitis alérgica de contacto",
+        "time_utc": "06:31:34",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_2600794538114860588",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Allergic Contact Dermatitis",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_3730083867318674656",
+      "case_id": "SCIN_CASE_3730083867318674656",
+      "original_file_name": "SCIN_6261742496280896981.png",
+      "recorded_original_sha256": "65739b47eb0421f28a54b9c223fea5304feb76a24736689eaf61159b97ff12d6",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 2149904,
+        "expected_bytes": 2149904,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Celulitis",
+        "time_utc": "06:33:01",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_3730083867318674656",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Cellulitis",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_579682856480983647",
+      "case_id": "SCIN_CASE_579682856480983647",
+      "original_file_name": "SCIN_2153854041453260288.png",
+      "recorded_original_sha256": "959d44500b8f4f4c395f797bb95399a535f19aa8749ede48e0129e32322ca095",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 804013,
+        "expected_bytes": 804013,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Absceso",
+        "time_utc": "06:33:19",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_579682856480983647",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Abscess",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_3689862615752795245",
+      "case_id": "SCIN_CASE_3689862615752795245",
+      "original_file_name": "SCIN_-6112700142679995455.png",
+      "recorded_original_sha256": "e5f6eb8595b2a2d0dd79f368c79211e0ef73c3da4b509f120c246a12d7ba29fa",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 1796203,
+        "expected_bytes": 1796203,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Foliculitis",
+        "time_utc": "06:33:43",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_3689862615752795245",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Folliculitis",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_-3518984822601104202",
+      "case_id": "SCIN_CASE_-3518984822601104202",
+      "original_file_name": "SCIN_-4326130421449299205.png",
+      "recorded_original_sha256": "30fd71d557dcd07a3055800d09bdce909237590eb35e9ecf491377c453c45512",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 1845485,
+        "expected_bytes": 1845485,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Erupción farmacológica",
+        "time_utc": "06:34:08",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad; sin establecer causalidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_-3518984822601104202",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Drug Rash",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_SCIN_-3902972343084754168",
+      "case_id": "SCIN_CASE_-3902972343084754168",
+      "original_file_name": "SCIN_2276772204019115957.png",
+      "recorded_original_sha256": "d50cfafa33e3f59194b2b8fc8e1ddb88982f63a9b4754fac21bd882b63259d4f",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 1772671,
+        "expected_bytes": 1772671,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Eccema, segundo caso",
+        "time_utc": "06:34:31",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-SCIN_CASE_-3902972343084754168",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "SCIN Data Use License",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": false,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "SCIN Dataset, Google Research et al.; Ward et al. JAMA Network Open2024, DOI10.1001/jamanetworkopen.2024.46615; sourcecaseID andSCIN DataUseLicense. No endorsement.",
+      "diagnostic_limitations": {
+        "label_from_source": "Eczema",
+        "diagnostic_evidence": "Dermatologist image-based differential labels withconfidence/weights as published; no in-person examination, laboratory, histology or etiologic confirmation documented inCSV. Differential weights are not calibrated clinical probabilities.",
+        "limitations": [
+          "Exploración presencial yconstantes",
+          "Pruebas complementarias oconfirmación etiológica",
+          "Diagnóstico clínico independiente firmado",
+          "Historia deexposición/medicación completa cuandoaplique"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_5153",
+      "case_id": "CASE_CDC_PHIL_5153",
+      "original_file_name": "CDC_PHIL_5153.tif",
+      "recorded_original_sha256": "08eb130df98afdd4117746dc88dd998e7f9afd02b39906fecdec5f11dd10a9ec",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 5295064,
+        "expected_bytes": 5295064,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Impétigo",
+        "time_utc": "06:24:48",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_5153",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID5153; CDC. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=5153.",
+      "diagnostic_limitations": {
+        "label_from_source": "Impétigo según ficha CDC",
+        "diagnostic_evidence": "El pie dice que las lesiones resultaron ser impétigo; no aporta cultivo, histología ni expediente confirmatorio.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "Fuente histórica1975 y reproducción de archivo; artefacto circular claro dentro del campo, no eliminado. No diagnóstico independiente actual."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_6478",
+      "case_id": "CASE_CDC_PHIL_6478",
+      "original_file_name": "CDC_PHIL_6478.tif",
+      "recorded_original_sha256": "ca622737a552f0853686b1767064db1893ce78fa2f2a6a42a97eddacf1b989a9",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 7911806,
+        "expected_bytes": 7911806,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Herpes zóster",
+        "time_utc": "06:25:09",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_6478",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID6478; CDC/ Dr. Dancewiez. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=6478.",
+      "diagnostic_limitations": {
+        "label_from_source": "Herpes zóster según ficha CDC",
+        "diagnostic_evidence": "Atribución a zóster en el pie; no prueba virológica individual proporcionada.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "Plano muy cercano, sin distribución corporal completa; fotografía1972. No se presume confirmación microbiológica."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_6482",
+      "case_id": "CASE_CDC_PHIL_6482",
+      "original_file_name": "CDC_PHIL_6482.png",
+      "recorded_original_sha256": "9704724402eb491c6848be994baffd7785d54dbc973a14ae0ca46189ed78aa9c",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 9885144,
+        "expected_bytes": 9885144,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Herpes simple",
+        "time_utc": "06:25:37",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_6482",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID6482; CDC/ Dr. Thomas Sellers, Emory University. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=6482.",
+      "diagnostic_limitations": {
+        "label_from_source": "Lesiones de herpes simple según ficha CDC",
+        "diagnostic_evidence": "HSV atribuido por CDC; no se documenta método ni tipificación individualHSV1/HSV2.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "No usar el texto explicativo general sobre HSV1/HSV2 como prueba de coinfección de este caso. Fotografía1963; encuadre incluye dedos del examinador."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_24379",
+      "case_id": "CASE_CDC_PHIL_24379",
+      "original_file_name": "CDC_PHIL_24379.png",
+      "recorded_original_sha256": "459060dc7f9f4fb4a8367fe9d1b75253909f51dbb380a7931cc6c4c7a6da9a94",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 13766845,
+        "expected_bytes": 13766845,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Tiña corporal",
+        "time_utc": "06:26:18",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad; respuestas repetidas cuentan una vez.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_24379",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID24379; CDC. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=24379.",
+      "diagnostic_limitations": {
+        "label_from_source": "Erupción compatible con tinea corporis según ficha CDC",
+        "diagnostic_evidence": "El pie usa «consistent with» y atribución de agente; no incluye resultado micológico individual.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "Contraste bajo y detalle sutil en el JPEG oficial: útil para consulta/desarrollo, no como ejemplo diagnóstico inequívoco o validado."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_28632",
+      "case_id": "CASE_CDC_PHIL_28632",
+      "original_file_name": "CDC_PHIL_28632.png",
+      "recorded_original_sha256": "a87b2f3ed9c9e64f03d56c713734dd84b93a76cf7720b9c5b56b5777947bf119",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 20749271,
+        "expected_bytes": 20749271,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Reacción a mosquito",
+        "time_utc": "06:27:05",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a revisión de privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_28632",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID28632; Lauren Bishop. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=28632.",
+      "diagnostic_limitations": {
+        "label_from_source": "Reacción a picaduras de mosquito según ficha CDC",
+        "diagnostic_evidence": "Contexto atribuido a picadura en el pie; no se especifica especie ni se aporta prueba adicional.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "La foto no acredita ausencia de reacción sistémica, infección secundaria ni gravedad clínica; no inferir esos resultados negativos."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_1337",
+      "case_id": "CASE_CDC_PHIL_1337",
+      "original_file_name": "CDC_PHIL_1337.jpg",
+      "recorded_original_sha256": "f35153fe58f501fff079195fafb31583697cca74f960766b4b4452b949c08850",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 43504,
+        "expected_bytes": 43504,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Meningococemia (gangrena de mano)",
+        "time_utc": "06:27:31",
+        "scope_summary_from_register": "Consulta/desarrollo, manifestación avanzada; condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_1337",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID1337; CDC/ Mr. Gust. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=1337.",
+      "diagnostic_limitations": {
+        "label_from_source": "Gangrena de mano por meningococemia según ficha CDC",
+        "diagnostic_evidence": "Atribución documental a Neisseria meningitidis en el pie; no se ofrece cultivo ni ficha clínica original completa.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "Solo existe la imagen oficial de700×541: no se ha inventado hi-res ni ampliado. Fuente1965; presentación avanzada, no caso de detección precoz. No equivale a una fotografía de púrpura inicial ni acredita rendimiento de clasificación de urgencia."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_PHIL_2332",
+      "case_id": "CASE_CDC_PHIL_2332",
+      "original_file_name": "CDC_PHIL_2332.png",
+      "recorded_original_sha256": "f03f69e49245dbab97ae77bf5eabd6e293e7ec3e17c9ff14fbecabda25b21df0",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 5527454,
+        "expected_bytes": 5527454,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Carbunco cutáneo",
+        "time_utc": "06:28:06",
+        "scope_summary_from_register": "Consulta/desarrollo; conservar limitaciones; condicionado a privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_CDC_PHIL_2332",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain (declarado individualmente en ficha)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Source: CDC/PHIL, ID2332; CDC/Dr. Philip S. Brachman. Available free from https://wwwn.cdc.gov/phil/Details.aspx?pid=2332.",
+      "diagnostic_limitations": {
+        "label_from_source": "Carbunco cutáneo según ficha CDC",
+        "diagnostic_evidence": "Diagnóstico atribuido por CDC; el registro no aporta método de confirmación individual.",
+        "limitations": [
+          "Expediente clínico completo y pruebas confirmatorias independientes no disponibles",
+          "Fotografía en blanco y negro1956: no sirve para inferir color, MST ni variantes de tono. La identidad etiológica procede del registro, no de la apariencia de escara."
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_PMC7176330_FIG2",
+      "case_id": "CASE_PMC7176330",
+      "original_file_name": "PMC7176330_cureus-0012-00000007374-i02.jpg",
+      "recorded_original_sha256": "205014c7b905847dbec9ed83ed1d24ee55463c1d0e0b39ab71d5124035949bd8",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 113452,
+        "expected_bytes": 113452,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Espectro SJS/TEN",
+        "time_utc": "06:28:31",
+        "scope_summary_from_register": "Un solo caso con figuras 2 y 3; consulta/desarrollo y privacidad; sin inferir superficie desprendida.",
+        "decision_id": "MED-RES-DERMA-CASE_PMC7176330",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC BY3.0",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Dutt Jonathan; Sapra Amit; Sheth-Dutt Pooja; Bhandari Priyanka; Gupta Supriya; Stevens-Johnson Syndrome: A Perplexing Diagnosis; Cureus. 2020 Mar 23;12(3):e7374. doi: 10.7759/cureus.7374; Figure FIG2; https://creativecommons.org/licenses/by/3.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "diagnostic_limitations": {
+        "label_from_source": "Espectro SJS/TEN; el título lo denomina SJS y el relato histológico conserva SJS frente a TEN.",
+        "diagnostic_evidence": {
+          "type": [
+            "Relato clínico de caso",
+            "Biopsia cutánea reportada"
+          ],
+          "basis": "La fuente refiere mucositis y evolución cutánea, con biopsia de necrosis epidérmica de espesor completo y bullas subepidérmicas; no se confirma el diagnóstico desde estas fotos."
+        },
+        "limitations": [
+          "Extensión exacta de desprendimiento de epidermis/BSA para discriminar SJS frente a TEN no retenida en esta selección",
+          "Sin adjudicación clínica independiente para Emergency",
+          "Sin calibración de color, MST o Fitzpatrick documentados"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_PMC7176330_FIG3",
+      "case_id": "CASE_PMC7176330",
+      "original_file_name": "PMC7176330_cureus-0012-00000007374-i03.jpg",
+      "recorded_original_sha256": "0d16e417671817284ee1239ce06ddc1dda9f6a184953984e076435293e5c12e7",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 142644,
+        "expected_bytes": 142644,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Espectro SJS/TEN",
+        "time_utc": "06:28:31",
+        "scope_summary_from_register": "Un solo caso con figuras 2 y 3; consulta/desarrollo y privacidad; sin inferir superficie desprendida.",
+        "decision_id": "MED-RES-DERMA-CASE_PMC7176330",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC BY3.0",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Dutt Jonathan; Sapra Amit; Sheth-Dutt Pooja; Bhandari Priyanka; Gupta Supriya; Stevens-Johnson Syndrome: A Perplexing Diagnosis; Cureus. 2020 Mar 23;12(3):e7374. doi: 10.7759/cureus.7374; Figure FIG3; https://creativecommons.org/licenses/by/3.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "diagnostic_limitations": {
+        "label_from_source": "Espectro SJS/TEN; el título lo denomina SJS y el relato histológico conserva SJS frente a TEN.",
+        "diagnostic_evidence": {
+          "type": [
+            "Relato clínico de caso",
+            "Biopsia cutánea reportada"
+          ],
+          "basis": "La fuente refiere mucositis y evolución cutánea, con biopsia de necrosis epidérmica de espesor completo y bullas subepidérmicas; no se confirma el diagnóstico desde estas fotos."
+        },
+        "limitations": [
+          "Extensión exacta de desprendimiento de epidermis/BSA para discriminar SJS frente a TEN no retenida en esta selección",
+          "Sin adjudicación clínica independiente para Emergency",
+          "Sin calibración de color, MST o Fitzpatrick documentados"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_PMC11585283_FIG1",
+      "case_id": "CASE_PMC11585283",
+      "original_file_name": "PMC11585283_cureus-0016-00000072287-i01.jpg",
+      "recorded_original_sha256": "049e5c1374579b50e9c8e1ee74ba2ea2b32940f1dbdb251e7888b59e150e1179",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 71908,
+        "expected_bytes": 71908,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "DRESS",
+        "time_utc": "06:28:50",
+        "scope_summary_from_register": "Consulta/desarrollo, condicionado a privacidad; no confirmar causalidad a partir de la imagen.",
+        "decision_id": "MED-RES-DERMA-CASE_PMC11585283",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC BY4.0",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Jayakumar Anjali; S Harikrishnan; Philip Tomy; Jomey Meenu Rose; Leflunomide-Induced Drug Reaction With Eosinophilia and Systemic Symptoms: A Diagnostic Dilemma; Cureus. 2024 Oct 24;16(10):e72287. doi: 10.7759/cureus.72287; Figure FIG1; https://creativecommons.org/licenses/by/4.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "diagnostic_limitations": {
+        "label_from_source": "DRESS atribuido por los autores a leflunomida.",
+        "diagnostic_evidence": {
+          "type": [
+            "Relato clínico de caso",
+            "RegiSCAR reportado por autores",
+            "Biopsia hepática reportada"
+          ],
+          "basis": "La fuente describe exantema, fiebre, eosinofilia y afectación hepática; comunica RegiSCAR6 y biopsia compatible con lesión hepática inducida por fármaco. Ni la puntuación ni la causalidad se recalculan o validan aquí."
+        },
+        "limitations": [
+          "Sin revisión independiente del RegiSCAR o causalidad farmacológica",
+          "La imagen no muestra extensión corporal completa ni afectación orgánica",
+          "Sin MST, parámetros de iluminación o calibración documental"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_PMC8203330_fig1",
+      "case_id": "CASE_PMC8203330",
+      "original_file_name": "PMC8203330_CRIID2021-9932425.001.jpg",
+      "recorded_original_sha256": "6fb49b073a19c60081a27dde6c856ee2f1d9718747b7f092f10ef0f37b302466",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 62319,
+        "expected_bytes": 62319,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Vasculitis leucocitoclástica",
+        "time_utc": "06:29:16",
+        "scope_summary_from_register": "Consulta/desarrollo, conservar limitaciones y condicionar a privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_PMC8203330",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC BY4.0",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Zadroga John A.; Mogulla Vanajakshi; Grant Christopher; Jevtic Djordje; Virata Andrew; Dumic Igor; The Many Faces of Purpura: Vancomycin-Induced Leukocytoclastic Vasculitis; Case Rep Infect Dis. 2021 Jun 4;2021:9932425. doi: 10.1155/2021/9932425; Figure fig1; https://creativecommons.org/licenses/by/4.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "diagnostic_limitations": {
+        "label_from_source": "Vasculitis leucocitoclástica atribuida por la fuente a vancomicina.",
+        "diagnostic_evidence": {
+          "type": [
+            "Relato clínico de caso",
+            "Biopsia cutánea reportada",
+            "Estudio de causas alternativas reportado",
+            "Evolución tras retirada del medicamento reportada"
+          ],
+          "basis": "La fuente describe biopsia con infiltrado neutrofílico y alteración fibrinoide vascular; considera causas alternativas, incluido VHC, y atribuye la reacción a vancomicina por contexto y evolución. La causalidad no está validada independientemente en este banco."
+        },
+        "limitations": [
+          "No se localizó declaración explícita de consentimiento en el XML comprobado",
+          "La foto no permite adjudicar etiología, extensión sistémica o infección",
+          "Imagen de236x429píxeles: resolución baja y dominante cromática; sin MST/calibración documentada"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_PMC11619809_FIG1",
+      "case_id": "CASE_PMC11619809",
+      "original_file_name": "PMC11619809_cureus-0016-00000073060-i01.jpg",
+      "recorded_original_sha256": "9c0355938882b134fb98606687bf4b9ab954696d3935c378f3144e3185e3d229",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 219724,
+        "expected_bytes": 219724,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Fascitis necrosante",
+        "time_utc": "06:29:50",
+        "scope_summary_from_register": "Consulta/desarrollo como imagen posterior al desbridamiento, no presentación inicial; privacidad.",
+        "decision_id": "MED-RES-DERMA-CASE_PMC11619809",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC BY4.0",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Posner Kevin M; Bakus Cassandra; Sodha Samir; Rapid Healing of Necrotizing Fasciitis Using the Kerecis Fish Skin Xenograft: A Clinical Case Report; Cureus. 2024 Nov 5;16(11):e73060. doi: 10.7759/cureus.73060; Figure FIG1; https://creativecommons.org/licenses/by/4.0/; fuente de datosNIH/NLM/NCBI PMC Cloud; imagen sin modificaciones.",
+      "diagnostic_limitations": {
+        "label_from_source": "Fascitis necrosante reportada en el caso de la fuente; imagen de herida después del desbridamiento inicial y antes de otro desbridamiento.",
+        "diagnostic_evidence": {
+          "type": [
+            "Relato clínico-quirúrgico de caso",
+            "Diagnóstico de fascitis necrosante comunicado por los autores"
+          ],
+          "basis": "El relato documenta diagnóstico de fascitis necrosante y desbridamientos/lavados. La figura1 muestra déficit tisular con estructuras expuestas en fase de tratamiento, no una presentación precoz no tratada. No se afirma confirmación microbiológica o histológica específica no aportada en el relato revisado."
+        },
+        "limitations": [
+          "Prueba microbiológica o histología diagnóstica específica no documentada en el relato seleccionado",
+          "Fotografía pretratamiento no obtenida",
+          "Sin MST, calibración o revisión humana para este banco"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA-COMMONS-5de1c08f376a",
+      "case_id": "COMMONS_CASE_5de1c08f376aedda",
+      "original_file_name": "Scabies_on_an_adult_hand_01.jpg",
+      "recorded_original_sha256": "5de1c08f376aedda18bc1f6253f3e3e0063822b78ed6304eafaab1626d791f2a",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 1119100,
+        "expected_bytes": 1119100,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Escabiosis",
+        "time_utc": "06:30:15",
+        "scope_summary_from_register": "Consulta/desarrollo, conservar limitaciones y condicionar a privacidad.",
+        "decision_id": "MED-RES-DERMA-COMMONS_CASE_5de1c08f376aedda",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC0-1.0",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Taofeeq Abdulkareem; https://commons.wikimedia.org/wiki/File:Scabies_on_an_adult_hand_01.jpg; CC0-1.0; sin modificaciones; atribución conservada por procedencia, no exigida como condición CC0.",
+      "diagnostic_limitations": {
+        "label_from_source": "Scabies, as attributed by uploader; NOT independent clinical diagnosis",
+        "diagnostic_evidence": "PENDING; solo contexto descriptivo del autor disponible, sin informe o prueba confirmatoria",
+        "limitations": [
+          "Anamnesis, exploración presencial, dermatoscopia/raspado y confirmación clínica: no disponibles",
+          "Consentimiento clínico original: no disponible; autor declara obra propia y CC0"
+        ],
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_FRONTIERS_1048480_F1",
+      "case_id": "FRONTIERS_1048480_F1",
+      "original_file_name": "fmed-09-1048480-g001.webp",
+      "recorded_original_sha256": "72b4f676f531dc84f8b3fb5990bf6778a589457bb8e40e39a11d5459cab78e36",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 521234,
+        "expected_bytes": 521234,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Angioedema hereditario",
+        "time_utc": "06:23:15",
+        "scope_summary_from_register": "Consulta y desarrollo exclusivamente; privacidad de reutilización no aprobada.",
+        "decision_id": "MED-RES-DERMA-FRONTIERS_1048480_F1",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CONSULTATION_DEVELOPMENT_CONDITIONAL_ON_PRIVACY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "CC BY (versión por enlace editorial)",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": false,
+      "privacy_specific_reuse": "SPECIFIC_REUSE_PRIVACY_NOT_ESTABLISHED_BY_OWNER_MEDICAL_APPROVAL",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "OWNER_SCOPE_ACCEPTED_PRIVACY_CONDITIONS_REMAIN",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "Buttgereit T, Fijen LM, Vera C, Bergmann KC, Maurer M, Magerl M. Front Med 2022;9:1048480. DOI 10.3389/fmed.2022.1048480, figura 1.",
+      "diagnostic_limitations": {
+        "label_from_source": "Angioedema de mano derecha atribuido por pie de figura 1 a HAE con déficit C1INH",
+        "diagnostic_evidence": "Pie de figura 1. La figura es un ejemplo introductorio; no atribuirle las historias de los dos casos de angioedema mastocitario descritos después.",
+        "limitations": "Imagen aislada sin comparador basal ni expediente individual completo. No permite determinar mecanismo, gravedad o excluir afectación de vía aérea.",
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Document precise consumer/purpose, data exposure/retention, asset-specific privacy assessment and applicable license conditions; do not repeat medical vote",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_2874",
+      "case_id": "CDC_2874_24913_24914",
+      "original_file_name": "2874.tif",
+      "recorded_original_sha256": "804bc14c9f09bdca5c4e02025d43be8e7a520133cc49258bef7aa53b76bf5ee3",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 11563261,
+        "expected_bytes": 11563261,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Erisipela facial",
+        "time_utc": "06:23:56",
+        "scope_summary_from_register": "Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad.",
+        "decision_id": "MED-RES-DERMA-CDC_2874_24913_24914",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CLINICAL_REPRESENTATIVENESS_ONLY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain; attribution and no CDC endorsement",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": true,
+      "privacy_specific_reuse": "UNRESOLVED_POTENTIALLY_IDENTIFIABLE_FACE",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "NOT_APPROVED_FOR_THIS_PURPOSE_REPRESENTATIVENESS_ONLY",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "CDC / Dr. Thomas F. Sellers, Emory University. PHIL 2874 (1963). Fuente gratuita CDC; sin respaldo institucional a Emergency.",
+      "diagnostic_limitations": {
+        "label_from_source": "Erisipela facial según ficha CDC",
+        "diagnostic_evidence": "Atribución de ficha histórica, 1963; sin cultivo ni historia individual confirmatoria disponible.",
+        "limitations": "Un solo caso; PHIL 24913 y 24914 son otras vistas del mismo paciente y no deben sumarse como casos nuevos. Ejemplo facial histórico, sin generalización a extremidades o tonos.",
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Resolve documented face/consent obstacle for this precise reuse; no face image transfer",
+      "runtime_enabled": false
+    },
+    {
+      "asset_id": "DERMA_CDC_27799",
+      "case_id": "CDC_27799",
+      "original_file_name": "27799.tif",
+      "recorded_original_sha256": "77b57ba204e720a26b5de7243e239d22666474acb7f6936ba0274e1c749cb214",
+      "integrity_provenance": {
+        "status": "PRIOR_PHYSICAL_SHA256_VERIFICATION_REUSED_ATTRIBUTED",
+        "prior_auditor": "Antigravity",
+        "prior_candidate_sha": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "receipt_pointer": "direct_checks_on_5494b00/physical_hashes_verified/dermatology_21_plus_3",
+        "metadata_hash_consistency_checked_now": true,
+        "original_bytes_rehashed_now": false,
+        "decoded_pixels_rechecked_now": false
+      },
+      "physical_original_stat": {
+        "exists_now": true,
+        "bytes_now": 8422225,
+        "expected_bytes": 8422225,
+        "size_matches": true,
+        "new_content_hash": false,
+        "new_pixel_decode": false
+      },
+      "owner_decision": {
+        "case_name": "Forunculosis frontal",
+        "time_utc": "06:24:14",
+        "scope_summary_from_register": "Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad.",
+        "decision_id": "MED-RES-DERMA-CDC_27799",
+        "version": 1,
+        "response": "YES_IN_RECORDED_SCOPE",
+        "reviewer": "Dr. Juan Copado Ceballos",
+        "date_utc": "2026-11-27",
+        "source_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
+        "scope_category": "CLINICAL_REPRESENTATIVENESS_ONLY",
+        "new_vote_requested": false
+      },
+      "copyright_license": "Public Domain; attribution and no CDC endorsement",
+      "copyright_evidence": "PRIMARY_LICENSE_ADDENDUM_15.json",
+      "commercial_use_prohibition_found_in_verified_SCIN_license": null,
+      "no_reidentification": true,
+      "potentially_identifiable_face": true,
+      "privacy_specific_reuse": "UNRESOLVED_POTENTIALLY_IDENTIFIABLE_FACE",
+      "use_manifest": {
+        "existing_local_custody": "RETAIN_WITH_EXISTING_RESTRICTIONS",
+        "medical_representativeness": "OWNER_ACCEPTED_EXISTING_SCOPE_NO_REVOTE",
+        "local_consultation_development": "NOT_APPROVED_FOR_THIS_PURPOSE_REPRESENTATIVENESS_ONLY",
+        "product_display": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "redistribution_external_service": "NOT_ADMITTED_PRIVACY_PURPOSE_CONDITIONS_UNRESOLVED",
+        "training": "NO_AUTHORIZATION_IN_EXISTING_SCOPE",
+        "independent_validation": "INELIGIBLE_DEVELOPMENT_EXPOSED_NO_INDEPENDENT_ADJUDICATION"
+      },
+      "attribution": "CDC / Dr. M.S. Ferguson. PHIL 27799 (1959). Fuente gratuita CDC; sin respaldo institucional a Emergency.",
+      "diagnostic_limitations": {
+        "label_from_source": "Forunculosis estafilocócica de frente según ficha CDC",
+        "diagnostic_evidence": "Atribución de ficha histórica, 1959; no se dispone de microbiología individual ni confirmación etiológica independiente.",
+        "limitations": "Ejemplo de forunculosis, no confirma etiología ni demuestra equivalencia entre absceso, foliculitis y forúnculo en cualquier presentación.",
+        "independent_diagnosis_established": false
+      },
+      "next_evidence_needed": "Resolve documented face/consent obstacle for this precise reuse; no face image transfer",
+      "runtime_enabled": false
+    }
+  ]
+}

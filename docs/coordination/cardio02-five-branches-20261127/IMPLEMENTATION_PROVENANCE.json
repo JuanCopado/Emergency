@@ -1,0 +1,127 @@
+{
+  "task": "CARDIO02-FIVE-APPROVED-STRUCTURAL-BRANCHES",
+  "base_commit": "e5f788a793ad84cc46d2c5d42dd6d8d957cab292",
+  "base_tree": "e81ebfd8761f4afa81ab7d180d6014b8b0e39af2",
+  "decision": "MED-RES-CARDIO-02 v1",
+  "original_proposal": {
+    "relative_path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/PROTO_CARDIO_PR122/MED_RES_CARDIO_ORIGINAL_V1_TEXTO_RENDERIZADO.txt",
+    "bytes": 11634,
+    "sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036",
+    "section": "2.CARDIO-02",
+    "branch_count_verified": 5
+  },
+  "literal_acceptance": {
+    "relative_path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/PROTO_CARDIO_PR122/MED_RES_CARDIO_ACEPTACION_LITERAL.txt",
+    "bytes": 404,
+    "sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec",
+    "scope": "All six v1 proposals accepted only in exact scope; unreviewed doses and clinical release excluded.",
+    "new_vote_required": false
+  },
+  "primary_focal_mapping": {
+    "source_commit": "7478b306adb98aacb9382200d8edf4e9a67cf78a",
+    "path": "docs/coordination/cardio02-focal-branches-20261127/CARDIO02_FIVE_BRANCH_FOCAL_MAP.json",
+    "workspace_raw_sha256": "01b1220a6ad01f04c10876f0002898a3b7b8d72b894e34d6574b31ca8f37364d",
+    "access": "Earlier focal documentary lookup by separate Codex reviewer, reused with attribution; no new full primary reading by implementer",
+    "sources": [
+      {
+        "id": "ESC2025",
+        "doi": "10.1093/eurheartj/ehaf194",
+        "url": "https://academic.oup.com/eurheartj/article/46/44/4635/8234488",
+        "version": "Published2025-08-29;EHJ46(44):4635-4736,2025-11-21",
+        "prior_focal_reused": {
+          "receipt": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/CIENCIA/LOTE_ADULTOS/COTEJO_FOCAL_18_ADULTOS.json",
+          "claims": [
+            "VHD01",
+            "VHD02"
+          ],
+          "locator": "9.1.3-9.1.4"
+        },
+        "new_focal_locators": [
+          "7.4 acuteAR;6.5 shock/acuteHF",
+          "14.2/14.4.4.2 prosthetic imaging scope",
+          "3.1.1 HeartTeam"
+        ],
+        "new_focal_access": "Official publisher HTML redirects automatically to publisher article-minimal; no bypass or full reading.",
+        "scope_summary": "ARaguda:intervencion urgente dependiente de causa. Protesis:imagen y valoracion experta segun mecanismo; no tratamiento uniforme. El marcoHeartTeam no debe retrasar decisionesurgentes. MRreutiliza el cotejo focal previo.",
+        "rights": "Personal/educational use statement; reproduction/translation permissions and TDM/AI-development reservation visible. No license for full reproduction, bulk processing or commercial reuse is asserted. Only own short focal metadata/paraphrases retained.",
+        "rights_localizers": "Permissions523-524;copyright84716-84718",
+        "verbatim_source_words": 0
+      },
+      {
+        "id": "ESC2023_IE",
+        "doi": "10.1093/eurheartj/ehad193",
+        "url": "https://academic.oup.com/eurheartj/article/44/39/3948/7243107",
+        "version": "2023ESCendocarditis,EHJ44(39):3948-4042",
+        "new_focal_locators": [
+          "8.2.2 lines2095-2098"
+        ],
+        "new_focal_access": "Official publisher HTML focal lookup, no full reading or PDF acquisition.",
+        "scope_summary": "La endocarditis con insuficiencia cardiaca exige equipoespecializado; la urgencia depende del compromisohemodinamico. La discusion de equipo no debe demorar una operacion deemergencia. Esto respalda remision,no antibiotico universal.",
+        "rights": "Personal/educational use and reproduction/translation permissions stated; no broad processing or republication clearance inferred.",
+        "rights_localizers": "Permissions519-520",
+        "verbatim_source_words": 0
+      }
+    ]
+  },
+  "five_approved_branches": [
+    {
+      "id": "AS",
+      "owner_strategy_exact": "Preservar perfusión coronaria, evitar hipotensión y reducciones bruscas de precarga.",
+      "source_ref": "ESC2025",
+      "locator": "Existing canonical paragraph; no new AS regimen reviewed",
+      "limit": "No ampliar restricciones ni crear farmacos; conservar texto aceptado."
+    },
+    {
+      "id": "MR",
+      "owner_strategy_exact": "Estabilización, valoración de reducción de poscarga si la presión arterial lo permite y consulta urgente.",
+      "source_ref": "ESC2025",
+      "locator": "9.1.3-9.1.4, prior Work VHD01/VHD02",
+      "limit": "Conservar condicion hemodinamica; no exportar pauta mitral a otras lesiones."
+    },
+    {
+      "id": "AR",
+      "owner_strategy_exact": "Estabilización y evaluación quirúrgica urgente según etiología.",
+      "source_ref": "ESC2025",
+      "locator": "7.4, paragraph1; 6.5",
+      "limit": "Derivacion segun etiologia y gravedad; no intervencion o medicacion automatica."
+    },
+    {
+      "id": "PROSTHETIC",
+      "owner_strategy_exact": "Ecocardiografía urgente y valoración especializada.",
+      "source_ref": "ESC2025",
+      "locator": "14.2;14.4.4.2;3.1.1",
+      "limit": "Aplicar al escenario critico del modulo; no convertir toda protesis estable en emergencia ni inferir trombolisis/anticoagulacion."
+    },
+    {
+      "id": "IE",
+      "owner_strategy_exact": "Activar circuito específico de infección y valoración valvular.",
+      "source_ref": "ESC2023_IE",
+      "locator": "8.2.2;existing canonical infective-endocarditis route",
+      "limit": "Remitir al circuito existente y equipo especializado; no regimen antimicrobiano universal."
+    }
+  ],
+  "monitoring": {
+    "owner_exact": "ECG, presión arterial, oxigenación, perfusión periférica, diuresis y respuesta a las intervenciones, según gravedad.",
+    "source": "Approved originalCARDIO02v1",
+    "exact_single_primary_guideline_list_verified_here": false,
+    "safe_structural_scope": "Group recording/reassessment fields according to severity, preserving existing checks; no invented interval, threshold or mandatory invasive method.",
+    "clinical_scope_expansion_authorized": false
+  },
+  "POCUS_boundary": "Existing bridge/cannot-grade-complex-lesions paragraph preserved; no accuracy claim",
+  "route_check": {
+    "module": "infective-endocarditis",
+    "already_existing": true,
+    "no_new_route": true
+  },
+  "preserved": [
+    "Critical AS prior safeguards retained; exact owner-approved avoidance of hypotension and abrupt preload reduction stated explicitly, no expanded regimen",
+    "All drug doses, formulas, preparations and product controls",
+    "131 existing module statuses and last_checked dates",
+    "Accepted19contracts and MED-DEC-R46-01/02",
+    "CARDIO04 prior commit phase unchanged"
+  ],
+  "scope": "Lesion-specific structural presentation only; not complete CARDIO02 clinical closure",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "qa": "QA_RESULTS.json"
+}

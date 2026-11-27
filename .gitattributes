@@ -1,2 +1,6 @@
 # The projected source embeds its exact byte hash; checkout must preserve LF.
 clinical/pharmacology/corticosteroids.json text eol=lf
+# Dated owner-record hashes must survive Windows checkouts unchanged.
+docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md text eol=lf
+# Keep the recovered original's CRLF bytes intact, including at staging time.
+docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md -text

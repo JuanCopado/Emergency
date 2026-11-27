@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-11-27",
+  "executor": "Codex primary-source focal documentary audit",
+  "independent_of_gemini_response_id": "9fc3a430f5c9115e",
+  "gemini_session": "b69d880d472636da",
+  "scope": "Five specific anchors only; no integral reading, clinical implementation or legal clearance",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "runtime_changed": false,
+  "last_checked_changed": false,
+  "restricted_documents_transferred": false,
+  "tests_or_ci_executed": false,
+  "sources": [
+    {
+      "id": "B-FOCAL-EMC-1861",
+      "url": "https://www.medicines.org.uk/emc/product/1861/smpc",
+      "primary_authority": "Baxter Healthcare Ltd product SmPC on emc",
+      "title": "Potassium Chloride 0.15% w/v & Sodium Chloride 0.9% w/v Solution for Infusion - BP",
+      "locator": "Section 4.2, adult/elderly/adolescent treatment, administration rate and monitoring; section 10 for text date",
+      "product_identifier": "UK PL 00116/0336",
+      "version_metadata": {
+        "text_revision": "June 2023",
+        "emc_page_updated": "2025-03-10"
+      },
+      "access_status": "PRIMARY_HTML_OBTAINED_FOCAL_SECTIONS",
+      "retrieval_refs": [
+        "turn267626881view0",
+        "turn636715364view4"
+      ],
+      "documentary_acceptance": "ACCEPT_ANCHOR_WITH_PRODUCT_AND_POPULATION_SCOPE",
+      "verified_summary": "For adult/elderly/adolescent hypokalaemia treatment this product specifies 20 mmol over 2-3 hours (7-10 mmol/h) under ECG control; maximum-rate wording is the interval 15-20 mmol/h, with renal and monitoring qualifications.",
+      "discrepancies": [
+        "A single universal usual rate of 10 mmol/h is not the full source wording.",
+        "Do not select the upper bound 20 mmol/h as a general option or transfer it to another product."
+      ],
+      "runtime_effect_authorized": false,
+      "access_rights_scope": "Public primary HTML focal reading; no broad redistribution or external-processing license inferred"
+    },
+    {
+      "id": "B-FOCAL-NICE-NG38",
+      "url": "https://www.nice.org.uk/guidance/ng38/chapter/recommendations",
+      "primary_authority": "NICE",
+      "locator": "Recommendation 1.2.3, Imaging of scaphoid fractures",
+      "version_metadata": {
+        "guidance_id": "NG38",
+        "published": "2016-02-17",
+        "integral_version_reviewed": false
+      },
+      "access_status": "PRIMARY_HTML_FOCAL_DIRECT_BROWSER_OBTAINED",
+      "retrieval_refs": [
+        "turn959423311search0",
+        "turn959423311search6",
+        "turn267626881view1",
+        "turn636715364view0"
+      ],
+      "documentary_acceptance": "ACCEPT_FOCAL_RECOMMENDATION_WITH_CONDITIONAL_WORDING",
+      "verified_summary": "Consider first-line MRI in suspected scaphoid fracture following thorough clinical examination.",
+      "discrepancies": [
+        "Consideration is not a universal mandate.",
+        "Direct focal browser read supersedes the earlier 403 limit for this recommendation only; not full guidance/PDF review."
+      ],
+      "runtime_effect_authorized": false,
+      "access_rights_scope": "Public primary browser focal reading of recommendation1.2.3; no PDF acquisition, access-control bypass,integral review or broad republication rights inferred",
+      "prior_access_status": "PRIMARY_DOMAIN_INDEXED_FRAGMENT_ONLY_DIRECT_HTML_AND_OFFICIAL_PDF_403",
+      "browser_readback": {
+        "coordinator": "Codex root",
+        "url": "https://www.nice.org.uk/guidance/ng38/chapter/recommendations",
+        "heading": "1.2.3",
+        "observed_guidance_id": "NG38",
+        "observed_publication_date": "2016-02-17",
+        "method": "Visible accessibility tree and DOM of recommendation parent; no integral reading claimed",
+        "restricted_access_bypassed": false
+      },
+      "historical_access_rights_scope": "No bypass of 403; primary-domain indexed fragment only, short paraphrase, no restricted PDF retained"
+    },
+    {
+      "id": "B-FOCAL-AAOHNSF-EPISTAXIS-2020",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31910111/",
+      "primary_authority": "AAO-HNSF guideline abstract indexed by PubMed",
+      "title": "Clinical Practice Guideline: Nosebleed (Epistaxis)",
+      "doi": "10.1177/0194599819890327",
+      "locator": "Abstract Purpose and Action statements 2, 3a, 3b and 11",
+      "version_metadata": {
+        "year": 2020,
+        "journal": "Otolaryngology-Head and Neck Surgery 162(1_suppl):S1-S38"
+      },
+      "access_status": "PRIMARY_PUBMED_ABSTRACT_DIRECT_BROWSER_OBTAINED_FOCAL_KAS",
+      "retrieval_refs": [
+        "turn959423311search4",
+        "turn636715364search0"
+      ],
+      "documentary_acceptance": "ACCEPT_ABSTRACT_FOCAL_KAS_ONLY",
+      "verified_summary": "Target age at least three years; compression at least five minutes; packing if ongoing bleeding prevents localisation despite compression; resorbable packing with suspected bleeding disorder or antithrombotics. Without life-threatening bleeding, first-line measures precede transfusion, reversal or withdrawal.",
+      "discrepancies": [
+        "Do not extend the age scope below three or treat the non-life-threatening KAS11 sequence as a ban on emergency reversal.",
+        "No full guideline or restricted publisher PDF read is claimed."
+      ],
+      "runtime_effect_authorized": false,
+      "access_rights_scope": "Short paraphrase of publicly indexed primary abstract; no publisher access restriction bypass or full document processing",
+      "prior_access_status": "PRIMARY_ABSTRACT_INDEXED_DIRECT_PUBMED_EMPTY",
+      "browser_readback": {
+        "coordinator": "Codex root",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31910111/",
+        "dom_locator": "#abstract",
+        "observed_abstract_characters": 8078,
+        "focal_read": "Population>=3years and KAS2/3a/3b/11; English abstract content despite translated navigation",
+        "integral_guideline_read": false,
+        "restricted_access_bypassed": false
+      }
+    },
+    {
+      "id": "B-FOCAL-EAU-FOURNIER-2026",
+      "url": "https://uroweb.org/guidelines/urological-infections/chapter/the-guideline",
+      "primary_authority": "European Association of Urology",
+      "locator": "Section 3.13.5, recommendations for Fournier gangrene; 3.13.3 context",
+      "version_metadata": {
+        "edition": "EAU Guidelines, Annual Congress London 2026",
+        "isbn": "978-94-92671-32-5",
+        "edition_source_url": "https://uroweb.org/guidelines/urological-infections/chapter/citation-information"
+      },
+      "access_status": "PRIMARY_HTML_AND_CITATION_METADATA_OBTAINED",
+      "retrieval_refs": [
+        "turn959423311view2",
+        "turn636715364view3"
+      ],
+      "documentary_acceptance": "ACCEPT_TIMING_AND_STRENGTH_ANCHOR",
+      "verified_summary": "Strong recommendation to commence repeated surgical debridement within 24 hours of presentation.",
+      "discrepancies": [
+        "This is an initiation deadline, not a repeat-every-24-hours schedule or permission to delay urgent surgery.",
+        "No adjacent antibiotic-dose table is imported."
+      ],
+      "runtime_effect_authorized": false,
+      "access_rights_scope": "Public primary HTML focal reading and short paraphrase; no general reuse license inferred"
+    },
+    {
+      "id": "B-FOCAL-EMA-FASTURTEC",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/fasturtec",
+      "primary_authority": "European Medicines Agency",
+      "product_information_url": "https://www.ema.europa.eu/en/documents/product-information/fasturtec-epar-product-information_en.pdf",
+      "locator": "Annex I section 4.3, printed page 3 (PDF index 2); section 6.6 Sample handling, printed page 9 (PDF index 8)",
+      "version_metadata": {
+        "official_product_information_pages": 30,
+        "ema_file_last_updated": "2024-08-12",
+        "sm_pc_revision_date_not_inferred_from_file_timestamp": true
+      },
+      "access_status": "PUBLIC_OFFICIAL_EMA_PRODUCT_INFORMATION_PDF_OBTAINED_FOCAL_SECTIONS",
+      "retrieval_refs": [
+        "turn267626881view3",
+        "turn636715364view1",
+        "turn636715364view2",
+        "turn959423311view3"
+      ],
+      "documentary_acceptance": "ACCEPT_G6PD_CONTRAINDICATION_AND_PRODUCT_SPECIFIC_SAMPLE_HANDLING_ANCHORS",
+      "verified_summary": "Rasburicase is contraindicated in G6PD deficiency and relevant haemolytic metabolic disorders.",
+      "sample_handling_summary": "Pre-chilled heparin tubes; ice/water bath; immediate plasma separation in a centrifuge pre-cooled to 4 C; keep plasma in ice/water and analyse uric acid within four hours.",
+      "sample_handling_gap": "DOCUMENTARY_ANCHOR_RESOLVED_FOR_FASTURTEC_ONLY",
+      "discrepancies": [
+        "Does not establish local laboratory implementation, product availability or a full TLS regimen.",
+        "BSH TLS 2025 was not read or substituted by the EMA source; no dose imported."
+      ],
+      "runtime_effect_authorized": false,
+      "access_rights_scope": "Public EMA-hosted official PDF read only for specified sections; no borrowed or restricted document uploaded, no whole PDF copied into this deliverable"
+    }
+  ],
+  "overall_verdict": "FIVE_PRIMARY_FOCAL_ANCHORS_DIRECTLY_OBTAINED_WITH_SCOPE_LIMITS_NO_RUNTIME_EFFECT",
+  "new_dose_product_or_rate_selection": false,
+  "full_module_validation": false,
+  "new_approval_required_by_this_audit": false,
+  "coordinator_followup": {
+    "scope": "Two earlier index-only anchors directly read in real Chrome browser; first audit preserved by prior_access_status",
+    "direct_primary_focal_anchors_now": 5,
+    "all_five_integral_reviews": false,
+    "runtime_changed": false
+  },
+  "historical_overall_verdict": "FIVE_NARROW_DOCUMENTARY_ANCHORS_SUPPORTED_WITH_TWO_INDEXED_ACCESS_LIMITS"
+}

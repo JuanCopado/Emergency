@@ -1,0 +1,15 @@
+{
+  "source_commit": "e2a49e638fa329503e4f3a925de1f4026d452713",
+  "path": "TESTS.log",
+  "raw_source_sha256": "efeb2ed502c50098e6526f12caabfeaccdaacb098daad635162adaae98397b0d",
+  "public_copy_sha256": "631aec88c1dc8353534238301d659b6e3f65a1567054451a2f59a64c63c8b36b",
+  "derivation": "Replace one local absolute workspace prefix with <WORKTREE>/app. Workspace and Git LF representations recorded separately; no metrics changed.",
+  "replacements": 1,
+  "results_or_metrics_changed": false,
+  "original_source_preserved_in_local_source_commit": true,
+  "qa_results_source_hashes_refer_to_original_execution_not_this_public_derivative": true,
+  "public_copy_workspace_raw_sha256": "631aec88c1dc8353534238301d659b6e3f65a1567054451a2f59a64c63c8b36b",
+  "public_copy_git_normalized_LF_sha256": "498057c73574eb433992e3e68626b651a96615c59463ca72e04955d40eebc71f",
+  "raw_source_representation": "workspace raw at source execution; original source file preserved",
+  "public_copy_sha256_scope": "workspace raw; canonical Git LF hash separately recorded"
+}
