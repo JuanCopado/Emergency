@@ -4,7 +4,7 @@
   "version": "0.5",
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
-  "branch": "feat/individual-runtime-20261127",
+  "branch": "docs/implementacion-viva-20261127",
   "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
   "observed_candidate": {
     "pr": 133,
@@ -358,40 +358,48 @@
       "dependencies": [
         "IMP-00"
       ],
-      "status": "IN_PROGRESS_FINAL_INTEGRATION",
+      "status": "DELIVERED_PARTIAL_SW_ACTIVATION_UNVERIFIED",
       "objective": "Consolidate reproducible local installation, update and rollback using existing artifacts",
       "acceptance": "Accepted relevant IMP-00 deliverable, artifact integrity and only missing synthetic/offline/privacy checks; preserve existing engines and prior results",
       "receipt": {
         "task_id": "IMP-03",
         "agent": "Codex / Work",
-        "timestamp_utc": "2026-11-27T21:11:55.754897+00:00",
-        "source_sha": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
-        "acknowledgement_or_execution_evidence": "docs/implementacion/evidencias/IMP03_PRUEBAS.json",
-        "deliverable_path_or_commit": "https://github.com/JuanCopado/Emergency/pull/135",
-        "branch": "feat/implementation-local-package-20261127",
-        "commit": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
-        "tests": {
-          "local_counted": 23,
-          "local_passed": 22,
+        "timestamp_utc": "2026-11-27T23:49:14.606630+00:00",
+        "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+        "pr": 136,
+        "deliverable_path_or_commit": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md",
+        "measured": {
+          "local_tests": 94,
+          "local_passed": 93,
           "local_skipped": 1,
-          "chrome": "158.0.8127.37",
-          "real_build_stages": 3,
-          "offline": "server stopped and browser offline; 5.3 result; API rejected without HTML",
-          "local_installation_ci_run": 46068470440,
-          "windows": "success",
-          "linux": "success",
-          "general_ci": "PENDING_AT_THIS_RECEIPT; exact final observations recorded separately"
+          "skip": "Native symlink privilege1314",
+          "windows_ci_tests": 94,
+          "windows_ci_passed": 94,
+          "ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+          "ci_jobs_passed": 10,
+          "react_tests_passed": 1186,
+          "clinical_tests_run": 1779,
+          "clinical_skipped": 21,
+          "fresh_install_seconds": 23.297,
+          "signed_payload_files": 138,
+          "native_opening": "PASS by same target, new OS window, standalone and exact A SHA",
+          "manual_documents": "PASS A/B/A only; same origin, preferences, open draft, stale API409, denied unseen routes",
+          "installed_pwa_upgrade": "NOT_VERIFIED",
+          "cached_offline": "NOT_VERIFIED"
         },
-        "limitations": [
-          "Static reference and local frontend calculation only; no clinical backend packaged",
-          "No full installed-PWA upgrade, preference migration or global cross-installation browser-cache guarantee",
-          "One native symlink test skipped locally for Windows privilege 1314; junction and ZIP symlink tested",
-          "Manifest integrity is not publisher authenticity or a signed build attestation",
-          "No production, real-patient processing, OIDC, PostgreSQL or cloud resources"
+        "blocker": {
+          "id": "IMP03-SW-ACTIVATION",
+          "observed": "No activated registration/controller within35seconds,316 resolved probes; sw.js/workbox HTTP200",
+          "cause": "NO_DETERMINADA",
+          "category": "TECHNICAL; not asserted to be an external dependency"
+        },
+        "limits": [
+          "Windows Python3.12x64 prerequisite; interpreter not redistributed",
+          "OCR/T05/T06 and remote inference are explicitly unavailable in this package",
+          "Worker audit hooks are not an OS sandbox or protection against malicious same-user processes",
+          "Publisher key DPAPI private material is outside repository/OneDrive/delivery; trust fingerprint obtained independently"
         ],
-        "accepted_prerequisite": false,
-        "accepted_delivered_subscope": "Unit-tested static custody/launcher and controlled-root browser A/B/A proof; not full IMP-03 closure",
-        "next_action": "Review the finite static increment; define backend/local-runtime delivery and persistent-origin PWA upgrade requirements before declaring complete individual installation"
+        "next_action": "Resolve service-worker activation and repeat only the missing installed-PWA update/cache acceptance; no clinical re-vote"
       },
       "closure_criteria": [
         "C2",
@@ -418,26 +426,81 @@
       ],
       "blocker": "Full intended local installation and existing installed-PWA update scope not yet delivered; technical delta remains isolated in PR135",
       "expected_artifact": "Existing local package plus reproducible install/update/rollback receipt",
-      "review_state": "BOUNDED_CODEX_REVIEW_NO_OPEN_FINDINGS_NOT_EXTERNAL_AUDIT",
+      "review_state": "TECHNICAL_DELIVERY_PARTIAL_NOT_INSTALLATION_CLOSURE",
       "current_increment": {
-        "scope": "Signed Windows offline Python backend, same-origin PWA update and rollback",
-        "backend_tests": 16,
-        "auth_tests": 21,
-        "stable_tests": 9,
-        "new_react_tests": 13,
-        "affected_react_regressions": 17,
-        "measured": "Focused tests before final packaging; not final-SHA evidence",
-        "pending": [
-          "Final signed archive installation and supervised runtime",
-          "Actual installed PWA A/B/A and concurrent open-note browser test",
-          "Final exact-SHA independent audit and CI"
+        "task_id": "IMP-03",
+        "agent": "Codex / Work",
+        "timestamp_utc": "2026-11-27T23:49:14.606630+00:00",
+        "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+        "pr": 136,
+        "deliverable_path_or_commit": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md",
+        "measured": {
+          "local_tests": 94,
+          "local_passed": 93,
+          "local_skipped": 1,
+          "skip": "Native symlink privilege1314",
+          "windows_ci_tests": 94,
+          "windows_ci_passed": 94,
+          "ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+          "ci_jobs_passed": 10,
+          "react_tests_passed": 1186,
+          "clinical_tests_run": 1779,
+          "clinical_skipped": 21,
+          "fresh_install_seconds": 23.297,
+          "signed_payload_files": 138,
+          "native_opening": "PASS by same target, new OS window, standalone and exact A SHA",
+          "manual_documents": "PASS A/B/A only; same origin, preferences, open draft, stale API409, denied unseen routes",
+          "installed_pwa_upgrade": "NOT_VERIFIED",
+          "cached_offline": "NOT_VERIFIED"
+        },
+        "blocker": {
+          "id": "IMP03-SW-ACTIVATION",
+          "observed": "No activated registration/controller within35seconds,316 resolved probes; sw.js/workbox HTTP200",
+          "cause": "NO_DETERMINADA",
+          "category": "TECHNICAL; not asserted to be an external dependency"
+        },
+        "limits": [
+          "Windows Python3.12x64 prerequisite; interpreter not redistributed",
+          "OCR/T05/T06 and remote inference are explicitly unavailable in this package",
+          "Worker audit hooks are not an OS sandbox or protection against malicious same-user processes",
+          "Publisher key DPAPI private material is outside repository/OneDrive/delivery; trust fingerprint obtained independently"
         ],
-        "capability_limits": [
-          "Python3.12 x64 prerequisite",
-          "OCR/T05/T06 and remote model inference not packaged",
-          "Legacy random-origin static package has no automatic preference migration"
-        ]
-      }
+        "next_action": "Resolve service-worker activation and repeat only the missing installed-PWA update/cache acceptance; no clinical re-vote"
+      },
+      "prior_receipts": [
+        {
+          "task_id": "IMP-03",
+          "agent": "Codex / Work",
+          "timestamp_utc": "2026-11-27T21:11:55.754897+00:00",
+          "source_sha": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
+          "acknowledgement_or_execution_evidence": "docs/implementacion/evidencias/IMP03_PRUEBAS.json",
+          "deliverable_path_or_commit": "https://github.com/JuanCopado/Emergency/pull/135",
+          "branch": "feat/implementation-local-package-20261127",
+          "commit": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
+          "tests": {
+            "local_counted": 23,
+            "local_passed": 22,
+            "local_skipped": 1,
+            "chrome": "158.0.8127.37",
+            "real_build_stages": 3,
+            "offline": "server stopped and browser offline; 5.3 result; API rejected without HTML",
+            "local_installation_ci_run": 46068470440,
+            "windows": "success",
+            "linux": "success",
+            "general_ci": "PENDING_AT_THIS_RECEIPT; exact final observations recorded separately"
+          },
+          "limitations": [
+            "Static reference and local frontend calculation only; no clinical backend packaged",
+            "No full installed-PWA upgrade, preference migration or global cross-installation browser-cache guarantee",
+            "One native symlink test skipped locally for Windows privilege 1314; junction and ZIP symlink tested",
+            "Manifest integrity is not publisher authenticity or a signed build attestation",
+            "No production, real-patient processing, OIDC, PostgreSQL or cloud resources"
+          ],
+          "accepted_prerequisite": false,
+          "accepted_delivered_subscope": "Unit-tested static custody/launcher and controlled-root browser A/B/A proof; not full IMP-03 closure",
+          "next_action": "Review the finite static increment; define backend/local-runtime delivery and persistent-origin PWA upgrade requirements before declaring complete individual installation"
+        }
+      ]
     },
     {
       "id": "IMP-04",
@@ -623,7 +686,7 @@
         "IMP-00",
         "IMP-03"
       ],
-      "status": "WAITING_FINAL_SHA",
+      "status": "FAVORABLE_CODE_SCOPED_RUNTIME_ACCEPTANCE_PENDING",
       "objective": "Consolidate exact-candidate QA and missing synthetic individual guard workflows",
       "acceptance": "Reuse e4d3 audit/CI; map C1-C6, run only missing or regression-justified checks; preserve DICOM/search browser policy block and accessibility limits",
       "receipt": null,
@@ -659,9 +722,13 @@
       "blocker": "IMP-03 delivered only in static partial scope; no new Antigravity verdict on PR135; prior credit-limit block is historical, not a new execution",
       "expected_artifact": "Individual-flow C1-C6 evidence map and exact-SHA audit delta if needed",
       "current_increment": {
-        "Antigravity": "BLOCKED_PROVIDER_BALANCE; no new verdict",
-        "alternative": "Independent reviewer coordinated; awaiting immutable candidate SHA",
-        "baseline_audits": "Retained only in their original scope"
+        "security": "Independent reviewed official pins, staged verifier and Job gate corrections favorably",
+        "privacy_pwa": "Independent counter regression PASS after stable boundary identity; no remaining static blocker in that scope",
+        "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+        "equivalence_reviewed_to": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+        "runtime_acceptance": "PARTIAL; installed-PWA upgrade and cached offline not verified",
+        "antigravity": "No new request/ack/verdict; current failure is native-window activation, old balance error remains historical",
+        "evidence": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md; private final evidence archive"
       }
     },
     {
@@ -672,7 +739,7 @@
         "IMP-02",
         "IMP-09"
       ],
-      "status": "IN_PROGRESS",
+      "status": "DELIVERED_PARTIAL_PENDING_SW_ACCEPTANCE",
       "objective": "Consolidate finite individual-scope technical closure and clinical/regulatory limits",
       "acceptance": "Accepted scope-specific evidence, explicit remaining risks and owner decision packet; conditional infrastructure not a universal gate; clinical release separate",
       "receipt": null,
@@ -704,9 +771,14 @@
       "blocker": "No accepted new IMP-09 audit; partial local scope and applicable activation decisions remain open",
       "expected_artifact": "Finite scope-specific closure/decision packet",
       "current_increment": {
-        "scope": "Consolidate only existing 12 IDs",
-        "central_owner": "Other Work coordinator; central matrix v26 must be preserved",
-        "PR129_133": "Unmerged dependency stack; no integration or closure inferred",
+        "pr": 136,
+        "scope": "Same12implementation IDs, existing clinical matrix preserved",
+        "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+        "complete_ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+        "final_head_ci": "Check PR136 current head; never inherit PASS across new code",
+        "blocker": "IMP03-SW-ACTIVATION technical cause not determined",
+        "external_delivery": "Private FUNCIONAL_20261127 Drive folder; separate byte readback receipts",
+        "PR129_133": "Still open/draft/unmerged; no integration inferred",
         "clinical": "CLINICALLY_PENDING",
         "release": "NO_GO_CLINICAL_RELEASE"
       }
@@ -909,5 +981,11 @@
   },
   "historical_local_work_branch": "work/implementacion-coordinada-20261127",
   "local_work_branch": "docs/implementacion-viva-20261127",
-  "increment_scope": "Local signed Python backend and stable-origin PWA; PR129–133 remain independent, not incorporated"
+  "increment_scope": "Local signed Python backend and stable-origin PWA; PR129–133 remain independent, not incorporated",
+  "implementation_branch": "feat/individual-runtime-20261127",
+  "implementation_pr": 136,
+  "packaged_source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+  "verified_ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+  "technical_delivery": "PARTIAL; actual package installation verified, installed-PWA update/cache acceptance remains blocked",
+  "central_matrix_owner": "Work coordinator; retain latest acknowledged central snapshot and its existing IDs"
 }

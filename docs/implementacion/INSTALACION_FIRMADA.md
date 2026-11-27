@@ -52,8 +52,6 @@ preferencias, pestaña con nota abierta, API obsoleta, corte de WAN y corte comp
 Desinstala exclusivamente su PWA y cierra exclusivamente los procesos y el perfil
 que ha creado. Un FAIL conserva la evidencia y no declara PASS por tener SW.
 
-Estado de esta especificación: ensayo integrado todavía pendiente en este commit.
-La evidencia resultante identificará paquetes y SHA exactos. Auditoría y CI se
-registran aparte; no se heredan de PR133/134/135.
+Resultado final: apertura nativa y A/B/A manual de documentos verificados por separado. La actualización instalada y caché offline NO VERIFICADAS por activación SW pendiente. Véase RESULTADO_INDIVIDUAL_V05.md y RECTIFICACION_PWA.json del expediente; no usar un PASS de arranque async retractado. Auditoría y CI se registran por fuente exacta y no se heredan de PR133/134/135.
 
 **CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.**
