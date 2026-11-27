@@ -1,7 +1,7 @@
-name: PR116 PR118 read-only Sonar diagnostics
+name: PR122 read-only Sonar diagnostics
 on:
   push:
-    branches: ['diagnostic/pr116-pr118-sonar-20261127']
+    branches: ['diagnostic/owner-decisions-sonar-122']
 permissions:
   contents: read
 jobs:
@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pr: ['116', '118']
+        pr: ['122']
     steps:
       - name: Checkout existing allowlisted diagnostic reader
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
