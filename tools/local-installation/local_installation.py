@@ -168,7 +168,10 @@ def package(dist, source_root, output):
         environment = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
         environment.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL="NUL" if os.name == "nt" else "/dev/null", GIT_OPTIONAL_LOCKS="0", GIT_TERMINAL_PROMPT="0")
         return subprocess.check_output(["git", "--no-pager", "-c", "core.fsmonitor=false", "-c", "core.autocrlf=false", *args], cwd=source_root, env=environment, text=True, timeout=30).strip()
-    require((source_root / ".git").exists() and git("rev-parse", "--show-toplevel").replace("\\", "/").casefold() == source_root.as_posix().casefold(), "Source root must be its own checkout")
+    # Git for Windows expands native 8.3 aliases (e.g. RUNNER~1) in its root
+    # output. Compare directory identities, never their spellings. Validate both
+    # paths first so a symlink/junction is not accepted merely by samefile().
+    require((source_root / ".git").exists() and os.path.samefile(no_links(git("rev-parse", "--show-toplevel")), source_root), "Source root must be its own checkout")
     source = git("rev-parse", "HEAD")
     require(bool(SHA.fullmatch(source)) and not git("status", "--porcelain", "--untracked-files=normal"), "Source checkout must be clean")
     require(not any(k.startswith("VITE_") or k in {"EMERGENCY_LOCAL_REVIEW", "EMERGENCY_LOCAL_API_TOKEN"} for k in os.environ), "Local package requires an explicit environment without API/LAB overrides")

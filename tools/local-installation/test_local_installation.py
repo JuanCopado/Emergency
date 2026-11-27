@@ -171,6 +171,54 @@ class LocalReleaseTests(unittest.TestCase):
             with self.assertRaises(local.ReleaseError):
                 local.package(dist, source, self.base / "dirty.zip")
 
+    @unittest.skipUnless(os.name == "nt", "Native Windows GetShortPathNameW control")
+    def test_package_native_short_path_checkout_identity(self):
+        import ctypes
+        source = self.base / "source directory with spaces"
+        source.mkdir()
+        environment = {k: v for k, v in os.environ.items() if not k.startswith(("VITE_", "GIT_")) and k not in {"EMERGENCY_LOCAL_REVIEW", "EMERGENCY_LOCAL_API_TOKEN"}}
+        def git(*args):
+            return subprocess.check_output(["git", "-c", "user.name=Synthetic Fixture", "-c", "user.email=fixture@localhost", "-c", "commit.gpgsign=false", *args], cwd=source, env=environment, text=True, stderr=subprocess.DEVNULL).strip()
+        git("init", "--initial-branch=fixture")
+        (source / "source.txt").write_text("synthetic short-path source")
+        git("add", "source.txt")
+        git("commit", "--no-gpg-sign", "-m", "native short-path fixture")
+        head = git("rev-parse", "HEAD")
+        dist = self.base / "dist"
+        dist.mkdir()
+        (dist / "index.html").write_text("<html>short-path fixture</html>")
+        (dist / "main.js").write_text(f'const source="{head}";')
+        get_short = ctypes.WinDLL("kernel32", use_last_error=True).GetShortPathNameW
+        get_short.argtypes = [ctypes.c_wchar_p, ctypes.c_wchar_p, ctypes.c_uint32]
+        get_short.restype = ctypes.c_uint32
+        buffer = ctypes.create_unicode_buffer(32768)
+        count = get_short(str(source), buffer, len(buffer))
+        if not count:
+            raise ctypes.WinError(ctypes.get_last_error())
+        self.assertLess(count, len(buffer))
+        short = Path(buffer.value)
+        self.assertTrue(os.path.samefile(source, short))
+        with patch.dict(os.environ, environment, clear=True):
+            result = local.package(dist, short, self.base / "native-short.zip")
+        self.assertEqual(result["source_sha"], head)
+        # Both spellings identify the same directory, without a link/reparse.
+        self.assertEqual(local.no_links(short), short)
+
+    def test_package_rejects_nested_checkout_and_different_git_root(self):
+        source, dist, foreign = self.base / "source", self.base / "dist", self.base / "foreign"
+        source.mkdir()
+        dist.mkdir()
+        foreign.mkdir()
+        with self.assertRaisesRegex(local.ReleaseError, "own checkout"):
+            local.package(dist, source, self.base / "no-checkout.zip")
+        (source / ".git").mkdir()
+        with patch.object(local.subprocess, "check_output", return_value=str(foreign) + "\n"), self.assertRaisesRegex(local.ReleaseError, "own checkout"):
+            local.package(dist, source, self.base / "foreign-root.zip")
+        nested = source / "nested"
+        nested.mkdir()
+        with self.assertRaisesRegex(local.ReleaseError, "own checkout"):
+            local.package(dist, nested, self.base / "nested.zip")
+
     def test_zip_limits_and_descriptor_types(self):
         archive, expected, _ = self.archive()
         with patch.object(local, "MAX_FILES", 1), self.assertRaises(local.ReleaseError):
