@@ -196,6 +196,16 @@ def install_signed(archive, signature_file, root, *, publisher_file=None, finger
     envelope = local.regular_bytes(signature_file, 4096)
     manifest, _, expected = authenticate(raw, envelope, public_data, fingerprint)
     root = local.no_links(root)
+    # Separate from the legacy root writer: hold this lease across pinning,
+    # extraction and both metadata writes. An abandoned lease requires review;
+    # writer() never guesses that another process's lock is stale.
+    with local.writer(root / "signed-intake"):
+        return _install_authenticated(archive, root, public_data, fingerprint, raw,
+                                      envelope, manifest, expected, publisher_file, for_rollback)
+
+
+def _install_authenticated(archive, root, public_data, fingerprint, raw, envelope,
+                           manifest, expected, publisher_file, for_rollback):
     sequence_file = root / "release-sequence.json"
     maximum = _maximum(root)
     version = local.version_id(manifest, expected)
@@ -209,12 +219,28 @@ def install_signed(archive, signature_file, root, *, publisher_file=None, finger
             local.require(pinned_fingerprint == fingerprint
                           and local.object_json(pinned) == local.object_json(public_data),
                           "Pinned publisher cannot be replaced by an update")
-            local.require(for_rollback or manifest["release_counter"] == _maximum(root),
+            local.require(for_rollback or manifest["release_counter"] >= _maximum(root),
                           "Older update requires explicit signed rollback intake")
-            _, _, _, installed = verify_version(root, version)
-            local.require(installed["manifest_sha256"] == expected, "Existing signed release differs")
+            signatures = local.no_links(root / "signatures")
+            stored_signature = local.no_links(signatures / (version + ".json"))
+            if stored_signature.exists():
+                _, _, _, installed = verify_version(root, version)
+                local.require(installed["manifest_sha256"] == expected, "Existing signed release differs")
+            else:
+                # A crash after extraction can precede the envelope write. The
+                # supplied envelope already authenticates raw against the pin;
+                # require exactly those installed bytes before repairing metadata.
+                local.require(local.regular_bytes(destination / "manifest.json", local.MAX_MANIFEST) == raw,
+                              "Existing signed release differs")
+                local.verify_directory(destination, expected)
+                installed = {"version": version, "manifest_sha256": expected}
             with tempfile.TemporaryDirectory(prefix="emergency-resume-verification-") as temporary:
                 local.install(archive, Path(temporary) / "verification", expected)
+            if not stored_signature.exists():
+                signatures.mkdir(exist_ok=True)
+                local.atomic_json(stored_signature, local.object_json(envelope))
+            if manifest["release_counter"] > _maximum(root):
+                local.atomic_json(sequence_file, {"maximum": manifest["release_counter"]})
         return {**installed, "activated": False, "resumed": True,
                 "authenticated_publisher": fingerprint, "release_counter": manifest["release_counter"]}
     local.require(for_rollback or manifest["release_counter"] > maximum,

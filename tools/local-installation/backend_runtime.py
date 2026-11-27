@@ -65,7 +65,8 @@ class _PrivateWork:
         from backend_bundle import no_links
         release_root=no_links(release_root)
         installation=release_root.parent.parent if release_root.parent.name=='releases' else release_root
-        base=Path(os.environ.get('LOCALAPPDATA',tempfile.gettempdir()))/'Emergency/PrivateWork'
+        userlocal=os.environ.get('LOCALAPPDATA')
+        base=(Path(userlocal) if userlocal else Path(tempfile.gettempdir()))/'Emergency/PrivateWork'
         return no_links(base/hashlib.sha256(os.path.normcase(str(installation)).encode()).hexdigest())
 
     @classmethod

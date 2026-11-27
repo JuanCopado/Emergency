@@ -132,6 +132,53 @@ class AuthenticatedReleaseTests(unittest.TestCase):
         after = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
         self.assertEqual(before, after)
 
+    def test_crash_between_extraction_signature_and_sequence_writes_is_resumable(self):
+        for phase in ("signature", "sequence"):
+            with self.subTest(phase=phase):
+                self.root = self.base / ("crash-" + phase)
+                self.install(1)
+                archive, signature, _, _ = self.release(2)
+                original_atomic = local.atomic_json
+
+                def interrupt(path, value):
+                    if ((phase == "signature" and Path(path).parent.name == "signatures")
+                            or (phase == "sequence" and Path(path).name == "release-sequence.json")):
+                        raise RuntimeError("synthetic process interruption")
+                    return original_atomic(path, value)
+
+                with mock.patch.object(local, "atomic_json", side_effect=interrupt):
+                    with self.assertRaises(RuntimeError):
+                        auth.install_signed(archive, signature, self.root)
+                self.assertEqual(auth._maximum(self.root), 1)
+                resumed = auth.install_signed(archive, signature, self.root)
+                self.assertTrue(resumed["resumed"])
+                self.assertEqual(auth._maximum(self.root), 2)
+                self.assertEqual(auth.verify_version(self.root, resumed["version"])[3]["version"], resumed["version"])
+
+    def test_missing_signature_repair_rejects_corrupt_payload_before_writing_metadata(self):
+        archive, signature, _, _ = self.release()
+        result = auth.install_signed(archive, signature, self.root, publisher_file=self.public_path,
+                                     fingerprint=self.public["fingerprint"])
+        stored = self.root / "signatures" / (result["version"] + ".json")
+        stored.unlink()
+        (self.root / "releases" / result["version"] / "index.html").write_bytes(b"corrupt")
+        with self.assertRaises(local.ReleaseError):
+            auth.install_signed(archive, signature, self.root)
+        self.assertFalse(stored.exists())
+        self.assertEqual(auth._maximum(self.root), 1)
+
+    def test_competing_signed_intake_is_refused_without_removing_existing_lease(self):
+        self.install(1)
+        archive, signature, _, _ = self.release(2)
+        with local.writer(self.root / "signed-intake"):
+            lease = self.root / "signed-intake/writer.lock"
+            before = lease.read_bytes()
+            with self.assertRaises(local.ReleaseError):
+                auth.install_signed(archive, signature, self.root)
+            self.assertEqual(lease.read_bytes(), before)
+            self.assertEqual(auth._maximum(self.root), 1)
+            self.assertEqual(len(list((self.root / "releases").iterdir())), 1)
+
     def test_resume_rejects_changed_incoming_zip_payload_and_installed_payload(self):
         archive, signature, _, _ = self.release()
         result = auth.install_signed(archive, signature, self.root, publisher_file=self.public_path,

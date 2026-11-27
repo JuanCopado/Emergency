@@ -31,7 +31,7 @@ DATA = {
 
 def clean_environment(temp=None):
     """No user site, proxy, provider credential, Python/Git redirection or logs."""
-    env = {k: os.environ[k] for k in ('SystemRoot', 'WINDIR', 'COMSPEC') if k in os.environ}
+    env = {k: os.environ[k] for k in ('SystemRoot', 'WINDIR', 'COMSPEC', 'USERPROFILE', 'LOCALAPPDATA') if k in os.environ}
     env.update(PYTHONNOUSERSITE='1', PYTHONDONTWRITEBYTECODE='1', PYTHONUTF8='1', PYTHONIOENCODING='utf-8')
     if temp:
         env.update(TEMP=str(temp), TMP=str(temp), TMPDIR=str(temp))

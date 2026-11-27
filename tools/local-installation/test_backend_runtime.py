@@ -20,6 +20,20 @@ import backend_runtime as runtime
 
 
 class BackendBoundaryUnitTests(unittest.TestCase):
+    @unittest.skipUnless(os.name=='nt','Windows user environment')
+    def test_clean_child_resolves_home_and_namespace_in_localappdata(self):
+        module=str(Path(runtime.__file__).resolve().parent)
+        code="import sys,json,os;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from backend_runtime import _PrivateWork;print(json.dumps({'home':str(Path.home()),'namespace':str(_PrivateWork.namespace(Path(os.environ['USERPROFILE'])/'synthetic-install')),'local':os.environ['LOCALAPPDATA']}))"
+        result=json.loads(subprocess.check_output([sys.executable,'-I','-B','-c',code,module],
+                                                env=bundle.clean_environment(),text=True))
+        self.assertEqual(Path(result['home']),Path(os.environ['USERPROFILE']))
+        self.assertTrue(Path(result['namespace']).is_relative_to(Path(result['local'])/'Emergency/PrivateWork'))
+
+    def test_localappdata_namespace_does_not_eagerly_evaluate_fallback(self):
+        with patch.dict(os.environ,{'LOCALAPPDATA':str(Path(tempfile.gettempdir())/'synthetic-local')}),\
+             patch.object(runtime.tempfile,'gettempdir',side_effect=RuntimeError('fallback must not run')):
+            self.assertIn('synthetic-local',str(runtime._PrivateWork.namespace(Path.cwd())))
+
     def test_environment_never_inherits_provider_proxy_or_python_keys(self):
         with patch.dict(os.environ, {'CLINICAL_NOTE_VISION_API_KEY':'PRIVATE','HTTPS_PROXY':'PRIVATE',
                                      'PYTHONPATH':'PRIVATE','SONAR_TOKEN':'PRIVATE'}):
