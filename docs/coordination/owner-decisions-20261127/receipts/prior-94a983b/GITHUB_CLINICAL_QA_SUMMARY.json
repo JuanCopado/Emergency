@@ -1,0 +1,11 @@
+{
+  "candidate_sha": "94a983b9580d4ba3f77161590eabd147cc9147aa",
+  "run_id": 45957550256,
+  "job_id": 140367431398,
+  "automated_status": "PASS",
+  "tests": 1774,
+  "skipped": 20,
+  "seconds": 261.171,
+  "clinical_status": "CLINICALLY_PENDING",
+  "limit": "Omissions are not counted as executed passing cases; local and remote omit counts are reported separately."
+}

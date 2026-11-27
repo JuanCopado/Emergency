@@ -1,0 +1,26 @@
+{
+  "kind": "INTERNAL_AUTOMATED_TECHNICAL_REVIEW_NOT_ANTIGRAVITY_OR_HUMAN_CLINICAL_REVIEW",
+  "initial_review_range": [
+    "2058e97179ae793914dcd016e4fd033395dbc3e2",
+    "eaf076e643f878614ee8b506f2e75600c47b7a69"
+  ],
+  "initial_important_findings": [
+    "Approval identity/scope binding incomplete",
+    "Visual approval and independent-review/adjudication claims insufficiently checked"
+  ],
+  "fixed_in": "47762ca4417a2ec4ced7552ee77b458d25ff2034",
+  "followup_review_range": [
+    "eaf076e643f878614ee8b506f2e75600c47b7a69",
+    "47762ca4417a2ec4ced7552ee77b458d25ff2034"
+  ],
+  "followup_result": "Both Important findings closed; no remaining actionable Critical, Important or Minor findings in the two-file followup diff.",
+  "reviewer_read_only": true,
+  "reviewer_executed_tests": false,
+  "independent_audit_status": "NOT_PERFORMED_FOR_THIS_CANDIDATE",
+  "clinical_status": "CLINICALLY_PENDING",
+  "checkout_followup_review_range": [
+    "47762ca4417a2ec4ced7552ee77b458d25ff2034",
+    "94a983b9580d4ba3f77161590eabd147cc9147aa"
+  ],
+  "checkout_followup_result": "No actionable findings; real Git autocrlf regression and exact-byte attributes preserve LF registry and CRLF original. No tests executed by reviewer; no CI claim."
+}

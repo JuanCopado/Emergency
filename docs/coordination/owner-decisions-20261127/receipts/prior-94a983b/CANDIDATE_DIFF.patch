@@ -1,0 +1,1431 @@
+diff --git a/.gitattributes b/.gitattributes
+index 1975f6a..0ca4df1 100644
+--- a/.gitattributes
++++ b/.gitattributes
+@@ -1,2 +1,6 @@
+ # The projected source embeds its exact byte hash; checkout must preserve LF.
+ clinical/pharmacology/corticosteroids.json text eol=lf
++# Dated owner-record hashes must survive Windows checkouts unchanged.
++docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md text eol=lf
++# Keep the recovered original's CRLF bytes intact, including at staging time.
++docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md -text
+diff --git a/CODEX_RESIDUAL_CLINICAL_CONTRACTS.json b/CODEX_RESIDUAL_CLINICAL_CONTRACTS.json
+index eadbc46..03d7406 100644
+--- a/CODEX_RESIDUAL_CLINICAL_CONTRACTS.json
++++ b/CODEX_RESIDUAL_CLINICAL_CONTRACTS.json
+@@ -1,6 +1,6 @@
+ {
+   "schema_version": "1.0",
+-  "review_date": "2026-11-26",
++  "review_date": "2026-11-27",
+   "clinical_status": "CLINICALLY_PENDING",
+   "scope": [
+     "GMA-P1-003",
+@@ -15,7 +15,7 @@
+   "contracts": [
+     {
+       "id": "GMA-P1-003",
+-      "status": "OPEN_DOCUMENTED_SOURCE_CONFLICT",
++      "status": "RESOLVED_HISTORICAL_PROFILE_SCOPE",
+       "product_id": "PROTAMINE_HOSPIRA_10",
+       "product_profile_runtime_enabled": false,
+       "recorded_product_limit": "<5 mg/min",
+@@ -37,8 +37,10 @@
+         "initial_capture_status": "RETRIEVED_NOT_YET_REVIEWED",
+         "document_version_or_revision": "May 2020"
+       },
+-      "interpretation": "Existing documentary discrepancy at equality; no new regulatory verification or clinical adjudication. The product profile remains inactive. No pump rate or dose changed.",
+-      "required_decision": "Document exact product/source reconciliation by Gemini and explicit approval by Dr. Juan Copado Ceballos. Pharmacy is consultative, not a required project signatory."
++      "interpretation": "Owner approved MED-RES-PROT-01 v1 at 2026-11-27T06:14:21Z. Product classified HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION; runtime_enabled=false. Preserve historical <5 mg/min; no LEO/Prosulf substitution or active/global speed-limit change.",
++      "owner_response_pending": false,
++      "current_disposition": "clinical/references/owner-decisions-2026-11-27.json#protamine",
++      "remaining_conditions": "Any different/current product requires its own verified identity and operational controls; outside this historical closure."
+     }
+   ],
+   "inventory": {
+@@ -161,10 +163,21 @@
+     }
+   },
+   "new_clinical_decisions": {
+-    "received_in_this_dispatch": [],
+-    "implemented": [],
+-    "status": "NO_NEW_DOCUMENTED_AND_APPROVED_DECISION_AVAILABLE",
+-    "policy": "Implement only a concrete Gemini decision with source, version, scope, and explicit owner approval; do not infer approval from CI."
++    "received_in_this_dispatch": [
++      "MED-RES-PROT-01 v1",
++      "MED-RES-CARDIO-01 v1",
++      "MED-RES-CARDIO-02 v1",
++      "MED-RES-CARDIO-03 v1",
++      "MED-RES-CARDIO-04 v1",
++      "MED-RES-CARDIO-05 v1",
++      "MED-RES-CARDIO-06 v1"
++    ],
++    "implemented": [
++      "MED-RES-PROT-01 v1 historical classification"
++    ],
++    "cardiovascular_status": "APPROVED_STRUCTURAL_SCOPE; EXPEDIENT_TRACEABILITY_PENDING; no substantive clinical delta inferred",
++    "current_record": "clinical/references/owner-decisions-2026-11-27.json",
++    "policy": "Recover exact original cardiovascular proposal message 2026-11-27T06:10:21Z and bind acceptance 06:12:33Z. No repeated vote or reconstructed original."
+   },
+   "source_sha256": {
+     "clinical/qa/global-medication-audit-v144/entity-inventory.json": "13cce0812ef609dd2cfd2dca2afdfbdb37f1ea4b19569a1aaa7072f876a986c1",
+@@ -177,5 +190,6 @@
+     "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499",
+     "clinical/scripts/acute_medication_api.py": "e550335681a6e4fcbaec82ed63a952adf3fbce1a3fbb9d0cdc31fd132dce6037",
+     "clinical/scripts/acute_medication_contracts.py": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a"
+-  }
++  },
++  "supersedes_own_2026_11_26_owner_response_pending": true
+ }
+diff --git a/STATE.md b/STATE.md
+index a77be01..975a65f 100644
+--- a/STATE.md
++++ b/STATE.md
+@@ -1,4 +1,4 @@
+-26/11 · Cierre coordinado en rama aislada `codex/work-cierre-coordinado-20261126`: composición de PR118 `b9f8d14` con PR119 revisada y corrección de sus roles opcionales, identidades y paneles por lengua. Tres valores PT corregidos sin cambiar claves. V05/PR117 y los 19 contratos aceptados se conservan. Preparación R88/G05 y propuestas científicas trazables en `docs/coordination/work-closure-20261126/README.md`; sin importación al runtime ni nuevas aprobaciones clínicas. CI y dictamen final se registran sobre el SHA exacto en los recibos de Work, sin atribuir PASS de los padres a esta composición. Sin merge, despliegue ni modificación de ramas protegidas. CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.
++27/11 · Decisiones del propietario sobre base `2058e971`: registro `9018e14` reconciliado en `codex/owner-decisions-20261127`. GMA-P1-003 cerrado exclusivamente como perfil histórico revocado español, runtime desactivado y límite histórico estricto; rutas activas intactas. CARDIO-01–06 aprobadas, comparación documental preparada; formulación original de las 06:10:21 UTC pendiente de recuperación (trazabilidad, no voto). 23 decisiones dermatológicas y Clinical Minimal preservados. Recibos y pendientes: `docs/coordination/owner-decisions-20261127/`. Sin merge ni despliegue. CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.
+ 
+ Seguimiento de receptor: avance externo PR117 a `570aa11`; incorporado únicamente en las ramas aisladas de fuente/candidato. Catálogos actuales preservados, sin reaplicar PR111 ni modificar el receptor protegido. Se repite CI sobre el SHA resultante. CLINICALLY_PENDING.
+ 
+diff --git a/clinical/CHANGELOG.md b/clinical/CHANGELOG.md
+index cfb5b88..be2fc89 100644
+--- a/clinical/CHANGELOG.md
++++ b/clinical/CHANGELOG.md
+@@ -1,3 +1,5 @@
++27/11/2026 · Decisiones del propietario: conciliación 9018e14 sobre 2058e971, cierre histórico limitado MED-RES-PROT-01/GMA-P1-003, seis aprobaciones CARDIO preservadas con comparación y trazabilidad pendiente, 23 DERMA y Clinical Minimal conservados. Regresiones de límites, activación, sustitución, privacidad y no liberación; fuentes/rutas activas sin cambios. CLINICALLY_PENDING.
++
+ 26/11/2026 · Cierre coordinado/PR119: agreement exige manifiesto de roles con IDs estables, referencias del custodio y paneles por idioma; solo consistencia formal, sin acreditar independencia humana. G05-01–06 y autoridad clínica de Juan conciliados; dos valores PT traducidos. Sin cálculo, regla clínica ni estado de aprobación alterados. CLINICALLY_PENDING.
+ 
+ 26/11/2026 · PR116/Sonar: separación de recursos localizados de la lógica y ordenación explícita de instantáneas; valores de texto y parámetros clínicos preservados. Sin cambio de gates o umbrales. CLINICALLY_PENDING.
+diff --git a/clinical/CURRENT_STATE.md b/clinical/CURRENT_STATE.md
+index 54d8f3f..ac120af 100644
+--- a/clinical/CURRENT_STATE.md
++++ b/clinical/CURRENT_STATE.md
+@@ -1,3 +1,7 @@
++## 27/11/2026 · Reconciliación de decisiones del propietario
++
++MED-RES-PROT-01 v1 aplicada en su alcance documental histórico: GMA-P1-003 cerrado sin activar producto, sustituirlo ni cambiar las rutas de reversión aceptadas. Registro vigente: `references/owner-decisions-2026-11-27.json`. CARDIO-01–06 conservan SÍ estructural; falta recuperar su mensaje original para cualquier delta clínico sustantivo. 23 decisiones dermatológicas y Clinical Minimal preservados, sin conceder derechos de publicación, validación diagnóstica o despliegue. QA/CI y auditoría del candidato por SHA en `../docs/coordination/owner-decisions-20261127/`. CLINICALLY_PENDING. Los cortes siguientes son históricos.
++
+ ## 26/11/2026 · Conciliación técnica PR115/PR116
+ 
+ Candidato aislado conserva los 19 contratos aceptados y todos los estados clínicos. Se adapta QA histórica al recibo terapéutico real; ninguna nueva dosis o decisión médica. Perfil de protamina GMA-P1-003 sigue abierto; inventario y límites en `../CODEX_RESIDUAL_CLINICAL_CONTRACTS.json`. CI y auditoría externa del SHA final por recibo. CLINICALLY_PENDING.
+diff --git a/clinical/references/owner-decisions-2026-11-27.json b/clinical/references/owner-decisions-2026-11-27.json
+new file mode 100644
+index 0000000..e1189b1
+--- /dev/null
++++ b/clinical/references/owner-decisions-2026-11-27.json
+@@ -0,0 +1,483 @@
++{
++  "schema_version": "1.0",
++  "recorded_on": "2026-11-27",
++  "receiving_base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
++  "decision_registry_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
++  "decision_source": "docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md",
++  "decision_source_sha256": "07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348",
++  "clinical_status": "CLINICALLY_PENDING",
++  "release_status": "NO_GO_CLINICAL_RELEASE",
++  "protamine": {
++    "id": "MED-RES-PROT-01",
++    "version": "v1",
++    "response": "SÍ",
++    "decided_at_utc": "2026-11-27T06:14:21Z",
++    "finding_id": "GMA-P1-003",
++    "resolution_status": "RESOLVED_HISTORICAL_PROFILE_SCOPE",
++    "product_id": "PROTAMINE_HOSPIRA_10",
++    "jurisdiction": "ES",
++    "classification": "HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION",
++    "runtime_enabled": false,
++    "replacement_product_id": null,
++    "active_routes_changed": false,
++    "historical_rate_limit": {
++      "operator": "<",
++      "value": 5,
++      "unit": "mg/min",
++      "scope": "PROTAMINE_HOSPIRA_10_ONLY"
++    },
++    "original_fiche": "docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md",
++    "original_drive_url": "https://docs.google.com/document/d/1yIPlybffYNeucGu3y8_mHIwpLRLtWc36/edit",
++    "source": {
++      "id": "S22-protamine",
++      "url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
++      "stored_revision": "May 2020",
++      "reviewed_on": "2026-11-27",
++      "locators": [
++        "revocation warning",
++        "4.2"
++      ],
++      "review_scope": "Focused warning and historical strict administration limit; no new dose or full-label review claimed"
++    },
++    "limits": [
++      "No automatic LEO/Prosulf replacement; no active product selected.",
++      "No universal speed-limit change; active reversal routes retained.",
++      "No stock, jurisdictional equivalence or operational authorization inferred."
++    ],
++    "original_fiche_sha256": "48396e7bc9306d5174aacf6a5c29c58d20b2c35bd610c148f0bb63399da61737"
++  },
++  "cardiovascular": [
++    {
++      "id": "MED-RES-CARDIO-01",
++      "version": "v1",
++      "response": "SÍ",
++      "decided_at_utc": "2026-11-27T06:12:33Z",
++      "scope_summary": "router de monitorización y cuatro circuitos de reanimación existentes, conservar decisiones ARR-SELECTOR y excepciones pediátricas; no cambiar dosis ni algoritmos.",
++      "canonical_modules": [
++        "arrhythmias-cardiac-arrest",
++        "adult-arrhythmias",
++        "pediatric-arrhythmias",
++        "adult-cardiac-arrest",
++        "pediatric-cardiac-arrest"
++      ],
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
++      "original_fiche": null,
++      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++      "new_doses_authorized": false
++    },
++    {
++      "id": "MED-RES-CARDIO-02",
++      "version": "v1",
++      "response": "SÍ",
++      "decided_at_utc": "2026-11-27T06:12:33Z",
++      "scope_summary": "circuitos diferenciados por lesión valvular y situación hemodinámica; no pauta universal.",
++      "canonical_modules": [
++        "critical-valvular-disease"
++      ],
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
++      "original_fiche": null,
++      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++      "new_doses_authorized": false
++    },
++    {
++      "id": "MED-RES-CARDIO-03",
++      "version": "v1",
++      "response": "SÍ",
++      "decided_at_utc": "2026-11-27T06:12:33Z",
++      "scope_summary": "circuitos específicos de dispositivo y complicación, con monitorización y especialista cuando corresponda; no pauta universal.",
++      "canonical_modules": [
++        "device-complications"
++      ],
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
++      "original_fiche": null,
++      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++      "new_doses_authorized": false
++    },
++    {
++      "id": "MED-RES-CARDIO-04",
++      "version": "v1",
++      "response": "SÍ",
++      "decided_at_utc": "2026-11-27T06:12:33Z",
++      "scope_summary": "objetivos de presión arterial diferenciados según indicación, preservar vías específicas; la secuencia general requiere la fuente exacta y no sustituye las vías específicas.",
++      "canonical_modules": [
++        "hypertensive-emergencies"
++      ],
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
++      "original_fiche": null,
++      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++      "new_doses_authorized": false
++    },
++    {
++      "id": "MED-RES-CARDIO-05",
++      "version": "v1",
++      "response": "SÍ",
++      "decided_at_utc": "2026-11-27T06:12:33Z",
++      "scope_summary": "selección por indicación, contraindicaciones, producto y jurisdicción; no habilitar cálculos con productos no verificados.",
++      "canonical_modules": [
++        "iv-antihypertensive-selection"
++      ],
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
++      "original_fiche": null,
++      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++      "new_doses_authorized": false
++    },
++    {
++      "id": "MED-RES-CARDIO-06",
++      "version": "v1",
++      "response": "SÍ",
++      "decided_at_utc": "2026-11-27T06:12:33Z",
++      "scope_summary": "dolor torácico no coronario por causa, no antitrombótico genérico ni alta automática por una sola prueba/puntuación.",
++      "canonical_modules": [
++        "non-coronary-chest-pain"
++      ],
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "implementation_status": "RECORDED_PENDING_ORIGINAL_FICHE",
++      "original_fiche": null,
++      "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++      "new_doses_authorized": false
++    }
++  ],
++  "dermatology": {
++    "cases": [
++      {
++        "id": "MED-RES-DERMA-FRONTIERS_1048480_F1",
++        "case": "Angioedema hereditario",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:23:15Z",
++        "scope_summary": "Consulta y desarrollo exclusivamente; privacidad de reutilización no aprobada.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CDC_2874_24913_24914",
++        "case": "Erisipela facial",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:23:56Z",
++        "scope_summary": "Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad.",
++        "scope_kind": "CLINICAL_REPRESENTATIVENESS_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CDC_27799",
++        "case": "Forunculosis frontal",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:24:14Z",
++        "scope_summary": "Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad.",
++        "scope_kind": "CLINICAL_REPRESENTATIVENESS_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_5153",
++        "case": "Impétigo",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:24:48Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_6478",
++        "case": "Herpes zóster",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:25:09Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_6482",
++        "case": "Herpes simple",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:25:37Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_24379",
++        "case": "Tiña corporal",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:26:18Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad; respuestas repetidas cuentan una vez.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_28632",
++        "case": "Reacción a mosquito",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:27:05Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a revisión de privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_1337",
++        "case": "Meningococemia (gangrena de mano)",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:27:31Z",
++        "scope_summary": "Consulta/desarrollo, manifestación avanzada; condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_CDC_PHIL_2332",
++        "case": "Carbunco cutáneo",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:28:06Z",
++        "scope_summary": "Consulta/desarrollo; conservar limitaciones; condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_PMC7176330",
++        "case": "Espectro SJS/TEN",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:28:31Z",
++        "scope_summary": "Un solo caso con figuras 2 y 3; consulta/desarrollo y privacidad; sin inferir superficie desprendida.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_PMC11585283",
++        "case": "DRESS",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:28:50Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad; no confirmar causalidad a partir de la imagen.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_PMC8203330",
++        "case": "Vasculitis leucocitoclástica",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:29:16Z",
++        "scope_summary": "Consulta/desarrollo, conservar limitaciones y condicionar a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-CASE_PMC11619809",
++        "case": "Fascitis necrosante",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:29:50Z",
++        "scope_summary": "Consulta/desarrollo como imagen posterior al desbridamiento, no presentación inicial; privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-COMMONS_CASE_5de1c08f376aedda",
++        "case": "Escabiosis",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:30:15Z",
++        "scope_summary": "Consulta/desarrollo, conservar limitaciones y condicionar a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_-3768594983498155183",
++        "case": "Urticaria",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:30:46Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_3083550471820565612",
++        "case": "Eccema",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:31:09Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_2600794538114860588",
++        "case": "Dermatitis alérgica de contacto",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:31:34Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_3730083867318674656",
++        "case": "Celulitis",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:33:01Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_579682856480983647",
++        "case": "Absceso",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:33:19Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_3689862615752795245",
++        "case": "Foliculitis",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:33:43Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_-3518984822601104202",
++        "case": "Erupción farmacológica",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:34:08Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad; sin establecer causalidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      },
++      {
++        "id": "MED-RES-DERMA-SCIN_CASE_-3902972343084754168",
++        "case": "Eccema, segundo caso",
++        "version": "v1",
++        "response": "SÍ",
++        "decided_at_utc": "2026-11-27T06:34:31Z",
++        "scope_summary": "Consulta/desarrollo, condicionado a privacidad.",
++        "scope_kind": "CONSULTATION_DEVELOPMENT_ONLY",
++        "redistribution_authorized": false,
++        "product_incorporation_authorized": false,
++        "diagnostic_validation": false,
++        "privacy_review_required": true
++      }
++    ],
++    "case_count": 23,
++    "photograph_inventory_count": 24,
++    "original_manifest": "DERMATOLOGIA_CASOS_HEREDADO.json",
++    "per_asset_file_hashes_reconciled": false,
++    "experimental_adjudications": 0,
++    "scope": "Preserve 23 owner decisions; privacy and rights remain per asset. No images or private paths included."
++  },
++  "clinical_minimal": {
++    "response": "SÍ",
++    "decided_at_utc": "2026-11-27T06:37:53Z",
++    "repeated_response_at_utc": "2026-11-27T06:38:10Z",
++    "decision_count": 1,
++    "scope": "VISUAL_BASE_FOR_FUTURE_INTERFACE",
++    "deployed": false,
++    "ux2_preserved": true
++  },
++  "independent_review": {
++    "reviewers_available": false,
++    "review_status": "NOT_PERFORMED",
++    "owner_instruction_at_utc": "2026-11-27T06:38:38Z",
++    "technical_work_may_continue": true
++  },
++  "preserved_sha256": {
++    "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json": "b42eb3007f2481de488bb4a8dbabd36f590cb325c4452628a4d1e70264aa1274",
++    "clinical/qa/global-medication-audit-v144/products.json": "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
++    "clinical/references/acute-contract-owner-acceptance-2026-11-16.json": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
++    "clinical/references/evidence-registry.json": "6fa010e4646bc0de288e799c2e8b5ce93231c71171339a4ce5a9d4b2847713d0",
++    "clinical/references/router.md": "65ee959e0a7e3ede06b985cbc9b0a073887b525320971173b45fc35f70421eb3",
++    "clinical/modules/cardiovascular.md": "22a3f6094c114ec7a50452e8246a29dfab778c60309a7c9bac8d315fc97d64e1",
++    "clinical/modules/special-populations.md": "4a9240a93d96993dc750bcb1060f9e01e8abab557812b8667b1d57ad847db025",
++    "clinical/scripts/acute_medication_contracts.py": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a",
++    "clinical/scripts/acute_reviewed_reversal.py": "f4e78b6543b2faad35d1c66a1d709e367fc74a9b0b053d27c94596de09e85bb2",
++    "app/src/data/drugs.json": "084f4090a4d9ddd68b60c2b731eb17be632a22e795598cef8b6fa2276b032893",
++    "app/src/data/generatedPediatricOutpatient.json": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
++    "clinical/pharmacology/corticosteroids.json": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499"
++  }
++}
+diff --git a/clinical/scripts/owner_decision_reconciliation.py b/clinical/scripts/owner_decision_reconciliation.py
+new file mode 100644
+index 0000000..dba722a
+--- /dev/null
++++ b/clinical/scripts/owner_decision_reconciliation.py
+@@ -0,0 +1,143 @@
++"""Validate the dated reconciliation; never select a product or prescribe."""
++import hashlib
++import json
++import re
++from pathlib import Path
++
++
++def _matches_fields(item, required):
++    return all(key in item and type(item[key]) is type(value) and item[key] == value
++               for key, value in required.items())
++
++
++def _protamine_errors(product, repository):
++    errors = []
++    required = {
++        "id": "MED-RES-PROT-01", "decided_at_utc": "2026-11-27T06:14:21Z",
++        "product_id": "PROTAMINE_HOSPIRA_10", "jurisdiction": "ES",
++        "classification": "HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION",
++        "runtime_enabled": False, "replacement_product_id": None,
++        "active_routes_changed": False, "response": "SÍ", "version": "v1",
++    }
++    if not _matches_fields(product, required):
++        errors.append("protamine: historical owner scope widened")
++    if product.get("historical_rate_limit") != {
++        "operator": "<", "value": 5, "unit": "mg/min", "scope": "PROTAMINE_HOSPIRA_10_ONLY",
++    }:
++        errors.append("protamine: historical limit changed")
++    original = repository / "docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md"
++    if hashlib.sha256(original.read_bytes()).hexdigest() != product.get("original_fiche_sha256"):
++        errors.append("protamine: original fiche changed")
++    return errors
++
++
++def _cardiovascular_errors(cardio, source_text):
++    errors = []
++    modules = {
++        "MED-RES-CARDIO-01": ["arrhythmias-cardiac-arrest", "adult-arrhythmias", "pediatric-arrhythmias",
++                              "adult-cardiac-arrest", "pediatric-cardiac-arrest"],
++        "MED-RES-CARDIO-02": ["critical-valvular-disease"],
++        "MED-RES-CARDIO-03": ["device-complications"],
++        "MED-RES-CARDIO-04": ["hypertensive-emergencies"],
++        "MED-RES-CARDIO-05": ["iv-antihypertensive-selection"],
++        "MED-RES-CARDIO-06": ["non-coronary-chest-pain"],
++    }
++    summaries = dict(re.findall(r"^- (0[1-6]): (.+)$", source_text, re.M))
++    if {item.get("id") for item in cardio} != set(modules) or len(cardio) != 6:
++        errors.append("cardiovascular: six accepted identities required")
++    for item in cardio:
++        identity = item.get("id", "")
++        if not _matches_fields(item, {
++            "response": "SÍ", "version": "v1", "decided_at_utc": "2026-11-27T06:12:33Z",
++            "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++            "scope_summary": summaries.get(identity[-2:]), "canonical_modules": modules.get(identity),
++            "pending_kind": "EXPEDIENT_TRACEABILITY_NOT_MEDICAL_APPROVAL",
++        }):
++            errors.append("cardiovascular: recorded approval binding changed")
++        if item.get("implementation_status") != "RECORDED_PENDING_ORIGINAL_FICHE" or item.get("original_fiche") is not None:
++            errors.append("cardiovascular: original fiches not verified")
++        if item.get("new_doses_authorized") is not False:
++            errors.append("cardiovascular: no new doses authorized")
++    return errors
++
++
++def _dermatology_case_errors(case, original_case):
++    errors = []
++    if original_case:
++        label, time, scope = original_case
++        kind = "CLINICAL_REPRESENTATIVENESS_ONLY" if scope.startswith("Solo representatividad") else "CONSULTATION_DEVELOPMENT_ONLY"
++        if (case.get("case"), case.get("decided_at_utc"), case.get("scope_summary"), case.get("scope_kind")) != (
++            label, "2026-11-27T" + time + "Z", scope, kind,
++        ):
++            errors.append("dermatology: recorded case scope changed")
++    if case.get("response") != "SÍ" or case.get("version") != "v1" or any(case.get(key) is not False for key in (
++        "redistribution_authorized", "product_incorporation_authorized", "diagnostic_validation",
++    )) or case.get("privacy_review_required") is not True:
++        errors.append("dermatology: acceptance scope widened")
++    return errors
++
++
++def _dermatology_errors(dermatology, source_text):
++    errors = []
++    cases = dermatology.get("cases", [])
++    if not _matches_fields(dermatology, {
++        "case_count": 23, "photograph_inventory_count": 24,
++        "experimental_adjudications": 0, "per_asset_file_hashes_reconciled": False,
++    }):
++        errors.append("dermatology: unperformed asset review or adjudication claimed")
++    source_rows = {
++        row[0]: row[1:] for row in re.findall(
++            r"^\| (MED-RES-DERMA-[^ |]+) \| (.*?) \| (.*?) \| (.*?) \|$",
++            source_text, re.M,
++        )
++    }
++    source_ids = set(source_rows)
++    if len(cases) != 23 or {item.get("id") for item in cases} != source_ids:
++        errors.append("dermatology: case identities differ from decision record")
++    for case in cases:
++        errors.extend(_dermatology_case_errors(case, source_rows.get(case.get("id"))))
++
++    return errors
++
++
++def _review_errors(record):
++    errors = []
++    if not _matches_fields(record.get("clinical_minimal", {}), {
++        "response": "SÍ", "scope": "VISUAL_BASE_FOR_FUTURE_INTERFACE",
++        "decided_at_utc": "2026-11-27T06:37:53Z", "decision_count": 1,
++        "deployed": False, "ux2_preserved": True,
++    }):
++        errors.append("clinical-minimal: approval scope widened")
++    if not _matches_fields(record.get("independent_review", {}), {
++        "reviewers_available": False, "review_status": "NOT_PERFORMED",
++    }):
++        errors.append("independent-review: no independent review performed for this snapshot")
++    return errors
++
++
++def validate(record, repository):
++    repository = Path(repository)
++    errors = []
++    if record.get("clinical_status") != "CLINICALLY_PENDING":
++        errors.append("release: CLINICALLY_PENDING required")
++    if record.get("release_status") != "NO_GO_CLINICAL_RELEASE":
++        errors.append("release: no clinical release authorized")
++    source = repository / "docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md"
++    source_bytes = source.read_bytes()
++    if hashlib.sha256(source_bytes).hexdigest() != record.get("decision_source_sha256"):
++        errors.append("provenance: owner decision record changed")
++    source_text = source_bytes.decode("utf-8")
++    errors.extend(_protamine_errors(record.get("protamine", {}), repository))
++    errors.extend(_cardiovascular_errors(record.get("cardiovascular", []), source_text))
++    errors.extend(_dermatology_errors(record.get("dermatology", {}), source_text))
++    errors.extend(_review_errors(record))
++    return errors
++
++
++if __name__ == "__main__":
++    repository = Path(__file__).resolve().parents[2]
++    record = json.loads((repository / "clinical/references/owner-decisions-2026-11-27.json").read_text(encoding="utf-8"))
++    errors = validate(record, repository)
++    print(json.dumps({"automated_status": "BLOCKED" if errors else "PASS", "errors": errors,
++                      "clinical_status": "CLINICALLY_PENDING"}, ensure_ascii=False, indent=2))
++    raise SystemExit(bool(errors))
+diff --git a/clinical/tests/test_owner_decision_reconciliation.py b/clinical/tests/test_owner_decision_reconciliation.py
+new file mode 100644
+index 0000000..69312ce
+--- /dev/null
++++ b/clinical/tests/test_owner_decision_reconciliation.py
+@@ -0,0 +1,130 @@
++"""Prevent accepted owner scopes from becoming product or release permission."""
++import copy
++import json
++import os
++import subprocess
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT / "scripts"))
++from owner_decision_reconciliation import validate
++
++
++class OwnerDecisionReconciliationTests(unittest.TestCase):
++    def setUp(self):
++        self.record = json.loads((ROOT / "references/owner-decisions-2026-11-27.json").read_text(encoding="utf-8"))
++
++    def test_current_reconciliation_accepts_only_recorded_scopes(self):
++        self.assertEqual(validate(self.record, ROOT.parent), [])
++
++    def test_verified_originals_survive_git_checkout_with_autocrlf(self):
++        import hashlib
++        expected = {
++            self.record["decision_source"]: self.record["decision_source_sha256"],
++            self.record["protamine"]["original_fiche"]: self.record["protamine"]["original_fiche_sha256"],
++        }
++        env = dict(os.environ, GIT_CONFIG_NOSYSTEM="1",
++                   GIT_CONFIG_GLOBAL="NUL" if os.name == "nt" else os.devnull)
++        with tempfile.TemporaryDirectory() as temporary:
++            checkout = Path(temporary)
++            (checkout / ".gitattributes").write_bytes((ROOT.parent / ".gitattributes").read_bytes())
++            for relative in expected:
++                path = checkout / relative
++                path.parent.mkdir(parents=True, exist_ok=True)
++                path.write_bytes((ROOT.parent / relative).read_bytes())
++
++            def git(*args):
++                subprocess.run(["git", "-C", temporary, *args], env=env, check=True, capture_output=True)
++
++            git("init", "-q")
++            git("config", "core.autocrlf", "false")
++            git("add", ".")
++            git("-c", "user.name=Synthetic QA", "-c", "user.email=qa@example.invalid", "commit", "-qm", "checkout fixture")
++            git("config", "core.autocrlf", "true")
++            for relative in expected:
++                (checkout / relative).unlink()
++            git("checkout", "HEAD", "--", *expected)
++            for relative, digest in expected.items():
++                with self.subTest(relative=relative):
++                    self.assertEqual(hashlib.sha256((checkout / relative).read_bytes()).hexdigest(), digest)
++
++    def test_historical_product_cannot_be_reactivated_or_substituted(self):
++        for key, value in [("runtime_enabled", True), ("runtime_enabled", 0), ("replacement_product_id", "UNREVIEWED"),
++                           ("jurisdiction", "GLOBAL"), ("classification", "ACTIVE")]:
++            with self.subTest(key=key):
++                record = copy.deepcopy(self.record)
++                record["protamine"][key] = value
++                self.assertTrue(validate(record, ROOT.parent))
++
++    def test_historical_strict_limit_cannot_become_inclusive(self):
++        self.record["protamine"]["historical_rate_limit"]["operator"] = "<="
++        self.assertIn("protamine: historical limit changed", validate(self.record, ROOT.parent))
++
++    def test_another_fiche_cannot_inherit_the_protamine_acceptance(self):
++        self.record["protamine"]["original_fiche_sha256"] = "0" * 64
++        self.assertIn("protamine: original fiche changed", validate(self.record, ROOT.parent))
++
++    def test_protamine_acceptance_cannot_be_assigned_to_another_decision(self):
++        for key, value in [("id", "OTHER"), ("decided_at_utc", "2026-11-26T06:14:21Z")]:
++            with self.subTest(key=key):
++                record = copy.deepcopy(self.record)
++                record["protamine"][key] = value
++                self.assertTrue(validate(record, ROOT.parent))
++
++    def test_dermatology_acceptance_cannot_grant_publication_or_diagnostic_validation(self):
++        for key in ("redistribution_authorized", "product_incorporation_authorized", "diagnostic_validation"):
++            with self.subTest(key=key):
++                record = copy.deepcopy(self.record)
++                record["dermatology"]["cases"][0][key] = True
++                self.assertTrue(validate(record, ROOT.parent))
++
++    def test_duplicate_dermatology_vote_does_not_replace_a_case(self):
++        self.record["dermatology"]["cases"][-1] = copy.deepcopy(self.record["dermatology"]["cases"][0])
++        self.assertIn("dermatology: case identities differ from decision record", validate(self.record, ROOT.parent))
++
++    def test_representativeness_only_does_not_become_development_permission(self):
++        self.record["dermatology"]["cases"][1]["scope_kind"] = "CONSULTATION_DEVELOPMENT_ONLY"
++        self.assertIn("dermatology: recorded case scope changed", validate(self.record, ROOT.parent))
++
++    def test_summary_is_not_an_original_cardiovascular_fiche(self):
++        self.record["cardiovascular"][0]["implementation_status"] = "IMPLEMENTED"
++        self.assertIn("cardiovascular: original fiches not verified", validate(self.record, ROOT.parent))
++
++    def test_cardiovascular_acceptance_cannot_bind_a_different_scope_or_version(self):
++        for key, value in [("version", "v2"), ("decided_at_utc", "2026-11-26T06:12:33Z"),
++                           ("scope_summary", "UNIVERSAL_TREATMENT"), ("canonical_modules", ["acute-coronary-syndrome"]),
++                           ("pending_kind", "MEDICAL_APPROVAL_MISSING")]:
++            with self.subTest(key=key):
++                record = copy.deepcopy(self.record)
++                record["cardiovascular"][0][key] = value
++                self.assertTrue(validate(record, ROOT.parent))
++
++    def test_visual_approval_does_not_deploy_the_prototype(self):
++        self.record["clinical_minimal"]["deployed"] = True
++        self.assertIn("clinical-minimal: approval scope widened", validate(self.record, ROOT.parent))
++
++    def test_visual_acceptance_cannot_be_reassigned_or_lost(self):
++        for key, value in [("response", "NO"), ("scope", "PUBLIC_DEPLOYMENT"),
++                           ("decided_at_utc", "2026-11-26T06:37:53Z")]:
++            with self.subTest(key=key):
++                record = copy.deepcopy(self.record)
++                record["clinical_minimal"][key] = value
++                self.assertTrue(validate(record, ROOT.parent))
++
++    def test_technical_record_does_not_invent_independent_review(self):
++        self.record["independent_review"]["review_status"] = "FAVORABLE"
++        self.assertTrue(validate(self.record, ROOT.parent))
++
++    def test_inventory_is_not_an_adjudicated_or_physically_reconciled_bank(self):
++        for key, value in [("experimental_adjudications", 1), ("per_asset_file_hashes_reconciled", True)]:
++            with self.subTest(key=key):
++                record = copy.deepcopy(self.record)
++                record["dermatology"][key] = value
++                self.assertTrue(validate(record, ROOT.parent))
++
++    def test_technical_reconciliation_does_not_grant_release(self):
++        self.record["clinical_status"] = "VALIDATED"
++        self.assertIn("release: CLINICALLY_PENDING required", validate(self.record, ROOT.parent))
+diff --git a/docs/coordination/owner-decisions-20261127/ANTIGRAVITY_AUDIT_REQUEST.md b/docs/coordination/owner-decisions-20261127/ANTIGRAVITY_AUDIT_REQUEST.md
+new file mode 100644
+index 0000000..b763c9b
+--- /dev/null
++++ b/docs/coordination/owner-decisions-20261127/ANTIGRAVITY_AUDIT_REQUEST.md
+@@ -0,0 +1,11 @@
++# Orden de auditoría · decisiones del propietario
++
++Auditar el HEAD exacto de la PR enlazada a esta entrega, comparado con base `2058e97179ae793914dcd016e4fd033395dbc3e2`. Los recibos finales identifican SHA, árbol, diff y workflows efectivos. No trasladar resultados de PR120 u otros padres.
++
++1. Verificar identidad íntegra del registro 9018e14 y del expediente original de protamina recuperado de Drive; comprobar la aceptación del 27/11, 06:14:21 UTC.
++2. Confirmar cierre limitado GMA-P1-003: perfil histórico revocado ES, runtime false, límite histórico estricto; ninguna selección LEO/Prosulf ni cambio en las rutas activas.
++3. Comprobar que CARDIO-01..06 conservan su SÍ estructural, que la comparación usa los localizadores canónicos y que no se afirma recuperar una formulación original ausente. La trazabilidad del mensaje de las 06:10:21 UTC sigue pendiente de Work; no es falta de aprobación.
++4. Confirmar 23 decisiones dermatológicas/24 imágenes inventariadas, los dos alcances solo representativos, privacidad/derechos no inferidos y ninguna fotografía publicada. Clinical Minimal es una aprobación visual, sin despliegue de UX2 sustituido.
++5. Revisar diff, regresiones, CI/Sonar y preservación de aceptaciones, fórmulas, dosis, catálogos y estados. No atribuir a esta entrega estudios, adjudicación humana independiente ni GO clínico.
++
++Emitir dictamen propio con SHA completo, herramientas/pruebas realmente usadas, hallazgos y límites. Este archivo es una orden para recogida; **no acredita transmisión, recepción o revisión por Antigravity**. Mantener CLINICALLY_PENDING.
+diff --git a/docs/coordination/owner-decisions-20261127/CARDIO_DOCUMENTARY_COMPARISON.json b/docs/coordination/owner-decisions-20261127/CARDIO_DOCUMENTARY_COMPARISON.json
+new file mode 100644
+index 0000000..4958f6d
+--- /dev/null
++++ b/docs/coordination/owner-decisions-20261127/CARDIO_DOCUMENTARY_COMPARISON.json
+@@ -0,0 +1,241 @@
++{
++  "clinical_status": "CLINICALLY_PENDING",
++  "drive_url": "https://drive.google.com/file/d/1a1Hm5taErhZW_O4KxvSgyuSdGX4SAXHo/view",
++  "drive_sha256": "a3034e36a92f0f46ce81a08029fa482410d94f82b2ce100f2e91b135de2db4cb",
++  "repository_counterpart": "docs/coordination/work-closure-20261126/CIENCIA/COBERTURA_59_MODULOS_REFERENCIA.json",
++  "byte_identical": false,
++  "parsed_json_equal": true,
++  "differences_are_serialization_only": true,
++  "decisions": [
++    {
++      "decision_id": "MED-RES-CARDIO-01",
++      "version": "v1",
++      "response": "SÍ",
++      "approval_at_utc": "2026-11-27T06:12:33Z",
++      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
++      "scope_summary_not_original": "router de monitorización y cuatro circuitos de reanimación existentes, conservar decisiones ARR-SELECTOR y excepciones pediátricas; no cambiar dosis ni algoritmos.",
++      "module_id": "arrhythmias-cardiac-arrest",
++      "drive_locator_lines": [
++        791,
++        875
++      ],
++      "canonical_source": "clinical/modules/cardiovascular.md",
++      "canonical_body_sha256": "c486a1c36940419bc6af4e45ce202c35af10b814a27233e5735646ffc6625237",
++      "source_bindings": [
++        {
++          "source_id": "src-d05ca4d7",
++          "role": "canonical_registry_identity",
++          "claim_scope": "module-level"
++        },
++        {
++          "source_id": "src-rcuk-als-2025",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "adult ALS and rhythm algorithms"
++        },
++        {
++          "source_id": "src-erc-guidelines-2025",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "European resuscitation guidance"
++        }
++      ],
++      "canonical_metadata_equal_to_receiver": true,
++      "substantive_clinical_changes_applied": false,
++      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
++    },
++    {
++      "decision_id": "MED-RES-CARDIO-02",
++      "version": "v1",
++      "response": "SÍ",
++      "approval_at_utc": "2026-11-27T06:12:33Z",
++      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
++      "scope_summary_not_original": "circuitos diferenciados por lesión valvular y situación hemodinámica; no pauta universal.",
++      "module_id": "critical-valvular-disease",
++      "drive_locator_lines": [
++        1895,
++        1955
++      ],
++      "canonical_source": "clinical/modules/cardiovascular.md",
++      "canonical_body_sha256": "fd33c8ea3b87fac29b2ef61c3359d41b197d0eb8d318487577030f1a7ec854c6",
++      "source_bindings": [
++        {
++          "source_id": "src-ed303b9b",
++          "role": "canonical_registry_identity",
++          "claim_scope": "module-level"
++        }
++      ],
++      "canonical_metadata_equal_to_receiver": true,
++      "substantive_clinical_changes_applied": false,
++      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
++    },
++    {
++      "decision_id": "MED-RES-CARDIO-03",
++      "version": "v1",
++      "response": "SÍ",
++      "approval_at_utc": "2026-11-27T06:12:33Z",
++      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
++      "scope_summary_not_original": "circuitos específicos de dispositivo y complicación, con monitorización y especialista cuando corresponda; no pauta universal.",
++      "module_id": "device-complications",
++      "drive_locator_lines": [
++        2164,
++        2254
++      ],
++      "canonical_source": "clinical/modules/cardiovascular.md",
++      "canonical_body_sha256": "f553db5321ecc62b1b37d721f6c2c48e376ab8f676a77461c1d72de85e94a70f",
++      "source_bindings": [
++        {
++          "source_id": "src-e5335ffc",
++          "role": "canonical_registry_identity",
++          "claim_scope": "module-level"
++        }
++      ],
++      "canonical_metadata_equal_to_receiver": true,
++      "substantive_clinical_changes_applied": false,
++      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
++    },
++    {
++      "decision_id": "MED-RES-CARDIO-04",
++      "version": "v1",
++      "response": "SÍ",
++      "approval_at_utc": "2026-11-27T06:12:33Z",
++      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
++      "scope_summary_not_original": "objetivos de presión arterial diferenciados según indicación, preservar vías específicas; la secuencia general requiere la fuente exacta y no sustituye las vías específicas.",
++      "module_id": "hypertensive-emergencies",
++      "drive_locator_lines": [
++        3366,
++        3445
++      ],
++      "canonical_source": "clinical/modules/cardiovascular.md",
++      "canonical_body_sha256": "2a7ff0e09e3c2ed80f2c7658a2c1c9c5bd6c146be10889fcb83dd50527cddcae",
++      "source_bindings": [
++        {
++          "source_id": "src-1a3b2533",
++          "role": "canonical_registry_identity",
++          "claim_scope": "module-level"
++        },
++        {
++          "source_id": "src-esc-hypertension-2024",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "general hypertensive emergency framework"
++        },
++        {
++          "source_id": "src-acc-aortic-2022",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "acute aortic syndrome blood-pressure strategy"
++        },
++        {
++          "source_id": "src-aha-ich-2022",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "intracerebral hemorrhage blood-pressure strategy"
++        },
++        {
++          "source_id": "src-esc-acs-2023",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "acute coronary syndrome context"
++        },
++        {
++          "source_id": "src-acog-severe-htn-pregnancy-2019",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "pregnancy/postpartum severe hypertension"
++        },
++        {
++          "source_id": "src-aha-asa-ischemic-stroke-2026",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "acute ischemic stroke blood-pressure context"
++        }
++      ],
++      "canonical_metadata_equal_to_receiver": true,
++      "substantive_clinical_changes_applied": false,
++      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
++    },
++    {
++      "decision_id": "MED-RES-CARDIO-05",
++      "version": "v1",
++      "response": "SÍ",
++      "approval_at_utc": "2026-11-27T06:12:33Z",
++      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
++      "scope_summary_not_original": "selección por indicación, contraindicaciones, producto y jurisdicción; no habilitar cálculos con productos no verificados.",
++      "module_id": "iv-antihypertensive-selection",
++      "drive_locator_lines": [
++        3700,
++        3847
++      ],
++      "canonical_source": "clinical/modules/cardiovascular.md",
++      "canonical_body_sha256": "66e8becd545d4623f7251e1b41e50be19e69731c9d6c36fa29be1a911c6da416",
++      "source_bindings": [
++        {
++          "source_id": "src-05cc8d80",
++          "role": "canonical_registry_identity",
++          "claim_scope": "module-level"
++        },
++        {
++          "source_id": "src-esc-hypertension-2024",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "general hypertension framework"
++        },
++        {
++          "source_id": "src-acc-aortic-2022",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "aortic syndrome blood-pressure strategy"
++        },
++        {
++          "source_id": "src-aha-ich-2022",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "intracerebral hemorrhage blood-pressure strategy"
++        },
++        {
++          "source_id": "src-nicardipine-dailymed-2026",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "nicardipine formulation and dosing"
++        },
++        {
++          "source_id": "src-cleviprex-dailymed-2022",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "clevidipine formulation and labeled dosing"
++        },
++        {
++          "source_id": "src-acog-severe-htn-pregnancy-2019",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "pregnancy/postpartum severe hypertension"
++        }
++      ],
++      "canonical_metadata_equal_to_receiver": true,
++      "substantive_clinical_changes_applied": false,
++      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
++    },
++    {
++      "decision_id": "MED-RES-CARDIO-06",
++      "version": "v1",
++      "response": "SÍ",
++      "approval_at_utc": "2026-11-27T06:12:33Z",
++      "original_proposal_at_utc": "2026-11-27T06:10:21Z",
++      "scope_summary_not_original": "dolor torácico no coronario por causa, no antitrombótico genérico ni alta automática por una sola prueba/puntuación.",
++      "module_id": "non-coronary-chest-pain",
++      "drive_locator_lines": [
++        4124,
++        4210
++      ],
++      "canonical_source": "clinical/modules/cardiovascular.md",
++      "canonical_body_sha256": "84ed22acee85a42a1779263cd04ce66d9b3e99e0af2edf8e746ef67ce5e808a8",
++      "source_bindings": [
++        {
++          "source_id": "src-3140cbdb",
++          "role": "canonical_registry_identity",
++          "claim_scope": "module-level"
++        },
++        {
++          "source_id": "src-aha-acc-chest-pain-2021",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "initial chest-pain evaluation and diagnostic framing"
++        },
++        {
++          "source_id": "src-legacy-noncoronary-chest-pain-set",
++          "role": "historical_component_pending_reconciliation",
++          "claim_scope": "ESC/ACR syndrome-specific non-coronary causes pending individual split"
++        }
++      ],
++      "canonical_metadata_equal_to_receiver": true,
++      "substantive_clinical_changes_applied": false,
++      "remaining": "EXPEDIENT_TRACEABILITY: recover original message intact; approval already received."
++    }
++  ]
++}
+diff --git a/docs/coordination/owner-decisions-20261127/CODEX_OWNER_DECISIONS_RECONCILIATION.md b/docs/coordination/owner-decisions-20261127/CODEX_OWNER_DECISIONS_RECONCILIATION.md
+new file mode 100644
+index 0000000..268d3df
+--- /dev/null
++++ b/docs/coordination/owner-decisions-20261127/CODEX_OWNER_DECISIONS_RECONCILIATION.md
+@@ -0,0 +1,35 @@
++# Reconciliación del propietario · 27/11/2026
++
++Base: `2058e97179ae793914dcd016e4fd033395dbc3e2` (PR120). Registro recibido: `9018e14bb058c6ebb6f8bf1224924997ba3109a7`, incorporado sin alterar su texto. Rama aislada: `codex/owner-decisions-20261127`. Estado: **CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE**.
++
++## Resultado aplicado
++
++GMA-P1-003 queda **RESOLVED_HISTORICAL_PROFILE_SCOPE**, exclusivamente según MED-RES-PROT-01 v1. La disposición vigente está en `clinical/references/owner-decisions-2026-11-27.json`; `CODEX_RESIDUAL_CLINICAL_CONTRACTS.json` ya no solicita una respuesta que fue recibida. PROTAMINE_HOSPIRA_10 queda `HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION`, España/AEMPS 45777, `runtime_enabled=false`, sin producto sustituto. Su límite histórico sigue siendo estrictamente `<5 mg/min`. No se cambia globalmente el límite inclusivo de las rutas activas ni se selecciona LEO/Prosulf.
++
++Se recuperó el [expediente original de Drive](https://docs.google.com/document/d/1yIPlybffYNeucGu3y8_mHIwpLRLtWc36/edit). Su texto completo se conserva en `MED_RES_PROT_01_ORIGINAL_V1.md` con SHA-256 en el registro. Sus menciones a respuesta pendiente pertenecen al corte anterior y quedan superadas por el SÍ del 27/11, 06:14:21 UTC. No es una nueva pregunta al propietario. La ficha primaria [CIMA 45777](https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html), advertencia inicial y §4.2, confirma revocación/suspensión y el límite histórico. Lectura focal, sin atribuir revisión integral ni renovar fechas del registro de evidencia.
++
++Los expedientes históricos de octubre no se reescriben. La nueva disposición es su actualización fechada, no una autorización operativa. El cierre no se extiende a otros productos, jurisdicciones o controles individuales.
++
++## Cardiovascular: aprobación conservada y comparación preparada
++
++Las seis decisiones v1 tienen **SÍ estructural** a las 06:12:33 UTC. No falta aprobación médica. `CARDIO_DOCUMENTARY_COMPARISON.json` vincula cada ID con su módulo, referencias y localizador de la [documentación canónica de Drive](https://drive.google.com/file/d/1a1Hm5taErhZW_O4KxvSgyuSdGX4SAXHo/view). El JSON de Drive y el del receptor son semánticamente iguales; difieren en serialización. Se conservan los textos canónicos, las cuatro rutas ARR-SELECTOR y sus excepciones pediátricas.
++
++La formulación íntegra del mensaje original del 27/11 a las **06:10:21 UTC** no se ha recuperado en esta ejecución. El registro 9018e14 y los localizadores no lo sustituyen. Incidencia: **EXPEDIENT_TRACEABILITY**, con aprobación ya recibida. Se revisaron los registros accesibles de Work y las búsquedas de Drive; esto no acredita ausencia universal del original. Computer Use falló al inicializarse con `the gaas-browser node_repl sandbox cannot be disabled`.
++
++Por instrucción expresa posterior del propietario, no se aplica ningún cambio clínico sustantivo cuya formulación aprobada exacta no pueda recuperarse. Work debe conservar el mensaje íntegro, su ID, fecha, hash y vínculo al SÍ de las 06:12:33 UTC, y contrastarlo antes de ese delta. No reconstruirlo ni repetir las seis aprobaciones.
++
++## Aprobaciones y límites preservados
++
++El registro programático conserva los 23 IDs dermatológicos v1, sus fechas y alcances: dos de representatividad clínica y 21 de consulta/desarrollo condicionados. Las 24 fotografías siguen siendo un inventario, sin nueva publicación, permiso de redistribución, incorporación al producto o adjudicación experimental. No se incluyen fotografías ni rutas privadas. La conciliación física de hashes, privacidad y derechos por activo pertenece al carril de imagen y sigue pendiente aquí.
++
++Clinical Minimal conserva una sola aprobación como base visual futura; la repetición no cuenta como otra decisión. UX2 continúa vigente en esta entrega. Implementación visual incremental y auditoría corresponden a una entrega separada. Los 19 contratos aceptados el 16/11, MED-DEC-R46-01/02 y el registro clínico no se reabren ni se promueven.
++
++`WORK_PENDIENTES_REALES_OVERLAY.json` concilia el corte recuperado de Work sin sobrescribir documentos compartidos que otra sesión actualiza. Se cierra la dependencia de respuesta de protamina; quedan trazabilidad cardiovascular, privacidad/derechos de activos, implementación visual y auditoría del candidato. Los requisitos científicos/experimentales de otros carriles conservan sus expedientes propios. La falta actual de revisores humanos independientes no se sustituye por una revisión automatizada.
++
++## Verificación y auditoría
++
++Regresiones positivas y negativas: `clinical/tests/test_owner_decision_reconciliation.py`. Control ejecutable: `python clinical/scripts/owner_decision_reconciliation.py`. Comprueba rechazo de reactivación, sustitución, jurisdicción ampliada, límite inclusivo, ficha sustituida, duplicación de casos y ampliación de derechos/validación/despliegue.
++
++Los resultados locales observados, la preservación y la CI del SHA publicado se registran en los recibos de esta entrega. No se atribuye al candidato la CI de PR120. Antigravity debe emitir su propio dictamen sobre el SHA exacto; la orden preparada no acredita recepción ni auditoría realizada. No merge ni despliegue.
++
++Regresión de procedencia: un checkout real con `core.autocrlf=true` reproducía la conversión del registro a CRLF y el rechazo de su hash. Se fija LF para ese registro y conservación binaria de los CRLF originales del expediente de protamina. Los hashes siguen siendo sobre bytes exactos; no se normalizan ni relajan los controles. La prueba verifica ambos archivos tras el checkout y conserva el contrato LF previo del catálogo de corticoides.
+diff --git a/docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md b/docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md
+new file mode 100644
+index 0000000..d9c86a3
+--- /dev/null
++++ b/docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md
+@@ -0,0 +1,17 @@
++# Decisiones médicas pendientes
++
++Cero decisiones nuevas maduras en este corte. Se conserva únicamente MED-RES-PROT-01 v1, previamente preparada. No se ha localizado respuesta explícita en los canales revisados (registros locales, documento central vigente y chats indicados en CIENCIA/MED_PROT_COMPROBACION_RECEPCION.json); no es una afirmación de ausencia universal. Si existe respuesta posterior identificable, debe conciliarse antes de volver a presentar la pregunta.
++
++**Pregunta original v1:** ¿Aprueba clasificar PROTAMINE_HOSPIRA_10 (registro AEMPS 45777) como HISTORICAL_REVOKED_ES_NOT_FOR_PRODUCT_SELECTION, excluido de toda nueva selección operativa, manteniendo runtime_enabled = false y preservando su límite estricto < 5 mg/min únicamente en su alcance histórico, sin sustitución automática por LEO/Prosulf y sin modificar globalmente ≤ 5 → < 5 en las rutas activas del 16/11?
++
++**Recomendación del informe: SÍ.** No es aprobación de Juan. Evidencia: [AEMPS CIMA 45777](https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html), FT §4.2, y clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json. El registro Hospira español está revocado/comercialización suspendida según el expediente;50 mg/10 min = 5 mg/min no satisface<5. No universalizar ese estado a Portugal u otros productos.
++
++- SÍ: clasificación histórica limitada a PROTAMINE_HOSPIRA_10, conservando runtime_enabled=false, los límites históricos y las rutas aceptadas.
++- NO: propuesta sin aprobar, perfil inactivo y GMA-P1-003 abierto; sin sustitución ni activación automática. Una alternativa necesita evidencia y decisión propias.
++
++No se vuelven a solicitar los 19 contratos ni MED-DEC-R46-01/02. Farmacia es consultiva; no firma física obligatoria. CDC, derechos documentales e insulina no se convierten en votaciones médicas. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
++
++
++## Cotejo de este ciclo
++
++Se revisó el documento central vigente y el handoff indicado: no se localizó respuesta posterior expresa a MED-RES-PROT-01 v1 en esos canales. Los cotejos de labetalol, RCUK y drepanocitosis preparan conciliaciones documentales y no demuestran por sí solos una nueva decisión médica madura. No se agrupan aprobaciones ni se solicitan de nuevo MED-DEC-R46-01/02 o los19contratos. La autorización técnica de merge se registra aparte y no constituye aprobación clínica.
+diff --git a/docs/coordination/owner-decisions-20261127/PRESERVATION_PROOF.json b/docs/coordination/owner-decisions-20261127/PRESERVATION_PROOF.json
+new file mode 100644
+index 0000000..ca9c4e3
+--- /dev/null
++++ b/docs/coordination/owner-decisions-20261127/PRESERVATION_PROOF.json
+@@ -0,0 +1,69 @@
++{
++  "base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
++  "decision_registry_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
++  "decision_registry_exact": true,
++  "preserved": [
++    {
++      "path": "clinical/qa/V1.44_MEDICATION_PRODUCT_PROTOCOL_RECONCILIATION.json",
++      "sha256": "b42eb3007f2481de488bb4a8dbabd36f590cb325c4452628a4d1e70264aa1274",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/qa/global-medication-audit-v144/products.json",
++      "sha256": "97d1ab95edebd3c46074c06c9d806e8d5b05cc14578be8e86d96819e76d0a502",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/references/acute-contract-owner-acceptance-2026-11-16.json",
++      "sha256": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/references/evidence-registry.json",
++      "sha256": "6fa010e4646bc0de288e799c2e8b5ce93231c71171339a4ce5a9d4b2847713d0",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/references/router.md",
++      "sha256": "65ee959e0a7e3ede06b985cbc9b0a073887b525320971173b45fc35f70421eb3",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/modules/cardiovascular.md",
++      "sha256": "22a3f6094c114ec7a50452e8246a29dfab778c60309a7c9bac8d315fc97d64e1",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/modules/special-populations.md",
++      "sha256": "4a9240a93d96993dc750bcb1060f9e01e8abab557812b8667b1d57ad847db025",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/scripts/acute_medication_contracts.py",
++      "sha256": "887e1f0ef384f82b30189ebf174f336caed57ee9af6b256a0164547602241a7a",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/scripts/acute_reviewed_reversal.py",
++      "sha256": "f4e78b6543b2faad35d1c66a1d709e367fc74a9b0b053d27c94596de09e85bb2",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "app/src/data/drugs.json",
++      "sha256": "084f4090a4d9ddd68b60c2b731eb17be632a22e795598cef8b6fa2276b032893",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "app/src/data/generatedPediatricOutpatient.json",
++      "sha256": "c6afd866d617eff564779c107c2fdb1e4234e0047d0cf11b1f217d46ad2f531b",
++      "exact_match_to_base": true
++    },
++    {
++      "path": "clinical/pharmacology/corticosteroids.json",
++      "sha256": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499",
++      "exact_match_to_base": true
++    }
++  ],
++  "clinical_status": "CLINICALLY_PENDING",
++  "scope": "Observed candidate comparison, not a permanent freeze on future authorized edits."
++}
+diff --git a/docs/coordination/owner-decisions-20261127/WORK_PENDIENTES_REALES_OVERLAY.json b/docs/coordination/owner-decisions-20261127/WORK_PENDIENTES_REALES_OVERLAY.json
+new file mode 100644
+index 0000000..c4b388f
+--- /dev/null
++++ b/docs/coordination/owner-decisions-20261127/WORK_PENDIENTES_REALES_OVERLAY.json
+@@ -0,0 +1,50 @@
++{
++  "scope": "Decision-lane overlay; other Work dependencies retain their current records.",
++  "source_url": "https://drive.google.com/file/d/1FQ7aa5H25YfSW8Z79F8HqNyjdL95HqJF/view",
++  "source_snapshot_sha256": "8e3fda619cef331c71eeb55e6af99c16f989e577a1df3e57f6a46d26c998e063",
++  "receiving_base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
++  "decision_registry_commit": "9018e14bb058c6ebb6f8bf1224924997ba3109a7",
++  "superseded_protamine_entry": {
++    "id": "GMA-P1-003:MED-RES-PROT-01-v1",
++    "status": "LISTO_PARA_DECISION_MEDICA_PREVIA_NO_REABIERTO",
++    "responsible": "Juan Copado Ceballos",
++    "blocker": "No se localizó respuesta explícita en los canales revisados; no se presume ausencia universal.",
++    "next_action": "Usar la pregunta v1 conservada en WORK_DECISIONES_MEDICAS_PENDIENTES.md, sin reabrir19contratos.",
++    "release_condition": "Respuesta explícita de Juan sobre su alcance; NO mantiene perfil inactivo y hallazgo abierto.",
++    "blocks_technical_candidate": false
++  },
++  "closed": [
++    {
++      "id": "GMA-P1-003:MED-RES-PROT-01-v1",
++      "status": "RESOLVED_HISTORICAL_PROFILE_SCOPE",
++      "owner_response_pending": false,
++      "current_disposition": "clinical/references/owner-decisions-2026-11-27.json#protamine"
++    }
++  ],
++  "pending": [
++    {
++      "id": "CARDIO-01..06:EXPEDIENT_TRACEABILITY",
++      "approval_status": "APPROVED_STRUCTURAL_SCOPE",
++      "owner_response_pending": false,
++      "next_action": "Work: recover original 06:10:21Z message intact, hash and bind approval 06:12:33Z; compare before substantive clinical changes."
++    },
++    {
++      "id": "DERMA:ASSET_PRIVACY_AND_RIGHTS",
++      "owner_response_pending": false,
++      "owner_approved_cases": 23,
++      "photographs_inventoried": 24,
++      "next_action": "Image lane: reconcile binary identities, privacy and rights per asset; no publication or product incorporation inferred."
++    },
++    {
++      "id": "CLINICAL_MINIMAL:IMPLEMENTATION",
++      "owner_response_pending": false,
++      "next_action": "Separate incremental implementation and audit; UX2 preserved here."
++    },
++    {
++      "id": "ANTIGRAVITY:THIS_CANDIDATE",
++      "status": "AUDIT_NOT_PERFORMED"
++    }
++  ],
++  "clinical_status": "CLINICALLY_PENDING",
++  "shared_drive_sources_modified": false
++}
+diff --git a/docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md b/docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md
+new file mode 100644
+index 0000000..d4ebe00
+--- /dev/null
++++ b/docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md
+@@ -0,0 +1,81 @@
++# Seguimiento de decisiones del propietario — 27/11/2026
++
++Registro documental suplementario, no modificación de expedientes históricos ni de fuentes de runtime. Base receptora comprobada: `2058e97179ae793914dcd016e4fd033395dbc3e2`, integración PR120, árbol `78e27cb900f7dd901eb5aeb48026276dc48b942c`. La rama aislada de seguimiento no es el receptor.
++
++## Integración técnica
++
++PR120 fusionada el 27/11/2026 a las 06:20:35 UTC. Los tres workflows push del commit integrado fueron consultados y tienen conclusión success:
++- [Clinical QA](https://github.com/JuanCopado/Emergency/actions/runs/45951237634)
++- [App UI QA](https://github.com/JuanCopado/Emergency/actions/runs/45951237801)
++- [Security and quality](https://github.com/JuanCopado/Emergency/actions/runs/45951237683)
++
++Estos resultados pertenecen al receptor indicado, no se transfieren al nuevo commit documental. No se declara despliegue o nueva validación clínica.
++
++## Decisiones clínicas del propietario
++
++La procedencia de las decisiones nuevas es la conversación de PROYECTO EMERGENCY del 27/11/2026, tras el expediente WORK del día anterior. Se registran alcances resumidos y horas UTC, no se presentan las paráfrasis como transcripciones literales. Los expedientes y la conversación originales conservan autoridad. No reabrir las 19 aceptaciones del 16/11 ni MED-DEC-R46-01/02 del 24/11.
++
++**MED-RES-PROT-01 v1**, 06:14:21 UTC — SÍ. Respuesta explícita: «SÍ. Apruebo ... en su alcance original: clasificar PROTAMINE_HOSPIRA_10 como histórico revocado en España, mantener runtime_enabled=false, preservar el límite histórico estricto y no modificar las rutas activas ni sustituir automáticamente el producto.» La elipsis indica una abreviación, no cita íntegra. El cierre es de aceptación del perfil histórico, no de implementación ni de otros productos. No modificar universalmente límites de velocidad ni seleccionar una alternativa activa por inferencia. GMA-P1-003: respuesta recibida; queda reconciliación documental/técnica en su alcance.
++
++**MED-RES-CARDIO-01..06 v1**, 06:12:33 UTC — aceptación conjunta explícita de las seis propuestas estructurales, sin habilitar dosis no revisadas ni liberar clínicamente el proyecto. Los siguientes son resúmenes de alcance, no nuevos protocolos:
++- 01: router de monitorización y cuatro circuitos de reanimación existentes, conservar decisiones ARR-SELECTOR y excepciones pediátricas; no cambiar dosis ni algoritmos.
++- 02: circuitos diferenciados por lesión valvular y situación hemodinámica; no pauta universal.
++- 03: circuitos específicos de dispositivo y complicación, con monitorización y especialista cuando corresponda; no pauta universal.
++- 04: objetivos de presión arterial diferenciados según indicación, preservar vías específicas; la secuencia general requiere la fuente exacta y no sustituye las vías específicas.
++- 05: selección por indicación, contraindicaciones, producto y jurisdicción; no habilitar cálculos con productos no verificados.
++- 06: dolor torácico no coronario por causa, no antitrombótico genérico ni alta automática por una sola prueba/puntuación.
++
++La implementación queda pendiente de aplicar y verificar las fichas originales. Este registro no incorpora cifras nuevas, dosis, umbrales o reglas ejecutables.
++
++## Banco dermatológico de consulta/desarrollo
++
++Identidad: manifiesto DERMATOLOGIA_CASOS_HEREDADO.json y entrega del banco dermatológico gratuito del 26/11/2026. 23/23 casos revisados por el propietario, 24 fotografías inventariadas, 0 rechazos. Dos decisiones restringidas a representatividad clínica y 21 de consulta/desarrollo bajo límites aplicables. No se acredita consentimiento, licencia de cualquier uso, confirmación etiológica, rendimiento diagnóstico, incorporación al producto ni adjudicación experimental. Las condiciones de privacidad y licencia se mantienen para todos los activos. No se publican fotografías, datos de pacientes ni rutas privadas en este registro.
++
++Todas las decisiones corresponden a v1 y a 27/11/2026 UTC. La columna alcance es una síntesis fiel, no cita textual. Todas fueron afirmativas en su alcance específico.
++
++| ID | Caso | Hora UTC | Alcance |
++|---|---|---|---|
++| MED-RES-DERMA-FRONTIERS_1048480_F1 | Angioedema hereditario | 06:23:15 | Consulta y desarrollo exclusivamente; privacidad de reutilización no aprobada. |
++| MED-RES-DERMA-CDC_2874_24913_24914 | Erisipela facial | 06:23:56 | Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad. |
++| MED-RES-DERMA-CDC_27799 | Forunculosis frontal | 06:24:14 | Solo representatividad clínica; incorporación y redistribución bloqueadas hasta resolver privacidad. |
++| MED-RES-DERMA-CASE_CDC_PHIL_5153 | Impétigo | 06:24:48 | Consulta/desarrollo, condicionado a revisión de privacidad. |
++| MED-RES-DERMA-CASE_CDC_PHIL_6478 | Herpes zóster | 06:25:09 | Consulta/desarrollo, condicionado a revisión de privacidad. |
++| MED-RES-DERMA-CASE_CDC_PHIL_6482 | Herpes simple | 06:25:37 | Consulta/desarrollo, condicionado a revisión de privacidad. |
++| MED-RES-DERMA-CASE_CDC_PHIL_24379 | Tiña corporal | 06:26:18 | Consulta/desarrollo, condicionado a privacidad; respuestas repetidas cuentan una vez. |
++| MED-RES-DERMA-CASE_CDC_PHIL_28632 | Reacción a mosquito | 06:27:05 | Consulta/desarrollo, condicionado a revisión de privacidad. |
++| MED-RES-DERMA-CASE_CDC_PHIL_1337 | Meningococemia (gangrena de mano) | 06:27:31 | Consulta/desarrollo, manifestación avanzada; condicionado a privacidad. |
++| MED-RES-DERMA-CASE_CDC_PHIL_2332 | Carbunco cutáneo | 06:28:06 | Consulta/desarrollo; conservar limitaciones; condicionado a privacidad. |
++| MED-RES-DERMA-CASE_PMC7176330 | Espectro SJS/TEN | 06:28:31 | Un solo caso con figuras 2 y 3; consulta/desarrollo y privacidad; sin inferir superficie desprendida. |
++| MED-RES-DERMA-CASE_PMC11585283 | DRESS | 06:28:50 | Consulta/desarrollo, condicionado a privacidad; no confirmar causalidad a partir de la imagen. |
++| MED-RES-DERMA-CASE_PMC8203330 | Vasculitis leucocitoclástica | 06:29:16 | Consulta/desarrollo, conservar limitaciones y condicionar a privacidad. |
++| MED-RES-DERMA-CASE_PMC11619809 | Fascitis necrosante | 06:29:50 | Consulta/desarrollo como imagen posterior al desbridamiento, no presentación inicial; privacidad. |
++| MED-RES-DERMA-COMMONS_CASE_5de1c08f376aedda | Escabiosis | 06:30:15 | Consulta/desarrollo, conservar limitaciones y condicionar a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_-3768594983498155183 | Urticaria | 06:30:46 | Consulta/desarrollo, condicionado a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_3083550471820565612 | Eccema | 06:31:09 | Consulta/desarrollo, condicionado a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_2600794538114860588 | Dermatitis alérgica de contacto | 06:31:34 | Consulta/desarrollo, condicionado a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_3730083867318674656 | Celulitis | 06:33:01 | Consulta/desarrollo, condicionado a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_579682856480983647 | Absceso | 06:33:19 | Consulta/desarrollo, condicionado a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_3689862615752795245 | Foliculitis | 06:33:43 | Consulta/desarrollo, condicionado a privacidad. |
++| MED-RES-DERMA-SCIN_CASE_-3518984822601104202 | Erupción farmacológica | 06:34:08 | Consulta/desarrollo, condicionado a privacidad; sin establecer causalidad. |
++| MED-RES-DERMA-SCIN_CASE_-3902972343084754168 | Eccema, segundo caso | 06:34:31 | Consulta/desarrollo, condicionado a privacidad. |
++
++La decisión finaliza la revisión de representatividad/consulta del propietario. No equivale a habilitación clínica o permiso de redistribución. Preservar originales y hashes; no alterar el manifiesto histórico. Integrar este registro en la reconciliación de metadatos por activo, sin repetir las votaciones. Conservar el banco de desarrollo fuera de conjuntos reservados y evaluación diagnóstica independiente. No crear un banco de heridas como objetivo independiente.
++
++## Diseño y dependencia organizativa
++
++- 06:37:53 UTC: «Apruebo la propuesta de diseño Clinical Minimal como base para la futura interfaz de EMERGENCY. Siguiente validación.» Repetición a 06:38:10 UTC: una sola decisión. Alcance exclusivamente visual; prototipo no desplegado, UX2 se conserva hasta cambio implementado, probado y auditado.
++- 06:38:38 UTC: «Por ahora no dispongo de revisores independientes. Continuar con todas las tareas técnicas y científicas que no dependan de ellos.» No se nombra custodio, jueces, redactores ni revisores independientes. No se acredita ausencia universal futura ni aprobación institucional.
++
++## Continuidad ejecutable sin revisores externos
++
++1. Documentación: reconciliar este registro con WORK_PENDIENTES_REALES.json y los manifiestos, sin sustituir sus versiones históricas. Cerrar solo la dependencia de respuesta del propietario en protamina, conservar controles técnicos y clínicos pendientes. Mantener el inventario de 23 casos y 24 imágenes, revisión de privacidad/derechos por activo y veto a publicación de rostros no resueltos.
++2. Interfaz: preparar implementación incremental Clinical Minimal en rama de tarea; conservar funciones y contratos de UX2, ES/PT/EN/ZH, accesibilidad, identidad de rutas, exportación, navegación y pruebas negativas. No declarar agentes clínicos operativos.
++3. Ciencia: continuar especialización por indicación de los 37 módulos sin binding de la biblioteca de 59 referencias. Reusar 16 no prescriptivos y seis vinculados a 131 registros, y los lotes ya preparados. Resolver exclusivamente deltas/lagunas reales de fuentes, derechos, IFEM, AHA/ASA, CDC, WSES, identidad del producto insulina y src-b5e20534; no inferir dosis, unidades, producto ni reemplazar lecturas primarias por síntesis no autorizadas. No repetir adquisiciones ni 15/18 revisiones previas.
++4. Imagen: preparar material y comprobaciones técnicas pendientes de R86/S2-11/S2-12, sin inventar activos ni adjudicaciones. El banco de desarrollo no sustituye al banco experimental. No exponer conjuntos ciegos a participantes que pudieran integrar el desarrollo.
++5. Investigación: preparar logística y documentación de R5-1/R5-2/R4-SCA, criterios y expedientes sin afirmar que existen revisores, cohorte, aprobación institucional, corpus sellado, independencia o resultados prospectivos. R5-1 conserva 10/30 archivos técnicos y 0 adjudicaciones en el corte de Work; 20 pendientes según el mismo corte. No modificar este recuento por revisar el banco dermatológico.
++6. G05: seguir dentro del laboratorio, aclarar consumidor, derechos, retención y contrato de píxeles antes de una nueva propuesta de alcance. No usar datos reales ni activar interfaz pública sin controles.
++7. Validar cada delta con QA pertinente y auditoría técnica de su SHA. No confundir revisión automatizada con adjudicación clínica humana independiente.
++
++Bloqueados por requisitos externos: evaluación independiente R5-1/R5-2, autorización y cohorte prospectiva R4-SCA, derechos o aclaraciones editoriales pendientes, y cualquier actividad que requiera consentimiento/privacidad no resueltos. La falta de revisores no bloquea la preparación técnica compatible.
++
++**Estado global: CLINICALLY_PENDING · NOT_FROZEN_NOT_VALIDATED · NO_GO_CLINICAL_RELEASE.** Ningún cambio de runtime, dosis, fuente clínica, catálogo, estados, main, rama protegida o producción autorizado por este registro. Aprobación de propietario no es autorización de liberación clínica.

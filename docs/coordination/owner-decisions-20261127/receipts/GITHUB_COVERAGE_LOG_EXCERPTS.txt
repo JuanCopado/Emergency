@@ -1,0 +1,6 @@
+2026-11-27T07:51:04.9414434Z Ran 1776 tests in 605.604s\n\nOK (skipped=10)"
+2026-11-27T07:51:11.1284951Z Ran 39 tests in 5.941s
+2026-11-27T07:51:12.6235235Z Wrote XML report to coverage.xml
+2026-11-27T07:52:06.3118718Z  Test Files  61 passed (61)
+2026-11-27T07:52:06.3121581Z       Tests  1118 passed (1118)
+2026-11-27T07:52:06.3157120Z  % Coverage report from v8

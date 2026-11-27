@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "automated_pass": true,
+  "automated_status": "PASS",
+  "checks": [
+    {
+      "name": "module-integrity",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "MODULE VALIDATION PASSED: 131 modules resolved",
+      "stderr": ""
+    },
+    {
+      "name": "evidence-coverage",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"audit_date\": \"2026-11-27\",\n  \"total_modules\": 131,\n  \"registered\": 131,\n  \"normalized_sources\": 254,\n  \"compound_sources_pending_split\": 102,\n  \"unregistered\": 0,\n  \"status_counts\": {\n    \"green\": 129,\n    \"yellow\": 2,\n    \"red\": 0\n  },\n  \"errors\": [],\n  \"warnings\": [\n    \"clinical-image-interpretation: evidence review overdue (71 days; limit 30; status yellow)\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "name": "clinical-case-provenance",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "CLINICAL CASE VALIDATION PASSED: 27 sourced regressions",
+      "stderr": ""
+    },
+    {
+      "name": "real-image-provenance",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"cases\": 4,\n  \"errors\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "image-source-registry",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"ready_sources\": [\n    \"echonet-dynamic\",\n    \"mimic-cxr-2.1.0\",\n    \"ptb-xl\",\n    \"rsna-ich-2019\"\n  ],\n  \"pending_sources\": [\n    {\n      \"id\": \"chexpert\",\n      \"pending_gates\": [\n        \"license_or_dua_verified\",\n        \"redistribution_rule_documented\"\n      ]\n    }\n  ],\n  \"source_count\": 5\n}",
+      "stderr": ""
+    },
+    {
+      "name": "blinded-image-template",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"warnings\": [],\n  \"metrics_eligible\": true,\n  \"case_count\": 1,\n  \"positive_reference_cases\": 0,\n  \"negative_reference_cases\": 1,\n  \"binary_predictions\": 0,\n  \"unresolved_predictions\": 1,\n  \"repeated_patient_groups\": 0\n}",
+      "stderr": ""
+    },
+    {
+      "name": "unit-regression-tests",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "{\"format\": \"digital\", \"values\": [[\"pH\", \"7.28\", \"\"], [\"Na\", \"141\", \"mmol/L\"], [\"Cl\", \"103\", \"mmol/L\"]]}\n{\"format\": \"scan\", \"values\": [[\"pH\", \"7.28\", \"\"], [\"Na\", \"141\", \"mmol/L\"], [\"Cl\", \"103\", \"mmol/L\"]]}\n{\"format\": \"PNG\", \"values\": [[\"pH\", \"7.28\", \"\"], [\"Na\", \"141\", \"mmol/L\"], [\"Cl\", \"103\", \"mmol/L\"]]}\n{\"format\": \"JPEG\", \"values\": [[\"pH\", \"7.28\", \"\"], [\"Na\", \"141\", \"mmol/L\"], [\"Cl\", \"103\", \"mmol/L\"]]}\n{\"format\": \"WEBP\", \"values\": [[\"pH\", \"7.28\", \"\"], [\"Na\", \"141\", \"mmol/L\"], [\"Cl\", \"103\", \"mmol/L\"]]}\n{\"format\": \"TIFF\", \"values\": [[\"pH\", \"7.28\", \"\"], [\"Na\", \"141\", \"mmol/L\"], [\"Cl\", \"103\", \"mmol/L\"]]}",
+      "stderr": "..............................................................................................................................................s....sEOF marker not found\n.............................s......................................................................................................................................................................................................................................................................................................................................s................................................................................................................................................................................................................................................................................................s.ss.........................................................................ss..................................s.........................................................................................................................................................................................................................................................................................................................................usage: api [-h] [--host HOST] [--port PORT] [--ui-port UI_PORT]\n           [--allow-network] [--tls-cert TLS_CERT] [--tls-key TLS_KEY]\napi: error: Direct network exposure is disabled; an authenticated deployment is required\nusage: api [-h] [--host HOST] [--port PORT] [--ui-port UI_PORT]\n           [--allow-network] [--tls-cert TLS_CERT] [--tls-key TLS_KEY]\napi: error: Direct network exposure is disabled; an authenticated deployment is required\n...........................................................................................................................................................................................................................................................................................................................................................................................................................................................ssssss........................................................................................\n----------------------------------------------------------------------\nRan 1773 tests in 358.363s\n\nOK (skipped=16)"
+    }
+  ],
+  "human_gates": {
+    "high_risk_not_green": [
+      "clinical-image-interpretation",
+      "clinical-note-diagnostic-support"
+    ],
+    "localization_pending": [
+      "amiodarone",
+      "dexmedetomidine",
+      "dobutamine",
+      "dopamine",
+      "epinephrine",
+      "fentanyl",
+      "isoprenaline",
+      "midazolam",
+      "norepinephrine",
+      "propofol",
+      "remifentanil",
+      "vasopressin"
+    ],
+    "clinical_release_status": "CLINICALLY_PENDING"
+  },
+  "disclaimer": "Automated QA PASS is not clinical validation and does not auto-promote evidence status."
+}

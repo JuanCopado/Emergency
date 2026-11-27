@@ -1,0 +1,15 @@
+======================================================================
+FAIL: test_verified_originals_survive_git_checkout_with_autocrlf (test_owner_decision_reconciliation.OwnerDecisionReconciliationTests.test_verified_originals_survive_git_checkout_with_autocrlf) (relative='docs/coordination/work-closure-20261126/SEGUIMIENTO_DECISIONES_PROPIETARIO_20261127.md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/emergency-owner-decisions/clinical/tests/test_owner_decision_reconciliation.py", line 52, in test_verified_originals_survive_git_checkout_with_autocrlf
+    self.assertEqual(hashlib.sha256((checkout / relative).read_bytes()).hexdigest(), digest)
+AssertionError: '94a68ad3a808f0f5f5295c192ab967569fd7a5d7f0b79c1b6913fcbc252a6e13' != '07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348'
+- 94a68ad3a808f0f5f5295c192ab967569fd7a5d7f0b79c1b6913fcbc252a6e13
++ 07c1b208b89d2a47229217b241637cda87b5b5f679fc52a7512e7a478925f348
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.040s
+
+FAILED (failures=1)

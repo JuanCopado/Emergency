@@ -1,0 +1,8 @@
+2026-11-27T07:20:04.0356648Z python -m coverage xml
+2026-11-27T07:30:19.5966845Z Ran 1774 tests in 597.179s\n\nOK (skipped=10)"
+2026-11-27T07:30:25.6691236Z Ran 39 tests in 5.828s
+2026-11-27T07:30:27.1323205Z Wrote XML report to coverage.xml
+2026-11-27T07:31:19.1414040Z  Test Files  61 passed (61)
+2026-11-27T07:31:19.1416758Z       Tests  1118 passed (1118)
+2026-11-27T07:31:19.1452238Z  % Coverage report from v8
+2026-11-27T07:31:20.5062260Z   path: coverage.xml

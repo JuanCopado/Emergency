@@ -1,0 +1,557 @@
+
+> emergency@0.1.0 prebuild
+> node scripts/picomatch-mitigation.mjs --check
+
+{
+  "mode": "--check",
+  "status": "PASS",
+  "copies": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "version": "2.3.2",
+      "sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "version": "2.3.2",
+      "sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "version": "4.63.5",
+      "sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "version": "4.63.5",
+      "sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "version": "4.63.5",
+      "sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "version": "4.63.5",
+      "sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    }
+  ],
+  "warning": "Temporary restrictions and work budget only. Trivy policy is unchanged; not an official fix. Restart existing tool processes after apply."
+}
+
+> emergency@0.1.0 build
+> npm run corticosteroids:check && npm run guides:build && npm run procedures:build && npm run pediatrics:build && tsc -b && vite build
+
+
+> emergency@0.1.0 precorticosteroids:check
+> node scripts/picomatch-mitigation.mjs --check
+
+{
+  "mode": "--check",
+  "status": "PASS",
+  "copies": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "version": "2.3.2",
+      "sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "version": "2.3.2",
+      "sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "version": "4.63.5",
+      "sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "version": "4.63.5",
+      "sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "version": "4.63.5",
+      "sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "version": "4.63.5",
+      "sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    }
+  ],
+  "warning": "Temporary restrictions and work budget only. Trivy policy is unchanged; not an official fix. Restart existing tool processes after apply."
+}
+
+> emergency@0.1.0 corticosteroids:check
+> python ../clinical/scripts/build_corticosteroid_catalog.py --check
+
+Corticosteroid projection matches its canonical source.
+
+> emergency@0.1.0 preguides:build
+> node scripts/picomatch-mitigation.mjs --check
+
+{
+  "mode": "--check",
+  "status": "PASS",
+  "copies": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "version": "2.3.2",
+      "sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "version": "2.3.2",
+      "sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "version": "4.63.5",
+      "sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "version": "4.63.5",
+      "sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "version": "4.63.5",
+      "sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "version": "4.63.5",
+      "sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    }
+  ],
+  "warning": "Temporary restrictions and work budget only. Trivy policy is unchanged; not an official fix. Restart existing tool processes after apply."
+}
+
+> emergency@0.1.0 guides:build
+> node scripts/build-clinical-guides.mjs
+
+Generated 131 canonical clinical guides and navigation groups
+
+> emergency@0.1.0 preprocedures:build
+> node scripts/picomatch-mitigation.mjs --check
+
+{
+  "mode": "--check",
+  "status": "PASS",
+  "copies": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "version": "2.3.2",
+      "sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "version": "2.3.2",
+      "sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "version": "4.63.5",
+      "sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "version": "4.63.5",
+      "sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "version": "4.63.5",
+      "sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "version": "4.63.5",
+      "sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    }
+  ],
+  "warning": "Temporary restrictions and work budget only. Trivy policy is unchanged; not an official fix. Restart existing tool processes after apply."
+}
+
+> emergency@0.1.0 procedures:build
+> node scripts/build-procedures.mjs
+
+196 canonical procedures + 4 aliases; 16 families
+
+> emergency@0.1.0 prepediatrics:build
+> node scripts/picomatch-mitigation.mjs --check
+
+{
+  "mode": "--check",
+  "status": "PASS",
+  "copies": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "version": "2.3.2",
+      "sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "version": "2.3.2",
+      "sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "version": "4.63.5",
+      "sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "version": "4.63.5",
+      "sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "version": "4.63.5",
+      "sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "version": "4.63.5",
+      "sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    }
+  ],
+  "warning": "Temporary restrictions and work budget only. Trivy policy is unchanged; not an official fix. Restart existing tool processes after apply."
+}
+
+> emergency@0.1.0 pediatrics:build
+> python ../clinical/scripts/build_pediatric_catalog.py
+
+{'regimens': 89, 'source_drug_labels': 54, 'drug_groups': 52, 'named_active_ingredients': 52, 'unspecified_component_groups': ['electrolytes', 'low-osmolarity oral rehydration solution'], 'diagnoses': 88, 'drug_diagnosis_pairs': 89, 'documented_presentation_descriptions': 58, 'verified_liquid_products': 28, 'hidden_regimens': 0}
+vite v6.4.6 building for production...
+transforming...
+node_modules/zod/v4/core/regexes.js (74:0): A comment
+
+"/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+ * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+ * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+
+in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/zod/v4/core/util.js (400:0): A comment
+
+"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+
+in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+✓ 266 modules transformed.
+rendering chunks...
+[plugin production-dependency-containment] Containment PASS: 159 emitted modules; picomatch absent; advisory remains OPEN
+computing gzip size...
+dist/manifest.webmanifest                            0.67 kB
+dist/index.html                                      1.58 kB │ gzip:   0.72 kB
+dist/assets/pdf.worker.min-CIqJB0yW.mjs          1,271.92 kB
+dist/assets/T06Lab-bDqnutf8.css                      2.71 kB │ gzip:   0.92 kB
+dist/assets/index-BDUQchFn.css                      36.79 kB │ gzip:   7.36 kB
+dist/assets/index-B7m3WJKk.js                        0.07 kB │ gzip:   0.08 kB
+dist/assets/patientWeight-30zHUSnb.js                0.59 kB │ gzip:   0.38 kB
+dist/assets/ClinicalValue-Ce7zLpfW.js                0.96 kB │ gzip:   0.50 kB
+dist/assets/About-9f3iqyfb.js                        3.09 kB │ gzip:   0.92 kB
+dist/assets/workbox-window.prod.es5-BBnX5xw4.js      5.75 kB │ gzip:   2.36 kB
+dist/assets/Settings-BJuMxmZv.js                     6.58 kB │ gzip:   1.90 kB
+dist/assets/ClinicalLibrary-DOQfp7Cd.js              7.36 kB │ gzip:   2.97 kB
+dist/assets/AcuteMedications-Ixd23X7r.js            10.34 kB │ gzip:   4.03 kB
+dist/assets/ClinicalScores-DmWpg6qx.js              11.37 kB │ gzip:   4.34 kB
+dist/assets/T06Lab-Dm5LGg2l.js                      12.20 kB │ gzip:   4.71 kB
+dist/assets/ClinicalGuides-Bnq8oFR9.js              15.19 kB │ gzip:   5.15 kB
+dist/assets/InsulinUci-BfaU5UKs.js                  15.29 kB │ gzip:   5.85 kB
+dist/assets/BloodGas-C74l2HZk.js                    18.46 kB │ gzip:   5.99 kB
+dist/assets/Calculator-DbBdmxXZ.js                  25.56 kB │ gzip:   7.45 kB
+dist/assets/Corticosteroids-Da7a6hER.js             46.46 kB │ gzip:  14.36 kB
+dist/assets/procedures-DW-L4hCk.js                  55.40 kB │ gzip:   6.63 kB
+dist/assets/ClinicalNote-B1dMTOkE.js                65.05 kB │ gzip:  20.39 kB
+dist/assets/PediatricOutpatient-BjHFwvb2.js        150.52 kB │ gzip:  30.91 kB
+dist/assets/Procedures-qVrBOhp0.js                 472.57 kB │ gzip: 106.99 kB
+dist/assets/score-pdf-Dxbav6Lv.js                  501.28 kB │ gzip: 150.33 kB
+dist/assets/ResuscitationCircuits-e1M-MDA0.js      591.61 kB │ gzip: 189.61 kB
+dist/assets/index-DVXvMw1e.js                      603.77 kB │ gzip: 179.30 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 4.96s
+
+PWA v1.3.0
+mode      generateSW
+precache  36 entries (2622.45 KiB)
+files generated
+  dist/sw.js
+  dist/workbox-9c191d2f.js

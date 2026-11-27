@@ -1,0 +1,11 @@
+{
+  "candidate_sha": "47762ca4417a2ec4ced7552ee77b458d25ff2034",
+  "run_id": 45956318442,
+  "job_id": 140363587361,
+  "automated_status": "PASS",
+  "tests": 1773,
+  "skipped": 20,
+  "seconds": 322.008,
+  "clinical_status": "CLINICALLY_PENDING",
+  "limit": "Remote CI observed skips differ from local (20 versus 16); neither is counted as an executed passing case."
+}

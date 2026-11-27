@@ -1,0 +1,68 @@
+{
+  "observed_at_utc": "2026-11-27T07:36:23.330050+00:00",
+  "candidate_sha": "94a983b9580d4ba3f77161590eabd147cc9147aa",
+  "candidate_tree": "2111920882405a51c72af01c0420c8c6930ebba1",
+  "receiving_base": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "pr": "https://github.com/JuanCopado/Emergency/pull/122",
+  "draft": true,
+  "merged": false,
+  "ci_checkout_merge": "959836d97f66a9dbf818b6d36d34ba9ee9c60513",
+  "ci_tree_equals_candidate": true,
+  "local": {
+    "clinical_checks": 7,
+    "tests": 1774,
+    "skipped": 16,
+    "failures": 0,
+    "targeted_owner_scope_tests": 16,
+    "frontend_tests": 1118,
+    "app_build": "PASS",
+    "frontend_execution_scope": "Pre-final working cut; app tree unchanged through final candidate. Final PR UI run independently verifies the exact candidate.",
+    "normalization": "254 sources / 131 modules",
+    "deterministic_project_graph": "PASS"
+  },
+  "remote_clinical_qa": {
+    "candidate_sha": "94a983b9580d4ba3f77161590eabd147cc9147aa",
+    "run_id": 45957550256,
+    "job_id": 140367431398,
+    "automated_status": "PASS",
+    "tests": 1774,
+    "skipped": 20,
+    "seconds": 261.171,
+    "clinical_status": "CLINICALLY_PENDING",
+    "limit": "Omissions are not counted as executed passing cases; local and remote omit counts are reported separately."
+  },
+  "required_pr_workflows": [
+    {
+      "id": 45957550084,
+      "name": "App UI QA",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/45957550084"
+    },
+    {
+      "id": 45957550256,
+      "name": "Clinical QA",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/45957550256"
+    },
+    {
+      "id": 45957550141,
+      "name": "Security and quality",
+      "conclusion": "success",
+      "url": "https://github.com/JuanCopado/Emergency/actions/runs/45957550141"
+    }
+  ],
+  "required_pr_jobs": 8,
+  "development_runs": "Earlier eaf076e/47762ca push/PR runs were superseded; final conclusions retained; retained in CI_RUNS.json. Not a result for the final SHA.",
+  "protected_refs_written": false,
+  "active_clinical_sources_changed": false,
+  "clinical_status": "CLINICALLY_PENDING",
+  "clinical_release": "NO_GO_CLINICAL_RELEASE",
+  "actual_pending": [
+    "CARDIO original proposal traceability, approval already received",
+    "Per-asset dermatology privacy/rights and binary reconciliation in image lane",
+    "Clinical Minimal implementation/audit in separate lane",
+    "Antigravity audit for this exact candidate"
+  ],
+  "antigravity_request": "https://github.com/JuanCopado/Emergency/pull/122#issuecomment-7212182909",
+  "antigravity_receipt_or_verdict": "NOT_OBSERVED"
+}

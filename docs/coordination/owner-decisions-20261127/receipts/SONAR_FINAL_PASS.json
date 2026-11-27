@@ -1,0 +1,11 @@
+{
+  "candidate_sha": "a625267c2aea5b23e1d517d59251eb3d4924856f",
+  "gate": "PASSED",
+  "source_check_run_id": 140381082593,
+  "url": "https://sonarcloud.io/dashboard?id=JuanCopado_Emergency&pullRequest=122",
+  "new_issues": 0,
+  "accepted_issues": 0,
+  "security_hotspots": 0,
+  "new_coverage_percent": 89.4,
+  "new_duplication_percent": 0.0
+}

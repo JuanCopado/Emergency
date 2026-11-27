@@ -1,0 +1,108 @@
+
+> emergency@0.1.0 pretest
+> node scripts/picomatch-mitigation.mjs --check
+
+{
+  "mode": "--check",
+  "status": "PASS",
+  "copies": [
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "7be6d696047bab2e2318feee3addba1943670dee406966a1e3b014f404595b96",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/@rollup/pluginutils/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "a909d86fd8f99750fca195367f1b6017c25125ae7ec7125ca2cdd9469432102c",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/picomatch/lib/parse.js",
+      "version": "2.3.2",
+      "sha256": "87b6cd850fe792f2e921ad9c128aea4006e678531931ba23c762afd0d99aec45",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/picomatch/lib/picomatch.js",
+      "version": "2.3.2",
+      "sha256": "a30cef73e3c3014c69da25be2db9b57d2c9f728b40d1b708875d1945ec224b2e",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/rollup.js",
+      "version": "4.63.5",
+      "sha256": "d4a191682e2e25c94e8aed12159bcbf9e1147e7d3c2348d3a01b93b44499aa0c",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/shared/index.js",
+      "version": "4.63.5",
+      "sha256": "4c67319d61ba0e4b710fc15e80bbabd5e70f8d59fa39674acbec2c7e5bf2c7eb",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/node-entry.js",
+      "version": "4.63.5",
+      "sha256": "8e648de86e4933a640afe526dbc07ef6d90580a43f0c2fe3fad7934a3e636a12",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/rollup/dist/es/shared/watch.js",
+      "version": "4.63.5",
+      "sha256": "16ed4256659ccb8f4049735cc1406229b6f1369e699cb4eb08fd3072e8662086",
+      "parsers": 2
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vite/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/parse.js",
+      "version": "4.0.7",
+      "sha256": "fd810d83a97ebea98dfce6ad30044672ee6bb87605825864a7a2bd685d7376ec",
+      "parsers": 1
+    },
+    {
+      "path": "node_modules/vitest/node_modules/picomatch/lib/picomatch.js",
+      "version": "4.0.7",
+      "sha256": "7c53b12bfd5f407102edcc3c364e33ba7ab32d0173ba9f1ef946268311a6c889",
+      "parsers": 0
+    }
+  ],
+  "warning": "Temporary restrictions and work budget only. Trivy policy is unchanged; not an official fix. Restart existing tool processes after apply."
+}
+
+> emergency@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /workspace/emergency-owner-decisions/app
+
+
+ Test Files  61 passed (61)
+      Tests  1118 passed (1118)
+   Start at  05:58:56
+   Duration  52.17s (transform 3.93s, setup 6.34s, import 13.66s, tests 69.61s, environment 52.16s)
+

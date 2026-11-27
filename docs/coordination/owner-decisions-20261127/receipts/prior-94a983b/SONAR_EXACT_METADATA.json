@@ -1,0 +1,64 @@
+{
+  "subject": {
+    "pullRequest": "122"
+  },
+  "conditions": [
+    {
+      "status": "OK",
+      "metricKey": "new_reliability_rating",
+      "comparator": "GT",
+      "errorThreshold": "1",
+      "actualValue": "1"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_security_rating",
+      "comparator": "GT",
+      "errorThreshold": "1",
+      "actualValue": "1"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_maintainability_rating",
+      "comparator": "GT",
+      "errorThreshold": "1",
+      "actualValue": "1"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_coverage",
+      "comparator": "LT",
+      "errorThreshold": "80",
+      "actualValue": "87.9"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_duplicated_lines_density",
+      "comparator": "GT",
+      "errorThreshold": "3",
+      "actualValue": "0.0"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_security_hotspots_reviewed",
+      "comparator": "LT",
+      "errorThreshold": "100",
+      "actualValue": "100.0"
+    }
+  ],
+  "issue_total": 1,
+  "issues": [
+    {
+      "rule": "python:S8786",
+      "component": "JuanCopado_Emergency:clinical/scripts/owner_decision_reconciliation.py",
+      "line": 90,
+      "severity": "MAJOR",
+      "message": "Simplify this regular expression to reduce its runtime, as it has super-linear performance due to backtracking.",
+      "type": "CODE_SMELL"
+    }
+  ],
+  "duplication_components": [],
+  "diagnostic_run": 45959735833,
+  "diagnostic_job": 140374452079,
+  "scope": "Read-only sanitized Sonar metadata; no finding acceptance, rule, threshold or source modification."
+}

@@ -1,0 +1,41 @@
+{
+  "candidate_sha": "a625267c2aea5b23e1d517d59251eb3d4924856f",
+  "candidate_tree": "cf01aba0df5143ee6093618de13cba73e8d37c18",
+  "base_sha": "2058e97179ae793914dcd016e4fd033395dbc3e2",
+  "protamine_original": {
+    "drive_id": "1yIPlybffYNeucGu3y8_mHIwpLRLtWc36",
+    "mime_type": "text/markdown",
+    "captured_file": "docs/coordination/owner-decisions-20261127/MED_RES_PROT_01_ORIGINAL_V1.md",
+    "bytes": 2413,
+    "sha256": "48396e7bc9306d5174aacf6a5c29c58d20b2c35bd610c148f0bb63399da61737",
+    "retrieval": "Google Drive search returned full original text; preserved without changing the earlier pending language. Acceptance bound by registry9018e14."
+  },
+  "primary_focal_check": {
+    "id": "S22-protamine",
+    "url": "https://cima.aemps.es/cima/dochtml/ft/45777/FT_45777.html",
+    "stored_revision": "May 2020",
+    "reviewed_on": "2026-11-27",
+    "locators": [
+      "revocation warning",
+      "4.2"
+    ],
+    "review_scope": "Focused warning and historical strict administration limit; no new dose or full-label review claimed"
+  },
+  "cardio": {
+    "original_message_at_utc": "2026-11-27T06:10:21Z",
+    "approval_at_utc": "2026-11-27T06:12:33Z",
+    "original_message_recovered": false,
+    "approval_missing": false,
+    "incident": "EXPEDIENT_TRACEABILITY",
+    "searched_surfaces": [
+      "Google Drive MED-RES-CARDIO search: no result in this query",
+      "Accessible bounded cached Work/coordinator thread records: no intact original recovered"
+    ],
+    "computer_use_initialization": "FAILED: the gaas-browser node_repl sandbox cannot be disabled",
+    "limits": "Cached records do not constitute a complete live-chat search. No absence-universal claim; no reconstructed original.",
+    "recovery_order": "https://github.com/JuanCopado/Emergency/pull/122#issuecomment-7212182909"
+  },
+  "source_registry_exact": true,
+  "clinical_status": "CLINICALLY_PENDING",
+  "latest_identity_update": "https://github.com/JuanCopado/Emergency/pull/122#issuecomment-7212701615"
+}
