@@ -135,8 +135,13 @@ class LocalReleaseTests(unittest.TestCase):
         source.mkdir()
         dist.mkdir()
         def git(*args):
+            # A fixture must not inherit host Git command-line injection. On
+            # Windows, restoring an empty environment value after patch.dict
+            # can remove it from the native process block while COUNT remains.
+            environment = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+            environment.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL="NUL" if os.name == "nt" else "/dev/null")
             try:
-                return subprocess.check_output(["git", "-c", "user.name=Synthetic Fixture", "-c", "user.email=fixture@localhost", "-c", "commit.gpgsign=false", *args], cwd=source, text=True, stderr=subprocess.PIPE).strip()
+                return subprocess.check_output(["git", "-c", "user.name=Synthetic Fixture", "-c", "user.email=fixture@localhost", "-c", "commit.gpgsign=false", *args], cwd=source, env=environment, text=True, stderr=subprocess.PIPE).strip()
             except subprocess.CalledProcessError as error:
                 raise AssertionError(f"Synthetic Git {args[0]} failed: {error.stderr}") from error
         git("init", "--initial-branch=fixture")

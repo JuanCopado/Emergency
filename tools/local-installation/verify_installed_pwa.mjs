@@ -4,6 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawn,execFileSync} from 'node:child_process';
 import readline from 'node:readline';
+import {randomUUID} from 'node:crypto';
 import {chromium} from '../../app/node_modules/playwright-core/index.mjs';
 const repository=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const root=path.resolve(process.argv[2]);
@@ -73,7 +74,10 @@ async function launchedNativePage(targetId){
 try{
  const [a,b]=proof.artifacts;select(a);owned=await launch();const origin=owned.info.url;
  result.executable='C:/Program Files/Google/Chrome/Application/chrome.exe';
- context=await chromium.launchPersistentContext(path.resolve(proof.installer_root,'../OWNED_BROWSER_PROFILE'),{executablePath:result.executable,headless:false,viewport:{width:1280,height:900},args:['--no-first-run','--no-default-browser-check']});
+ // Fresh profile per attempt; the same profile is retained throughout A/B/A.
+ // Previous attempts and their waiting service workers remain untouched.
+ result.owned_profile=path.resolve(proof.installer_root,'../OWNED_BROWSER_PROFILE_'+a.source_sha.slice(0,12)+'_'+randomUUID());
+ context=await chromium.launchPersistentContext(result.owned_profile,{executablePath:result.executable,headless:false,viewport:{width:1280,height:900},args:['--no-first-run','--no-default-browser-check']});
  result.browser=context.browser().version();
  const errors=[],externals=[];
  context.on('page',page=>page.on('pageerror',e=>errors.push(e.message)));
