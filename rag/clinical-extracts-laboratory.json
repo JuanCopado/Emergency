@@ -1,0 +1,252 @@
+{
+  "schema": "emergency-clinical-extract-laboratory-v1",
+  "task_id": "F4-RAG-FHIR-HL7-PACS-AGENTES-G05",
+  "authority": "owner_phase2_instruction_2026-11-27_for_local_project_owned_clinical_content",
+  "permission_scope": "bounded_own_project_synthesis_local_indexing_retrieval_quotation_testing_only",
+  "source_commit": "a3ae85412a868c105c64ca8b491e1cb3a1df065c",
+  "metadata_snapshot_commit": "1f0fed8d731f65168ac338b5ddb18f451fccc6d6",
+  "allowed_uses": [
+    "local_indexing",
+    "local_retrieval",
+    "local_quotation",
+    "local_testing"
+  ],
+  "training_authorized": false,
+  "clinical_use_authorized": false,
+  "external_processing_authorized": false,
+  "generated_corpus_redistribution_authorized": false,
+  "restriction_scope": "generated_rag_corpus_and_consumption_not_original_public_docs_code_tests_or_repository_license",
+  "snapshot_date": "2026-11-27",
+  "revalidate_after": "2026-12-04",
+  "date_policy": "Consumer snapshot revalidation, not clinical evidence currency, review date or legal expiry. Fixture states/dates are simulated.",
+  "external_source_content_admitted": [],
+  "bibliographic_links_not_content_permissions": [
+    "src-b3266402",
+    "src-72ea28f7"
+  ],
+  "historical_binding_not_promoted": "src-internal-image-safety-workflow:historical_component_pending_reconciliation",
+  "conflict_policy": "Compare only pinned, manually curated claim slots; no semantic contradiction inference or automated reconciliation.",
+  "documents": [
+    {
+      "document_id": "own-clinical-acs-recognition",
+      "path": "clinical/modules/cardiovascular.md",
+      "source_class": "project_clinical_synthesis",
+      "version": "git:a3ae85412a868c105c64ca8b491e1cb3a1df065c",
+      "sha256": "bb4a7ff6179f2a55fd73133c217ad3ba50839b5fdfee42f3458a46d34d75ebab",
+      "copy_state": "current",
+      "valid_through": "2026-12-04",
+      "spans": [
+        {
+          "start": 3,
+          "end": 6,
+          "sha256": "f9535f925e2ea709d54628f806f19f7af632e33f1032b49cf008c39b7c1c75c0",
+          "topic": "acs-exclusion",
+          "claim_key": "single-normal-test",
+          "stance": "not-exclusion"
+        },
+        {
+          "start": 10,
+          "end": 11,
+          "sha256": "e27cf5fa558cd368ce0271a5b713e6718e6ab0afb1c03d2d8ee797fdd811fb61",
+          "topic": "acs-assessment",
+          "claim_key": "initial-assessment",
+          "stance": "serial-assessment"
+        }
+      ],
+      "module_id": "acute-coronary-syndrome",
+      "module_index_line": 108,
+      "bibliographic_source_id": "src-b3266402",
+      "declared_bibliographic_version": "ESC ACS 2023 (2024 correction); ACC/AHA 2025 currency comparison"
+    },
+    {
+      "document_id": "own-clinical-adrenal-recognition",
+      "path": "clinical/modules/renal-metabolic.md",
+      "source_class": "project_clinical_synthesis",
+      "version": "git:a3ae85412a868c105c64ca8b491e1cb3a1df065c",
+      "sha256": "455f3006c1ab3279e164701433d433fbbc9f4cf966995c7e7d5b53f6eefab12c",
+      "copy_state": "current",
+      "valid_through": "2026-12-04",
+      "spans": [
+        {
+          "start": 185,
+          "end": 185,
+          "sha256": "d3b6ccb44bd771c270a88de1dd9458945c5fd8c38a4d6df7252f186c2b4df2d3",
+          "topic": "adrenal-recognition",
+          "claim_key": "potassium-absence",
+          "stance": "may-be-absent"
+        }
+      ],
+      "module_id": "adrenal-crisis",
+      "module_index_line": 185,
+      "bibliographic_source_id": "src-72ea28f7",
+      "declared_bibliographic_version": "Society for Endocrinology current guidance; ESE/Endocrine Society 2024 corroboration"
+    },
+    {
+      "document_id": "fixture-cedar-yes",
+      "path": "rag/fixtures/clinical-extracts/cedar-yes.md",
+      "source_class": "synthetic_fixture",
+      "version": "invented-fixture-v1",
+      "sha256": "d610c4976f743a8a02b0d91047fd132917f98662983ab8db055bc20712e3fbb2",
+      "copy_state": "current",
+      "valid_through": "2026-12-04",
+      "spans": [
+        {
+          "start": 2,
+          "end": 2,
+          "sha256": "10cc9f757a32f7f28a1fdec60e167e0cf625a08d8d07a7511c82ccf20974ce52",
+          "topic": "cedar-conflict",
+          "claim_key": "blue-signal",
+          "stance": "sufficient"
+        }
+      ],
+      "fixture_simulated_state": true
+    },
+    {
+      "document_id": "fixture-cedar-no",
+      "path": "rag/fixtures/clinical-extracts/cedar-no.md",
+      "source_class": "synthetic_fixture",
+      "version": "invented-fixture-v1",
+      "sha256": "b33de9d019746ae3e648d134405927b24e1b14310836fc977f053dc8e03f1028",
+      "copy_state": "current",
+      "valid_through": "2026-12-04",
+      "spans": [
+        {
+          "start": 2,
+          "end": 2,
+          "sha256": "36868603cd7e0fe86de5de6e30b87721d701e9986b0ab5a592c0a61311eccd6d",
+          "topic": "cedar-conflict",
+          "claim_key": "blue-signal",
+          "stance": "insufficient"
+        }
+      ],
+      "fixture_simulated_state": true
+    },
+    {
+      "document_id": "fixture-cedar-historical",
+      "path": "rag/fixtures/clinical-extracts/cedar-yes.md",
+      "source_class": "synthetic_fixture",
+      "version": "invented-fixture-v1",
+      "sha256": "d610c4976f743a8a02b0d91047fd132917f98662983ab8db055bc20712e3fbb2",
+      "copy_state": "historical",
+      "valid_through": "2026-12-04",
+      "spans": [
+        {
+          "start": 2,
+          "end": 2,
+          "sha256": "10cc9f757a32f7f28a1fdec60e167e0cf625a08d8d07a7511c82ccf20974ce52",
+          "topic": "cedar-historical",
+          "claim_key": "blue-signal",
+          "stance": "sufficient"
+        }
+      ],
+      "fixture_simulated_state": true
+    },
+    {
+      "document_id": "fixture-cedar-pending",
+      "path": "rag/fixtures/clinical-extracts/cedar-yes.md",
+      "source_class": "synthetic_fixture",
+      "version": "invented-fixture-v1",
+      "sha256": "d610c4976f743a8a02b0d91047fd132917f98662983ab8db055bc20712e3fbb2",
+      "copy_state": "pending",
+      "valid_through": "2026-12-04",
+      "spans": [
+        {
+          "start": 2,
+          "end": 2,
+          "sha256": "10cc9f757a32f7f28a1fdec60e167e0cf625a08d8d07a7511c82ccf20974ce52",
+          "topic": "cedar-pending",
+          "claim_key": "blue-signal",
+          "stance": "sufficient"
+        }
+      ],
+      "fixture_simulated_state": true
+    },
+    {
+      "document_id": "fixture-cedar-stale",
+      "path": "rag/fixtures/clinical-extracts/cedar-yes.md",
+      "source_class": "synthetic_fixture",
+      "version": "invented-fixture-v1",
+      "sha256": "d610c4976f743a8a02b0d91047fd132917f98662983ab8db055bc20712e3fbb2",
+      "copy_state": "current",
+      "valid_through": "2026-11-26",
+      "spans": [
+        {
+          "start": 2,
+          "end": 2,
+          "sha256": "10cc9f757a32f7f28a1fdec60e167e0cf625a08d8d07a7511c82ccf20974ce52",
+          "topic": "cedar-stale",
+          "claim_key": "blue-signal",
+          "stance": "sufficient"
+        }
+      ],
+      "fixture_simulated_state": true
+    }
+  ],
+  "questions": [
+    {
+      "id": "acs-exclusion",
+      "question": "Can a single normal ECG or troponin exclude time-critical disease in the synthetic chest pain scenario?",
+      "topic": "acs-exclusion",
+      "required_claims": [
+        "single-normal-test"
+      ]
+    },
+    {
+      "id": "acs-assessment",
+      "question": "Which immediate assessment is described for synthetic suspected acute coronary syndrome?",
+      "topic": "acs-assessment",
+      "required_claims": [
+        "initial-assessment"
+      ]
+    },
+    {
+      "id": "adrenal-recognition",
+      "question": "Can hyperkalemia be absent in the synthetic secondary adrenal insufficiency scenario?",
+      "topic": "adrenal-recognition",
+      "required_claims": [
+        "potassium-absence"
+      ]
+    },
+    {
+      "id": "acs-insufficient",
+      "question": "What pediatric-specific assessment is documented in this synthetic ACS question?",
+      "topic": "acs-assessment",
+      "required_claims": [
+        "initial-assessment",
+        "pediatric-specific-assessment"
+      ]
+    },
+    {
+      "id": "fixture-conflict",
+      "question": "In the invented Cedar scenario, is the blue signal sufficient?",
+      "topic": "cedar-conflict",
+      "required_claims": [
+        "blue-signal"
+      ]
+    },
+    {
+      "id": "fixture-historical",
+      "question": "In the invented historical Cedar scenario, is the blue signal sufficient?",
+      "topic": "cedar-historical",
+      "required_claims": [
+        "blue-signal"
+      ]
+    },
+    {
+      "id": "fixture-pending",
+      "question": "In the invented pending Cedar scenario, is the blue signal sufficient?",
+      "topic": "cedar-pending",
+      "required_claims": [
+        "blue-signal"
+      ]
+    },
+    {
+      "id": "fixture-stale",
+      "question": "In the invented stale Cedar scenario, is the blue signal sufficient?",
+      "topic": "cedar-stale",
+      "required_claims": [
+        "blue-signal"
+      ]
+    }
+  ]
+}
