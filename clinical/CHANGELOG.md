@@ -1,3 +1,5 @@
+26/11/2026 · Cierre coordinado/PR119: agreement exige manifiesto de roles con IDs estables, referencias del custodio y paneles por idioma; solo consistencia formal, sin acreditar independencia humana. G05-01–06 y autoridad clínica de Juan conciliados; dos valores PT traducidos. Sin cálculo, regla clínica ni estado de aprobación alterados. CLINICALLY_PENDING.
+
 26/11/2026 · PR116/Sonar: separación de recursos localizados de la lógica y ordenación explícita de instantáneas; valores de texto y parámetros clínicos preservados. Sin cambio de gates o umbrales. CLINICALLY_PENDING.
 
 26/11/2026 · Windows/Picomatch: preservación LF de la fuente de corticoides para mantener su SHA exacto; prueba real de checkout autocrlf y negativo de cambio de metadatos. Sin dosis ni controles alterados. CLINICALLY_PENDING.
