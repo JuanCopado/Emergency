@@ -45,6 +45,38 @@ def _git(root, *args):
                                    env=env, timeout=30)
 
 
+def read_wheel_pins(raw):
+    pins={}
+    for line in raw.decode('ascii').splitlines():
+        if not line.strip() or line.lstrip().startswith('#'):continue
+        match=re.fullmatch(r'([a-z0-9-]+)==([0-9]+(?:\.[0-9]+)+) --hash=sha256:([a-f0-9]{64})',line)
+        require(match is not None,'Invalid trusted runtime wheel pin')
+        name,version,digest=match.groups()
+        require(name in PACKAGES and PACKAGES[name]==version and name not in pins,'Unexpected/duplicate trusted wheel pin')
+        pins[name]=(version,digest)
+    require(set(pins)==set(PACKAGES),'Incomplete trusted runtime wheel pins')
+    return pins
+
+
+def collect_wheels(wheelhouse,pins):
+    require(set(pins)==set(PACKAGES),'Incomplete trusted wheel set')
+    result=[];found=set()
+    for wheel in sorted(no_links(wheelhouse).iterdir()):
+        no_links(wheel)
+        require(wheel.is_file() and wheel.suffix=='.whl','Unexpected wheelhouse entry')
+        name=safe_name(wheel.name)
+        parts=name.split('-')
+        require(len(parts)==5 and name.endswith('.whl'),'Unexpected wheel filename')
+        distribution,version=parts[:2];normalized=distribution.lower().replace('_','-')
+        require(normalized in pins and version==PACKAGES[normalized] and normalized not in found,'Unexpected/duplicate runtime wheel')
+        data=regular_bytes(wheel);digest=hashlib.sha256(data).hexdigest()
+        require(pins[normalized]==(version,digest),'Runtime wheel differs from committed official pin')
+        found.add(normalized)
+        result.append((name,normalized,version,digest,data))
+    require(found==set(PACKAGES),'Incomplete offline wheelhouse')
+    return result
+
+
 def collect_backend(source_root, wheelhouse, revision=None):
     """Read exact Git blobs, including dynamic canonical data, without copying a checkout."""
     root, wheelhouse = no_links(source_root), no_links(wheelhouse)
@@ -54,6 +86,8 @@ def collect_backend(source_root, wheelhouse, revision=None):
     def blob(name):
         require(name in tracked, 'Backend canonical dependency is not tracked')
         return _git(root, 'show', revision + ':' + name)
+    # Trust exact revision's reviewed official pins, never a wheelhouse-generated lock.
+    pins=read_wheel_pins(blob('tools/local-installation/requirements-runtime-ci.lock'))
     available = {Path(n).stem: n for n in tracked if n.startswith('clinical/scripts/') and n.endswith('.py')}
     pending = ['clinical_note_api']; selected = set(); texts = []
     while pending:
@@ -82,15 +116,7 @@ def collect_backend(source_root, wheelhouse, revision=None):
         files['backend/launcher/' + name] = blob('tools/local-installation/' + name)
     requirements = []
     wheel_rows = []
-    for wheel in sorted(wheelhouse.glob('*.whl')):
-        name = wheel.name
-        safe_name(name)
-        distribution, version = name.split('-')[:2]
-        normalized = distribution.lower().replace('_', '-')
-        require(normalized in PACKAGES and version == PACKAGES[normalized], 'Unexpected runtime wheel')
-        require(normalized not in {r['distribution'] for r in wheel_rows}, 'Duplicate runtime distribution')
-        data = regular_bytes(wheel)
-        sha = hashlib.sha256(data).hexdigest()
+    for name,normalized,version,sha,data in collect_wheels(wheelhouse,pins):
         files['backend/wheels/' + name] = data
         requirements.append(f'{normalized}=={version} --hash=sha256:{sha}')
         wheel_rows.append({'path': 'backend/wheels/' + name, 'distribution': normalized, 'version': version, 'sha256': sha, 'bytes': len(data)})
@@ -142,7 +168,7 @@ def runtime_fingerprint(release_root):
 
 
 def _runtime_files(directory):
-    return [p for p in directory.rglob('*') if p.is_file() and p.name != 'INSTALLATION_RECEIPT.json']
+    return [p for p in directory.rglob('*') if p.is_file() and p != directory / 'INSTALLATION_RECEIPT.json']
 
 
 def verify_runtime(directory, expected_fingerprint):

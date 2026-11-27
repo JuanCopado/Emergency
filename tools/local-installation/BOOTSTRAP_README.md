@@ -16,6 +16,10 @@ límites ZIP sin ejecutar código del paquete. Extrae únicamente tres wheels cu
 tamaños y hashes coincidan con el lock externo: cryptography 50.0.2, cffi 2.1.1 y
 pycparser 3.12. El lock procede del cotejo realizado con hashes publicados de PyPI;
 no se confía en un lock incluido en el ZIP para esta primera verificación.
+El verificador se prepara bajo un nombre `stage-UUID`, recibe su inventario y se
+verifica antes de publicarse mediante rename atómico bajo bloqueo de escritor.
+Un intento interrumpido conserva ese stage público para inspección y permite un
+intento nuevo; nunca se ejecuta ni selecciona el directorio incompleto.
 
 Crea un venv persistente del verificador, sin cambios globales, en
 `<InstallRoot>/bootstrap-verifiers/<hash-del-lock-externo>`, e instala esos wheels

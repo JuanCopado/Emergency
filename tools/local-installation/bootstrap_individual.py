@@ -10,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 import zipfile
+import uuid
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import local_installation as local
@@ -77,8 +78,12 @@ def verifier_location(root):
     return local.no_links(Path(root)/'bootstrap-verifiers'/fingerprint),fingerprint
 
 def verified_verifier(root):
-    from backend_bundle import verify_runtime
     directory,fingerprint=verifier_location(root)
+    return verify_verifier_directory(directory,fingerprint)
+
+def verify_verifier_directory(directory,fingerprint):
+    from backend_bundle import verify_runtime
+    directory=local.no_links(directory)
     receipt=local.object_json(local.regular_bytes(directory/'INSTALLATION_RECEIPT.json',8*1024*1024))
     local.require(set(receipt)=={'fingerprint','files','packages','trust'} and receipt['packages']==PACKAGES
                   and type(receipt['files']) is list,'Invalid verifier receipt')
@@ -101,20 +106,27 @@ def prepare_verifier(archive,root,python):
         directory,fingerprint=verifier_location(root)
         if directory.exists():return verified_verifier(root)
         directory.parent.mkdir(parents=True,exist_ok=True)
+        # Equal length to final SHA-256 directory avoids changing Windows path
+        # limits when publishing a venv with deeply nested pip cache filenames.
+        stage=local.no_links(directory.parent/('stage-'+uuid.uuid4().hex+uuid.uuid4().hex[:27]))
         with tempfile.TemporaryDirectory(prefix='emergency-verifier-wheels-',ignore_cleanup_errors=True) as work:
             requirements=extract_verifier_wheels(archive,Path(work)/'wheels',Path(__file__).with_name('bootstrap_crypto_lock.json'))
-            subprocess.run([str(python),'-I','-B','-m','venv',str(directory)],check=True,env=environment(),timeout=120)
-            verifier=directory/'Scripts/python.exe'
+            subprocess.run([str(python),'-I','-B','-m','venv',str(stage)],check=True,env=environment(),timeout=120)
+            verifier=stage/'Scripts/python.exe'
             subprocess.run([str(verifier),'-I','-B','-m','pip','--isolated','install','--no-index',
                 '--require-hashes','--only-binary=:all:','--no-compile','--find-links',str(Path(work)/'wheels'),
                 '-r',str(requirements)],check=True,env=environment(),timeout=180)
             files=[]
-            for path in _runtime_files(directory):
+            for path in _runtime_files(stage):
                 data=local.regular_bytes(path)
-                files.append({'path':path.relative_to(directory).as_posix(),'sha256':hashlib.sha256(data).hexdigest()})
-            (directory/'INSTALLATION_RECEIPT.json').write_bytes(local.canonical_json({
+                files.append({'path':path.relative_to(stage).as_posix(),'sha256':hashlib.sha256(data).hexdigest()})
+            (stage/'INSTALLATION_RECEIPT.json').write_bytes(local.canonical_json({
                 'fingerprint':fingerprint,'files':files,'packages':PACKAGES,
                 'trust':'Local integrity receipt; not protection against a malicious process of the same OS user'}))
+            verify_verifier_directory(stage,fingerprint)
+            # Failed stages remain public-only for inspection; never select them.
+            # Publish only a complete receipt-verified directory while holding writer.
+            os.replace(stage,directory)
         return verified_verifier(root)
 
 def run_existing(root,action,version=None):

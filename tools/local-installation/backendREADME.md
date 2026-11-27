@@ -9,6 +9,11 @@ Lee los scripts clínicos y su cierre de importaciones desde objetos Git exactos
 incluye los módulos del índice canónico, registros, política de privacidad y las
 fuentes tipográficas con sus licencias. No incorpora originales editoriales,
 préstamos documentales, imágenes de pacientes ni archivos de usuario.
+Las seis identidades de wheels se cotejan obligatoriamente con
+`requirements-runtime-ci.lock` leído del mismo objeto Git de entrega. Se rechazan
+bytes alterados aunque conserven el nombre, versiones distintas, duplicados,
+paquetes ausentes y entradas extra. Un lock creado desde el wheelhouse no es
+fuente de confianza del empaquetador.
 
 La infraestructura del lanzador se incorpora desde una lista explícita de seis
 archivos de `tools/local-installation`, también desde objetos Git exactos. El

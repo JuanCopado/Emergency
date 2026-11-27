@@ -138,4 +138,23 @@ class BootstrapTests(unittest.TestCase):
         extra.unlink();python.write_bytes(b'TAMPER')
         with self.assertRaises(ValueError):boot.verified_verifier(self.root)
 
+    def test_interrupted_verifier_stage_preserved_and_retry_publishes_complete(self):
+        install=self.root/'install';attempts=[]
+        def run(command,**kwargs):
+            if 'venv' in command:
+                stage=Path(command[-1]);attempts.append(stage)
+                (stage/'Scripts').mkdir(parents=True)
+                (stage/'Scripts/python.exe').write_bytes(b'SYNTHETIC_RUNTIME')
+                if len(attempts)==1:raise subprocess.CalledProcessError(1,command)
+            return None
+        with patch.object(boot,'extract_verifier_wheels',return_value=self.root/'requirements.lock'),\
+             patch.object(boot.subprocess,'run',side_effect=run):
+            with self.assertRaises(subprocess.CalledProcessError):boot.prepare_verifier(self.root/'a.zip',install,self.root/'python.exe')
+            final,_=boot.verifier_location(install)
+            self.assertFalse(final.exists());self.assertTrue(attempts[0].exists())
+            result=boot.prepare_verifier(self.root/'a.zip',install,self.root/'python.exe')
+        self.assertEqual(result,final/'Scripts/python.exe')
+        self.assertTrue(attempts[0].exists());self.assertFalse(attempts[1].exists())
+        self.assertEqual(boot.verified_verifier(install),result)
+
 if __name__=='__main__':unittest.main()

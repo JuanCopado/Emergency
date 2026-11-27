@@ -110,12 +110,24 @@ try{
  // The worker update must not have navigated or reconstructed the second tab.
  assert.equal(await dirty.evaluate(()=>window.__syntheticDocumentMarker),dirtyDocument);
  assert.equal(await dirty.locator('textarea').first().inputValue(),note);await identity(dirty,a);
+ const encounter=await dirty.getByTestId('note-encounter').innerText();
+ for(const destination of ['/pediatrics','/procedures']){
+  // Popstate exercises the existing BrowserRouter without a document navigation.
+  // Neither lazy module has been visited in this old-version document.
+  await dirty.evaluate(destination=>{history.pushState({},'',destination);dispatchEvent(new PopStateEvent('popstate'))},destination);
+  await dirty.getByTestId('local-stale-navigation').waitFor();
+  await dirty.waitForURL(origin+'/clinical-note');
+  assert.equal(await dirty.evaluate(()=>window.__syntheticDocumentMarker),dirtyDocument);
+  assert.equal(await dirty.locator('textarea').first().inputValue(),note);
+  assert.equal(await dirty.getByTestId('note-encounter').innerText(),encounter);
+  await identity(dirty,a);
+ }
  assert.equal((await api(page,b.source_sha)).status,200);
  const prefs=await page.evaluate(()=>({lang:localStorage.getItem('emergency.lang'),theme:localStorage.getItem('emergency.theme'),micro:localStorage.getItem('emergency.micro')}));
  assert.deepEqual(prefs,{lang:'en',theme:'dark',micro:'mcg'});
  await dirty.screenshot({path:path.join(root,'EVIDENCIAS/EPISODIO_PROTEGIDO.png'),fullPage:true});
  await page.screenshot({path:path.join(root,'EVIDENCIAS/B_ACTUALIZADA.png'),fullPage:true});
- result.steps.push({test:'Installed PWA A→B, stable origin, prefs preserved, dirty second tab retained, stale API409, clean tab explicit consent',status:'PASS',prefs});
+ result.steps.push({test:'Installed PWA A→B, stable origin, prefs preserved, dirty second tab retained through blocked unseen pediatrics/procedures navigation, stale API409, clean tab explicit consent',status:'PASS',prefs});
  // Use the real reset action: clearing one textarea does not clear other draft
  // fields (for example a vital timestamp), and closing a dirty tab can prompt.
  dirty.once('dialog',dialog=>dialog.accept());

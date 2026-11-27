@@ -6,6 +6,7 @@ import DrugList from './pages/DrugList';
 import DrugDetail from './pages/DrugDetail';
 import NotFound from './pages/NotFound';
 import { ClinicalNoteDraftProvider } from './clinical-note/draft';
+import { IndividualRouteGuard } from './components/IndividualRouteGuard';
 
 const Calculator = lazy(() => import('./pages/Calculator'));
 const Settings = lazy(() => import('./pages/Settings'));
@@ -24,8 +25,8 @@ const T06Lab = lazy(() => import('./t06/T06Lab'));
 
 export default function App() {
   return (
-    <ClinicalNoteDraftProvider><Suspense fallback={<div className="p-8 text-center text-muted">…</div>}>
-      <Routes>
+    <ClinicalNoteDraftProvider><IndividualRouteGuard>{location => <Suspense fallback={<div className="p-8 text-center text-muted">…</div>}>
+      <Routes location={location}>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="drugs" element={<DrugList />} />
@@ -50,6 +51,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </Suspense></ClinicalNoteDraftProvider>
+    </Suspense>}</IndividualRouteGuard></ClinicalNoteDraftProvider>
   );
 }

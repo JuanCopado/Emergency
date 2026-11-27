@@ -19,6 +19,48 @@ import backend_bundle as bundle
 import backend_runtime as runtime
 
 
+class BackendWheelPinTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary=tempfile.TemporaryDirectory();self.root=Path(self.temporary.name)
+        self.pins={}
+        for name,version in bundle.PACKAGES.items():
+            data=('SYNTHETIC '+name).encode()
+            filename=name.replace('-','_')+'-'+version+'-py3-none-any.whl'
+            (self.root/filename).write_bytes(data)
+            self.pins[name]=(version,hashlib.sha256(data).hexdigest())
+    def tearDown(self):self.temporary.cleanup()
+    def test_complete_trusted_fixture_passes(self):
+        self.assertEqual(len(bundle.collect_wheels(self.root,self.pins)),6)
+    def test_only_root_runtime_receipt_is_exempt_from_inventory(self):
+        root_receipt=self.root/'INSTALLATION_RECEIPT.json';root_receipt.write_text('{}')
+        nested=self.root/'nested/INSTALLATION_RECEIPT.json';nested.parent.mkdir();nested.write_text('{}')
+        self.assertNotIn(root_receipt,bundle._runtime_files(self.root))
+        self.assertIn(nested,bundle._runtime_files(self.root))
+    def test_correct_wheel_name_with_inert_or_modified_bytes_rejected(self):
+        next(self.root.glob('*.whl')).write_bytes(b'INERT_AUDIT_BYTES_NOT_A_WHEEL')
+        with self.assertRaises(ValueError):bundle.collect_wheels(self.root,self.pins)
+    def test_missing_and_extra_wheels_rejected(self):
+        existing=next(self.root.glob('*.whl'));data=existing.read_bytes();existing.unlink()
+        with self.assertRaises(ValueError):bundle.collect_wheels(self.root,self.pins)
+        existing.write_bytes(data);(self.root/'extra-1.0-py3-none-any.whl').write_bytes(b'EXTRA')
+        with self.assertRaises(ValueError):bundle.collect_wheels(self.root,self.pins)
+    def test_committed_lock_strictly_requires_all_six_exact_versions(self):
+        raw='\n'.join(f'{name}=={version} --hash=sha256:{digest}' for name,(version,digest) in self.pins.items()).encode()
+        self.assertEqual(bundle.read_wheel_pins(raw),self.pins)
+        for invalid in (raw+b'\n'+raw.splitlines()[0],b'\n'.join(raw.splitlines()[:-1]),raw.replace(b'50.0.2',b'50.0.1')):
+            with self.assertRaises(ValueError):bundle.read_wheel_pins(invalid)
+    def test_collector_reads_lock_from_same_git_revision(self):
+        path='tools/local-installation/requirements-runtime-ci.lock';revision='a'*40;calls=[]
+        def git(root,*args):
+            calls.append(args)
+            if args[0]=='ls-tree':return path.encode()
+            if args==('show',revision+':'+path):return b'INERT_UNREVIEWED_LOCK'
+            raise AssertionError(args)
+        with patch.object(bundle,'_git',side_effect=git):
+            with self.assertRaises(ValueError):bundle.collect_backend(self.root,self.root,revision)
+        self.assertIn(('show',revision+':'+path),calls)
+
+
 class BackendBoundaryUnitTests(unittest.TestCase):
     @unittest.skipUnless(os.name=='nt','Windows user environment')
     def test_clean_child_resolves_home_and_namespace_in_localappdata(self):
