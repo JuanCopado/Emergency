@@ -173,11 +173,23 @@
       "MED-RES-CARDIO-06 v1"
     ],
     "implemented": [
-      "MED-RES-PROT-01 v1 historical classification"
+      "MED-RES-PROT-01 v1 historical classification",
+      "CARDIO02 five branches",
+      "CARDIO04 exact subsequent stable phase",
+      "CARDIO05 informational manual reference selector",
+      "CARDIO06 partial five canonical manual links"
     ],
-    "cardiovascular_status": "APPROVED_STRUCTURAL_SCOPE; EXPEDIENT_TRACEABILITY_PENDING; no substantive clinical delta inferred",
+    "cardiovascular_status": "ORIGINAL_AND_ACCEPTANCE_RECOVERED; exact structural scope traced in PR123-125; CARDIO05/06 partial, no operational product activation or clinical release.",
     "current_record": "clinical/references/owner-decisions-2026-11-27.json",
-    "policy": "Recover exact original cardiovascular proposal message 2026-11-27T06:10:21Z and bind acceptance 06:12:33Z. No repeated vote or reconstructed original."
+    "policy": "Reuse six exact owner approvals and recovered original; no repeated vote. See docs/coordination/closure-residual-20261127/science/SCIENCE_CARDIO_TRACE.md.",
+    "historical_reception_snapshot": {
+      "implemented": [
+        "MED-RES-PROT-01 v1 historical classification"
+      ],
+      "cardiovascular_status": "APPROVED_STRUCTURAL_SCOPE; EXPEDIENT_TRACEABILITY_PENDING; no substantive clinical delta inferred",
+      "policy": "Recover exact original cardiovascular proposal message 2026-11-27T06:10:21Z and bind acceptance 06:12:33Z. No repeated vote or reconstructed original."
+    },
+    "new_medical_decisions_requested": 0
   },
   "source_sha256": {
     "clinical/qa/global-medication-audit-v144/entity-inventory.json": "13cce0812ef609dd2cfd2dca2afdfbdb37f1ea4b19569a1aaa7072f876a986c1",

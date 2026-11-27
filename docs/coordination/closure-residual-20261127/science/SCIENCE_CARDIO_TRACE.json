@@ -1,0 +1,333 @@
+{
+  "date": "2026-11-27",
+  "reviewer": "Codex documentary reconciliation, not Gemini or clinical independent adjudicator",
+  "candidate_sha": "54285f88c3901c63dff017ad0413593c0e0a8271",
+  "candidate_tree": "65f34f3f175f0b0604c5a17c875f59f564543018",
+  "scope": "Reutilización focal de expedientes, no nuevas revisiones integrales ni nueva fuente clínica implementada",
+  "new_medical_votes_required": 0,
+  "insulin": {
+    "owner_literal": "SIN IDENTIFICAR",
+    "state": "SHORT_ACTING_PRODUCT_UNSPECIFIED",
+    "no_product_inferred": true
+  },
+  "cardio": [
+    {
+      "id": "MED-RES-CARDIO-01",
+      "module": "arrhythmias-cardiac-arrest",
+      "state": "EXISTING_CANONICAL_MONITORING_DISTRIBUTED",
+      "version": "v1 approved; RCUK2025 ALS/PLS",
+      "locator": "CARDIO_STRUCTURE_DELTA.json items01; cardiovascular.md arrhythmias-cardiac-arrest + ResuscitationCircuits destinations adult-arrhythmias/adult-cardiac-arrest/pediatric pathways",
+      "implemented": "Cuatro rutas manuales preexistentes, ECG/perfusión/ABC, capnografía cuando procede y reevaluaciónROSC distribuidas en destinos;ETCO2aislado no decide cese.",
+      "remaining": "Panel agrupado de monitorización no implementado; no duplicar selector ni trasladar dosis/energíasadultasapediatría. No nuevo contenido clínico sustantivo faltante acreditado por este análisis."
+    },
+    {
+      "id": "MED-RES-CARDIO-02",
+      "module": "critical-valvular-disease",
+      "state": "APPROVED_STRUCTURAL_SCOPE_IMPLEMENTED_PR125",
+      "version": "v1; ESC/EACTS2025 DOI10.1093/eurheartj/ehaf194;ESC2023IE10.1093/eurheartj/ehad193",
+      "locator": "cardio02-five-branches-20261127/IMPLEMENTATION_PROVENANCE.json;ESC7.4/6.5,9.1.3–9.1.4,14.2/14.4.4.2;IE8.2.2",
+      "implemented": "Cinco ramas y seis dominios según gravedad;POCUScomplementario.",
+      "remaining": "No es pauta farmacológica universal ni cierre clínico integral;sin nueva votación delalcanceaceptado."
+    },
+    {
+      "id": "MED-RES-CARDIO-03",
+      "module": "device-complications",
+      "state": "EXISTING_APPROVED_BRANCHES_NO_DUPLICATION",
+      "version": "v1;AHA2024CIED,HRS2026,RCUK2025 especiales citadosenoriginal",
+      "locator": "CARDIO_STRUCTURE_DELTA.json items03;cardiovascular.md device-complications",
+      "implemented": "RamasCIED/imán/infección/LVAD existentes;perfusión mecánica,capacidad externa/restauraciónterapias,especialista.",
+      "remaining": "No nuevo contenido estructural sustantivo faltante acreditado; presentación visual opcional no exigeotroalgoritmo."
+    },
+    {
+      "id": "MED-RES-CARDIO-04",
+      "module": "hypertensive-emergencies",
+      "state": "EXACT_APPROVED_STABLE_PHASE_IMPLEMENTED_PR125",
+      "version": "v1; AHA/ACC2025 DOI10.1161/CIR.0000000000001356;ESC2024",
+      "locator": "cardio04-stable-phase-20261127/IMPLEMENTATION_PROVENANCE.json;PPTXoficialslides144/145",
+      "implemented": "Faseposterior estable <160/100mmHg siguientes2–6h trasfaseinicial;primera fase/excepciones intactas.",
+      "remaining": "No implementar24–48hniotrosobjetivosfueraoriginal; discrepancialocalizador5.5/11.5preservada. Esadiciónnuméricaaprobada,no dosisnueva."
+    },
+    {
+      "id": "MED-RES-CARDIO-05",
+      "module": "iv-antihypertensive-selection",
+      "state": "PARTIAL_INFORMATIONAL_SELECTOR_IMPLEMENTED_PR125",
+      "version": "v1;CIMAclevidipino76595rev10/2024/DailyMedetiquetasespecíficas",
+      "locator": "cardio05-reference-selector-20261127/SOURCE_FOCAL_RECEIPT.json;IMPLEMENTATION_PROVENANCE.json",
+      "implemented": "7referenciasmanuales,US/ES/PTvacíosdeinicio,paísindependienteidioma;guardaverificarproducto/jurisdicción.",
+      "remaining": "PTsinRCM/productodisponibilidadconfirmados;preparacióncompuestaoriginaldelabetalolnoidentificada;fuenteconsultada≠perfiloperativoverificado;no cálculosadministración."
+    },
+    {
+      "id": "MED-RES-CARDIO-06",
+      "module": "non-coronary-chest-pain",
+      "state": "PARTIAL_MANUAL_CIRCUITS_IMPLEMENTED_PR124",
+      "version": "v1;AHA/ACC2021dolortorácico;ESC2025miocarditis/pericarditis",
+      "locator": "cardio06-manual-circuits-20261127/CARDIO_STRUCTURE_DELTA.json items06 + QA_RESULTS.json",
+      "implemented": "5enlacesmanuales adestinoscanónicos existentes;ECGtemprano/troponinaporensayo/reevaluación;sinantitrombóticogenérico/altaautomática.",
+      "remaining": "No módulosnuevosmiopericarditis/esófagoacreditados;noinventardestinos. Cuerpo etiológico yaexiste;expansiónseparadasólodependenciasresueltas."
+    }
+  ],
+  "scientific_residuals": [
+    {
+      "id": "src-ecg-aha-2024",
+      "authority": "AHA",
+      "title": "Use of Artificial Intelligence in Improving Outcomes in Heart Disease: A Scientific Statement From the American Heart Association",
+      "doi": "10.1161/CIR.0000000000001201",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "review_coverage_and_limitations": "Lectura íntegra del artículo principal en versión de autor públicaPMC: todas las secciones,7tablas, figura1 y bibliografía. No es elPDF editorial final. IA como apoyo al juicio clínico, validación externa y utilidad clínica prospectiva, representatividad, gobernanza, monitorización, seguridad y equidad. Límites: Suplemento introductorio deIA/ML listado pero no adquirido/leído; la integridad declarada se limita al artículo principal del manuscrito. La versión de autor contiene referencias numeradas aparentemente desalineadas en varios pasajes; no usar una cifra por llamada aislada sin cotejar artículo citado. No aporta validación de rendimiento del modelo, nota o flujo de Emergency. Un archivo anterior llamadoAHA_2024_PMC_manuscript.pdf esHTML/página de error, excluido de esta lectura e identidad.",
+      "citation_locator": [
+        [
+          "front",
+          "Identidad editorial, autores,PMCID/PMID y condición de manuscrito"
+        ],
+        [
+          "ABS1,P2–P5,F1",
+          "Resumen, introducción y figura1 inspeccionada"
+        ],
+        [
+          "S1,S7,S13,S23,S28,S36",
+          "Imagen,ECG,monitorización,herramientasimplantables/vestibles,genética,EHR; tablas1–6"
+        ],
+        [
+          "S43,S60",
+          "Implementación, educación, datos, ética, sesgo, ley, vigilancia, actualización,ciberseguridad; tabla7 y conclusiones"
+        ],
+        [
+          "APP1,ref-list1",
+          "Información editorial, conflictos y186referencias"
+        ],
+        [
+          "SM1",
+          "Enlace al suplemento identificado; suplemento NO leído"
+        ]
+      ],
+      "new_full_reading": false,
+      "next_action": "Cotejar versión editorial final y suplemento; preservar revisión íntegra previa del manuscrito PMC y discrepancias de llamadas. No repetir artículo principal."
+    },
+    {
+      "id": "src-pocus-acep-2023",
+      "authority": "ACEP",
+      "title": "Ultrasound Guidelines: Emergency, Point-of-Care, and Clinical Ultrasound Guidelines in Medicine",
+      "doi": "10.1016/j.annemergmed.2023.06.005",
+      "review_state": "LOCAL_CUSTODY_ONLY_EXTERNAL_PROCESSING_NOT_AUTHORIZED",
+      "review_coverage_and_limitations": "ACEP2023: copia de préstamo institucional LOCAL_CUSTODY_ONLY; no se procesa su contenido íntegro externamente ni se carga aGemini sin permiso suficiente. No se ha acreditado aquí una nueva versión pública íntegra con condiciones diferentes. No se solicita otra copia.",
+      "citation_locator": "Guía e115–e155; archivo y cotejo focal previos conservados.",
+      "new_full_reading": false,
+      "next_action": "Reutilizar copia institucional; completar lectura integral únicamente por vía y procesamiento autorizados. No nueva adquisición ni carga externa de copia restringida."
+    },
+    {
+      "id": "src-pocus-ifem-2021",
+      "authority": "IFEM",
+      "title": "Point-of-Care Ultrasound Curriculum Guidelines",
+      "doi": null,
+      "review_state": "PARTIAL_REUSED_TABLE_I_25_GLYPHS_UNREADABLE",
+      "review_coverage_and_limitations": "IFEM2014:63p textuales ya revisadas en expediente previo; TablaI p41 conserva25glifos ilegibles comprobados por dos renderizadores. Fechaweb2021 no cambia edición2014. Impedimento técnico específico, no se reconstruye tabla ni se repite lectura previa.",
+      "citation_locator": "Edición marzo2014,63/63páginas textuales leídas; p25/p61rule-in y p63gobernanza según cotejo previo.",
+      "new_full_reading": false,
+      "next_action": "Obtener original editorial legible o aclaración de25símbolos TablaI p41; no reconstruir significado desde .notdef.63ptextuales y diagnóstico técnico terminados se reutilizan."
+    },
+    {
+      "id": "src-ct-aha-asa-2026",
+      "authority": "AHA/ASA",
+      "title": "2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+      "doi": "10.1161/STR.0000000000000513",
+      "review_state": "DOCUMENTARY_AI_COMPLETE_WITH_LIMITS",
+      "review_coverage_and_limitations": "Lectura íntegra efectiva del PDF principal121/121p y corrección7/7p por ejecutor paralelo, incluidas9tablas,5figuras,apéndices,bibliografía y34ítems de errata. Reservas:unidades literalesmg/dL, resumenPESvssección corregida y3llamadas bibliográficas aparentemente ajenas. Suplemento online y lectura íntegra de cada estudio citado NO incluidos. No revisión humana ni impacto sobre reglas adjudicado. Atribución corregida: DICOM no es un requisito literal de AHA/ASA; la serie volumétrica DICOM completa es una salvaguarda técnica propia de PR102, conservada intacta. La guía respalda imagen adecuada y contexto clínico/ensayos, sin validar capturas aisladas ni volumen universal.",
+      "citation_locator": [
+        "front matter,methodology,COR/LOE",
+        "2.1–2.10systems/pre-hospital",
+        "3.1–3.3scales,imaging,tests",
+        "4.1–4.12support,reperfusion,antithrombotics",
+        "5.1–5.7in-hospital supportive management",
+        "6.1–6.5acute complications",
+        "Appendices1–2COI",
+        "all bibliography pages93–121"
+      ],
+      "new_full_reading": false,
+      "next_action": "Completar acceso/cotejo focal suplemento y reservas numéricas/referencias; conservar121+7p previas. No trasladar unidades dudosas ni atribuir salvaguardaDICOM aAHA."
+    },
+    {
+      "id": "src-derm-aad-2019",
+      "authority": "AAD",
+      "title": "Position Statement on Augmented Intelligence (AuI)",
+      "doi": null,
+      "review_state": "LOCAL_CUSTODY_ONLY_EXTERNAL_PROCESSING_NOT_AUTHORIZED",
+      "review_coverage_and_limitations": "AAD2019:PDF de préstamo en LOCAL_CUSTODY_ONLY,618882bytes; no autorización suficiente acreditada para enviar íntegro a servicioIA. Consulta de derechos trasladada a directoraUAc; no repetir solicitud. La política institucionalAAD no sustituye el comentarioJAAD deDOI10.1016/j.jaad.2019.06.032.",
+      "citation_locator": "DOI10.1016/j.jaad.2019.06.032. Comentario JAAD; declaración institucional AAD de referencia4 es documento separado.",
+      "new_full_reading": false,
+      "next_action": "Conservar identidad corregida: comentario JAAD DOI10.1016/j.jaad.2019.06.032, no política institucional. Esperar respuesta sustantiva a consulta de derechos ya enviada; no repetir solicitud."
+    },
+    {
+      "id": "CDC-10-5",
+      "version": "CDC2026 / WSES2022 DOI10.1186/s13017-022-00406-2 segúnID",
+      "state": "CONCILIATED_AND_QUARANTINED_DOCUMENTARILY; EDITORIAL_CLARIFICATION_PENDING; NO_PROPAGATION_DEMONSTRATED_IN_REUSED_TRACE",
+      "fact": "HTML CDC: primoserie completa, limpia/menor 10 años; sucia/mayor 5 años. PDF/JPG 367802-A: rombo izquierdo de limpia/menor pregunta por 5 años. La discrepancia previa sigue presente en la consulta web actual.",
+      "locator": "HTML Vaccination recommended / clean and minor, dirty or major; diagrama PDF p1 rama izquierda; MMWR2026 BOX TTCV for clean and minor wounds; Pink Book tabla de profilaxis y notas ¶/**. PDF oficial MMWR14p, p impresa3/física5; aviso portada física1; Last Reviewed pie HTML.",
+      "next_action": "Aclaración/errata CDC archivada o dictamen médico documentado de jerarquía y ámbito de fuentes. Si se introduce alguna pauta numérica futura, contrato clínico nacional/institucional y aprobación médica previa.",
+      "new_full_reading": false,
+      "historical_runtime_trace_only": true
+    },
+    {
+      "id": "WSES22-DOC-01",
+      "version": "CDC2026 / WSES2022 DOI10.1186/s13017-022-00406-2 segúnID",
+      "state": "CONCILIATED_AND_QUARANTINED_DOCUMENTARILY; EDITORIAL_CLARIFICATION_PENDING; NO_PROPAGATION_DEMONSTRATED_IN_REUSED_TRACE",
+      "fact": "WSES PDF p15 y HTML editorial conservan el umbral impreso de noradrenalina ≥15 mg/min. Es una unidad/magnitud insegura como base de transcripción, ya señalada y no aplicada.",
+      "locator": "PDF p15, columna derecha, cuarta viñeta resumen SSC; HTML sección NSTI, organ support.",
+      "next_action": "Errata/aclaración editorial para la cifra WSES o exclusión explícita de esa viñeta como autoridad numérica, preservando el original. Toda futura regla terapéutica requiere su revisión clínica independiente.",
+      "new_full_reading": false,
+      "historical_runtime_trace_only": true
+    },
+    {
+      "id": "WSES22-DOC-02",
+      "version": "CDC2026 / WSES2022 DOI10.1186/s13017-022-00406-2 segúnID",
+      "state": "CONCILIATED_AND_QUARANTINED_DOCUMENTARILY; EDITORIAL_CLARIFICATION_PENDING; NO_PROPAGATION_DEMONSTRATED_IN_REUSED_TRACE",
+      "fact": "WSES p12, párrafo LRINEC, empareja 1.6 mg/dL con 142 mmol/l; la tabla usa mg/dL.",
+      "locator": "PDF p12 párrafo inicial LRINEC; PMC HTML antes de tabla1.",
+      "next_action": "Corrección editorial o nota científica documentada; para cualquier entrada SI futura, fuente primaria, conversión y límites clínicamente revisados antes de implementar.",
+      "new_full_reading": false,
+      "historical_runtime_trace_only": true
+    },
+    {
+      "id": "WSES22-DOC-03",
+      "version": "CDC2026 / WSES2022 DOI10.1186/s13017-022-00406-2 segúnID",
+      "state": "CONCILIATED_AND_QUARANTINED_DOCUMENTARILY; EDITORIAL_CLARIFICATION_PENDING; NO_PROPAGATION_DEMONSTRATED_IN_REUSED_TRACE",
+      "fact": "Tabla1 WSES p12 rotula WBC por mm³ con cifras15/25 y deja huecos literales de Hb; tabla2 p17 imprime creatinina mg/1000ml y celda WBC1.2.9. PMC reproduce estas formas; no es solo OCR local.",
+      "locator": "PDF pp12 y17, tablas1 y2, detalles visuales del expediente previo; PMC Table1/Table2.",
+      "next_action": "Tabla primaria/autores o errata verificable y revisión clínica de unidades, límites y población; aprobación explícita si algún número de una regla futura cambia.",
+      "new_full_reading": false,
+      "historical_runtime_trace_only": true
+    },
+    {
+      "id": "WSES22-DOC-04",
+      "version": "CDC2026 / WSES2022 DOI10.1186/s13017-022-00406-2 segúnID",
+      "state": "CONCILIATED_AND_QUARANTINED_DOCUMENTARILY; EDITORIAL_CLARIFICATION_PENDING; NO_PROPAGATION_DEMONSTRATED_IN_REUSED_TRACE",
+      "fact": "WSES p12 llama[55] para mal rendimiento LRINEC aunque su referencia55 es CT de cuatro casos; MRI llama[53], estudio LRINEC. Referencias54/60 duplican título/volumen/páginas del metaanálisis con listas parciales distintas.",
+      "locator": "PDF p12 texto LRINEC/Imaging y p22 referencias53–60; HTML editorial bibliografía.",
+      "next_action": "Matriz con evidencia primaria por afirmación, sin citas fantasma; confirmación editorial para corregir la fuente. No modificar algoritmo ni significado clínico.",
+      "new_full_reading": false,
+      "historical_runtime_trace_only": true
+    },
+    {
+      "id": "WSES22-DOC-05",
+      "version": "CDC2026 / WSES2022 DOI10.1186/s13017-022-00406-2 segúnID",
+      "state": "CONCILIATED_AND_QUARANTINED_DOCUMENTARILY; EDITORIAL_CLARIFICATION_PENDING; NO_PROPAGATION_DEMONSTRATED_IN_REUSED_TRACE",
+      "fact": "En p10, bajo el flujo de regímenes de quemaduras, aparece discusión específica de mordeduras/Pasteurella. El contexto por encabezado es ambiguo.",
+      "locator": "PDF p10 final de regímenes de quemaduras; HTML sección Burns y párrafo sobre bite injuries.",
+      "next_action": "Aclaración editorial de ubicación o exclusión de ese párrafo como soporte de quemaduras; cualquier futura regla requiere indicación clínica y fuentes propias.",
+      "new_full_reading": false,
+      "historical_runtime_trace_only": true
+    },
+    {
+      "id": "src-b5e20534",
+      "state": "MIGRATION_PROPOSED_NOT_APPLIED",
+      "version": "workflow v1.4; diagnostic performance not established",
+      "locator": "work-closure-20261126/CIENCIA/MIGRACION_src-b5e20534_PROPUESTA.json: current_bindings/proposed_individual_sources/migration_steps/acceptance_checks",
+      "discrepancy": "Registro compuesto de orientación profesional y referencia independiente local; desglose18fuentes propuesto no es sustitución aprobada automática. Diagnósticos independientes locales no creados.",
+      "next_action": "Conciliar cada afirmación/ámbito por modalidad con fuentes individuales y componentes internos, preservar historia. No borrar ni duplicar registros ni convertir a validación diagnóstica."
+    }
+  ],
+  "preserved_documentary_full_reviews": "15/18",
+  "source_hashes": [
+    {
+      "path": "cardio02-04-delivery-20261127/AGENTS.md",
+      "bytes": 5306,
+      "sha256": "edc808c800c90024f71b98d81a555dc422dc71f352e810944bedb4012c7e976b"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/CODEX.md",
+      "bytes": 8109,
+      "sha256": "8c4665d0936623970877acfb05b32c1cc83fdf5b35600bad5bef918c6c5066ae"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/STATE.md",
+      "bytes": 32039,
+      "sha256": "8bb0d2090cd447e9c5639bb3ac87567044069ed417384a669217c7ed548b9175"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/clinical/AGENTS.md",
+      "bytes": 2322,
+      "sha256": "9bc07b9db6fca5ce84974524132729ed1db7366cd7aea137b18d84936c946fff"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/cardio06-manual-circuits-20261127/CARDIO_STRUCTURE_DELTA.json",
+      "bytes": 9265,
+      "sha256": "83bf0ecce8ec48c67bf6782218888a80f0edf2c6a00b241e389e398a29d74fe9"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/cardio02-five-branches-20261127/IMPLEMENTATION_PROVENANCE.json",
+      "bytes": 6967,
+      "sha256": "71d376d01542ec96dd03d6c937fa633eeb2b07c715325b77529db768cca39b94"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/cardio04-stable-phase-20261127/IMPLEMENTATION_PROVENANCE.json",
+      "bytes": 2611,
+      "sha256": "19b786f0d123a0a122fc20d95acd39dd3953129f683a32e567b90a4cc96fa25a"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/cardio05-reference-selector-20261127/IMPLEMENTATION_PROVENANCE.json",
+      "bytes": 1023,
+      "sha256": "1bb19e347d8a3a764f326421f239704a354537e33a8d2720aa71d6fd1dd3924f"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/cardio05-reference-selector-20261127/SOURCE_FOCAL_RECEIPT.json",
+      "bytes": 9414,
+      "sha256": "7f48d7b27d6d4ce0068ec564f47677249c467071472b2220d415efc456519d21"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/pr122-audit/AUDIT.json",
+      "bytes": 5125,
+      "sha256": "adaf6ffc11ac1f3fe1f7b46903e707d45d3c70b3da563062ab5aaaf76c404b92"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/work-closure-20261126/CIENCIA/AAD_IDENTIDAD_CONCILIADA_PROPUESTA.json",
+      "bytes": 4759,
+      "sha256": "685351fddf9fcde131be67938a894cac7372297e45b679145e6b86f452182351"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/work-closure-20261126/CIENCIA/MIGRACION_src-b5e20534_PROPUESTA.json",
+      "bytes": 16158,
+      "sha256": "e54bdd96eafe0aba79a12b90a260f01d31e4ac002b0a60b81b23aa65559e0bd0"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/work-closure-20261126/CIENCIA/AHA_ASA_MAPA_REGLAS_FOCAL.json",
+      "bytes": 3977,
+      "sha256": "5a785e3442bfccb4340cbc79accda1d2245e6e6f9af49ee623fbcd1209ebeb8f"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/work-closure-20261126/CIENCIA/CDC_COTEJO_PRIMARIO_FOCAL.json",
+      "bytes": 1083,
+      "sha256": "99d71dda3b42f02916a13ce12fe6fb21b6c5a45884a3725a2f920e4d508b5a5b"
+    },
+    {
+      "path": "ChatGPT_Trabajo/RESCATE_HISTORICO_20261126/CIENCIA/ENTREGA/MATRIZ18_VIGENTE_ACTUALIZADA.json",
+      "bytes": 88195,
+      "sha256": "0a55fc8f6db93cc30e5840a3d85011bc65e0b50b3b331fabafb341453f81851d"
+    },
+    {
+      "path": "ChatGPT_Trabajo/RESCATE_HISTORICO_20261126/CIENCIA/ENTREGA/CONCILIACION_CDC_WSES.json",
+      "bytes": 25143,
+      "sha256": "16e6bfd6da9411fe36204de0ae164283824ad4c901e550bbccd42516735bca1c"
+    },
+    {
+      "path": "ChatGPT_Trabajo/RESCATE_HISTORICO_20261126/CIENCIA/ENTREGA/VIAS_PRIMARIAS_ACEP_AAD_COMPROBADAS.json",
+      "bytes": 2630,
+      "sha256": "423c17be96771662dfb82f46a873788cd684ae172cecbf3e2d1f186f5a027870"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/FUENTES/IFEM_DIAGNOSTICO_TECNICO.json",
+      "bytes": 51804,
+      "sha256": "221aaac745dd591596968078b18ec2f57122e5d7b4a8634046b5b694d5b4ef4a"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/PROTO_CARDIO_PR122/MED_RES_CARDIO_ORIGINAL_V1_TEXTO_RENDERIZADO.txt",
+      "bytes": 11634,
+      "sha256": "2d4d303c835779143d126b31917060e403f5aa7f1b5d86d5aef60b401ceaa036"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/PROTO_CARDIO_PR122/MED_RES_CARDIO_ACEPTACION_LITERAL.txt",
+      "bytes": 404,
+      "sha256": "10f5dcb68a6e02cae4341d3996fc95348befd305af9603a6627506bba21647ec"
+    }
+  ],
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

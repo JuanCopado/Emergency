@@ -1,0 +1,707 @@
+{
+  "date": "2026-11-27",
+  "candidate_sha": "54285f88c3901c63dff017ad0413593c0e0a8271",
+  "candidate_tree": "65f34f3f175f0b0604c5a17c875f59f564543018",
+  "method": "Read-only local documentary reconciliation, not fresh primary clinical review or execution of prior QA",
+  "checks": {
+    "module_rows": 37,
+    "unique_module_ids": 37,
+    "all_ids_in_current_projection": true,
+    "catalogue_states": {
+      "yellow": 2,
+      "green": 129
+    },
+    "context_roles": {
+      "UMBRELLA_FRAMEWORK_NOT_A_SPECIFIC_INDICATION": 37,
+      "REFERENCED_PATHWAY_NOT_PRESCRIPTIVE_BINDING": 62,
+      "PROCESS_OR_DOCUMENTARY_HEADER_NOT_INDICATION": 8,
+      "POPULATION_SCOPE_CONTEXT_NOT_INDICATION": 1,
+      "EXPLICIT_CLINICAL_INDICATION_CONTEXT_REQUIRES_VERIFICATION": 51,
+      "TREATMENT_SELECTION_CONTEXT_NOT_INDICATION": 9,
+      "SAFETY_RESTRICTION_CONTEXT_NOT_INDICATION": 10,
+      "EXPOSURE_AGENT_CONTEXT_REQUIRES_ACTUAL_EXPOSURE_AND_POPULATION": 51
+    },
+    "contexts_total": 229
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "runtime_changed": false,
+  "tests_executed_this_review": false,
+  "new_runtime_defects_established": 0,
+  "owner_insulin_literal": "SIN IDENTIFICAR",
+  "modules": [
+    {
+      "id": "acid-base-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 3,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Cotejo fuente por fórmula fisiológica/Winter/delta,no redosis ni cálculo nuevo",
+        "BICARICU2fullreview no reclamado;perfil analizador permanece sin validar"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "acute-musculoskeletal-pain",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 6,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 5,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Cotejar elegibilidad y versión de reglas Ottawa/imagen oculta en su ruta propia.",
+        "Dosis/formulación,contraindicaciones,analgesia de rescate y alta individual no se completan automáticamente."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "aki-nephrology",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 3,
+        "scoped_focal_claims": 4,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Acceso fresco deestadoKDIGO2026si se necesitara afirmar publicaciónfinal;no necesario para conservarbaseline2012",
+        "No revisión íntegra de141p ni protocolos renales completos"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "arrhythmias-cardiac-arrest",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 2,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Rutas pediatric-arrhythmias y pediatric-cardiac-arrest quedan expresamente fuera del lote adulto.",
+        "Derivación de goals-of-care/local ERC no acredita disponibilidad organizativa ni aprobación clínica de cada ruta."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "calcium-magnesium-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 7,
+        "scoped_focal_claims": 3,
+        "contexts_with_some_focal_subclaim": 4,
+        "contexts_without_new_focal_comparison": 3,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 3,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Torsades/hipomagnesemia/hipermagnesemia: preservarQAproducto/CIMA yRCUKheredada,no contarlas cotejo nuevo deestelote",
+        "Compatibilidad/estabilidad deproductos permanecen porlabelespecífico"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "critical-valvular-disease",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Cotejo independiente por lesión: estenosis aórtica,regurgitación aórtica,prótesis y endocarditis; no usar un único párrafo mitral como aval universal.",
+        "Ecocardiografía experta y ruta HeartTeam son requisitos asistenciales no disponibilidad local demostrada."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "dermatology-severe",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 4,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 1,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 1,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "DRESS: lectura íntegra del consenso adulto exacto y su estratificación por órgano pendiente en este lote; sólo extracto primario indexado disponible,CAPTCHA respetado.",
+        "Meningococcemia,púrpura fulminans y diferenciales infecciosos necesitan fuente exacta/ruta propia; no se cierran con S3."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "device-complications",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 2,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 2,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "HRS2026 infección/extracción: no cotejado texto primario exacto en este lote; conservar como pendiente propio,ninguna extracción de cabecera.",
+        "Fallo de captura,infección vascular,perforación,otras plataformas necesitan sus instrucciones técnicas y especialistas."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "electrolytes",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 4,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Sodio,Ca/Mgson rutasdedicadas,no una pauta paraguas",
+        "Completitud de mezcla/acceso ymonitorización requiere paciente/producto"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "emergency-infectious-diseases",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 2,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Reglas DGS/SINAVE y disponibilidad regional no verificadas; no inventar plazo uniforme.",
+        "CNS,neutropenia y malaria grave necesitan cotejos focales propios; ninguna referencia compuesta los cierra."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "empiric-antibiotics",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 8,
+        "scoped_focal_claims": 4,
+        "contexts_with_some_focal_subclaim": 8,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Verificación adicional de cada elección por síndrome/alergia/función orgánica y producto antes de hacer operacional una pauta.",
+        "Antibiograma pendiente no impide marco general ni justifica retrasar terapia urgente; disponibilidad local se registra separada."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "endocrine-metabolic",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 3,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 4,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Rutascrisisadrenal,tirotoxicosis,mixedema yDKA/HHScompletas: fuentes específicas porruta,no aprobación porparaguas",
+        "Apoplejía yADAsóloextracto primario enestaejecución"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "ent-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 2,
+        "contexts_without_new_focal_comparison": 3,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Bell: conservar cotejo focal previo,con límite adulto≥18 frente recomendación≥16,sin repetir ni modificar régimen aprobado/preparado. Este lote no añade lectura nueva deSullivan niBellPIC.",
+        "Epistaxis,cuerpos extraños,infección profunda y medicación necesitan fuente exacta específica si se desea cerrar esos campos."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "environmental-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 6,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 5,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "No atribuir revisión de cada ruta enlazada de quemados,anafilaxia,humo y toxicología al párrafo ambiental.",
+        "Requisitos de observación/alta por síndrome y población quedan para protocolo específico; no derivar un intervalo universal."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "geriatric-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 3,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Delirium y caídas remiten a módulos específicos. NG249 directo403 y BGSno acredita todas las decisiones de alta ni todos los límites de antibioterapia."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "hematology-oncology",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 5,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 4,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "TLS: falta cotejo exacto BSH2025/SmPCrasburicasa,G6PD y preanalítica.",
+        "Leucostasis,hiperviscosidad,aféresis,citorreducción y otras rutas deben revisarse por entidad; no inventar umbral celular universal."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "hypertensive-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Rutas por órgano y contraindicaciones de agente requieren su propia fuente; no basta marcoHTA.",
+        "No se ha cambiado valor,unidad,cálculo ni recomendación de ninguna ruta."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "iv-antihypertensive-selection",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 7,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 4,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 4,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "No existe setid individual de labetalol en source_records;src-05cc8d80 es compuesto conURLdeESC. Desglosar sin alterar registro original.",
+        "Objetivos de aorta,ACS/edema,embarazo y crisis simpática pendientes de cotejo específico en este lote; no autocompletar por referencia compuesta.",
+        "Nimodipino no intercambiable: conservar límite,pero no declarar ahora revisión completa de suSmPC/guíaHSA."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "medication-selection-safety",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 2,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 1,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Corticoides: reutilizar19contratos yQAexistente;tablaequivalenciano prescribe",
+        "Faltan fuentesindividuales para objetivos,alternativas antihipertensivas,compatibilidad ymezclas concretas;no bastaWHO"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "non-coronary-chest-pain",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 7,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 6,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "RutasAAS,SCA,taponamiento,TEP,neumotórax y alta: verificar por sí mismas; el enlace no importa su aprobación.",
+        "Miocarditis/pericarditis2025 y cada criterio de disposición no recotejados íntegramente."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "obstetric-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 3,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "ACOGPB222 íntegro no accesible402. La variante NICE no sustituye una lectura completa de ACOG. El producto local debe comprobarse al usarlo; no se inventan firmas ni stock."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "ophthalmology-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "CRAO,ángulo cerrado,endOfTalmitis,celulitis orbitaria,arteritisGCA y retina: cotejo primario completo por entidad pendiente de este lote.",
+        "No extrapolar foto a diagnóstico/ausencia de urgencia ni crear pauta ocular automática."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "orthopedic-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 4,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 1,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 1,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Lesión oculta/escafoides: cotejoNG38 exacto pendiente en este lote; no se resuelve conNG37.",
+        "Sedación,reducción,rescate y alta requieren evidencia de la ruta concreta."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-abdominal-surgical-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 8,
+        "scoped_focal_claims": 5,
+        "contexts_with_some_focal_subclaim": 8,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Cotejadas focalmente invaginación, apendicitis, torsión testicular/anexial y estenosis pilórica. Vólvulo: solo alarma/remisión en página general; no procedimiento completo ni pauta perioperatoria/local verificados."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-arrhythmias",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 6,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 6,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Primer máximo de adenosina y variantes ERC requieren el localizador específico del texto largo; no deducir de la tabla general. Disponibilidad de cardioversión/experto y producto individual no observados."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-electrolyte-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 12,
+        "scoped_focal_claims": 7,
+        "contexts_with_some_focal_subclaim": 10,
+        "contexts_without_new_focal_comparison": 2,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 1,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Calciohipocalcemiasintomática>28d:dosis delSmPCpreservada,no reverificada eneste lote",
+        "16–17años:NG29noacredita por sísolo aplicar elrescate;fuente/adjudicación específica si se pretende talalcance",
+        "No introducir datos deproducto nipauta deotraindicación"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "No corresponde completar vía/frecuencia/duración como si el marco ABCDE fuera un medicamento. Protección del menor y recursos son requisitos asistenciales, no datos de pacientes observados."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-emergency-medications",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 18,
+        "scoped_focal_claims": 4,
+        "contexts_with_some_focal_subclaim": 8,
+        "contexts_without_new_focal_comparison": 10,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "PANDEM/SmPC propofol, NG29, CG84, HSE, antibióticos, productos y concentraciones no reciben nueva lectura íntegra en este lote. Contratos aceptados no equivalen a revalidar cada prescripción clínica."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-foreign-body-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 6,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 5,
+        "contexts_without_new_focal_comparison": 1,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "ESPGHAN2026 DOI10.1002/jpn3.70485 no fue releído íntegro aquí. La observación RCH no valida por sí sola todos sus matices ni cada extracción endoscópica."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-hematology-oncology-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 10,
+        "scoped_focal_claims": 7,
+        "contexts_with_some_focal_subclaim": 8,
+        "contexts_without_new_focal_comparison": 2,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Drepanocitosis: corregir documentalmente atribución RCH>96%, sin imponer objetivo nuevo. Antibióticos canónicos respaldados por NHLBI/BSH. Objetivo local y contexto basal no inferidos; lisis tumoral, transfusión y SSC2026 sin nueva lectura integral en este lote."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "pediatric-toxicology",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 2,
+        "scoped_focal_claims": 1,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 1,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Marco general, carbón, TCA, naloxona y NAC completa conservan revisión previa. No se ha hecho nueva revisión integral de tóxicos/antídotos ni de diluyentes."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "potassium-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 3,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Hipokalemiaadultafuentepropia pendiente de cotejoindividual;no cubrirconUKKAhiperkalemia",
+        "LasimágenesUKKAtienenversióndecabeceraypie diferenciadas,no fecharlas automáticamente2026"
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "psychiatric-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 8,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 3,
+        "contexts_without_new_focal_comparison": 5,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "No se afirma nueva lectura integral de ACEP2017, EMA, NG10/NG225 ni ley portuguesa consolidada. Las siete remisiones etiológicas requieren su módulo propio, no un régimen psiquiátrico único."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "soft-tissue-infections",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Recotejo exacto deerrataciv114 reutiliza expediente previo,este lote sólo confirmó su enlace editorial.",
+        "No se levantan DOC-WSES01–05 ni se renueva revisión íntegra del módulo."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "syncope-falls-frailty",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 2,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 2,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "CG109 directo403. Criterios completos de riesgo, pruebas adicionales, conducción territorial y seguimiento individual no cerrados por un extracto público."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "toxicology",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 54,
+        "scoped_focal_claims": 4,
+        "contexts_with_some_focal_subclaim": 8,
+        "contexts_without_new_focal_comparison": 46,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 44,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Los54 casos quedan enumerados con su estado individual; sólo7 subcasos específicos más el marco tienen alguna afirmación cotejada. No son54 pautas validadas.",
+        "Carbón,paracetamol,quelantes,antitoxinas,antivenenos,alcoholes,caústicos y otros agentes no heredan aprobación deAHA/extrip; fuente/SmPCexacta porproducto e indicación requerida.",
+        "Regímenes/dosis/concentración/vía,monitorización integral y disposición continúan bloqueados para autocompletar."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    },
+    {
+      "id": "urologic-emergencies",
+      "current_registry_state": "green",
+      "prior_snapshot_counts": {
+        "historical_contexts": 1,
+        "scoped_focal_claims": 2,
+        "contexts_with_some_focal_subclaim": 1,
+        "contexts_without_new_focal_comparison": 0,
+        "clinical_indication_or_exposure_contexts_without_new_focal_comparison": 0,
+        "fully_scientifically_reviewed_or_clinically_approved_contexts_credited": 0
+      },
+      "remaining_from_prior_snapshot": [
+        "Torsión,hematuria con coágulos,retención complicada yFournier requieren cotejo exacto/ruta propia;EAUcompuestoURLnullnoacredita todos.",
+        "Obtener identidad/edición y enlace por capítulo sin inventar año a partir de la página dinámica."
+      ],
+      "claim": "Prior scope retained; later focal receipts may resolve only enumerated subclaims, not entire module."
+    }
+  ],
+  "evidence_manifest": [
+    {
+      "path": "ChatGPT_Trabajo\\WORK_CIERRE_FINAL_20261127\\CIENCIA\\INVENTARIO_UNICO_FALTANTES_CIENTIFICOS_37.json",
+      "bytes": 323493,
+      "sha256": "ece9ab2afc07f0724b41245e3a74b610f2af7e01021d406ef90e1ce36f747dab"
+    },
+    {
+      "path": "ChatGPT_Trabajo\\WORK_CIERRE_FINAL_20261127\\CIENCIA\\VERIFICACION_37_DOCUMENTAL.json",
+      "bytes": 472,
+      "sha256": "53bc3c9a5ad4f8c88d01564c70120bb2cd1b209a93e6ec725ad1f1137cfe95c8"
+    },
+    {
+      "path": "ChatGPT_Trabajo\\WORK_CIERRE_FINAL_20261127\\CIENCIA\\INSULINA_CIERRE_SEMANTICO_NO_RUNTIME.json",
+      "bytes": 1899,
+      "sha256": "f5c746db7e0dd4dc891bb7f3fa629c1eaa71f1a259493e42524cbd1be856b420"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\docs\\coordination\\supercoord-20261127\\science\\CIERRE_LECTURA_FINAL.json",
+      "bytes": 2261,
+      "sha256": "66a623cfc8094c1ea53125020717e8fbb50f471142cd0867233289f69edaaad8"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\docs\\coordination\\supercoord-20261127\\science\\PRIMARY_FOCAL_AUDIT.json",
+      "bytes": 9964,
+      "sha256": "b013f6e96a55452029d9b4c64ff94cf4e3ef19b2dc03e12c1ebefb6fe398c245"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\docs\\coordination\\supercoord-20261127\\science\\B2_EMA_FOCAL_AUDIT.json",
+      "bytes": 5752,
+      "sha256": "77fcbeeea5558694555a72175fbdbb82b3de2f94833271b8200a95cc2cebd5b6"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\docs\\coordination\\supercoord-20261127\\science\\UROLOGY_DIRECT_PRIMARY_RECEIPT.json",
+      "bytes": 6791,
+      "sha256": "12a8eebe6df73b95d9f57f526384d7b73942df86a9aff987fddb6131eab5fcc3"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\docs\\coordination\\R6_IMAGEN_EXPEDIENTE_CIENTIFICO.md",
+      "bytes": 16896,
+      "sha256": "d80048c479a652454da6c4ab605be8784e8f3ac5ed0737ebb98187468cd7b284"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\docs\\coordination\\R6_NOTA_EXPEDIENTE_CIENTIFICO.md",
+      "bytes": 14094,
+      "sha256": "2012ea7d2cc85e067cfd86d50e6a8d91000442b7409154634c962e3deed5a30f"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127\\CODEX_RESIDUAL_CLINICAL_CONTRACTS.json",
+      "bytes": 8373,
+      "sha256": "354e3f86d62b24acab10576302755e6cce900af79f6b3db5ae2b1ca9258911ba"
+    }
+  ]
+}

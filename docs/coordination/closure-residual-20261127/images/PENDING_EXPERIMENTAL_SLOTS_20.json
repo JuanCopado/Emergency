@@ -1,0 +1,618 @@
+{
+  "created_utc": "2026-11-27T10:42:20.252038+00:00",
+  "candidate": "54285f88c3901c63dff017ad0413593c0e0a8271",
+  "author": "Codex residual documentary auditor; not Antigravity/human clinical adjudication",
+  "sources": [
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/dermatology/DERMATOLOGY_ADMISSIBILITY_OVERLAY.json",
+      "bytes": 136499,
+      "sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/dermatology/PRIMARY_LICENSE_ADDENDUM_15.json",
+      "bytes": 32493,
+      "sha256": "03929c26fb0d4b64900c61763b2a7f1d581a1750a71c24167b89c557436ef99b"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/experimental/EXPERIMENTAL_PREPARATION_RECONCILIATION.json",
+      "bytes": 23179,
+      "sha256": "42198544cfda689017f5bed7a52ba4dc1ecab32de8e4a8cb9be610c1cf57aa00"
+    },
+    {
+      "path": "ChatGPT_Trabajo/BANCO_DERMATOLOGICO_GRATUITO_20261126/PAQUETE/MANIFIESTO_BANCO_DERMATOLOGICO.json",
+      "bytes": 190806,
+      "sha256": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_COORDINADO_20261126/DERMATOLOGIA/RECIBO_TRES_ORIGINALES_EXISTENTES.json",
+      "bytes": 8175,
+      "sha256": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/IMAGEN_R88/COORDINACION/ADMISION_OPERATIVA_30.json",
+      "bytes": 60640,
+      "sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168"
+    }
+  ],
+  "new_image_hashes": 0,
+  "image_bytes_opened": 0,
+  "image_transmissions": 0,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "pending": [
+    {
+      "stimulus_id": "S1-01",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Herida superficial abierta sin cierre visible; piel clara, luz neutra, JPEG RGB.",
+        "existing_dossier_pointer": "/dossiers/0",
+        "existing_dossier_semantic_sha256": "d20170fd10af1325f32dc9c9532481e526a196d01e220ed8ab7e58a45757210d",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-01",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Herida superficial abierta sin cierre visible; piel clara, luz neutra, JPEG RGB.",
+        "existing_dossier_pointer": "/dossiers/1",
+        "existing_dossier_semantic_sha256": "667f79c914710f0e4de98e13444c80805a7b90fa2f0e172debd7bcca98930819",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-02",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Herida con suturas visibles y exudado leve; piel media, luz cálida, JPEG RGB.",
+        "existing_dossier_pointer": "/dossiers/2",
+        "existing_dossier_semantic_sha256": "0d8aef19a7cbeecf10de6b11a32093c6ef9eeedf633c7b2e366a3b63e6fbaed3",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-02",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Herida con grapas visibles y cambio cromático perilesional leve; piel media, luz cálida, JPEG RGB.",
+        "existing_dossier_pointer": "/dossiers/3",
+        "existing_dossier_semantic_sha256": "d4ddae6a9ab518cb141937411f870f2b5f078759079d400844c9723ccaeb782c",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-03",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Lesión/úlcera superficial con costra oscura; piel oscura, luz móvil con sombra leve, WebP RGB.",
+        "existing_dossier_pointer": "/dossiers/4",
+        "existing_dossier_semantic_sha256": "51c9f483e6bc67790922f12e4f93f20c060190d6562ac1c20d47690a89e23c3f",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-03",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Lesión/úlcera superficial con exudado y borde irregular; piel oscura, luz móvil con sombra leve, WebP RGB.",
+        "existing_dossier_pointer": "/dossiers/5",
+        "existing_dossier_semantic_sha256": "5e05cf7a88127d67334b25bd674b56c608a3db1b0b3967b4d9b73c35bdc7f8c1",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-04",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Galería de 4 miniaturas contiguas (IMG_4102.jpg-4105.jpg): herida sintética sobre fondo claro junto a ECG.",
+        "existing_dossier_pointer": "/dossiers/6",
+        "existing_dossier_semantic_sha256": "a249060281c35e89c82f07d08acb0227b7713501ee05278e8cafc03818494081",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-04",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Galería de 4 miniaturas contiguas (IMG_5201.jpg-5204.jpg): herida sintética sobre gasa/fondo claro junto a ECG.",
+        "existing_dossier_pointer": "/dossiers/7",
+        "existing_dossier_semantic_sha256": "546a888c91683d58a8abf61d9a25f71a57d15a7a87f17f6310bb2364eb9c8cd2",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-05",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Herida suturada sintética con nombre confusor (ecg_guardia_01.jpg, JPEG RGB).",
+        "existing_dossier_pointer": "/dossiers/8",
+        "existing_dossier_semantic_sha256": "c637e0ae4fff1e2d8dfd4ec8685e11f1e00e55d6d06e999f6176a7515ee0bd20",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-05",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Laceración abierta sintética con nombre confusor (trazado_box3.jpg, JPEG RGB).",
+        "existing_dossier_pointer": "/dossiers/9",
+        "existing_dossier_semantic_sha256": "7202d435235feeb7e169fee1f1e64f68954bad1da7f93d658ef8a7055bbb685f",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-06",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Herida oscura/necrótica sintética (fondo oscuro) junto a miniaturas de Rx tórax.",
+        "existing_dossier_pointer": "/dossiers/10",
+        "existing_dossier_semantic_sha256": "42e38fbdc642faf787f83aa1b138115fb0c2f9b559b9c71aee14b1d8336896c6",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-06",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Lesión cutánea extensa sintética (fondo oscuro) junto a miniaturas de Rx extremidad.",
+        "existing_dossier_pointer": "/dossiers/11",
+        "existing_dossier_semantic_sha256": "be0afb8413a895618b17127ff6174cf035451bb38ff65a73df1a501fdaa44426",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-07",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Herida/hematoma cutáneo sintético (luz tenue) junto a capturas ecográficas oscuras.",
+        "existing_dossier_pointer": "/dossiers/12",
+        "existing_dossier_semantic_sha256": "88f1bcf79b5230df05a9457b986aa8ae065522945b8b5e5492f5801d37138c11",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-07",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M1",
+        "spec_text": "Herida con apósito parcial sintética (luz tenue) junto a capturas ecográficas oscuras.",
+        "existing_dossier_pointer": "/dossiers/13",
+        "existing_dossier_semantic_sha256": "9e70022ba912286926bde2c4c606de44051f82418a108fcaf1da4284904b5809",
+        "diagnostic_applicability": "N/A"
+      },
+      "status": "REQUISITO_HISTORICO_PENDIENTE_ADAPTACION",
+      "next_action": "Use existing DEV-DERM 14 specifications as development-only proposal; original wound specification is superseded, not reactivated. No canonical slot reassignment, no physical capture claim.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "Conservar el requisito diagnóstico original; la evidencia de cada nuevo caso dermatológico se evalúa por separado para su uso nuevo.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-10",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Foto móvil RGB de monitor simulado con Rx tórax PA sintética/abierta libre de PHI (IMG_7033.jpg, sin DICOM).",
+        "existing_dossier_pointer": "/dossiers/18",
+        "existing_dossier_semantic_sha256": "310ba74a333f22a46836471f9f49709e2ecf55783408545e277ec8aa8fdf5f8d",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "next_action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta.",
+      "technical_limitations": "Perspectiva trapezoidal; trama y dominante cálida.",
+      "license": "CC0 1.0; fuente Mikael Häggström",
+      "privacy": {
+        "source_status": "Sin GPS detectado. Revisión independiente de privacidad en píxeles/entorno PENDING; no certificación PHI.",
+        "human_clearance": null,
+        "external_upload_in_this_packet": false
+      },
+      "reference_preparation": "Localizar referencia diagnóstica independiente y juzgar pertinencia/limitaciones del estímulo; una imagen original no equivale a adjudicación.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": {
+        "recorded_sha256": "5f7cc1e21d315c7f6ae649692de78bf07872a6b2c5ba69d263f4c0e85070fdde",
+        "physical_stat": {
+          "exists_now": true,
+          "bytes_now": 1286046,
+          "expected_bytes": 1286046,
+          "size_matches": true,
+          "new_content_hash": false,
+          "new_pixel_decode": false
+        }
+      },
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-10",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Foto móvil RGB de monitor simulado con Rx muñeca/tobillo sintética/abierta libre de PHI (IMG_8044.jpg, sin DICOM).",
+        "existing_dossier_pointer": "/dossiers/19",
+        "existing_dossier_semantic_sha256": "4f2e87d93faa3f59747fbe7498d72c6375945802672851ddcdb1e878ac287aea",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "next_action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta.",
+      "technical_limitations": "Aviso de pantalla completa fuera de radiografía; perspectiva y dominante.",
+      "license": "CC0 1.0; fuente Mikael Häggström",
+      "privacy": {
+        "source_status": "Sin GPS detectado. Revisión independiente de privacidad en píxeles/entorno PENDING; no certificación PHI.",
+        "human_clearance": null,
+        "external_upload_in_this_packet": false
+      },
+      "reference_preparation": "Localizar referencia diagnóstica independiente y juzgar pertinencia/limitaciones del estímulo; una imagen original no equivale a adjudicación.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": {
+        "recorded_sha256": "6f3c24e7fe3704bad39098e4faaf5e2e3b0067af9214c15b623ada8353f340c9",
+        "physical_stat": {
+          "exists_now": true,
+          "bytes_now": 1514502,
+          "expected_bytes": 1514502,
+          "size_matches": true,
+          "new_content_hash": false,
+          "new_pixel_decode": false
+        }
+      },
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-11",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Foto móvil RGB oblicua leve de Rx torácica/abdominal con borde de pantalla, WebP RGB.",
+        "existing_dossier_pointer": "/dossiers/20",
+        "existing_dossier_semantic_sha256": "141cfd66acf1d6efe3208d9dccae7401560ec9e4625b340865dfadace5a53938",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "next_action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta.",
+      "technical_limitations": "Ángulo leve no certificado; moiré inferior y dominante.",
+      "license": "CC BY-SA 3.0; © Nevit Dilmen. Copia derivada bajo CC BY-SA 3.0",
+      "privacy": {
+        "source_status": "Sin GPS detectado. Revisión independiente de privacidad en píxeles/entorno PENDING; no certificación PHI.",
+        "human_clearance": null,
+        "external_upload_in_this_packet": false
+      },
+      "reference_preparation": "Localizar referencia diagnóstica independiente y juzgar pertinencia/limitaciones del estímulo; una imagen original no equivale a adjudicación.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": {
+        "recorded_sha256": "04a1d6505774a4bba2cc20b83bbcacb78ac4d613023fa40709a60ce2e11d6717",
+        "physical_stat": {
+          "exists_now": true,
+          "bytes_now": 5189440,
+          "expected_bytes": 5189440,
+          "size_matches": true,
+          "new_content_hash": false,
+          "new_pixel_decode": false
+        }
+      },
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-11",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Foto móvil RGB de Rx pelvis/tórax con leve patrón moiré de pantalla, JPEG RGB.",
+        "existing_dossier_pointer": "/dossiers/21",
+        "existing_dossier_semantic_sha256": "3907311c03125a8e407bcb7481e7c9754512dc7e9fa7168bc19ac73e69523a2f",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "BLOQUEADO_REPETICION_FISICA_MOIRE",
+      "next_action": "Repetir físicamente la captura para reducir el moiré a leve conforme a la ficha; conservar original. No corregirlo digitalmente.",
+      "technical_limitations": "CHANGES_REQUIRED_MOIRE: bandas anchas de color; no cumple moiré leve confirmado.",
+      "license": "CC0 1.0; fuente Doctoroftcm",
+      "privacy": {
+        "source_status": "Sin GPS detectado. Revisión independiente de privacidad en píxeles/entorno PENDING; no certificación PHI.",
+        "human_clearance": null,
+        "external_upload_in_this_packet": false
+      },
+      "reference_preparation": "Localizar referencia diagnóstica independiente y juzgar pertinencia/limitaciones del estímulo; una imagen original no equivale a adjudicación.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": {
+        "recorded_sha256": "e7c097728b6850708f178df072ad3721ded3deac366b775d5f034330a5c70bde",
+        "physical_stat": {
+          "exists_now": true,
+          "bytes_now": 2744043,
+          "expected_bytes": 2744043,
+          "size_matches": true,
+          "new_content_hash": false,
+          "new_pixel_decode": false
+        }
+      },
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S1-12",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Captura móvil RGB de ecógrafo simulado/fantoma (ventana FAST sin líquido libre evidente, sin PHI/DICOM).",
+        "existing_dossier_pointer": "/dossiers/22",
+        "existing_dossier_semantic_sha256": "b7ff030f464c49d0f557324e1aed095d03ade10ed9856f898740f92f709ff9e9",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "CAPTURA_CONDICIONAL_PARA_PREADMISION",
+      "next_action": "Revisión metodológica y de privacidad sobre los originales y paneles fuente; no contar esta captura como posición canónica cubierta.",
+      "technical_limitations": "Detalle fino limitado; altas luces y marca radial marginal persistente.",
+      "license": "CC BY 4.0; Hernandez-Torres, Bedolla, Berard y Snider, 2023; DOI 10.3389/fbioe.2023.1244616",
+      "privacy": {
+        "source_status": "Sin GPS detectado. Revisión independiente de privacidad en píxeles/entorno PENDING; no certificación PHI.",
+        "human_clearance": null,
+        "external_upload_in_this_packet": false
+      },
+      "reference_preparation": "Localizar referencia diagnóstica independiente y juzgar pertinencia/limitaciones del estímulo; una imagen original no equivale a adjudicación.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": {
+        "recorded_sha256": "53d12e498b1e86d90fe67331e337a825e3e22fb2a8cc7f0aa83cdf40ebea93f0",
+        "physical_stat": {
+          "exists_now": true,
+          "bytes_now": 1193704,
+          "expected_bytes": 1193704,
+          "size_matches": true,
+          "new_content_hash": false,
+          "new_pixel_decode": false
+        }
+      },
+      "completion_possible_without_new_external_input": false
+    },
+    {
+      "stimulus_id": "S2-12",
+      "original_requirement": {
+        "manifest_commit": "5494b0037dcfe2c2565187985b862ffa8ea1d83b",
+        "manifest_sha256": "d486fcf73e13b43fbda9f8c9dd814e582b0ea6881f56fb17e1cb83c3fdc712fc",
+        "mechanism": "M3",
+        "spec_text": "Captura móvil RGB de ecógrafo simulado/fantoma (ventana subxifoidea/pulmonar sin derrame evidente, sin PHI/DICOM).",
+        "existing_dossier_pointer": "/dossiers/23",
+        "existing_dossier_semantic_sha256": "dcb1502f2e2cb1e24676bb6a6af504531f1bf6b42aef0a046b21c686c9d60ae7",
+        "diagnostic_applicability": "REQUIRED"
+      },
+      "status": "BLOQUEADO_CONDICION_EXPERIMENTAL_Y_PANEL",
+      "next_action": "Obtener un original autorizado con ventana y condición sin derrame explícitamente documentadas; revisar metodología antes de preparar fotografía móvil.",
+      "technical_limitations": null,
+      "license": null,
+      "privacy": null,
+      "reference_preparation": "No inferir ausencia de derrame de fantoma basal ni del aspecto de píxeles; ficha y condición editorial/autoral explícitas requeridas.",
+      "canonical_present": false,
+      "formal_admission": false,
+      "owner_review_repetition_required": false,
+      "independent_adjudication": false,
+      "new_asset_assigned": false,
+      "available_candidate": null,
+      "completion_possible_without_new_external_input": false
+    }
+  ],
+  "canonical_present_unchanged": 10,
+  "canonical_pending_unchanged": 20,
+  "development_specs_unchanged": 14,
+  "new_stimuli_created": 0
+}

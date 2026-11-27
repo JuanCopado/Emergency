@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-11-27T10:42:20.252038+00:00",
+  "candidate": "54285f88c3901c63dff017ad0413593c0e0a8271",
+  "author": "Codex residual documentary auditor; not Antigravity/human clinical adjudication",
+  "sources": [
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/dermatology/DERMATOLOGY_ADMISSIBILITY_OVERLAY.json",
+      "bytes": 136499,
+      "sha256": "9eb99d738f0b31791d748f33d437885b9fe934746f9d4c735416f59c42953599"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/dermatology/PRIMARY_LICENSE_ADDENDUM_15.json",
+      "bytes": 32493,
+      "sha256": "03929c26fb0d4b64900c61763b2a7f1d581a1750a71c24167b89c557436ef99b"
+    },
+    {
+      "path": "cardio02-04-delivery-20261127/docs/coordination/supercoord-20261127/experimental/EXPERIMENTAL_PREPARATION_RECONCILIATION.json",
+      "bytes": 23179,
+      "sha256": "42198544cfda689017f5bed7a52ba4dc1ecab32de8e4a8cb9be610c1cf57aa00"
+    },
+    {
+      "path": "ChatGPT_Trabajo/BANCO_DERMATOLOGICO_GRATUITO_20261126/PAQUETE/MANIFIESTO_BANCO_DERMATOLOGICO.json",
+      "bytes": 190806,
+      "sha256": "63120ab7ad30ca3a2b25e805061a8a4c3fc24e036c51c10a736339b8312fcae1"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_COORDINADO_20261126/DERMATOLOGIA/RECIBO_TRES_ORIGINALES_EXISTENTES.json",
+      "bytes": 8175,
+      "sha256": "4b533c246e60ebc2f8ccc3c6ca96bf24b6d1cedc1d0ddf4e2bb53d23a7942b63"
+    },
+    {
+      "path": "ChatGPT_Trabajo/WORK_CIERRE_FINAL_20261127/IMAGEN_R88/COORDINACION/ADMISION_OPERATIVA_30.json",
+      "bytes": 60640,
+      "sha256": "59a91362a1f0e508cc6efee543f17c1245abf10b6bb1151ff91254dee77f5168"
+    }
+  ],
+  "new_image_hashes": 0,
+  "image_bytes_opened": 0,
+  "image_transmissions": 0,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "checks": {
+    "assets_24": true,
+    "unique_assets_24": true,
+    "unique_cases_23": true,
+    "source_scins_8": true,
+    "two_faces_kept_excluded": true,
+    "pending_20_exact_ids": true,
+    "all_24_original_paths_present_and_sizes_match": true,
+    "five_capture_candidates_present_sizes_match": true,
+    "no_runtime_admission": true
+  },
+  "status": "PASS",
+  "limits": "Presence/size checks are not new content integrity, pixel privacy or clinical usability checks."
+}
