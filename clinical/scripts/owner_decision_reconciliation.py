@@ -77,6 +77,19 @@ def _dermatology_case_errors(case, original_case):
     return errors
 
 
+def dermatology_source_rows(source_text):
+    rows = {}
+    for line in source_text.splitlines():
+        if not line.startswith("| MED-RES-DERMA-"):
+            continue
+        columns = line.split("|")
+        if len(columns) != 6 or columns[0] or columns[-1]:
+            continue
+        identity, label, time, scope = (column.strip() for column in columns[1:-1])
+        rows[identity] = (label, time, scope)
+    return rows
+
+
 def _dermatology_errors(dermatology, source_text):
     errors = []
     cases = dermatology.get("cases", [])
@@ -85,12 +98,7 @@ def _dermatology_errors(dermatology, source_text):
         "experimental_adjudications": 0, "per_asset_file_hashes_reconciled": False,
     }):
         errors.append("dermatology: unperformed asset review or adjudication claimed")
-    source_rows = {
-        row[0]: row[1:] for row in re.findall(
-            r"^\| (MED-RES-DERMA-[^ |]+) \| (.*?) \| (.*?) \| (.*?) \|$",
-            source_text, re.M,
-        )
-    }
+    source_rows = dermatology_source_rows(source_text)
     source_ids = set(source_rows)
     if len(cases) != 23 or {item.get("id") for item in cases} != source_ids:
         errors.append("dermatology: case identities differ from decision record")

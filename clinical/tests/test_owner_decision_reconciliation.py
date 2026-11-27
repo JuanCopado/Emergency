@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from owner_decision_reconciliation import validate
+from owner_decision_reconciliation import dermatology_source_rows, validate
 
 
 class OwnerDecisionReconciliationTests(unittest.TestCase):
@@ -19,6 +19,18 @@ class OwnerDecisionReconciliationTests(unittest.TestCase):
 
     def test_current_reconciliation_accepts_only_recorded_scopes(self):
         self.assertEqual(validate(self.record, ROOT.parent), [])
+
+    def test_owner_table_parser_retains_each_of_the_four_fields(self):
+        text = "| MED-RES-DERMA-SYNTHETIC | Synthetic example | 06:23:15 | Consulta/desarrollo; privacidad pendiente. |"
+        self.assertEqual(dermatology_source_rows(text), {
+            "MED-RES-DERMA-SYNTHETIC": ("Synthetic example", "06:23:15", "Consulta/desarrollo; privacidad pendiente."),
+        })
+
+    def test_owner_table_parser_rejects_unexpected_columns(self):
+        text = "| MED-RES-DERMA-SYNTHETIC | Synthetic example | 06:23:15 | Approved scope | EXTRA UNAPPROVED COLUMN |"
+        self.assertEqual(dermatology_source_rows(text), {})
+        malformed = "| MED-RES-DERMA-SYNTHETIC | " + "unexpected | " * 10000
+        self.assertEqual(dermatology_source_rows(malformed), {})
 
     def test_verified_originals_survive_git_checkout_with_autocrlf(self):
         import hashlib
