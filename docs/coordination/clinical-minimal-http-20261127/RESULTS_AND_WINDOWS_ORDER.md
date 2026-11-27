@@ -11,11 +11,13 @@ Este incremento añade un arnés y recibos; no modifica producto, diseño, dosis
 - 30 enlaces Home abiertos realmente en cada idioma: 120 navegaciones, salida del contenedor opt-in y destino con H1.
 - Cuatro flujos móviles Home opt-in → nota → sugerencia real → revisión de esta versión → exportación. Datos exclusivamente sintéticos, marcados NON-PRESCRIBING; medicación no accionable.
 - Negativos: exportaciones bloqueadas antes de revisión, validación bloqueada sin confirmación de seguridad y exportaciones bloqueadas tras editar la versión revisada.
-- Seis descargas HTTP200: JSON en cuatro idiomas, PDF PT y DOCX ZH. JSON verifica sello/digest y contenido sintético; PDF/DOCX verifica firma de archivo. No acredita apertura nativa ni impresión.
+- Seis descargas HTTP200: JSON en cuatro idiomas, PDF PT y DOCX ZH. El recorrido inicial comprueba presencia del digest y contenido sintético; PDF/DOCX verifica firma de archivo. El cotejo adicional indicado abajo exige igualdad del digest. No acredita apertura nativa ni impresión.
 
 `ARTIFACT_MANIFEST.json` conserva hashes de ocho capturas y seis descargas locales. No se genera ni sube otro ZIP. La inspección visual focal de ZH claro móvil permite revisar ilustración y foco; la captura completa se tomó tras enfocar búsqueda y refleja la posición de scroll de ese momento.
 
 El recibo conserva el hash exacto del arnés ejecutado. La versión portable posterior acorta únicamente `browserControl` a la tecnología usada: no atribuye el fallo de CUA del entorno de preparación a un futuro equipo Windows. No cambia navegación, aserciones, API ni controles y no justifica repetir el recorrido Linux.
+
+La revisión interna posterior detectó dos defectos del arnés, corregidos: la presencia del digest no prueba su igualdad con la revisión recibida por API, y un preflight fallido podía dejar un PASS previo en la carpeta. `CLINICAL_MINIMAL_DIGEST_QA.json` registra cuatro flujos focales reales adicionales (sin repetir hero/120 enlaces), seis descargas y comparación exacta entre `therapeutic_review.plan_digest` exportado y el digest de la revisión API, además del alcance `physician_review_of_this_version`. `PREFLIGHT_EXPECTED_FAIL.json` es un negativo deliberado: se sembró un PASS antiguo, se exigió Windows en Linux y el arnés lo sustituyó por FAIL. Resultado esperado comprobado, sin iniciar navegador/API. Ahora se registra RUNNING antes del preflight y FAIL al rechazar plataforma/build. Ambos recibos conservan el hash exacto del arnés de su ejecución; no son Windows.
 
 Tres fallos iniciales del arnés quedaron registrados en logs locales: transición React aún pendiente tras cambiar URL; nombre accesible real `Word (.docx)`; envelope de exportación distinto del de validación. Se corrigieron las comprobaciones contra las interfaces existentes, sin tocar las expectativas clínicas ni el producto. Ejecución final útil: PASS. Sintaxis Node y ESLint focal: PASS (ESLint se ejecuta desde `app`). No se repiten las suites previas de PR126.
 
@@ -31,6 +33,7 @@ npm run build
 $env:CHROMIUM_PATH='C:\Program Files\Google\Chrome\Application\chrome.exe'
 # Usar la ruta real de Chrome/Edge instalada; no descargar ni inferirla.
 $env:MINIMAL_HTTP_REQUIRE_WINDOWS='1'
+Remove-Item Env:\MINIMAL_HTTP_FLOW_ONLY -ErrorAction SilentlyContinue
 $env:MINIMAL_HTTP_SOURCE_SHA=(git rev-parse HEAD).Trim()
 $env:MINIMAL_HTTP_QA_OUTPUT='C:\EMERGENCY\FASE_SIGUIENTE\CODEX\minimal-http'
 node scripts/check-clinical-minimal-http.mjs

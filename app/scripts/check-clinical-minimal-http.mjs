@@ -8,19 +8,13 @@ import { withClinicalApp } from './functional-harness.mjs';
 
 const output = process.env.MINIMAL_HTTP_QA_OUTPUT;
 assert(output, 'MINIMAL_HTTP_QA_OUTPUT must name an evidence directory');
-if (process.env.MINIMAL_HTTP_REQUIRE_WINDOWS === '1') assert.equal(process.platform, 'win32', 'Windows evidence requires a real Windows process');
-if (process.platform === 'win32' && !process.env.CHROMIUM_PATH) {
-  process.env.CHROMIUM_PATH = process.env.CHROME_PATH || [
-    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
-  ].find(existsSync);
-}
 const destination = resolve(output);
 mkdirSync(destination, { recursive: true });
 const intro = JSON.parse(readFileSync(new URL('../src/pages/clinical-minimal-copy.json', import.meta.url), 'utf8'));
 const therapy = JSON.parse(readFileSync(new URL('../src/clinical-note/therapyCopy.locales.json', import.meta.url), 'utf8'));
 const report = {
   scope: 'Previously unverified Clinical Minimal integration; no clinical validity or native printing certification',
+  selectedCoverage: process.env.MINIMAL_HTTP_FLOW_ONLY === '1' ? 'FOCAL_CLINICAL_FLOWS_ONLY' : 'COMPLEMENTARY_VISUAL_NAVIGATION_AND_CLINICAL_FLOWS',
   platform: process.platform, architecture: process.arch, transport: 'REAL_LOOPBACK_HTTP_WITH_AUTHENTICATED_PYTHON_API',
   browserControl: 'playwright-core/preinstalled browser',
   responseInterception: false, sourceRevision: process.env.MINIMAL_HTTP_SOURCE_SHA || null,
@@ -30,7 +24,7 @@ const report = {
     'Blood gas and T06 entry navigation does not certify their separate native services'],
 };
 const sourceRoot = fileURLToPath(new URL('../', import.meta.url));
-assert(existsSync(join(sourceRoot, 'dist/index.html')), 'Build the requested source before HTTP validation');
+
 
 async function noOverflow(page) {
   assert(await page.evaluate(() => globalThis.document.documentElement.scrollWidth <= globalThis.innerWidth + 1), 'Horizontal overflow');
@@ -52,6 +46,9 @@ async function apiAction(page, endpoint, action) {
 async function enterFromHome(page, base, path) {
   await page.goto(`${base}/?design=clinical-minimal`);
   await page.locator('.clinical-minimal-scene img').waitFor();
+  const buildRevision = await page.getByTestId('build-identity').locator('code').first().getAttribute('title');
+  if (report.sourceRevision) assert.equal(buildRevision, report.sourceRevision, 'Served build revision differs from requested source');
+  report.servedBuildRevision = buildRevision;
   const anchor = page.locator(`a[href="${path}"]:visible`).first();
   await anchor.click();
   await page.waitForURL(`${base}${path}`);
@@ -61,7 +58,7 @@ async function enterFromHome(page, base, path) {
   await noOverflow(page);
 }
 
-async function downloadExport(page, format, marker) {
+async function downloadExport(page, format, marker, reviewedDigest) {
   const pendingDownload = page.waitForEvent('download');
   const exported = await apiAction(page, '/api/clinical-note/export', () => page.getByRole('button', { name: format === 'Word' ? 'Word (.docx)' : format, exact: true }).click());
   const download = await pendingDownload;
@@ -72,7 +69,9 @@ async function downloadExport(page, format, marker) {
   if (format === 'JSON') {
     const note = JSON.parse(bytes.toString('utf8'));
     assert.equal(note.therapeutic_plan.medication_safety.actionable, false);
-    assert(note.therapeutic_review.plan_digest);
+    assert(reviewedDigest, 'Missing reviewed API digest');
+    assert.equal(note.therapeutic_review.plan_digest, reviewedDigest, 'Export digest differs from reviewed version');
+    assert.equal(note.therapeutic_review.scope, 'physician_review_of_this_version');
     assert(note.therapeutic_plan.sections.medications.includes('SYNTHETIC NON-PRESCRIBING QA'));
   } else if (format === 'PDF') assert.equal(bytes.subarray(0, 5).toString('ascii'), '%PDF-');
   else assert.equal(bytes.subarray(0, 2).toString('ascii'), 'PK');
@@ -110,9 +109,9 @@ async function clinicalFlow(page, base, lang) {
   assert.equal(reviewed.data.review.scope, 'physician_review_of_this_version');
   await page.getByRole('button', { name: copy.validated, exact: true }).waitFor();
   await page.getByTestId('note-tab-export').click();
-  const exports = [await downloadExport(page, 'JSON', lang)];
-  if (lang === 'pt') exports.push(await downloadExport(page, 'PDF', lang));
-  if (lang === 'zh') exports.push(await downloadExport(page, 'Word', lang));
+  const exports = [await downloadExport(page, 'JSON', lang, reviewed.data.review.plan_digest)];
+  if (lang === 'pt') exports.push(await downloadExport(page, 'PDF', lang, reviewed.data.review.plan_digest));
+  if (lang === 'zh') exports.push(await downloadExport(page, 'Word', lang, reviewed.data.review.plan_digest));
   await page.getByTestId('note-tab-plan').click();
   await page.getByRole('button', { name: copy.edit, exact: true }).click();
   await page.getByRole('textbox', { name: copy.disposition, exact: true }).fill('SYNTHETIC NON-PRESCRIBING QA edited after review.');
@@ -124,6 +123,15 @@ async function clinicalFlow(page, base, lang) {
 }
 
 try {
+  writeFileSync(join(destination, 'CLINICAL_MINIMAL_HTTP_QA.json'), JSON.stringify(report, null, 2) + '\n');
+  if (process.env.MINIMAL_HTTP_REQUIRE_WINDOWS === '1') assert.equal(process.platform, 'win32', 'Windows evidence requires a real Windows process');
+  if (process.platform === 'win32' && !process.env.CHROMIUM_PATH) {
+    process.env.CHROMIUM_PATH = process.env.CHROME_PATH || [
+      'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+      'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+    ].find(existsSync);
+  }
+  assert(existsSync(join(sourceRoot, 'dist/index.html')), 'Build the requested source before HTTP validation');
   await withClinicalApp(async ({ browser, base }) => {
     report.browser = browser.version();
     report.origin = base;
@@ -140,6 +148,7 @@ try {
         const url = new URL(response.url());
         if (url.pathname.startsWith('/api/clinical-note')) report.apiResponses.push({ endpoint: url.pathname, status: response.status() });
       });
+      if (process.env.MINIMAL_HTTP_FLOW_ONLY !== '1') {
       for (const width of [360, 1366]) {
         await page.setViewportSize({ width, height: 900 });
         await page.goto(`${base}/?design=clinical-minimal`);
@@ -170,6 +179,7 @@ try {
         assert.equal(await page.locator('.clinical-minimal-preview').count(), 0, 'Opt-in styles leaked outside Home');
         assert.equal(await page.locator('vite-error-overlay').count(), 0);
         report.navigation.push({ lang, href, actualUrl: page.url(), heading: await page.locator('main h1').innerText() });
+      }
       }
       await page.setViewportSize({ width: 360, height: 900 });
       report.clinicalFlows.push(await clinicalFlow(page, base, lang));

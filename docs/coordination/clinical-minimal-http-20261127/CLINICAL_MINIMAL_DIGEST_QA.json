@@ -1,0 +1,198 @@
+{
+  "scope": "Previously unverified Clinical Minimal integration; no clinical validity or native printing certification",
+  "selectedCoverage": "FOCAL_CLINICAL_FLOWS_ONLY",
+  "platform": "linux",
+  "architecture": "x64",
+  "transport": "REAL_LOOPBACK_HTTP_WITH_AUTHENTICATED_PYTHON_API",
+  "browserControl": "playwright-core/preinstalled browser",
+  "responseInterception": false,
+  "sourceRevision": "a606a442c071b3f84c17b43f45704ae62d30d44a",
+  "harnessSha256": "f1b27ff367f2c7f90d8fc3c990db6c5215a50cb1b62ec9bae20628d1c3a3fd81",
+  "status": "PASS",
+  "complementaryHeroStates": [],
+  "navigation": [],
+  "clinicalFlows": [
+    {
+      "lang": "es",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "es-clinical-note.json",
+          "bytes": 9234,
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "lang": "pt",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "pt-clinical-note.json",
+          "bytes": 9234,
+          "httpStatus": 200
+        },
+        {
+          "format": "PDF",
+          "filename": "pt-clinical-note.pdf",
+          "bytes": 45826,
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "en-clinical-note.json",
+          "bytes": 9231,
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "lang": "zh",
+      "entry": "Visible opt-in Home -> actual navigation -> clinical note",
+      "realSuggest": true,
+      "realVersionReview": true,
+      "unreviewedAndEditedExportsBlocked": true,
+      "missingSafetyConfirmationBlocked": true,
+      "exports": [
+        {
+          "format": "JSON",
+          "filename": "zh-clinical-note.json",
+          "bytes": 9231,
+          "httpStatus": 200
+        },
+        {
+          "format": "Word",
+          "filename": "zh-clinical-note.docx",
+          "bytes": 3463,
+          "httpStatus": 200
+        }
+      ]
+    }
+  ],
+  "apiResponses": [
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/catalog",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/suggest",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/therapy/validate",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/preflight",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/clinical-note/export",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No screen reader or native Word/PDF application/print dialog operated by this script",
+    "Blood gas and T06 entry navigation does not certify their separate native services"
+  ],
+  "browser": "154.0.8037.57",
+  "origin": "http://127.0.0.1:4180",
+  "servedBuildRevision": "a606a442c071b3f84c17b43f45704ae62d30d44a"
+}
