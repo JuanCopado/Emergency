@@ -1,6 +1,6 @@
 # IMPLEMENTACIÓN — referencia permanente de EMERGENCY
 
-ID IMP-20261127 · v0.1 · 27/11/2026 · **PROPUESTA PARA CONTRASTE INDEPENDIENTE, NO DESPLIEGUE.**
+ID IMP-20261127 · v0.2 · 27/11/2026 · **PROPUESTA PARA CONTRASTE INDEPENDIENTE, NO DESPLIEGUE.**
 Coordinación Work; arquitectura/revisión propuesta Claude; implementación Codex; evidencia Gemini; auditoría Antigravity. [Cola](implementacion/ORQUESTACION.json) y [encargo de contraste a Claude](implementacion/CLAUDE_REVIEW.md). No duplicar la matriz clínica de Work.
 
 ## 1. Alcance y evidencia de partida
@@ -8,6 +8,8 @@ Coordinación Work; arquitectura/revisión propuesta Claude; implementación Cod
 Directriz del propietario de hoy: producto individual para especialistas en medicina de urgencias, centrado en fiabilidad, utilidad clínica, rapidez, facilidad de uso y reducción de trabajo; núcleo internacional y diferencias nacionales relevantes. Hospital, interoperabilidad institucional, estudios multicéntricos y protocolos superlocales son opciones futuras, no requisitos indiscriminados del producto individual. Conservar seguridad clínica, privacidad, regulación y verificaciones de producto que sí resulten necesarias.
 
 Receptor verificado al redactar: `fa2381dcfe77253f575ac843860b3167125f1e1e` (PR127 integrada). PR129–132 candidatos de laboratorio preparados; PR133 observado `e4d3f71975a75389bbc9df146670b5823ce4677b`, no integrado. Revalidar identidad y estado cuando se actúe. No alterar las 19 aceptaciones, 45 fórmulas ni estados clínicos.
+
+**Actualización 27/11/2026, 20:22 UTC:** [PR133](https://github.com/JuanCopado/Emergency/pull/133) en el mismo SHA `e4d3f71975a75389bbc9df146670b5823ce4677b` / árbol `68bc872874aab3dbbbc18ae0bfffa394fad23499`: 21/21 checks y 9/9 workflows SUCCESS comprobados en GitHub, incluidos Trivy, Semgrep y Sonar. [Auditoría independiente de Antigravity](https://drive.google.com/file/d/1TSxnhGH39sWJIDG-9VzD_elH_Z5d3lUq/view) confirma MERGE_READY técnico, 0 hallazgos bloqueantes en el alcance revisado, Sonar OK (97,2% cobertura nueva; 0% duplicación). [Recibo CI](https://drive.google.com/file/d/1ijKcA09_9hXaca0lhYf8DrkMQ7DcTHi1/view). Sigue abierta, en borrador, sin fusionar. No repetir la auditoría de ese árbol ni trasladarla a otra identidad. El visor DICOM y los nuevos controles de búsqueda siguen NOT_EXECUTED_POLICY_BLOCKED en navegador; no se ha activado LLM, servicio hospitalario ni admisión de imágenes. Este resultado permite usar el candidato como evidencia técnica de laboratorio para IMP-00/01, no acredita gateway productivo, autenticación de usuarios, persistencia segura ni despliegue. No altera dependencias ni decisiones clínicas.
 
 Inventario leído: React/Vite/TypeScript PWA (`app/package.json`, `app/vite.config.ts`); Python API y motores deterministas; Markdown/JSON clínico y grafo; generación PDF/DOCX; RAG, FHIR/HL7/DICOM y MCP en candidatos aislados. `clinical/scripts/clinical_http_boundary.py` autentica un proceso proxy, **no a un usuario** y exige loopback. `http_transport.py` no es gateway productivo. No exponer los servicios de desarrollo. Los informes previos de Claude ([arquitectura](coordination/claude-residual-20261126/CLAUDE_ARCHITECTURE_RESIDUAL_STATUS.md), [seguridad](coordination/claude-residual-20261126/CLAUDE_SECURITY_PERFORMANCE_RESULTS.md)) son evidencia histórica, no auditoría de la nueva infraestructura.
 
@@ -61,3 +63,5 @@ Fuentes primarias localizadas 27/11/2026: [OWASP ASVS 5.0](https://asvs.owasp.or
 ## 7. Historial
 
 v0.1 27/11/2026: propuesta inicial para cotejo con Claude; decisiones de proveedor, identidad y presupuesto abiertas. Encargo preparado, no recibido aún. No despliegue, contratación ni modificación de código clínico.
+
+v0.2 27/11/2026: cierre de QA y auditoría técnica exacta PR133, verificado sin reejecutar pruebas. Se conserva v0.1 y sus límites; IMP-00/01/02 siguen preparados sin acuse acreditado. Sin cambios de arquitectura, tareas o autorizaciones.

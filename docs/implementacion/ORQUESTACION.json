@@ -1,14 +1,44 @@
 {
   "schema": "emergency.implementation.orchestration.v1",
   "plan_id": "IMP-20261127",
-  "version": "0.1",
+  "version": "0.2",
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
   "branch": "docs/implementacion-viva-20261127",
   "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
   "observed_candidate": {
     "pr": 133,
-    "sha": "e4d3f71975a75389bbc9df146670b5823ce4677b"
+    "sha": "e4d3f71975a75389bbc9df146670b5823ce4677b",
+    "tree": "68bc872874aab3dbbbc18ae0bfffa394fad23499",
+    "observed_at_utc": "2026-11-27T20:22:30Z",
+    "state": "OPEN_DRAFT_NOT_MERGED",
+    "checks": {
+      "success": 21,
+      "total": 21,
+      "source": "https://github.com/JuanCopado/Emergency/pull/133/checks"
+    },
+    "workflows": {
+      "success": 9,
+      "total": 9
+    },
+    "ci_receipt": "https://drive.google.com/file/d/1ijKcA09_9hXaca0lhYf8DrkMQ7DcTHi1/view",
+    "independent_audit": {
+      "agent": "Antigravity",
+      "verdict": "MERGE_READY",
+      "scope": "technical_only",
+      "blocking_findings_reviewed_scope": 0,
+      "source": "https://drive.google.com/file/d/1TSxnhGH39sWJIDG-9VzD_elH_Z5d3lUq/view"
+    },
+    "sonar_reported_by_audit": {
+      "quality_gate": "OK",
+      "new_coverage_pct": 97.2,
+      "new_duplication_pct": 0
+    },
+    "limits": [
+      "DICOM visual and new search controls browser verification NOT_EXECUTED_POLICY_BLOCKED",
+      "No real LLM, hospital service, or product image admissions",
+      "Not production gateway, user authentication, persistence or clinical release evidence"
+    ]
   },
   "scope": "individual_emergency_physician",
   "parallel_to_clinical_closure": true,
