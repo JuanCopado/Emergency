@@ -337,5 +337,15 @@
   "A confirmação humana não verifica o conteúdo da imagem.": "人工确认并不核实图像内容。",
   "Confirmar e enviar como": "确认并作为以下类型发送",
   "Alterar modalidade": "更换检查类型",
-  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "检查类型 {{modality}}：文件将发送至该类型的模块。内容不会被自动核实。临时文本；医学措辞待定。"
+  "Modalidade {{modality}}: o ficheiro é enviado ao módulo desta modalidade. O conteúdo não é verificado automaticamente. Texto provisório; redação médica pendente.": "检查类型 {{modality}}：文件将发送至该类型的模块。内容不会被自动核实。临时文本；医学措辞待定。",
+  "{{count}} de {{total}} módulos": "{{count}} / {{total}} 个模块",
+  "Ningún módulo coincide con la búsqueda.": "没有与搜索匹配的模块。",
+  "Prueba otro término o borra la búsqueda.": "请尝试其他关键词或清除搜索。",
+  "Borrar búsqueda": "清除搜索",
+  "Restablecer búsqueda y filtros": "重置搜索和筛选",
+  "Ir a los circuitos Adulto / Pediatría": "前往成人 / 儿科流程",
+  "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "搜索和筛选适用于“所有临床模块”。",
+  "Prueba otro término o restablece la búsqueda y los filtros.": "请尝试其他关键词，或重置搜索和筛选。",
+  "No hay coincidencias.": "没有匹配项。",
+  "Prueba otro nombre, ID o filtro.": "请尝试其他名称、ID 或筛选条件。"
 }

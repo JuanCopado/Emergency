@@ -1,15 +1,13 @@
+import { EvidenceStatusPill as StatusPill } from '../components/EvidenceStatusPill';
+import { CatalogEmptyState } from '../components/CatalogEmptyState';
+import { useClinicalUi } from '../i18n/useClinicalUi';
 import CountryReferences from '../components/CountryReferences';
 import { useTranslation } from 'react-i18next';
 import { useMemo, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { getRelatedProcedures } from '../clinical-guides/relatedProcedures';
-import { ResuscitationCircuits } from '../components/ResuscitationCircuits';
-
-function StatusPill({ status }: { status: 'green' | 'yellow' | 'red' }) {
-  const cls = status === 'green' ? 'bg-green-100 text-green-800' : status === 'red' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-900';
-  return <span className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide ${cls}`}>{status}</span>;
-}
+import { ResuscitationCircuits, ResuscitationShortcut } from '../components/ResuscitationCircuits';
 
 function CanonicalContent({ guide }: { guide: CanonicalGuide }) {
   return (
@@ -28,6 +26,8 @@ function CanonicalContent({ guide }: { guide: CanonicalGuide }) {
 
 export default function ClinicalLibrary() {
   const { id } = useParams();
+  const ui = useClinicalUi();
+  const searchRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
   const [params] = useSearchParams();
   const bundle = params.get('bundle');
@@ -54,16 +54,18 @@ export default function ClinicalLibrary() {
       <div className="space-y-6">
         <div>
           <p className="section-title">Biblioteca clínica</p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight">Patologías y módulos</h1>
+          <h1 className="catalog-title mt-2">Patologías y módulos</h1>
           <p className="mt-2 max-w-3xl text-muted">Acceso directo al contenido clínico canónico con botones de algoritmo, pantalla completa, PDF y procedimientos relacionados.</p>
         </div>
         {bundle && <Link to="/clinical" className="btn-ghost">{t('home.allReferenceGuides')}</Link>}
-        <input aria-label="Buscar patología o módulo" className="input max-w-xl" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar patología o módulo…" />
+        <input ref={searchRef} aria-label="Buscar patología o módulo" className="input max-w-xl" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar patología o módulo…" />
+        <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-muted">{ui('{{count}} de {{total}} módulos', { count: filtered.length, total: canonicalGuides.length })}</p>
+        {filtered.length === 0 && <CatalogEmptyState onReset={() => { setQuery(''); searchRef.current?.focus(); }} />}
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
             <Link key={item.id} to={`/clinical/${item.id}`} className="card p-4 transition hover:border-primary/60">
               <div className="flex items-start justify-between gap-3">
-                <span className="font-bold">{item.title}</span>
+                <span className="min-w-0 font-bold">{item.title}</span>
                 <StatusPill status={item.status} />
               </div>
               <p className="mt-2 text-xs text-muted">{item.id}</p>
@@ -84,6 +86,7 @@ export default function ClinicalLibrary() {
       <div className="no-print flex flex-wrap items-center justify-between gap-3">
         <Link to="/clinical" className="btn-ghost">← Patologías</Link>
         <div className="flex flex-wrap gap-2">
+          {guide.id === 'arrhythmias-cardiac-arrest' && <ResuscitationShortcut />}
           <Link to={`/guides/${guide.id}`} className="btn-primary">{guide.format === 'algorithm' ? 'Algoritmo' : 'Guía'}</Link>
           <button type="button" className="btn-ghost" onClick={openFullscreen}>Pantalla completa</button>
           <button type="button" className="btn-ghost" onClick={() => window.print()}>PDF / imprimir</button>

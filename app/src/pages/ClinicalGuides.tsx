@@ -1,22 +1,15 @@
+import { EvidenceStatusPill as StatusPill } from '../components/EvidenceStatusPill';
+import { CatalogEmptyState } from '../components/CatalogEmptyState';
+import { useClinicalUi } from '../i18n/useClinicalUi';
 import CountryReferences from '../components/CountryReferences';
 import { useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { clinicalGuides, getClinicalGuide } from '../clinical-guides/guides';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { Icon } from '../components/Icon';
-import { ResuscitationCircuits } from '../components/ResuscitationCircuits';
+import { ResuscitationCircuits, ResuscitationShortcut } from '../components/ResuscitationCircuits';
 
 type GuideStatus = 'green' | 'yellow' | 'red';
-
-function StatusPill({ status }: { status: GuideStatus }) {
-  const cls =
-    status === 'green'
-      ? 'bg-green-100 text-green-800'
-      : status === 'red'
-        ? 'bg-red-100 text-red-800'
-        : 'bg-amber-100 text-amber-900';
-  return <span className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-wide ${cls}`}>{status}</span>;
-}
 
 function CanonicalBody({ guide }: { guide: CanonicalGuide }) {
   const lines = guide.body.split('\n');
@@ -42,6 +35,8 @@ function CanonicalBody({ guide }: { guide: CanonicalGuide }) {
 
 export default function ClinicalGuides() {
   const { id } = useParams();
+  const ui = useClinicalUi();
+  const searchRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
   const [formatFilter, setFormatFilter] = useState<'all' | 'algorithm' | 'guide' | 'procedure'>('all');
   const quickGuide = useMemo(() => (id ? getClinicalGuide(id) : undefined), [id]);
@@ -74,7 +69,7 @@ export default function ClinicalGuides() {
       <div className="space-y-8">
         <div>
           <p className="section-title">Guías clínicas exportables</p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight">Pantalla completa · impresión · PDF</h1>
+          <h1 className="catalog-title mt-2">Pantalla completa · impresión · PDF</h1>
           <p className="mt-2 max-w-3xl text-muted">
             Cobertura automática de los {canonicalGuides.length} módulos clínicos del manifiesto, conservando el contenido canónico y su estado de evidencia. Los algoritmos rápidos seleccionados disponen además de una vista resumida específica.
           </p>
@@ -82,6 +77,7 @@ export default function ClinicalGuides() {
 
         <section>
           <h2 className="mb-3 text-xl font-bold">Algoritmos rápidos</h2>
+          <p className="mb-3 text-sm text-muted">{ui('La búsqueda y el filtro se aplican a «Todos los módulos clínicos».')}</p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {clinicalGuides.map((g) => (
               <Link key={g.id} to={`/guides/${g.id}`} className="card p-5 transition hover:border-primary/60">
@@ -101,7 +97,7 @@ export default function ClinicalGuides() {
           <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="text-xl font-bold">Todos los módulos clínicos</h2>
-              <p className="text-sm text-muted">{filteredCanonical.length} de {canonicalGuides.length}</p>
+              <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-muted">{ui('{{count}} de {{total}} módulos', { count: filteredCanonical.length, total: canonicalGuides.length })}</p>
             </div>
             <div className="flex w-full max-w-2xl flex-col gap-2 sm:flex-row">
               <label className="min-w-0 sm:w-52">
@@ -116,6 +112,7 @@ export default function ClinicalGuides() {
               <label className="min-w-0 flex-1">
                 <span className="sr-only">Buscar guía clínica</span>
                 <input
+                  ref={searchRef}
                   className="input"
                   type="search"
                   value={query}
@@ -125,6 +122,7 @@ export default function ClinicalGuides() {
               </label>
             </div>
           </div>
+          {filteredCanonical.length === 0 && <CatalogEmptyState resetFilters onReset={() => { setQuery(''); setFormatFilter('all'); searchRef.current?.focus(); }} />}
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {filteredCanonical.map((guide) => (
               <Link key={guide.id} to={`/guides/${guide.id}`} className="card p-4 transition hover:border-primary/60">
@@ -170,6 +168,7 @@ export default function ClinicalGuides() {
       <div className="no-print flex flex-wrap items-center justify-between gap-3">
         <Link to="/guides" className="btn-ghost">← Guías</Link>
         <div className="flex flex-wrap gap-2">
+          {canonicalGuide?.id === 'arrhythmias-cardiac-arrest' && <ResuscitationShortcut />}
           <button type="button" className="btn-ghost" onClick={openFullscreen}>Pantalla completa</button>
           <button type="button" className="btn-primary" onClick={printGuide}>Imprimir / guardar PDF</button>
         </div>
