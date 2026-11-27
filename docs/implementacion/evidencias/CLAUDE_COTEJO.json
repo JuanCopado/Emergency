@@ -1,0 +1,51 @@
+{
+  "schema": "emergency.implementation.claude-cotejo.v1",
+  "author": "Work/Codex",
+  "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+  "observed_at_utc": "2026-11-27T20:50:53.205715+00:00",
+  "external_delivery_observed": true,
+  "external_tests_executed": false,
+  "provider_sources_queried_by_claude": false,
+  "independent_code_inspection": "References to package.json, vite.config.ts, clinical_http_boundary.py, http_transport.py and run_local_review.py; no tool-call transcript retained by runner",
+  "bounded_imp00_result": "PROCEED_BOUNDED_IMP03_LOCAL_ARTIFACT",
+  "imp01_contract_status": "PARTIAL_NO_FINAL_PROVIDER_SELECTION",
+  "weighted_recalculation": {
+    "weights": [
+      0.3,
+      0.25,
+      0.15,
+      0.15,
+      0.1,
+      0.05
+    ],
+    "A": 4.4,
+    "A+B": 3.8,
+    "B": 3.55,
+    "C": 3.05,
+    "all_displayed_values_match": true,
+    "benchmark": false
+  },
+  "host_checks": [
+    "Read confirms autoUpdate, JSON precache and API navigation exclusion in app/vite.config.ts.",
+    "Loopback/process-token boundary is not an authenticated remote-user boundary.",
+    "Scaleway/ZITADEL sources and separate reproducible arithmetic supplied by Work, not by Claude."
+  ],
+  "required_corrections_or_bounds": [
+    "SHA256 detects corruption only; a replaceable manifest is not publisher authenticity. Local artifact requires separately trusted expected digest and controlled custody. Signing/trust-root remains mandatory before untrusted distribution.",
+    "TLS optional and missing end-user authentication are conditions blocking remote exposure, not proven vulnerabilities in the deliberately loopback-only current service.",
+    "C7 requires same-origin browser/cache verification. HTTP no-store alone does not remove an already controlling Service Worker; clearing unrelated browsing data is not authorized.",
+    "A static reference-only package with API503 may be a useful subdelivery; it does not satisfy the clinical-API launcher step or prove equivalence of all clinical workflows.",
+    "Cookie SameSite=Strict is a proposal, not accepted OIDC configuration. Cross-site callback and transaction-cookie behavior require explicit tests; do not copy it uncritically.",
+    "Historical surveillance DNS statements were not independently reproduced against its current implementation; retain as historical scoped uncertainty.",
+    "The proposed retention periods, provider choice and exclusion of optional capabilities remain proposals; preserve prior owner decisions and do not ask duplicate approvals."
+  ],
+  "limits": [
+    "No PR133 code audit",
+    "No runtime tests by Claude",
+    "No actual cloud cost or load measurement",
+    "No full contractual list of subprocessors recovered",
+    "No regulatory approval",
+    "No deployment or clinical release"
+  ]
+}

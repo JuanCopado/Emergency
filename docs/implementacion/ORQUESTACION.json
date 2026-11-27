@@ -1,7 +1,7 @@
 {
   "schema": "emergency.implementation.orchestration.v1",
   "plan_id": "IMP-20261127",
-  "version": "0.3",
+  "version": "0.4",
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
   "branch": "docs/implementacion-viva-20261127",
@@ -102,31 +102,39 @@
       "hito": "I0",
       "agent": "Claude",
       "dependencies": [],
-      "status": "DELIVERED_PARTIAL",
+      "status": "REVIEWED",
       "objective": "Consolidate individual-scope inventory, material risks and independent architecture review",
       "acceptance": "Exact receiver/candidate distinction; reuse e4d3 technical audit; identify only relevant gaps, not an assumed infrastructure programme",
       "receipt": {
-        "task_id": "IMP-00/01",
-        "agent": "Claude",
-        "timestamp_utc": "2026-11-27T20:43:40.332526+00:00",
+        "task_id": "IMP-00",
+        "reviewer": "Work/Codex",
+        "timestamp_utc": "2026-11-27T20:50:21.518187+00:00",
         "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
-        "acknowledgement_or_execution_evidence": "https://drive.google.com/file/d/1pvxkzeR8dW7wjeB69vQwhg-jRIK2wbqV/view",
-        "deliverable_path_or_commit": "https://drive.google.com/file/d/1fdxSX1Na_sYMfiujB7zm4ULCJQu7Hr7U/view",
-        "receipt_sha256": "0ff29ce0053ee81628b6f8f692c01d0b925166e713b8fc53e956bbbe0ed84194",
-        "deliverable_sha256": "9fb9ebf264f127823fc7e207c6925007969be9486dbaa458ab3c45507e77b605",
-        "tests": "No repository/web inspection or benchmark performed by Claude",
-        "limitations": [
-          "Scores and loads are hypotheses; vendor regions/DPA/subprocessors/prices not verified.",
-          "Weighted table arithmetic: B displayed3.5 but computes3.4; D displayed2.7 but computes2.9. A4.2/C2.8 agree.",
-          "P0/P1 labels describe future production conditions, not demonstrated exploitable defects of current candidate.",
-          "Check prior owner decisions before resubmitting sync, production AI, provider or recovery questions.",
-          "Contract provider comparison, dated primary citations, numeric daily request model and independent code inspection incomplete. Response receipt does not close full architecture contract."
+        "reconciled_documentary_head": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+        "review_sha256": "be608a4bf0e2616914ed816498db7509ee63ffd174ce3b82946df085d2481772",
+        "session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+        "accepted_scope": "IMP-03 bounded local packaging only; existing frontend/engines retained; no remote processing or infrastructure selection",
+        "accepted_prerequisite": true,
+        "conditions": [
+          "Exact file manifest and independently supplied expected digest; hashes are not publisher authentication",
+          "Versioned directories, verified activation and rollback; no deletion of prior versions",
+          "Loopback-only static server, no Vite runtime, strict Host/origin and path controls",
+          "No API/backend claim for static-only increment; API returns explicit unavailable JSON",
+          "Service-worker/browser rollback must be measured or explicitly blocked; no forced reload of an episode",
+          "No changes to clinical engines, formulas, sources, decisions, or clinical status"
         ],
-        "next_action": "Work focal cotejo; no architecture closure or automatic dependent dispatch",
-        "shared_receipt": true,
-        "accepted_prerequisite": false,
-        "work_cotejo": "https://drive.google.com/file/d/1-w49aVWFIYDrQDkeRApUjjQLUgMuKXSF/view",
-        "drive_verification": "VERIFIED_BYTE_READBACK_SHA256_PRIVATE_BY_WORK"
+        "limitations": [
+          "Claude read files; no tests or prices measured by Claude",
+          "IMP-01 remote-provider choice remains separate",
+          "No acceptance of unsupported literal claim that a self-declared hash authenticates the publisher",
+          "MCP snapshot was independently called by Work; absence from this earlier source tree is not tool unavailability",
+          "Source audit and browser policy blocks on PR133 remain scoped to their own tree"
+        ],
+        "agent": "Claude / cotejo Work",
+        "acknowledgement_or_execution_evidence": "EVIDENCIAS/CLAUDE/response.json; session ba19e14b-a86a-4975-8739-8876245e35f1",
+        "deliverable_path_or_commit": "docs/implementacion/IMP00_ACEPTACION_ACOTADA.json",
+        "tests": "Read-only architecture review and static Work cotejo; no product test attributed to Claude",
+        "next_action": "Execute bounded IMP-03 in isolated feature branch; audit resulting exact SHA"
       },
       "closure_criteria": [
         "C1",
@@ -160,7 +168,32 @@
         }
       ],
       "expected_artifact": "Scope/risk review with exact candidate and accepted receipt",
-      "review_state": "REQUIRES_COTEJO"
+      "review_state": "ACCEPTED_BOUNDED_LOCAL_PREREQUISITE_ONLY",
+      "prior_receipts": [
+        {
+          "task_id": "IMP-00/01",
+          "agent": "Claude",
+          "timestamp_utc": "2026-11-27T20:43:40.332526+00:00",
+          "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+          "acknowledgement_or_execution_evidence": "https://drive.google.com/file/d/1pvxkzeR8dW7wjeB69vQwhg-jRIK2wbqV/view",
+          "deliverable_path_or_commit": "https://drive.google.com/file/d/1fdxSX1Na_sYMfiujB7zm4ULCJQu7Hr7U/view",
+          "receipt_sha256": "0ff29ce0053ee81628b6f8f692c01d0b925166e713b8fc53e956bbbe0ed84194",
+          "deliverable_sha256": "9fb9ebf264f127823fc7e207c6925007969be9486dbaa458ab3c45507e77b605",
+          "tests": "No repository/web inspection or benchmark performed by Claude",
+          "limitations": [
+            "Scores and loads are hypotheses; vendor regions/DPA/subprocessors/prices not verified.",
+            "Weighted table arithmetic: B displayed3.5 but computes3.4; D displayed2.7 but computes2.9. A4.2/C2.8 agree.",
+            "P0/P1 labels describe future production conditions, not demonstrated exploitable defects of current candidate.",
+            "Check prior owner decisions before resubmitting sync, production AI, provider or recovery questions.",
+            "Contract provider comparison, dated primary citations, numeric daily request model and independent code inspection incomplete. Response receipt does not close full architecture contract."
+          ],
+          "next_action": "Work focal cotejo; no architecture closure or automatic dependent dispatch",
+          "shared_receipt": true,
+          "accepted_prerequisite": false,
+          "work_cotejo": "https://drive.google.com/file/d/1-w49aVWFIYDrQDkeRApUjjQLUgMuKXSF/view",
+          "drive_verification": "VERIFIED_BYTE_READBACK_SHA256_PRIVATE_BY_WORK"
+        }
+      ]
     },
     {
       "id": "IMP-01",
@@ -171,27 +204,27 @@
       "objective": "Compare the minimum local-first option and only necessary remote alternatives",
       "acceptance": "Local/no-account option assessed first; do not select provider, OIDC, database or TCO expansion without demonstrated need; no purchase",
       "receipt": {
-        "task_id": "IMP-00/01",
-        "agent": "Claude",
-        "timestamp_utc": "2026-11-27T20:43:40.332526+00:00",
+        "task_id": "IMP-01",
+        "agent": "Claude; primary sources and costs by Work separately attributed",
+        "timestamp_utc": "2026-11-27T20:50:53.205715+00:00",
         "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
-        "acknowledgement_or_execution_evidence": "https://drive.google.com/file/d/1pvxkzeR8dW7wjeB69vQwhg-jRIK2wbqV/view",
-        "deliverable_path_or_commit": "https://drive.google.com/file/d/1fdxSX1Na_sYMfiujB7zm4ULCJQu7Hr7U/view",
-        "receipt_sha256": "0ff29ce0053ee81628b6f8f692c01d0b925166e713b8fc53e956bbbe0ed84194",
-        "deliverable_sha256": "9fb9ebf264f127823fc7e207c6925007969be9486dbaa458ab3c45507e77b605",
-        "tests": "No repository/web inspection or benchmark performed by Claude",
-        "limitations": [
-          "Scores and loads are hypotheses; vendor regions/DPA/subprocessors/prices not verified.",
-          "Weighted table arithmetic: B displayed3.5 but computes3.4; D displayed2.7 but computes2.9. A4.2/C2.8 agree.",
-          "P0/P1 labels describe future production conditions, not demonstrated exploitable defects of current candidate.",
-          "Check prior owner decisions before resubmitting sync, production AI, provider or recovery questions.",
-          "Contract provider comparison, dated primary citations, numeric daily request model and independent code inspection incomplete. Response receipt does not close full architecture contract."
+        "acknowledgement_or_execution_evidence": "docs/implementacion/evidencias/CLAUDE_EJECUCION.json",
+        "deliverable_path_or_commit": [
+          "docs/implementacion/CLAUDE_COMPARATIVA.md",
+          "docs/implementacion/ADR_PROPUESTAS.json"
         ],
-        "next_action": "Work focal cotejo; no architecture closure or automatic dependent dispatch",
-        "shared_receipt": true,
-        "accepted_prerequisite": false,
-        "work_cotejo": "https://drive.google.com/file/d/1-w49aVWFIYDrQDkeRApUjjQLUgMuKXSF/view",
-        "drive_verification": "VERIFIED_BYTE_READBACK_SHA256_PRIVATE_BY_WORK"
+        "tests": "Weighted arithmetic recomputed; hypothetical 10/100/1000 cost model; no benchmark or spend",
+        "limitations": [
+          "No PR133 code audit",
+          "No runtime tests by Claude",
+          "No actual cloud cost or load measurement",
+          "No full contractual list of subprocessors recovered",
+          "No regulatory approval",
+          "No deployment or clinical release",
+          "No provider, DPA, production stack or complete TCO accepted"
+        ],
+        "next_action": "Select only a demonstrated remote capability; close exact provider/identity/storage choice and missing operating costs before IMP-04",
+        "accepted_prerequisite": false
       },
       "closure_criteria": [
         "C1",
@@ -219,17 +252,62 @@
         }
       ],
       "expected_artifact": "Comparison/ADR of minimal local option and justified alternatives",
-      "review_state": "REQUIRES_COTEJO"
+      "review_state": "REQUIRES_COTEJO",
+      "prior_receipts": [
+        {
+          "task_id": "IMP-00/01",
+          "agent": "Claude",
+          "timestamp_utc": "2026-11-27T20:43:40.332526+00:00",
+          "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+          "acknowledgement_or_execution_evidence": "https://drive.google.com/file/d/1pvxkzeR8dW7wjeB69vQwhg-jRIK2wbqV/view",
+          "deliverable_path_or_commit": "https://drive.google.com/file/d/1fdxSX1Na_sYMfiujB7zm4ULCJQu7Hr7U/view",
+          "receipt_sha256": "0ff29ce0053ee81628b6f8f692c01d0b925166e713b8fc53e956bbbe0ed84194",
+          "deliverable_sha256": "9fb9ebf264f127823fc7e207c6925007969be9486dbaa458ab3c45507e77b605",
+          "tests": "No repository/web inspection or benchmark performed by Claude",
+          "limitations": [
+            "Scores and loads are hypotheses; vendor regions/DPA/subprocessors/prices not verified.",
+            "Weighted table arithmetic: B displayed3.5 but computes3.4; D displayed2.7 but computes2.9. A4.2/C2.8 agree.",
+            "P0/P1 labels describe future production conditions, not demonstrated exploitable defects of current candidate.",
+            "Check prior owner decisions before resubmitting sync, production AI, provider or recovery questions.",
+            "Contract provider comparison, dated primary citations, numeric daily request model and independent code inspection incomplete. Response receipt does not close full architecture contract."
+          ],
+          "next_action": "Work focal cotejo; no architecture closure or automatic dependent dispatch",
+          "shared_receipt": true,
+          "accepted_prerequisite": false,
+          "work_cotejo": "https://drive.google.com/file/d/1-w49aVWFIYDrQDkeRApUjjQLUgMuKXSF/view",
+          "drive_verification": "VERIFIED_BYTE_READBACK_SHA256_PRIVATE_BY_WORK"
+        }
+      ]
     },
     {
       "id": "IMP-02",
       "hito": "I0",
       "agent": "Gemini",
       "dependencies": [],
-      "status": "PENDING_DISPATCH",
+      "status": "REVIEWED",
       "objective": "Bound clinical/regulatory/privacy applicability by selected individual function",
       "acceptance": "Primary sources and exact intended purpose; preserve clinical decisions and real restrictions without universal institutional requirements",
-      "receipt": null,
+      "receipt": {
+        "task_id": "IMP-02",
+        "agent": "Gemini / primary-source focal contrast by Work",
+        "timestamp_utc": "2026-11-27T20:52:29.373883+00:00",
+        "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+        "acknowledgement_or_execution_evidence": "docs/implementacion/evidencias/GEMINI_EJECUCION.json",
+        "deliverable_path_or_commit": [
+          "docs/implementacion/GEMINI_REGULACION.md",
+          "docs/implementacion/IMP02_CONTRASTE_CODEX.md",
+          "docs/implementacion/IMP02_FUENTES.json"
+        ],
+        "tests": "Real web dispatch, nonempty completed response, recorded hashes and primary-source documentary contrast; not a deployed-system audit",
+        "limitations": [
+          "No final intended-purpose classification, national selection, signed DPA or legal opinion",
+          "No real patient processing, external provisioning or deployment authorized",
+          "Specific reservations and model overstatements corrected in GEMINI_REGULACION.md"
+        ],
+        "accepted_scope": "Preparation with synthetic data, case kept local by default, capability-specific activation gates",
+        "accepted_prerequisite": true,
+        "next_action": "Apply controls to bounded implementation; resolve remaining purpose/country/contracts before real activation"
+      },
       "closure_criteria": [
         "C1",
         "C3",
@@ -247,7 +325,8 @@
           "purpose": "C1-C6 owner individual-use criteria; local snapshot provenance above"
         }
       ],
-      "expected_artifact": "Function-specific applicability evidence and limits"
+      "expected_artifact": "Function-specific applicability evidence and limits",
+      "review_state": "DOCUMENTARY_FOCAL_CONTRAST_ACCEPTED_NOT_LEGAL_CLASSIFICATION"
     },
     {
       "id": "IMP-03",
@@ -256,10 +335,41 @@
       "dependencies": [
         "IMP-00"
       ],
-      "status": "BLOCKED_DEPENDENCY",
+      "status": "DELIVERED_PARTIAL",
       "objective": "Consolidate reproducible local installation, update and rollback using existing artifacts",
       "acceptance": "Accepted relevant IMP-00 deliverable, artifact integrity and only missing synthetic/offline/privacy checks; preserve existing engines and prior results",
-      "receipt": null,
+      "receipt": {
+        "task_id": "IMP-03",
+        "agent": "Codex / Work",
+        "timestamp_utc": "2026-11-27T21:11:55.754897+00:00",
+        "source_sha": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
+        "acknowledgement_or_execution_evidence": "docs/implementacion/evidencias/IMP03_PRUEBAS.json",
+        "deliverable_path_or_commit": "https://github.com/JuanCopado/Emergency/pull/135",
+        "branch": "feat/implementation-local-package-20261127",
+        "commit": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
+        "tests": {
+          "local_counted": 23,
+          "local_passed": 22,
+          "local_skipped": 1,
+          "chrome": "158.0.8127.37",
+          "real_build_stages": 3,
+          "offline": "server stopped and browser offline; 5.3 result; API rejected without HTML",
+          "local_installation_ci_run": 46068470440,
+          "windows": "success",
+          "linux": "success",
+          "general_ci": "PENDING_AT_THIS_RECEIPT; exact final observations recorded separately"
+        },
+        "limitations": [
+          "Static reference and local frontend calculation only; no clinical backend packaged",
+          "No full installed-PWA upgrade, preference migration or global cross-installation browser-cache guarantee",
+          "One native symlink test skipped locally for Windows privilege 1314; junction and ZIP symlink tested",
+          "Manifest integrity is not publisher authenticity or a signed build attestation",
+          "No production, real-patient processing, OIDC, PostgreSQL or cloud resources"
+        ],
+        "accepted_prerequisite": false,
+        "accepted_delivered_subscope": "Unit-tested static custody/launcher and controlled-root browser A/B/A proof; not full IMP-03 closure",
+        "next_action": "Review the finite static increment; define backend/local-runtime delivery and persistent-origin PWA upgrade requirements before declaring complete individual installation"
+      },
       "closure_criteria": [
         "C2",
         "C3",
@@ -283,8 +393,9 @@
           "purpose": "Existing technical candidate only; no receipt for this orchestration task"
         }
       ],
-      "blocker": "Missing accepted deliverables/receipts for: IMP-00",
-      "expected_artifact": "Existing local package plus reproducible install/update/rollback receipt"
+      "blocker": "Full intended local installation and existing installed-PWA update scope not yet delivered; technical delta remains isolated in PR135",
+      "expected_artifact": "Existing local package plus reproducible install/update/rollback receipt",
+      "review_state": "BOUNDED_CODEX_REVIEW_NO_OPEN_FINDINGS_NOT_EXTERNAL_AUDIT"
     },
     {
       "id": "IMP-04",
@@ -317,7 +428,9 @@
         }
       ],
       "blocker": "Not selected; extension_gate and applicable prerequisites required before dispatch. Not an individual-product defect.",
-      "expected_artifact": "Selected gateway delta and synthetic contract/negative evidence"
+      "expected_artifact": "Selected gateway delta and synthetic contract/negative evidence",
+      "current_dispatch": "NOT_DISPATCHED_UNSATISFIED_DEPENDENCIES",
+      "current_blocker": "IMP-01 production architecture/provider scope remains partial; other dependencies listed in this task remain applicable"
     },
     {
       "id": "IMP-05",
@@ -351,7 +464,9 @@
         }
       ],
       "blocker": "Not selected; extension_gate and applicable prerequisites required before dispatch. Not an individual-product defect.",
-      "expected_artifact": "Selected identity delta and session/isolation evidence"
+      "expected_artifact": "Selected identity delta and session/isolation evidence",
+      "current_dispatch": "NOT_DISPATCHED_UNSATISFIED_DEPENDENCIES",
+      "current_blocker": "IMP-01 production architecture/provider scope remains partial; other dependencies listed in this task remain applicable"
     },
     {
       "id": "IMP-06",
@@ -385,7 +500,9 @@
         }
       ],
       "blocker": "Not selected; extension_gate and applicable prerequisites required before dispatch. Not an individual-product defect.",
-      "expected_artifact": "Selected storage/migration delta and synthetic restore evidence"
+      "expected_artifact": "Selected storage/migration delta and synthetic restore evidence",
+      "current_dispatch": "NOT_DISPATCHED_UNSATISFIED_DEPENDENCIES",
+      "current_blocker": "IMP-01 production architecture/provider scope remains partial; other dependencies listed in this task remain applicable"
     },
     {
       "id": "IMP-07",
@@ -419,7 +536,9 @@
         }
       ],
       "blocker": "Not selected; extension_gate and applicable prerequisites required before dispatch. Not an individual-product defect.",
-      "expected_artifact": "Selected environment configuration and local dry-run/runbooks"
+      "expected_artifact": "Selected environment configuration and local dry-run/runbooks",
+      "current_dispatch": "NOT_DISPATCHED_UNSATISFIED_DEPENDENCIES",
+      "current_blocker": "IMP-01 production architecture/provider scope remains partial; other dependencies listed in this task remain applicable"
     },
     {
       "id": "IMP-08",
@@ -450,7 +569,9 @@
         }
       ],
       "blocker": "Not selected; extension_gate and applicable prerequisites required before dispatch. Not an individual-product defect.",
-      "expected_artifact": "Exact-SHA review of selected remote implementation"
+      "expected_artifact": "Exact-SHA review of selected remote implementation",
+      "current_dispatch": "NOT_DISPATCHED_UNSATISFIED_DEPENDENCIES",
+      "current_blocker": "IMP-01 production architecture/provider scope remains partial; other dependencies listed in this task remain applicable"
     },
     {
       "id": "IMP-09",
@@ -493,7 +614,7 @@
           "purpose": "Existing technical candidate only; no receipt for this orchestration task"
         }
       ],
-      "blocker": "Missing accepted deliverables/receipts for: IMP-00, IMP-03",
+      "blocker": "IMP-03 delivered only in static partial scope; no new Antigravity verdict on PR135; prior credit-limit block is historical, not a new execution",
       "expected_artifact": "Individual-flow C1-C6 evidence map and exact-SHA audit delta if needed"
     },
     {
@@ -533,7 +654,7 @@
           "purpose": "Existing technical candidate only; no receipt for this orchestration task"
         }
       ],
-      "blocker": "Missing accepted deliverables/receipts for: IMP-02, IMP-09",
+      "blocker": "No accepted new IMP-09 audit; partial local scope and applicable activation decisions remain open",
       "expected_artifact": "Finite scope-specific closure/decision packet"
     },
     {
@@ -589,33 +710,33 @@
   "closure_criteria": [
     {
       "id": "C1",
-      "criterion": "Alcance individual delimitado y funciones futuras separadas sin exigir sus dependencias al núcleo.",
-      "acceptance": "Cada pendiente tiene finalidad, artefacto, evidencia y dependencia aplicable; una ampliación aplazada no se contabiliza como terminada."
+      "criterion": "Alcance individual delimitado y funciones futuras separadas sin exigir sus dependencias al nÃºcleo.",
+      "acceptance": "Cada pendiente tiene finalidad, artefacto, evidencia y dependencia aplicable; una ampliaciÃ³n aplazada no se contabiliza como terminada."
     },
     {
       "id": "C2",
-      "criterion": "Cero defectos críticos o altos abiertos que afecten al alcance individual.",
+      "criterion": "Cero defectos crÃ­ticos o altos abiertos que afecten al alcance individual.",
       "acceptance": "Identidad exacta del candidato, CI y seguridad obligatoria favorables; reutilizar resultados del mismo SHA sin repetirlos sin causa."
     },
     {
       "id": "C3",
-      "criterion": "Integridad clínica conservada.",
-      "acceptance": "Cálculos, dosis, unidades, advertencias y contratos coinciden con los canónicos aprobados; incertidumbres clínicas materiales permanecen restringidas o pendientes de decisión fundada."
+      "criterion": "Integridad clÃ­nica conservada.",
+      "acceptance": "CÃ¡lculos, dosis, unidades, advertencias y contratos coinciden con los canÃ³nicos aprobados; incertidumbres clÃ­nicas materiales permanecen restringidas o pendientes de decisiÃ³n fundada."
     },
     {
       "id": "C4",
-      "criterion": "Flujos de guardia sintéticos ejecutables y trazables.",
-      "acceptance": "En cada flujo: completar la tarea, conservar cifras/unidades, mostrar alertas y fuentes aplicables; cero errores críticos observados; registrar incidencias, pasos y tiempo realmente medidos. No equivale a eficacia clínica."
+      "criterion": "Flujos de guardia sintÃ©ticos ejecutables y trazables.",
+      "acceptance": "En cada flujo: completar la tarea, conservar cifras/unidades, mostrar alertas y fuentes aplicables; cero errores crÃ­ticos observados; registrar incidencias, pasos y tiempo realmente medidos. No equivale a eficacia clÃ­nica."
     },
     {
       "id": "C5",
       "criterion": "Uso individual seguro y comprensible.",
-      "acceptance": "Documentar funcionamiento offline previsto, privacidad local, exportación y limitaciones de accesibilidad; corregir impedimentos relevantes. No exigir impresión física o conformidad completa no acreditada como si ya estuvieran comprobadas."
+      "acceptance": "Documentar funcionamiento offline previsto, privacidad local, exportaciÃ³n y limitaciones de accesibilidad; corregir impedimentos relevantes. No exigir impresiÃ³n fÃ­sica o conformidad completa no acreditada como si ya estuvieran comprobadas."
     },
     {
       "id": "C6",
-      "criterion": "Cierre técnico separado del clínico y regulatorio.",
-      "acceptance": "Publicar limitaciones y evidencia del alcance; mantener CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE hasta satisfacer los controles clínicos/regulatorios realmente aplicables. Aplazar multicéntricos no valida un módulo YELLOW."
+      "criterion": "Cierre tÃ©cnico separado del clÃ­nico y regulatorio.",
+      "acceptance": "Publicar limitaciones y evidencia del alcance; mantener CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE hasta satisfacer los controles clÃ­nicos/regulatorios realmente aplicables. Aplazar multicÃ©ntricos no valida un mÃ³dulo YELLOW."
     }
   ],
   "coordination_observations": {
@@ -678,7 +799,60 @@
       "note": "Does not cover the unpublished v0.3 tree; collect CI for its resulting SHA after publication",
       "historical_snapshot_url": "https://drive.google.com/file/d/1r76VmJ8vrBndruR-B4r19G4WncMBgoJs/view",
       "drive_verification": "VERIFIED_BYTE_READBACK_SHA256_PRIVATE_BY_WORK"
+    },
+    "current_execution": {
+      "observed_at_utc": "2026-11-27T20:55:32.204268+00:00",
+      "claude": {
+        "session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+        "nonempty_result": true,
+        "read_only": true,
+        "imp00_accepted_scope": "Bounded IMP-03 only",
+        "imp01": "DELIVERED_PARTIAL"
+      },
+      "gemini": {
+        "url": "https://gemini.google.com/app/6f5ed91247d1c453?hl=es_419",
+        "prompt_sent": true,
+        "response_completed": true,
+        "cli_exit_code": 41,
+        "auth_changed": false,
+        "documentary_contrast_only": true
+      },
+      "emergency_mcp": {
+        "called": "get_project_state",
+        "snapshot": "3cc5139b149feef390e6ceaa7358e2425d92620a",
+        "scope": "metadata, local stdio, no network or writes; not live PR/CI or clinical authorization"
+      },
+      "antigravity": {
+        "new_audit_requested": false,
+        "reason": "New IMP-03 artifact is still being implemented; prior e4d3 audit is not inherited"
+      },
+      "protected_branches_modified": false,
+      "deployed": false,
+      "imp03": {
+        "pr": 135,
+        "head": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
+        "files_sha256": {
+          "local_installation.py": "3079b98ccf9900da7044178a52896eddd2ee755bcae21a3ed545de0a880fb42f",
+          "test_local_installation.py": "c06788d2e1bc923409dd84dda1d5a2ce607a1fd51a31d7929b40ad608e951270",
+          "README.md": "d48917d157b7728c8c25ff17b6629fe3b12b773455aa144e714d99b48c9d7291"
+        },
+        "source_product_unchanged": true,
+        "local_tests": "23 counted, 22 PASS, 1 SKIP",
+        "browser": "Chrome158, two real builds and three launches in one controlled installation root",
+        "initial_ci_failure_preserved": "be35743 Windows path-alias comparison; Linux success",
+        "new_windows_linux_ci": "run46068470440 both success; general CI still collected separately"
+      }
     }
   },
-  "local_work_branch": "work/implementacion-coordinada-20261127"
+  "execution_workspace": {
+    "physical_path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\IMPLEMENTACION_20261127",
+    "requested_path": "D:\\ChatGPT_Trabajo",
+    "requested_path_available": false,
+    "no_drive_mapping_created": true,
+    "source": "1703435de7002172d14ed32b94df1dc6b07f4314",
+    "reconciled_base": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+    "reconciled_remote_reference": "8d92844f1d5ab505c81cb3f464e4240d99584cd5"
+  },
+  "historical_local_work_branch": "work/implementacion-coordinada-20261127",
+  "local_work_branch": "docs/implementacion-viva-20261127"
 }

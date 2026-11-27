@@ -1,0 +1,41 @@
+{
+  "schema": "emergency.implementation.agent-receipt.v1",
+  "task_ids": [
+    "IMP-00",
+    "IMP-01"
+  ],
+  "agent": "Claude Code",
+  "coordinator": "Work",
+  "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "timestamp_utc": "2026-11-27T20:50:53.205715+00:00",
+  "session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+  "models_reported": [
+    "claude-haiku-5-5"
+  ],
+  "runner_exit_code": 0,
+  "runner_status": "completed",
+  "nonempty_result": true,
+  "read_only_tools": [
+    "Read",
+    "Grep",
+    "Glob"
+  ],
+  "web_queries_by_claude": 0,
+  "raw_result_sha256": "be608a4bf0e2616914ed816498db7509ee63ffd174ce3b82946df085d2481772",
+  "tests_executed_by_claude": [],
+  "imp00": "DELIVERED_BOUNDED_LOCAL_ARCHITECTURE_REQUIRES_WORK_COTEJO",
+  "imp01": "DELIVERED_PARTIAL_NO_FINAL_PROVIDER_OR_TCO",
+  "deliverables": [
+    "docs/implementacion/CLAUDE_COMPARATIVA.md",
+    "docs/implementacion/ADR_PROPUESTAS.json"
+  ],
+  "limitations": [
+    "No PR133 code audit",
+    "No runtime tests by Claude",
+    "No actual cloud cost or load measurement",
+    "No full contractual list of subprocessors recovered",
+    "No regulatory approval",
+    "No deployment or clinical release"
+  ],
+  "next_action": "Work records bounded IMP00 receipt and executes selected local increment; reconcile provider/contract/IMP02 before remote tasks."
+}

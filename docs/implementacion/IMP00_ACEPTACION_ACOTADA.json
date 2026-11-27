@@ -1,0 +1,26 @@
+{
+  "task_id": "IMP-00",
+  "reviewer": "Work/Codex",
+  "timestamp_utc": "2026-11-27T20:50:21.518187+00:00",
+  "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "reconciled_documentary_head": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+  "review_sha256": "be608a4bf0e2616914ed816498db7509ee63ffd174ce3b82946df085d2481772",
+  "session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+  "accepted_scope": "IMP-03 bounded local packaging only; existing frontend/engines retained; no remote processing or infrastructure selection",
+  "accepted_prerequisite": true,
+  "conditions": [
+    "Exact file manifest and independently supplied expected digest; hashes are not publisher authentication",
+    "Versioned directories, verified activation and rollback; no deletion of prior versions",
+    "Loopback-only static server, no Vite runtime, strict Host/origin and path controls",
+    "No API/backend claim for static-only increment; API returns explicit unavailable JSON",
+    "Service-worker/browser rollback must be measured or explicitly blocked; no forced reload of an episode",
+    "No changes to clinical engines, formulas, sources, decisions, or clinical status"
+  ],
+  "limitations": [
+    "Claude read files; no tests or prices measured by Claude",
+    "IMP-01 remote-provider choice remains separate",
+    "No acceptance of unsupported literal claim that a self-declared hash authenticates the publisher",
+    "MCP snapshot was independently called by Work; absence from this earlier source tree is not tool unavailability",
+    "Source audit and browser policy blocks on PR133 remain scoped to their own tree"
+  ]
+}

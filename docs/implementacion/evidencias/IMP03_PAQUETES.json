@@ -1,0 +1,26 @@
+{
+  "synthetic_only": true,
+  "installer_root": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\IMPLEMENTACION_20261127\\INSTALACION_PRUEBA",
+  "artifacts": [
+    {
+      "label": "A",
+      "archive": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\IMPLEMENTACION_20261127\\EMERGENCY_LOCAL_81b231c.zip",
+      "version": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b-5bb25135543e237b",
+      "manifest_sha256": "5bb25135543e237b2a4c2d74f559a4663fdbbb8fb6d8d792e5f4dbbe24857d34",
+      "source_sha": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+      "files": 35,
+      "zip_sha256": "5823c263d806fcc02419022fa6c35867df4c0f4ae43d136eff0300152f836554"
+    },
+    {
+      "label": "B",
+      "archive": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\IMPLEMENTACION_20261127\\EMERGENCY_LOCAL_1703435.zip",
+      "version": "1703435de7002172d14ed32b94df1dc6b07f4314-e62cc42f020246b7",
+      "manifest_sha256": "e62cc42f020246b7a3366cd51e3e3b46ad04345d3e336adf2a14a5734313d98d",
+      "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+      "files": 35,
+      "zip_sha256": "a2158c4824a5d4d97b7435d2dd2641679e43a430672b177a3d7ceecce4b1bfaf"
+    }
+  ],
+  "trusted_digest_scope": "Locally created and observed artifacts only; this is not publisher authentication or remote distribution",
+  "source_product_diff": "git diff 1703435 81b231c -- app clinical returned empty; build identity differs"
+}

@@ -1,0 +1,141 @@
+{
+  "schema": "emergency.implementation.codex-review.v1",
+  "reviewer": "Independent Codex; not Claude or Antigravity",
+  "observed_at_utc": "2026-11-27T20:59:30.506806+00:00",
+  "state": "REVIEWED_BOUNDED_NO_OPEN_FINDINGS",
+  "scope": "Partial static-only local package; no clinical API or production",
+  "findings": [
+    {
+      "id": "IMP03-CODEX-01",
+      "severity": "P2",
+      "state": "RESOLVED_VERIFIED",
+      "mechanism": "ZIP central-directory objects are allocated before MAX_FILES check",
+      "reproduction": "REVISION_CODEX_PROBE.json",
+      "resolution": "Bounded EOCD and real central-record validation before ZipFile",
+      "after_reproduction": "REVISION_CODEX_PROBE_AFTER.json"
+    }
+  ],
+  "application_files_edited": false,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "initial_files_sha256": {
+    "local_installation.py": "27b3bd65f2e40401c2f1caafc966308312d399f5477d1bfb611ce80300607475",
+    "test_local_installation.py": "2527ed85a922a3dfdfcb3f4ce3b48288dc6aab993ad8a9dbaa18a0d103e81577"
+  },
+  "files_sha256": {
+    "local_installation.py": "3079b98ccf9900da7044178a52896eddd2ee755bcae21a3ed545de0a880fb42f",
+    "test_local_installation.py": "c06788d2e1bc923409dd84dda1d5a2ce607a1fd51a31d7929b40ad608e951270",
+    "README.md": "d48917d157b7728c8c25ff17b6629fe3b12b773455aa144e714d99b48c9d7291"
+  },
+  "historical_tests": {
+    "counted": 18,
+    "passed": 17,
+    "skipped": 1,
+    "skip_reason": "Windows native symlink privilege1314",
+    "native_junction": "PASS",
+    "seconds": 4.577
+  },
+  "final_observed_at_utc": "2026-11-27T21:10:29.858935+00:00",
+  "reviewed_commit": "UNCOMMITTED_DELTA_ON_BASE_be35743b750a1fc0e9dd62dcca838f0eaa1fd249",
+  "browser_test_by_this_reviewer": false,
+  "scope_limits": [
+    "No clinical API",
+    "No public production",
+    "Fresh-origin ledger applies to one installation root; not global browser migration",
+    "SHA256 plus clean embedded revision is not build attestation or publisher signature",
+    "Parent browser result not inherited as own execution"
+  ],
+  "prior_review_files_sha256": {
+    "local_installation.py": "49195304dcb00461521718e305553138649a486be4be0254be546d4f92d2ebe3",
+    "test_local_installation.py": "63e29fb5fa31adf7bfeded7c49e37825a4fda30f5f9d120a1dda0c4c0ff86284"
+  },
+  "independent_complete_suite_on_prior_files": {
+    "counted": 19,
+    "passed": 18,
+    "skipped": 1,
+    "skip_reason": "Windows native symlink privilege1314",
+    "native_junction": "PASS",
+    "seconds": 4.891
+  },
+  "final_delta_tests": {
+    "executed_by": "Independent Codex reviewer",
+    "focal_tests_passed": 2,
+    "seconds": 0.26,
+    "scope": [
+      "Native GetShortPathNameW real Git producer positive",
+      "Own-checkout, foreign Git top and nested-folder negatives"
+    ],
+    "final_full_suite_repeated": false
+  },
+  "writer_reported_final_suite": {
+    "counted": 23,
+    "passed": 22,
+    "skipped": 1,
+    "source": "Parent Work message; not executed by this reviewer"
+  },
+  "parent_reported_browser": {
+    "executed_by": "Work, not reviewer",
+    "browser": "Chrome158",
+    "stages": [
+      "A81",
+      "B170",
+      "A81"
+    ],
+    "fresh_origins": 3,
+    "sw_controlled": true,
+    "local_calculation": "5.3",
+    "clinical_api_status": 503,
+    "csp_errors": 0,
+    "page_errors": 0,
+    "external_requests": 0,
+    "offline_reload_local_result": "5.3; API rejects",
+    "existing_A_tab_unchanged": true,
+    "scope": "Reported coordination evidence; attach actual browser receipt and build hashes separately",
+    "core_scope": "Prior0d27c632 core; Work reruns against3079b98c corrected core before accepting"
+  },
+  "final_delta_review": [
+    "Source-root OS identity via samefile after no_links on both paths; own .git retained",
+    "No native junction/symlink policy weakening",
+    "README unchanged"
+  ],
+  "review_history": [
+    {
+      "files_sha256": {
+        "local_installation.py": "0d27c632dfeba21bb1e6667c3260a42652547c25f6f2ea5a24ef71582ac57e8d",
+        "test_local_installation.py": "29d7ac8c174b88d2ae5049b8930bafb49ad2ab5221485e58cd6a431ef96157e5",
+        "README.md": "d48917d157b7728c8c25ff17b6629fe3b12b773455aa144e714d99b48c9d7291"
+      },
+      "delta_tests": {
+        "executed_by": "Independent Codex reviewer",
+        "focal_tests_passed": 3,
+        "runs": [
+          {
+            "count": 2,
+            "seconds": 0.015,
+            "scope": [
+              "ZIP64 locator rejected before ZipFile",
+              "CSP LF CRLF CR normalization"
+            ]
+          },
+          {
+            "count": 1,
+            "seconds": 0.685,
+            "scope": [
+              "Clean deterministic producer and environment/dirty/extension negatives"
+            ]
+          }
+        ],
+        "final_full_suite_repeated": false
+      },
+      "observed_at_utc": "2026-11-27T21:05:02.730265+00:00"
+    }
+  ],
+  "prior_ci_failure": {
+    "commit": "be35743b750a1fc0e9dd62dcca838f0eaa1fd249",
+    "platform": "Windows",
+    "result": "FAIL",
+    "cause": "Git expands 8.3 path alias; prior spelling comparison rejected same directory",
+    "source": "Reported by Work; reproduced natively by writer"
+  },
+  "final_ci_state": "PENDING_FOR_CORRECTED_COMMIT"
+}

@@ -1,0 +1,173 @@
+{
+  "schema": "emergency.implementation.inventory.v1",
+  "agent": "Codex",
+  "timestamp_utc": "2026-11-27T20:48:14.269410+00:00",
+  "initial_source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "final_observed_source_sha": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+  "changed_paths_since_initial": [
+    "docs/IMPLEMENTACION.md",
+    "docs/implementacion/CLAUDE_REVIEW.md",
+    "docs/implementacion/ORQUESTACION.json"
+  ],
+  "inspected_application_sources_unchanged": true,
+  "method": "Static source reading, scoped executable discovery, actual --version commands and live GitHub PR metadata. No product tests, browser tests, builds, installs or provisioning executed by inventory agent.",
+  "tools": {
+    "node": "v24.15.0 observed",
+    "python": "3.13.17 observed",
+    "docker_PATH_resolution": null,
+    "psql_PATH_resolution": null
+  },
+  "read_files": [
+    {
+      "path": "app/package.json",
+      "physical_bytes": 5880,
+      "physical_sha256": "97abb53b449b019e0f62d4023bba5ab82e3eb02af9b7c6a43645f618ebb2c9d3",
+      "initial_git_blob_sha256": "31948ecb09bcd1570980ee50d765b07b7e07b59db32f134f837d958993a05a80",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/package-lock.json",
+      "physical_bytes": 364129,
+      "physical_sha256": "b8fe2dab440fa967d64b816bc1bc4ea299c007f0f89352eb9c2265a023b58535",
+      "initial_git_blob_sha256": "46793e4e73b98964eeacb704b0f2da1cc72b76c3b7cda9ab7620091634f29467",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/vite.config.ts",
+      "physical_bytes": 6192,
+      "physical_sha256": "9e7a7603281840911615734cb2b93cfd875cb53082c79a17d5113ccc64aa0088",
+      "initial_git_blob_sha256": "e09e0faacdbd78efce7d49c1b763404452201c2dcb1b3861cfe433917330a877",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/src/main.tsx",
+      "physical_bytes": 698,
+      "physical_sha256": "333cdd3ce09bde445b0eb0a1ed61d1a408042396516ab42db4187d3aabc8ceca",
+      "initial_git_blob_sha256": "4ca052f289d15e92755acb243925fe7b39b1133a35b1fa6acfc62c1c942a9000",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/scripts/build-identity.mjs",
+      "physical_bytes": 2257,
+      "physical_sha256": "b76617095ff36717154ab4d39af0f98835f98e6f3f8822d233419a664e64b2d1",
+      "initial_git_blob_sha256": "f0148dd7f0e69ddec0e7829d2427370749abda12453c9ed1d3e151f06e351eac",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/scripts/check-pwa-offline.mjs",
+      "physical_bytes": 6452,
+      "physical_sha256": "9ae6390fc8e4833b2d3806c0506060f995b8ddc5aefc2afe013a7f975c09139a",
+      "initial_git_blob_sha256": "2e97849662eb2b141ca7b1c0ae527faff57db32571f44f29886afdacc919db02",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/scripts/clinical-api-boundary.mjs",
+      "physical_bytes": 3313,
+      "physical_sha256": "d08b07028cda4f158c7f3b3f6de100f0db22a09a06033a2723adc77a0ea18af2",
+      "initial_git_blob_sha256": "cd1efe4b592ca0feeb4281de0540349ebc0081ff65b97e9c2d07ee8bd843f6eb",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/src/clinical-note/draft.tsx",
+      "physical_bytes": 6383,
+      "physical_sha256": "23c7c688b6656c6bc5504c4ce4f60ee2830ab0555982af005fd2be2725ec6e0d",
+      "initial_git_blob_sha256": "8f1b1c0a7c0e54539d28bbdb48ffc4f86b4ba618521ccd02c377d91bb8da16f7",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/src/clinical-note/api.ts",
+      "physical_bytes": 6553,
+      "physical_sha256": "c9b1335b3b1a1cbc15efa1571c4a47bf3fef7fa48eb22ad3971e2395e051eadf",
+      "initial_git_blob_sha256": "b747fe16db878b44758df4af2a1ed7a2da12b24248d591f47d6f8489601f0e56",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/src/state/settings.tsx",
+      "physical_bytes": 3160,
+      "physical_sha256": "70204d6a2daca40c4a7c2104bdcbc92b766a9d7c6ef0f323f598444167a0ba6f",
+      "initial_git_blob_sha256": "c54a3363bfcdbe96d90ee53d2de8293c7641c6a8373c076c2a8f6541cdb7506b",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/src/lib/storage.ts",
+      "physical_bytes": 472,
+      "physical_sha256": "25370a85810d0d7fd60cc11a71cb262ad454d2af42d8464b1d587e7da6452644",
+      "initial_git_blob_sha256": "527c7286339aa13d99912a395df4b8f1d68bbb7060cce6659dce7250f2f4f2b3",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "clinical/scripts/clinical_http_boundary.py",
+      "physical_bytes": 3015,
+      "physical_sha256": "5397ecf4c2bdab7a5e9c20a2991b39b9a358995f258dc84b783b5d6e8a5eeced",
+      "initial_git_blob_sha256": "2197c6de53ebeac8012b75c038a345a14849f99e2d2ccbe33dbdacc52d66d00e",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "clinical/scripts/clinical_note_api.py",
+      "physical_bytes": 36133,
+      "physical_sha256": "eb1fc8fa4020c4963546b4ff4c57a9903833159136a81889430c523a724682bd",
+      "initial_git_blob_sha256": "d5d63dd281a05283156f675fe8d1b809c4482c968d4328eb2f67c867f69f6afb",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "clinical/scripts/http_transport.py",
+      "physical_bytes": 5540,
+      "physical_sha256": "4a13b97cfe36278093406f19611a0f99eed2397e8bf1bf71fadc763d114bfc36",
+      "initial_git_blob_sha256": "3c92298015ca07b6cfdb4a9476fb22b8eccf2a72c21946299c3293a55d4da8a0",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "clinical/requirements.txt",
+      "physical_bytes": 174,
+      "physical_sha256": "190325f2973d1f21188d0eea0f3d0449b42bc995e2ab258fa94255d021541111",
+      "initial_git_blob_sha256": "c106720c1c6e67058402d5db8c8664f1ffbed7068716d363cbfe1c7d282a8b45",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "security/requirements-ci.txt",
+      "physical_bytes": 50153,
+      "physical_sha256": "446dc728fd937a9c68ba54400ce2c395b7402c043893f859714f09b4bcf30847",
+      "initial_git_blob_sha256": "a015b89dcd87bb99f9fba9b61ff74ca54b11d36e66875660f2dc5e9b73720951",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": ".github/workflows/app-ui-qa.yml",
+      "physical_bytes": 7372,
+      "physical_sha256": "72fd7f9e6dfb3bb219518721504941a53bcf5784dc74401cd6a939078bebafab",
+      "initial_git_blob_sha256": "e77565cc28bae0673432d621041e21ef3cb6076edc5f4443849ace7ab38b64f0",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/scripts/build-dependency-guard.mjs",
+      "physical_bytes": 3562,
+      "physical_sha256": "da767973b5b7bdc0a0389b46d9a7003bce991ef6f175cc1b4796c0fb24d7aae5",
+      "initial_git_blob_sha256": "756c9eef95abe0134a646fdcf33b0752c62f78a3ff2a90a4abf892805f86812a",
+      "same_git_blob_at_current_head": true
+    },
+    {
+      "path": "app/scripts/check-lab-exclusion.mjs",
+      "physical_bytes": 1576,
+      "physical_sha256": "4c9ece53268877cc2fe6a992d5210eb9861f7057d62f55c99ec6d6c26770ffb0",
+      "initial_git_blob_sha256": "f5d5ef74b984f2c300ad1a84cf9cdcb4de02e773aefb4415a9ff594723913df4",
+      "same_git_blob_at_current_head": true
+    }
+  ],
+  "deliverable": "docs/implementacion/INVENTARIO_TECNICO.md",
+  "limitations": [
+    "IMP03 remains gated by IMP00",
+    "GitHub PR body reported checks are historical observations, not rerun tests",
+    "No blanket egress/privacy certification from source inspection",
+    "No Docker or psql executable resolved in PATH; no claim about outside-PATH installations"
+  ],
+  "critical_recommendations": [
+    "A hash manifest is not publisher authentication; require separately trusted digest or verified signature",
+    "Rollback must account for autoUpdate service-worker/cache state, not just selected folder",
+    "Local package must reject remote API base and LAB flags and retain API non-HTML errors",
+    "Do not turn off loopback constraints to expose current API publicly"
+  ],
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "deliverable_sha256": "4382fceba88f35f4110ff48c3e341f98913f53604a1593bb36286dbb4cdd4486",
+  "prepared_test_spec": "19 scoped test groups, not implemented or executed",
+  "finished_at_utc": "2026-11-27T20:49:04.374213+00:00"
+}

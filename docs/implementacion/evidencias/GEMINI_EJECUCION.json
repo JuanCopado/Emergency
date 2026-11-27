@@ -1,0 +1,104 @@
+{
+  "schema": "emergency.implementation.agent-receipt.v1",
+  "task_id": "IMP-02",
+  "agent": "Gemini",
+  "host_reconciler": "Work/Codex",
+  "timestamp_utc": "2026-11-27T20:52:29.373883+00:00",
+  "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "status": "DELIVERED",
+  "verification_scope": "Documentaryfocalcontrast;notlegalclassificationordeploymentaudit",
+  "cli": {
+    "invoked": true,
+    "exitcode": 41,
+    "response_nonempty": false,
+    "error": "Please set an Auth method in your C:\\Users\\juanc\\.gemini\\settings.json or specify one of the following environment variables before running: GEMINI_API_KEY, GOOGLE_GENAI_USE_VERTEXAI, GOOGLE_GENAI_USE_GCA",
+    "configuration_changed": false
+  },
+  "web": {
+    "method": "authorizedComputerUse;nativeGeminiapp",
+    "url": "https://gemini.google.com/app/6f5ed91247d1c453?hl=es_419",
+    "model_display_name": "Neon Medio",
+    "api_model_identifier": null,
+    "prompt_sent": true,
+    "acknowledgement": "ACUSE IMP-02 · IMPLEMENTACIÓN INDIVIDUAL",
+    "execution_observed": "Stopresponsebuttonandgenerationstatus",
+    "completion_observed": "nonemptyresponse;feedback/redo/copycontrols;nostopbutton",
+    "response_chars_transcribed": 21416,
+    "full_project_files_transferred": false,
+    "patient_data_transferred": false
+  },
+  "deliverable_path": "docs/implementacion/GEMINI_REGULACION.md",
+  "codex_contrast_path": "docs/implementacion/IMP02_CONTRASTE_CODEX.md",
+  "tests": [
+    {
+      "kind": "evidenceintegrity",
+      "result": "physicalfilesbytecountsandSHA256recorded"
+    },
+    {
+      "kind": "primarysourcecontrast",
+      "result": "materialreservationsrecorded;limitedscope"
+    }
+  ],
+  "limitations": [
+    "Geminiresponseisnotlegalopinionnorclassificationaccepted",
+    "NoexactimplementedSHAaudit",
+    "Nocountryselected",
+    "Dynamicproviderlistsnotfullyread",
+    "Noactualdeploymentorpatients"
+  ],
+  "next_action": "CoordinatorreconcileIMP02andimplementationdependencies;keepactivationblockeduntilapplicablescopeverified",
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "files": [
+    {
+      "path": "gemini.exitcode.txt",
+      "bytes": 4,
+      "sha256": "ddb5c6d217ea442d92dcdead04dade6263ea482787904ab5c50a86d142b3c07d"
+    },
+    {
+      "path": "gemini.stderr.txt",
+      "bytes": 288,
+      "sha256": "a5da2c6b8461c699810fc43669cee4e71bfc9d4f1a00b23e3f2ad1b6d24d45bd"
+    },
+    {
+      "path": "gemini.stdout.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "GEMINI_RESPUESTA_LITERAL.md",
+      "bytes": 22137,
+      "sha256": "59a09d2b995849f14fe0453fa8770a47b892289c396eee4eeea20597f74800f7"
+    },
+    {
+      "path": "GEMINI_UI_EVIDENCE.txt",
+      "bytes": 76855,
+      "sha256": "27ec8cbefe1d50fee53f942d7973793658e9be290e280c8754199cd8aefa5cd3"
+    },
+    {
+      "path": "PROMPT_IMP02.txt",
+      "bytes": 1623,
+      "sha256": "2d3ae532d34df70ce0d1d67fa75615c126eb4295a8253e0eca6a1b0f50329484"
+    },
+    {
+      "path": "PROMPT_WEB_IMP02.txt",
+      "bytes": 1900,
+      "sha256": "1224209f43957ef37b6de25f37a1ec2376ca414953cae0e04e51153f9bd3a7bb"
+    },
+    {
+      "path": "../../repositorio/docs/implementacion/GEMINI_REGULACION.md",
+      "bytes": 7803,
+      "sha256": "c39c465e68084ebb9556ee955d85316210b32914557116eb2cd85ac876a326d6"
+    },
+    {
+      "path": "../../repositorio/docs/implementacion/IMP02_CONTRASTE_CODEX.md",
+      "bytes": 13139,
+      "sha256": "95a4838eb50c87bb26a5186ec895283e90a0eef6d8c780ca777b7fb9b782377e"
+    },
+    {
+      "path": "../../repositorio/docs/implementacion/IMP02_FUENTES.json",
+      "bytes": 4672,
+      "sha256": "e84f46fcc91e7350488b724a16da036cfe51a8f8e45cbe0b8833545b4c0b3080"
+    }
+  ]
+}
