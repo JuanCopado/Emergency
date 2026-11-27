@@ -1,0 +1,198 @@
+{
+  "subject": {
+    "pullRequest": "118"
+  },
+  "conditions": [
+    {
+      "status": "ERROR",
+      "metricKey": "new_reliability_rating",
+      "comparator": "GT",
+      "errorThreshold": "1",
+      "actualValue": "4"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_security_rating",
+      "comparator": "GT",
+      "errorThreshold": "1",
+      "actualValue": "1"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_maintainability_rating",
+      "comparator": "GT",
+      "errorThreshold": "1",
+      "actualValue": "1"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_coverage",
+      "comparator": "LT",
+      "errorThreshold": "80",
+      "actualValue": "90.3"
+    },
+    {
+      "status": "ERROR",
+      "metricKey": "new_duplicated_lines_density",
+      "comparator": "GT",
+      "errorThreshold": "3",
+      "actualValue": "10.3"
+    },
+    {
+      "status": "OK",
+      "metricKey": "new_security_hotspots_reviewed",
+      "comparator": "LT",
+      "errorThreshold": "100",
+      "actualValue": "100.0"
+    }
+  ],
+  "issue_total": 5,
+  "issues": [
+    {
+      "rule": "typescript:S2871",
+      "component": "JuanCopado_Emergency:app/src/clinical-note/therapeuticReview.ts",
+      "line": 10,
+      "severity": "CRITICAL",
+      "message": "Provide a compare function that depends on \"String.localeCompare\", to reliably sort elements alphabetically.",
+      "type": "BUG"
+    },
+    {
+      "rule": "typescript:S7739",
+      "component": "JuanCopado_Emergency:app/src/corticosteroids/copy.ts",
+      "line": 107,
+      "severity": "MAJOR",
+      "message": "Do not add `then` to an object.",
+      "type": "BUG"
+    },
+    {
+      "rule": "typescript:S7739",
+      "component": "JuanCopado_Emergency:app/src/corticosteroids/copy.ts",
+      "line": 180,
+      "severity": "MAJOR",
+      "message": "Do not add `then` to an object.",
+      "type": "BUG"
+    },
+    {
+      "rule": "typescript:S7739",
+      "component": "JuanCopado_Emergency:app/src/corticosteroids/copy.ts",
+      "line": 253,
+      "severity": "MAJOR",
+      "message": "Do not add `then` to an object.",
+      "type": "BUG"
+    },
+    {
+      "rule": "typescript:S7739",
+      "component": "JuanCopado_Emergency:app/src/corticosteroids/copy.ts",
+      "line": 326,
+      "severity": "MAJOR",
+      "message": "Do not add `then` to an object.",
+      "type": "BUG"
+    }
+  ],
+  "duplication_components": [
+    {
+      "component": "JuanCopado_Emergency:app/src/corticosteroids/copy.ts",
+      "measures": [
+        {
+          "metric": "new_duplicated_lines",
+          "periods": [
+            {
+              "index": 1,
+              "value": "291",
+              "bestValue": false
+            }
+          ]
+        },
+        {
+          "metric": "new_duplicated_lines_density",
+          "periods": [
+            {
+              "index": 1,
+              "value": "79.72602739726027",
+              "bestValue": false
+            }
+          ]
+        }
+      ],
+      "duplications": [
+        {
+          "blocks": [
+            {
+              "from": 72,
+              "size": 218,
+              "_ref": "1"
+            },
+            {
+              "from": 145,
+              "size": 218,
+              "_ref": "1"
+            }
+          ]
+        }
+      ],
+      "files": {
+        "1": {
+          "key": "JuanCopado_Emergency:app/src/corticosteroids/copy.ts",
+          "name": "app/src/corticosteroids/copy.ts"
+        }
+      }
+    },
+    {
+      "component": "JuanCopado_Emergency:app/src/clinical-note/therapyCopy.ts",
+      "measures": [
+        {
+          "metric": "new_duplicated_lines",
+          "periods": [
+            {
+              "index": 1,
+              "value": "108",
+              "bestValue": false
+            }
+          ]
+        },
+        {
+          "metric": "new_duplicated_lines_density",
+          "periods": [
+            {
+              "index": 1,
+              "value": "87.09677419354838",
+              "bestValue": false
+            }
+          ]
+        }
+      ],
+      "duplications": [
+        {
+          "blocks": [
+            {
+              "from": 4,
+              "size": 27,
+              "_ref": "1"
+            },
+            {
+              "from": 35,
+              "size": 27,
+              "_ref": "1"
+            },
+            {
+              "from": 63,
+              "size": 27,
+              "_ref": "1"
+            },
+            {
+              "from": 91,
+              "size": 27,
+              "_ref": "1"
+            }
+          ]
+        }
+      ],
+      "files": {
+        "1": {
+          "key": "JuanCopado_Emergency:app/src/clinical-note/therapyCopy.ts",
+          "name": "app/src/clinical-note/therapyCopy.ts"
+        }
+      }
+    }
+  ]
+}

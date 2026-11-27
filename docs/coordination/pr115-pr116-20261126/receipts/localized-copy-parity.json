@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "locales": [
+    "es",
+    "pt",
+    "en",
+    "zh"
+  ],
+  "unchanged_display_values": true,
+  "only_key_rename": "then -> maintenanceLabel",
+  "normalized_payload_sha256": "6de218679c64aee5fdd10f10c017a0ac0be1fb26d9ca9290fb0b71352abd999d"
+}

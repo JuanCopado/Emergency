@@ -1,0 +1,359 @@
+{
+  "repository": "JuanCopado/Emergency",
+  "candidate_pr": 118,
+  "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "tree_sha": "20e98a131f96549c50497c1ad95511fb2f240586",
+  "source_pr116_sha": "50462b00a4c0af30889f8600be95aedd69d6c293",
+  "source_pr115_sha": "82278d37dc29fe49e6afbc8db7aafe8d7e4166c1",
+  "receiver_sha": "570aa11bfe5c9df1c4a571f1103c28030d5731ca",
+  "clinical_status": "CLINICALLY_PENDING",
+  "ci_final_status": "PASS",
+  "remote_workflows": [
+    {
+      "id": 45916308017,
+      "name": "Clinical QA",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1530,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308017/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308017/logs",
+      "workflow_id": 372933042
+    },
+    {
+      "id": 45916308174,
+      "name": "App UI QA",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 513,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308174/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308174/logs",
+      "workflow_id": 375975074
+    },
+    {
+      "id": 45916308153,
+      "name": "Picomatch clean installation",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 73,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308153/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308153/logs",
+      "workflow_id": 422647198
+    },
+    {
+      "id": 45916308073,
+      "name": "Security and quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 641,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308073/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916308073/logs",
+      "workflow_id": 420779434
+    }
+  ],
+  "unchanged_clinical_expectations_and_acceptance": [
+    {
+      "path": "clinical/qa/V1.44_DEMO_CASES.json",
+      "sha256": "869773419be109766bfc0011660fd073bcc099bfabbc63367de4fd026ab1be31",
+      "identical_to_baseline_228cd21": true
+    },
+    {
+      "path": "clinical/qa/clinical-note-diagnostic-synthetic-cases.json",
+      "sha256": "e2ba22f146fbea2caa87d033f7f622e3c376ab4d7aa70d4c77061a481c701dc0",
+      "identical_to_baseline_228cd21": true
+    },
+    {
+      "path": "clinical/qa/clinical-note-diagnostic-final-cases-a.json",
+      "sha256": "8858a917642ee3e5ba080b8d1ab98a08cf2bbd8a7f9d44694cf70978544e1edd",
+      "identical_to_baseline_228cd21": true
+    },
+    {
+      "path": "clinical/qa/clinical-note-diagnostic-final-cases-b.json",
+      "sha256": "35cb9d538929af4669c12df89aa882dfefe109c019a49b75bcba8cc18d3fa436",
+      "identical_to_baseline_228cd21": true
+    },
+    {
+      "path": "clinical/qa/V1.44_ACUTE_MEDICATION_CASES.json",
+      "sha256": "81c436193087c167793cd61d391bf1ea97d9399f4871c9917fa0fd31ea4c30e8",
+      "identical_to_baseline_228cd21": true
+    },
+    {
+      "path": "clinical/references/acute-contract-owner-acceptance-2026-11-16.json",
+      "sha256": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
+      "identical_to_baseline_228cd21": true
+    }
+  ],
+  "historical_receipt": "PRE_SONAR_RECEIPT_55c53dd.json",
+  "exact_sonar_diagnostics": {
+    "run": 45915138802,
+    "issues": 5,
+    "duplicated_dictionary_lines": [
+      291,
+      108
+    ],
+    "fix": "Typed locale data resources and explicit canonical code-unit key ordering; no scanner rules, exclusions or thresholds changed."
+  },
+  "locale_values_parity": {
+    "status": "PASS",
+    "locales": [
+      "es",
+      "pt",
+      "en",
+      "zh"
+    ],
+    "unchanged_display_values": true,
+    "only_key_rename": "then -> maintenanceLabel",
+    "normalized_payload_sha256": "6de218679c64aee5fdd10f10c017a0ac0be1fb26d9ca9290fb0b71352abd999d"
+  },
+  "external_audit": {
+    "request": "docs/coordination/pr115-pr116-20261126/ANTIGRAVITY_AUDIT_REQUEST.md",
+    "delivery": "PUBLISHED_FOR_COLLECTION_IN_PR118",
+    "owner_authorized_channel": true,
+    "receipt_confirmed": false,
+    "verdict": "PENDING"
+  },
+  "artifact_download_limit": {
+    "status": "BLOCKED_IN_EXECUTION_WORKSPACE",
+    "reason": "Tool returned reusable file references, but workspace retrieval of those URLs returned proxy 403. No ZIP contents or locally measured ZIP SHA are claimed.",
+    "metadata_source": "GitHub artifacts API via connector"
+  },
+  "deliverables": {
+    "CODEX_PR116_REGRESSION_RESULTS.md": "c8f78e19804e8ba7ee604068e3aef78b859f49470dbfd8fcbdef237d88ca7614",
+    "CODEX_PR115_RECONCILIATION.md": "976bbca2f1ada80539db2ec6b78458e6a86b055f0b34704ab27215999df66278",
+    "CODEX_RESIDUAL_CLINICAL_CONTRACTS.json": "b14d47fa38120524428107bbc25009787c7fc357390074c36b9c7d7c423fb272"
+  },
+  "local_frontend": {
+    "tests": 1118,
+    "failed": 0,
+    "log": "current-receiver-tests.log"
+  },
+  "display_values_preserved": true,
+  "network_change_attempt": {
+    "owner_authorized_sonarcloud": true,
+    "provider_result": "Published configuration does not allow this network access; no settings changed.",
+    "safe_diagnostic_channel": "Read-only GitHub Actions metadata workflow 45915138802"
+  },
+  "clinical_runtime_matches_source_pr116": true,
+  "composition_proof_hashes_match": true,
+  "source_pr111_pr112_pr113_identical_counts": {
+    "111": 3,
+    "112": 2,
+    "113": 10
+  },
+  "local_checks": {
+    "frontend_tests": 1118,
+    "frontend_failures": 0,
+    "functional_browser_cases": 16,
+    "functional_browser_failures": 0,
+    "typecheck": "PASS",
+    "security_build": "PASS",
+    "translation_values": "EXACT_PARITY",
+    "functional_browser_attribution": "Exact final b9f8d14, clean checkout"
+  },
+  "source_pr116_final_workflows": [
+    {
+      "id": 45916211897,
+      "name": "Clinical QA",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 1528,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211897/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211897/logs",
+      "workflow_id": 372933042
+    },
+    {
+      "id": 45916211323,
+      "name": "App UI QA",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 511,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211323/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211323/logs",
+      "workflow_id": 375975074
+    },
+    {
+      "id": 45916211309,
+      "name": "Picomatch clean installation",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 72,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211309/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211309/logs",
+      "workflow_id": 422647198
+    },
+    {
+      "id": 45916211396,
+      "name": "Security and quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 639,
+      "jobs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211396/jobs",
+      "logs_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/runs/45916211396/logs",
+      "workflow_id": 420779434
+    }
+  ],
+  "previous_local_functional_browser": {
+    "cases": 16,
+    "failed": 0,
+    "binary_formats": [
+      "pdf",
+      "docx"
+    ],
+    "provenance": {
+      "head_sha": "f9ba7aacbcdea2e5fa67b9ee57174b6526cb8a28",
+      "dirty": false,
+      "sha256": {
+        "app/scripts/check-functional-v144.mjs": "96b9b094fe31fe2030a50f7ce93a93dfa90d7dede08bcb3dad0b4e972c831744",
+        "app/src/clinical-note/api.ts": "b747fe16db878b44758df4af2a1ed7a2da12b24248d591f47d6f8489601f0e56",
+        "clinical/scripts/clinical_note_api.py": "d5d63dd281a05283156f675fe8d1b809c4482c968d4328eb2f67c867f69f6afb"
+      }
+    },
+    "watched_hashes_match_candidate": {
+      "app/scripts/check-functional-v144.mjs": true,
+      "app/src/clinical-note/api.ts": true,
+      "clinical/scripts/clinical_note_api.py": true
+    }
+  },
+  "external_receiver_advance": {
+    "pr": 117,
+    "merge_sha": "570aa11bfe5c9df1c4a571f1103c28030d5731ca",
+    "preserved_paths": 13,
+    "unchanged_by_this_task": true
+  },
+  "local_functional_browser": {
+    "cases": 16,
+    "failed": 0,
+    "provenance": {
+      "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+      "dirty": false,
+      "sha256": {
+        "app/scripts/check-functional-v144.mjs": "96b9b094fe31fe2030a50f7ce93a93dfa90d7dede08bcb3dad0b4e972c831744",
+        "app/src/clinical-note/api.ts": "b747fe16db878b44758df4af2a1ed7a2da12b24248d591f47d6f8489601f0e56",
+        "clinical/scripts/clinical_note_api.py": "d5d63dd281a05283156f675fe8d1b809c4482c968d4328eb2f67c867f69f6afb"
+      }
+    },
+    "binary_downloads": [
+      {
+        "format": "pdf",
+        "diagnosis_and_review_text": "PASS"
+      },
+      {
+        "format": "docx",
+        "diagnosis_and_review_text": "PASS"
+      }
+    ]
+  },
+  "pr111_eight_updated_paths": "Eight original PR111 paths now carry PR117; all13 PR117 paths match current receiver. No repeat of PR111 patch.",
+  "ci_merge_checkout_sha": "3f491988a54a318f977019cf873b9fac3d768e41",
+  "ci_merge_checkout_tree_sha": "20e98a131f96549c50497c1ad95511fb2f240586",
+  "ci_merge_tree_matches_candidate": true,
+  "remote_clinical_qa": {
+    "status": "PASS",
+    "unit_summary": ".................................................................\n----------------------------------------------------------------------\nRan 1747 tests in 325.149s\n\nOK (skipped=20)",
+    "clinical_release_status": "CLINICALLY_PENDING"
+  },
+  "remote_navigation": {
+    "status": "PASS",
+    "routes": 113,
+    "history": 9,
+    "negative_controls": 11,
+    "links": 514,
+    "provenance_head": "3f491988a54a318f977019cf873b9fac3d768e41",
+    "dirty": true,
+    "watched_sources_match_candidate": {
+      "src/App.tsx": true,
+      "src/data/generatedPediatricOutpatient.json": true,
+      "src/pages/PediatricOutpatient.tsx": true,
+      "src/test/pediatric-outpatient.test.tsx": true,
+      "src/test/route-identity.test.mjs": true,
+      "src/test/route-identity-cases.mjs": true,
+      "src/pages/Corticosteroids.tsx": true,
+      "src/corticosteroids/calculator.ts": true,
+      "src/corticosteroids/catalog.generated.json": true,
+      "src/corticosteroids/copy.ts": true,
+      "src/corticosteroids/ShortCourseReferences.tsx": true,
+      "scripts/check-route-navigation.mjs": true,
+      "scripts/check-route-identity.mjs": true,
+      "scripts/route-identity.mjs": true,
+      "scripts/functional-harness.mjs": true
+    }
+  },
+  "candidate_jobs_successful": 14,
+  "sonar_final": {
+    "status": "PASSED",
+    "new_issues": 0,
+    "accepted_issues": 0,
+    "new_dependency_risks": 0,
+    "new_security_hotspots": 0,
+    "new_coverage_percent": 90.3,
+    "new_duplicated_lines_density_percent": 0,
+    "comment": "https://github.com/JuanCopado/Emergency/pull/118#issuecomment-7206659677",
+    "source_pr116_new_coverage_percent": 90.2
+  },
+  "audit_order_url": "https://github.com/JuanCopado/Emergency/pull/118#issuecomment-7205465110",
+  "current_ui_artifacts_metadata": {
+    "source": "GitHub Actions API",
+    "run_id": 45916308174,
+    "artifacts": [
+      {
+        "id": 15163105325,
+        "name": "clinical-note-browser-45916308174-1",
+        "size_in_bytes": 896,
+        "url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163105325",
+        "archive_download_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163105325/zip",
+        "expired": false,
+        "created_at": "2026-11-27T00:28:10Z",
+        "expires_at": "2027-02-25T00:22:11Z",
+        "updated_at": "2026-11-27T00:28:10Z",
+        "digest": "sha256:af5560383433cac8170283b79151b1d00bc7a6313d7edfb76c800a362048072b",
+        "workflow_run": {
+          "id": 45916308174,
+          "repository_id": 1394591926,
+          "head_repository_id": 1394591926,
+          "head_branch": "codex/pr115-pr116-integrated-20261126",
+          "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156"
+        }
+      },
+      {
+        "id": 15163075659,
+        "name": "reviewed-acute-browser-45916308174-1",
+        "size_in_bytes": 858216,
+        "url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163075659",
+        "archive_download_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163075659/zip",
+        "expired": false,
+        "created_at": "2026-11-27T00:27:37Z",
+        "expires_at": "2027-02-25T00:22:11Z",
+        "updated_at": "2026-11-27T00:27:37Z",
+        "digest": "sha256:5f868a02f440233cf51ae45b7d0def22f8c6e59e726756175ee44569931aff22",
+        "workflow_run": {
+          "id": 45916308174,
+          "repository_id": 1394591926,
+          "head_repository_id": 1394591926,
+          "head_branch": "codex/pr115-pr116-integrated-20261126",
+          "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156"
+        }
+      },
+      {
+        "id": 15162961198,
+        "name": "route-navigation-45916308174-1",
+        "size_in_bytes": 10691,
+        "url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15162961198",
+        "archive_download_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15162961198/zip",
+        "expired": false,
+        "created_at": "2026-11-27T00:28:34Z",
+        "expires_at": "2027-02-25T00:22:11Z",
+        "updated_at": "2026-11-27T00:28:34Z",
+        "digest": "sha256:3a5ed9d3197e27c98983f2442764f91699ad88b7c6299cb55ec3bacb7381ff64",
+        "workflow_run": {
+          "id": 45916308174,
+          "repository_id": 1394591926,
+          "head_repository_id": 1394591926,
+          "head_branch": "codex/pr115-pr116-integrated-20261126",
+          "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156"
+        }
+      }
+    ],
+    "local_zip_verification": false
+  },
+  "source_sonar_inherited_protobuf_diagnostic": true,
+  "integrated_sonar_protobuf_diagnostic": false
+}

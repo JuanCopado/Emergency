@@ -1,0 +1,64 @@
+{
+  "source": "GitHub Actions API",
+  "run_id": 45916308174,
+  "artifacts": [
+    {
+      "id": 15163105325,
+      "name": "clinical-note-browser-45916308174-1",
+      "size_in_bytes": 896,
+      "url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163105325",
+      "archive_download_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163105325/zip",
+      "expired": false,
+      "created_at": "2026-11-27T00:28:10Z",
+      "expires_at": "2027-02-25T00:22:11Z",
+      "updated_at": "2026-11-27T00:28:10Z",
+      "digest": "sha256:af5560383433cac8170283b79151b1d00bc7a6313d7edfb76c800a362048072b",
+      "workflow_run": {
+        "id": 45916308174,
+        "repository_id": 1394591926,
+        "head_repository_id": 1394591926,
+        "head_branch": "codex/pr115-pr116-integrated-20261126",
+        "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156"
+      }
+    },
+    {
+      "id": 15163075659,
+      "name": "reviewed-acute-browser-45916308174-1",
+      "size_in_bytes": 858216,
+      "url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163075659",
+      "archive_download_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15163075659/zip",
+      "expired": false,
+      "created_at": "2026-11-27T00:27:37Z",
+      "expires_at": "2027-02-25T00:22:11Z",
+      "updated_at": "2026-11-27T00:27:37Z",
+      "digest": "sha256:5f868a02f440233cf51ae45b7d0def22f8c6e59e726756175ee44569931aff22",
+      "workflow_run": {
+        "id": 45916308174,
+        "repository_id": 1394591926,
+        "head_repository_id": 1394591926,
+        "head_branch": "codex/pr115-pr116-integrated-20261126",
+        "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156"
+      }
+    },
+    {
+      "id": 15162961198,
+      "name": "route-navigation-45916308174-1",
+      "size_in_bytes": 10691,
+      "url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15162961198",
+      "archive_download_url": "https://api.github.com/repos/JuanCopado/Emergency/actions/artifacts/15162961198/zip",
+      "expired": false,
+      "created_at": "2026-11-27T00:28:34Z",
+      "expires_at": "2027-02-25T00:22:11Z",
+      "updated_at": "2026-11-27T00:28:34Z",
+      "digest": "sha256:3a5ed9d3197e27c98983f2442764f91699ad88b7c6299cb55ec3bacb7381ff64",
+      "workflow_run": {
+        "id": 45916308174,
+        "repository_id": 1394591926,
+        "head_repository_id": 1394591926,
+        "head_branch": "codex/pr115-pr116-integrated-20261126",
+        "head_sha": "b9f8d14fc1439a293f786e7b8353a9923a0f1156"
+      }
+    }
+  ],
+  "local_zip_verification": false
+}
