@@ -22,14 +22,14 @@ def main():
             'componentKeys': reader.PROJECT, 'resolved': 'false', 'ps': '100', 'p': '1'})
         issues = [reader.public_fields(item, reader.ISSUE_FIELDS + ('type',), token) for item in data['issues']]
         files = get('/api/measures/component_tree', {'component': reader.PROJECT,
-            'metricKeys': 'new_duplicated_lines_density,new_duplicated_lines', 'qualifiers': 'FIL', 'ps': '100', 'p': '1'})
+            'metricKeys': 'new_duplicated_lines_density,new_duplicated_lines', 'qualifiers': 'FIL', 'strategy': 'all', 'ps': '500', 'p': '1'})
         duplicated = []
         for item in files.get('components', []):
             key = item.get('key', '')
             if not key.startswith(reader.PROJECT + ':'):
                 raise ValueError('Unexpected project')
             metrics = item.get('measures', [])
-            values = [m.get('value', m.get('period', {}).get('value', '0')) for m in metrics]
+            values = [value for m in metrics for value in [m.get('value', '0'), m.get('period', {}).get('value', '0'), *[p.get('value', '0') for p in m.get('periods', [])]]]
             if not any(float(value) > 0 for value in values):
                 continue
             blocks = get('/api/duplications/show', {'key': key})
