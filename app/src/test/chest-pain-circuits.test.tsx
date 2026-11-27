@@ -18,6 +18,19 @@ const labels = [
 
 for (const base of ['/clinical', '/guides'] as const) {
   const routes = [{ path: `${base}/:id`, element: base === '/clinical' ? <ClinicalLibrary /> : <ClinicalGuides /> }];
+  it(`${base} offers observation separately without declaring a cause or clearing discharge`, async () => {
+    await renderAt(`${base}/non-coronary-chest-pain`, routes, 'en');
+    const panel = screen.getByRole('navigation', { name: 'Reassessment and disposition' });
+    expect(panel).toHaveTextContent('does not authorize discharge');
+    const guide = getCanonicalGuide('observation-discharge')!;
+    const link = within(panel).getByRole('link');
+    expect(link).toHaveAttribute('href', `${base}/observation-discharge`);
+    expect(link).toHaveTextContent(guide.status);
+    expect(screen.getByRole('heading', { level: 1, name: getCanonicalGuide('non-coronary-chest-pain')!.title })).toBeInTheDocument();
+    fireEvent.click(link);
+    expect(await screen.findByRole('heading', { level: 1, name: guide.title })).toBeInTheDocument();
+    expect(screen.queryByRole('navigation', { name: 'Reassessment and disposition' })).not.toBeInTheDocument();
+  });
   it.each(labels)(`${base} keeps manual canonical links and warning in %s`, async (lang, label) => {
     const { container } = await renderAt(`${base}/non-coronary-chest-pain`, routes, lang);
     const panel = screen.getByRole('navigation', { name: label });

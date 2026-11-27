@@ -26,6 +26,34 @@ function selectors(panel: HTMLElement) {
 
 for (const base of ['/clinical', '/guides']) {
   describe(`${base} informational product reference`, () => {
+    it.each([
+      ['labetalol', 'Labetalol Pharmakern', '5767504'],
+      ['esmolol', 'Brevibloc', '5303045'],
+      ['nitroglycerin', 'Gtn', '2585081'],
+    ])('separates Portuguese %s documentary identity from an operational profile', async (id, product, registration) => {
+      const user = userEvent.setup();
+      await renderAt(`${base}/${moduleId}`, routes, 'en');
+      const panel = screen.getByRole('region', { name: languages[2][1] });
+      const [drug, country] = selectors(panel);
+      await user.selectOptions(drug, id);
+      expect(within(panel).queryByRole('article')).not.toBeInTheDocument();
+      await user.selectOptions(country, 'PT');
+      const document = within(panel).getByRole('article');
+      expect(document).toHaveTextContent(product);
+      expect(document).toHaveTextContent(registration);
+      expect(panel).toHaveTextContent('Current national status and local stock remain unverified');
+      expect(panel).toHaveTextContent('Not enabled: information only');
+      if (id === 'labetalol') expect(panel).toHaveTextContent('original labetalol product in the compound source remains unidentified');
+      if (id === 'nitroglycerin') {
+        expect(document).toHaveTextContent('11/2022');
+        expect(document).toHaveTextContent('Sections 4.2 and 4.3 differ');
+      }
+      expect(panel.querySelector('input, output, button')).toBeNull();
+      expect(panel).not.toHaveTextContent(/mg\/h|mL\/h/);
+      await user.selectOptions(drug, 'nicardipine');
+      expect(within(panel).queryByRole('article')).not.toBeInTheDocument();
+      expect(panel).not.toHaveTextContent(registration);
+    });
     it.each(languages)('requires manual drug and jurisdiction even in %s', async (lang, name) => {
       await renderAt(`${base}/${moduleId}`, routes, lang);
       const panel = screen.getByRole('region', { name });
