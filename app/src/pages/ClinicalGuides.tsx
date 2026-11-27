@@ -8,6 +8,7 @@ import { clinicalGuides, getClinicalGuide } from '../clinical-guides/guides';
 import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clinical-guides/canonical';
 import { Icon } from '../components/Icon';
 import { ResuscitationCircuits, ResuscitationShortcut } from '../components/ResuscitationCircuits';
+import { ChestPainCircuits } from '../components/ChestPainCircuits';
 
 type GuideStatus = 'green' | 'yellow' | 'red';
 
@@ -229,6 +230,7 @@ export default function ClinicalGuides() {
         <CountryReferences key={id} moduleId={id ?? ''} />
         {canonicalGuide ? <CanonicalBody guide={canonicalGuide} /> : null}
         {canonicalGuide?.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/guides" /> : null}
+        {canonicalGuide && <ChestPainCircuits moduleId={canonicalGuide.id} base="/guides" />}
 
         <footer className="mt-5 border-t border-slate-300 pt-3 text-[10px] leading-relaxed text-slate-600">
           {quickGuide ? <p><strong>Referencias:</strong> {quickGuide.references.join(' · ')}</p> : null}

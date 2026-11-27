@@ -31,3 +31,11 @@ La especificación experimental añade 14 variantes DEV-DERM sobre siete casos S
 HASH_FORMAT_RECONCILIATION.json distingue el hash físico Windows CRLF del blob Git LF del overlay dermatológico, con equivalencia exacta de contenido y 13 comprobaciones documentales ejecutadas de nuevo. El overlay de PR121 y PR123 es idéntico por blob. No se modificaron originales ni píxeles.
 
 Tres pruebas funcionales adicionales (fuente957492) y lint focal PASS: portada habitual, opt-in portugués/cambio a inglés, y navegación de búsqueda con caracteres reservados sin inyección de parámetros ni fragmentos. No se atribuye cobertura local medida ni se sustituye la CI del nuevo SHA.
+
+## Continuación CARDIO-06 — matriz versión3
+
+PR123 permanece congelada en 1ba53d4, árbol6cf5c2e, con6workflows/17checksPASS y revisión Codex separada favorable. El candidato posterior añade únicamente cinco enlaces manuales a destinos existentes en non-coronary-chest-pain de /clinical y /guides. No modifica cuerpos clínicos ni cifras. Labels nuevos en4idiomas, títulos/estados heredados del catálogo, aviso pendiente y exclusión de impresión preservados. Es parcial: no inventa módulos para las otras causas del original.
+
+Fuentee2a49e6:28tests,lint ybuild-securityPASS; contiene163módulos sin picomatch y2mapas/44fuentes de service-worker comprobados. Revisión de navegador separada:2estadosChrome,5enlaces y clic manual a SCA correctos, cero desbordamientos/errores. El transporte conserva límite de bundle interceptado, sin backend/HTTP/impresiónnativa. Recibos y comparación de las seis fichas en ../cardio06-manual-circuits-20261127/. Un prefijo local de log se redactó en la copia pública, con hashes y representación documentados; fuente original conservada. Esta nueva composición requiere CI propia y no hereda los17PASS.
+
+El propietario confirma literalmente SIN IDENTIFICAR para el producto de insulina. Se conserva SHORT_ACTING_PRODUCT_UNSPECIFIED sin inferir producto, concentración o equivalencia; no es una aprobación clínica nueva. La matriz única tiene23IDs y mantiene los pendientes científicos, de privacidad y experimentales.

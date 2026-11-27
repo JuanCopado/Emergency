@@ -347,5 +347,8 @@
   "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "Search and filters apply to “All clinical modules”.",
   "Prueba otro término o restablece la búsqueda y los filtros.": "Try another term or reset your search and filters.",
   "No hay coincidencias.": "No matches.",
-  "Prueba otro nombre, ID o filtro.": "Try another name, ID or filter."
+  "Prueba otro nombre, ID o filtro.": "Try another name, ID or filter.",
+  "Circuitos por causa de dolor torácico": "Chest pain cause pathways",
+  "Abrir un circuito existente": "Open an existing pathway",
+  "CLINICALLY_PENDING · Selección manual según la evaluación clínica y la guía anterior. Estos enlaces no seleccionan un diagnóstico ni indican un tratamiento.": "CLINICALLY_PENDING · Manual selection according to clinical assessment and the guide above. These links do not select a diagnosis or indicate treatment."
 }
