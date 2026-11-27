@@ -46,6 +46,30 @@ async function identity(page,artifact){
  await page.waitForFunction(sha=>document.querySelector('[data-testid="build-identity"] code')?.getAttribute('title')===sha,artifact.source_sha,{timeout:35000});
  assert.equal(await page.getByTestId('build-identity').locator('code').getAttribute('title'),artifact.source_sha);
 }
+async function launchedNativePage(targetId){
+ const deadline=Date.now()+25000;
+ const observed=new Set();
+ while(Date.now()<deadline){
+  for(const candidate of context.pages()){
+   if(candidate.isClosed())continue;
+   let cdp;
+   try{
+    cdp=await context.newCDPSession(candidate);
+    const {targetInfo}=await cdp.send('Target.getTargetInfo');
+    observed.add(targetInfo.targetId);
+    if(targetInfo.targetId===targetId){
+     result.native_target_matching={requested:targetId,matched:targetInfo.targetId,observed:[...observed]};
+     return candidate;
+    }
+   }catch(error){if(!candidate.isClosed())throw error;}
+   finally{if(cdp)await cdp.detach().catch(()=>{});}
+  }
+  await new Promise(resolve=>setTimeout(resolve,100));
+ }
+ const targets=await session.send('Target.getTargets');
+ result.native_target_matching={requested:targetId,observed:[...observed],timeout_targets:targets.targetInfos.map(({targetId,type})=>({targetId,type}))};
+ throw new Error('PWA.launch target was not attached in the owned browser context: '+targetId);
+}
 try{
  const [a,b]=proof.artifacts;select(a);owned=await launch();const origin=owned.info.url;
  result.executable='C:/Program Files/Google/Chrome/Application/chrome.exe';
@@ -73,11 +97,11 @@ try{
   await session.send('PWA.install',{manifestId,installUrlOrBundleUrl:origin+'/'});
   nativeInstalled=true;
   const state=await session.send('PWA.getOsAppState',{manifestId});
-  const nativePagePromise=context.waitForEvent('page',{timeout:20000});
-  void nativePagePromise.catch(()=>{}); // Prevent an unhandled rejection if launch itself fails.
   const launched=await session.send('PWA.launch',{manifestId});
   assert.ok(launched.targetId);
-  const nativePage=await nativePagePromise;
+  // PWA.install may open a different page before PWA.launch does. Match the
+  // returned CDP target identity, never the first generic page event.
+  const nativePage=await launchedNativePage(launched.targetId);
   await nativePage.waitForLoadState('domcontentloaded');
   const nativeSession=await context.newCDPSession(nativePage);
   const target=await nativeSession.send('Target.getTargetInfo');
@@ -87,7 +111,8 @@ try{
   assert.equal(await nativePage.evaluate(()=>matchMedia('(display-mode: standalone)').matches),true);
   result.native_pwa={status:'PASS',manifest_id:manifestId,state,target_created:true,target_id:launched.targetId,standalone:true};
   // Execute the actual update/rollback proof in the launched OS app window.
-  await page.close();page=nativePage;
+  for(const other of context.pages())if(other!==nativePage)await other.close();
+  page=nativePage;
  }catch(error){result.native_pwa={status:'FAILED',error:String(error)};throw error;}
  const dirty=await context.newPage();await dirty.goto(origin+'/clinical-note',{waitUntil:'networkidle'});
  await dirty.locator('textarea').first().fill('SYNTHETIC OPEN ENCOUNTER — DO NOT RELOAD');

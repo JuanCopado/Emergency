@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Link, MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -9,7 +9,10 @@ vi.mock('react-i18next', () => ({ useTranslation: () => ({ i18n: { language: 'en
 
 function Note() {
   const [value, setValue] = useNoteDraftField('hpi');
+  const [localValue, setLocalValue] = useState('');
   return <><input aria-label="Synthetic episode" value={value} onChange={e => setValue(e.target.value)} />
+    <input aria-label="Synthetic screen-local form" value={localValue} onChange={e => setLocalValue(e.target.value)} />
+    <Link to="?weight=80#result" replace>Change same-screen query and hash</Link>
     <Link to="/pediatrics">Unseen pediatrics</Link><Link to="/procedures">Unseen procedures</Link></>;
 }
 function mount(load: () => Promise<{ default: () => React.JSX.Element }>) {
@@ -34,6 +37,31 @@ describe('individual lazy routes preserve the draft across worker replacement', 
     fireEvent.click(screen.getByText('Unseen procedures'));
     expect(missing).not.toHaveBeenCalled();
     expect(screen.getByLabelText('Synthetic episode')).toHaveValue('SYNTHETIC RETAINED');
+  });
+  it('retains the current component instance and local form when a denied URL gets a new history key', async () => {
+    const missing = vi.fn(() => Promise.reject(new Error('Missing old chunk')));
+    mount(missing);
+    const localInput = screen.getByLabelText('Synthetic screen-local form');
+    fireEvent.change(localInput, { target: { value: 'SYNTHETIC LOCAL VALUES' } });
+    act(localWorkerNeedsReload);
+    fireEvent.click(screen.getByText('Unseen pediatrics'));
+    await screen.findByTestId('local-stale-navigation');
+    // A second denied attempt also lets React flush the replace-navigation from
+    // the first attempt, proving that its new location.key did not reset state.
+    fireEvent.click(screen.getByText('Unseen procedures'));
+    expect(screen.getByLabelText('Synthetic screen-local form')).toBe(localInput);
+    expect(localInput).toHaveValue('SYNTHETIC LOCAL VALUES');
+    expect(missing).not.toHaveBeenCalled();
+  });
+  it('retains the component instance and local form during ordinary same-screen query/hash replacement', async () => {
+    const missing = vi.fn(() => Promise.reject(new Error('Unvisited lazy route')));
+    mount(missing);
+    const localInput = screen.getByLabelText('Synthetic screen-local form');
+    fireEvent.change(localInput, { target: { value: 'SYNTHETIC QUERY-BOUND FORM' } });
+    fireEvent.click(screen.getByText('Change same-screen query and hash'));
+    expect(screen.getByLabelText('Synthetic screen-local form')).toBe(localInput);
+    expect(localInput).toHaveValue('SYNTHETIC QUERY-BOUND FORM');
+    expect(missing).not.toHaveBeenCalled();
   });
   it('checks runtime identity before an unseen import and refuses mismatched bytes', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ source_sha: 'b'.repeat(40) }) }));

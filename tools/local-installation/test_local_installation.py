@@ -135,7 +135,10 @@ class LocalReleaseTests(unittest.TestCase):
         source.mkdir()
         dist.mkdir()
         def git(*args):
-            return subprocess.check_output(["git", "-c", "user.name=Synthetic Fixture", "-c", "user.email=fixture@localhost", "-c", "commit.gpgsign=false", *args], cwd=source, text=True, stderr=subprocess.DEVNULL).strip()
+            try:
+                return subprocess.check_output(["git", "-c", "user.name=Synthetic Fixture", "-c", "user.email=fixture@localhost", "-c", "commit.gpgsign=false", *args], cwd=source, text=True, stderr=subprocess.PIPE).strip()
+            except subprocess.CalledProcessError as error:
+                raise AssertionError(f"Synthetic Git {args[0]} failed: {error.stderr}") from error
         git("init", "--initial-branch=fixture")
         (source / "source.txt").write_text("synthetic input")
         git("add", "source.txt")

@@ -35,7 +35,9 @@ export function IndividualRouteGuard({ children, individual = import.meta.env.VI
   const visited = useRef(new Set([requested.pathname]));
   const update = useSyncExternalStore(subscribeLocalUpdate, localUpdateSnapshot, localUpdateSnapshot);
   useEffect(() => {
-    if (!individual || requested.key === rendered.key) return;
+    // Restoring the URL after a refused navigation creates a fresh history key.
+    // It is still the SAME rendered screen: do not remount its local form state.
+    if (!individual || (requested.pathname === rendered.pathname && requested.search === rendered.search && requested.hash === rendered.hash)) return;
     let cancelled = false;
     const permit = () => {
       if (cancelled) return;
@@ -68,7 +70,9 @@ export function IndividualRouteGuard({ children, individual = import.meta.env.VI
     {blocked && <div role="status" data-testid="local-stale-navigation" className="p-4">
       {text.blocked}
     </div>}
-    <PageBoundary key={rendered.key} text={text} recover={() => navigate('/clinical-note')}>
+    {/* Query/hash edits and detail IDs can update one screen's own form state.
+        A history entry is not a component identity or an error-reset boundary. */}
+    <PageBoundary key={rendered.pathname.split('/')[1] || '/'} text={text} recover={() => navigate('/clinical-note')}>
       {children(rendered)}
     </PageBoundary>
   </>;
