@@ -92,5 +92,43 @@
       "summary": "Individual US source identity exists in the canonical registry. This focal does not newly validate all presentations, contraindications or any ES/PT product identity; retain existing safety restrictions."
     }
   ],
-  "portugalLookup": "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento"
+  "portugalLookup": "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento",
+  "portugalDocuments": [
+    {
+      "drug": "labetalol",
+      "product": "Labetalol Pharmakern",
+      "registration": "5767504",
+      "country": "PT",
+      "operationalVerified": false,
+      "scope": "Identidad en el catálogo del fabricante; RCM individual vigente pendiente. No identifica el producto original de la fuente compuesta.",
+      "version": "Kern Pharma / Pharmakern · 21/03/2025 (site update)",
+      "locator": "N.º Registo · Forma Farmacêutica · Apresentação",
+      "url": "https://www.kernpharma.com/pt/portfolio-generico-cardiovascular/labetalol-pharmakern-5-mg-ml",
+      "discrepancy": ""
+    },
+    {
+      "drug": "esmolol",
+      "product": "Brevibloc",
+      "registration": "5303045",
+      "country": "PT",
+      "operationalVerified": false,
+      "scope": "Identidad histórica INFARMED; RCM individual vigente pendiente. La notificación de escasez de EMA no acredita existencias locales.",
+      "version": "INFARMED · Deliberação 055/CD/2025 · maio 2025",
+      "locator": "Anexo · N.º registo 5303045",
+      "url": "https://www.infarmed.pt/documents/15786/9423565/Delibera%C3%A7%C3%A3o%2B055%2B-%2BExporta%C3%A7%C3%A3o%2Btemporariamente%2Bsuspensa%2B-%2Bmaio%2B2025/cb082376-d658-3b5a-2bca-24f54e1e39bb",
+      "discrepancy": ""
+    },
+    {
+      "drug": "nitroglycerin",
+      "product": "Gtn",
+      "registration": "2585081",
+      "country": "PT",
+      "operationalVerified": false,
+      "scope": "RCM portugués publicado por el titular recuperado; revisión vigente en Infomed pendiente.",
+      "version": "Laboratórios Pfizer, Lda. · RCM 11/2022",
+      "locator": "RCM §§ 1–3, 4.2–4.3, 7–10 · pp. 1–3, 9",
+      "url": "https://labeling.pfizer.com/ShowLabeling.aspx?id=6583",
+      "discrepancy": "Las secciones 4.2 y 4.3 difieren sobre niños y personas mayores; no resolver esta discrepancia como una regla clínica automática."
+    }
+  ]
 }

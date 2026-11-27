@@ -17,6 +17,7 @@ function ReferenceSelector() {
   const [country, setCountry] = useState('');
   const row = reference.referenceRows.find(item => item.drug === drug);
   const products = reference.productReferences.filter(item => item.drug === drug && item.country === country);
+  const portugalDocuments = reference.portugalDocuments.filter(item => item.drug === drug);
   return (
     <section aria-labelledby={`${labelId}-title`} className="no-print mt-5 space-y-4 rounded-xl border border-border p-4">
       <h2 id={`${labelId}-title`} className="font-bold">{ui('Referencia informativa de antihipertensivos IV')}</h2>
@@ -53,7 +54,20 @@ function ReferenceSelector() {
         <p className="text-sm"><strong>{ui('Perfil operativo')}: </strong>{ui('No habilitado: consulta informativa sin cálculos de administración.')}</p>
         {drug === 'labetalol' && <p className="text-sm">{ui('El producto original de labetalol de la fuente compuesta sigue sin identificar; no mezclar etiquetas ni asumir un error universal.')}</p>}
         {country === 'PT' ? <div className="space-y-2 text-sm">
-          <p>{ui('Producto, RCM y disponibilidad local no establecidos; no demuestra ausencia ni existencias.')}</p>
+          {portugalDocuments.length ? <>
+            <p>{ui('Identidad documental portuguesa; no confirma un perfil operativo. Estado nacional vigente y existencias locales sin verificar.')}</p>
+            {portugalDocuments.map(document => <article key={document.registration} className="space-y-2 rounded-lg border border-border p-3">
+              <h3 className="font-bold">{document.product}</h3>
+              <dl>
+                <dt className="font-bold">{ui('Identidad del producto')}</dt><dd>PT · {document.registration}</dd>
+                <dt className="font-bold">{ui('Verificación de la fuente')}</dt><dd>{ui(document.scope)}</dd>
+                <dt className="font-bold">{ui('Procedencia y versión de la fuente')}</dt><dd>{document.version}</dd>
+                <dd>{document.locator}</dd>
+              </dl>
+              {document.discrepancy && <p>{ui(document.discrepancy)}</p>}
+              <a href={document.url} target="_blank" rel="noreferrer" className="inline-block break-all underline">{ui('Consultar fuente oficial')}</a>
+            </article>)}
+          </> : <p>{ui('Producto, RCM y disponibilidad local no establecidos; no demuestra ausencia ni existencias.')}</p>}
           <a href={reference.portugalLookup} target="_blank" rel="noreferrer" className="inline-block break-all underline">{ui('Consultar fuente oficial')}</a>
         </div> : products.length ? products.map(product => <article key={product.identity} className="space-y-2 rounded-lg border border-border p-3 text-sm">
           <h3 className="font-bold">{product.product}</h3>

@@ -18,7 +18,9 @@ export function ChestPainCircuits({ moduleId, base }: {
 }) {
   const ui = useClinicalUi();
   if (moduleId !== 'non-coronary-chest-pain') return null;
+  const observation = getCanonicalGuide('observation-discharge');
   return (
+    <>
     <nav aria-label={ui('Circuitos por causa de dolor torácico')} className="no-print mt-5 rounded-xl border border-border p-4">
       <h2 className="font-bold">{ui('Abrir un circuito existente')}</h2>
       <p className="mt-1 text-sm">{ui('CLINICALLY_PENDING · Selección manual según la evaluación clínica y la guía anterior. Estos enlaces no seleccionan un diagnóstico ni indican un tratamiento.')}</p>
@@ -34,5 +36,14 @@ export function ChestPainCircuits({ moduleId, base }: {
         })}
       </div>
     </nav>
+    {observation && <nav aria-label={ui('Reevaluación y destino')} className="no-print mt-4 rounded-xl border border-border p-4">
+      <h2 className="font-bold">{ui('Reevaluación y destino')}</h2>
+      <p className="mt-1 text-sm">{ui('Acceso manual al circuito de observación; no establece una causa benigna ni autoriza el alta. Mantener los criterios de reevaluación y seguridad de la guía anterior.')}</p>
+      <Link to={`${base}/${observation.id}`} className="mt-3 block rounded-lg border border-border p-3 hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+        <span className="block text-sm font-semibold">{observation.title}</span>
+        <EvidenceStatusPill status={observation.status} />
+      </Link>
+    </nav>}
+    </>
   );
 }

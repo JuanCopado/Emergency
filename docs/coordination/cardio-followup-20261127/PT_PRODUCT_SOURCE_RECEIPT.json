@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-27",
+  "scope": "Documentary PT product identification only; no dose acquisition or operational activation",
+  "executor": "Codex internal read-only primary-source research, reused by implementation writer; not independent clinical audit",
+  "status": "CLINICALLY_PENDING",
+  "products": [
+    {
+      "drug": "labetalol",
+      "product": "Labetalol Pharmakern",
+      "registration": "5767504",
+      "country": "PT",
+      "published_holder": "Pharmakern Portugal – Produtos Farmacêuticos, Sociedade Unipessoal, Lda.",
+      "primary_url": "https://www.kernpharma.com/pt/portfolio-generico-cardiovascular/labetalol-pharmakern-5-mg-ml",
+      "locator": "N.º Registo; Forma Farmacêutica; Apresentação; declared site update 21/03/2025",
+      "reading": "Manufacturer Portuguese portfolio identity recovered; not an individual SmPC",
+      "corroboration": "EMA/494419/2020, PSUSA/00001814/202002 p.6/10 PT row: indexed official metadata only; PDF open HTTP429, not a new full reading",
+      "individual_current_smpc_recovered": false,
+      "current_national_status": "UNVERIFIED",
+      "local_stock": "UNVERIFIED",
+      "operational_verified": false,
+      "original_inherited_labetalol_identity": "NOT_ESTABLISHED_BY_THIS_PRODUCT"
+    },
+    {
+      "drug": "esmolol",
+      "product": "Brevibloc",
+      "registration": "5303045",
+      "country": "PT",
+      "primary_url": "https://www.infarmed.pt/documents/15786/9423565/Delibera%C3%A7%C3%A3o%2B055%2B-%2BExporta%C3%A7%C3%A3o%2Btemporariamente%2Bsuspensa%2B-%2Bmaio%2B2025/cb082376-d658-3b5a-2bca-24f54e1e39bb",
+      "locator": "Deliberação 055/CD/2025, May2025, row5303045",
+      "reading": "Historical official registration/presentation recovered; export suspension is not asserted current",
+      "secondary_primary_url": "https://www.ema.europa.eu/en/medicines/human/shortages/brevibloc",
+      "secondary_locator": "Member States affected; Monitoring of shortage; Key dates; first published02/09/2026",
+      "secondary_limit": "EMA lists Portugal as marketed/affected at brand level; not current national confirmation of each presentation or hospital stock",
+      "individual_current_smpc_recovered": false,
+      "current_holder": "NOT_NATIONALLY_CROSSCHECKED",
+      "current_national_status": "UNVERIFIED_AT_PRESENTATION_LEVEL",
+      "local_stock": "UNVERIFIED",
+      "operational_verified": false
+    },
+    {
+      "drug": "nitroglycerin",
+      "product": "Gtn",
+      "registration": "2585081",
+      "country": "PT",
+      "holder": "Laboratórios Pfizer, Lda., Portugal",
+      "primary_url": "https://labeling.pfizer.com/ShowLabeling.aspx?id=6583",
+      "locator": "9page Portuguese RCM; sections1–3,4.1–4.4,6.2,7–10; identity/revision visually checkedp9; discrepancy checkedp3",
+      "revision": "11/2022, section10",
+      "reading": "Individual Portuguese SmPC from holder recovered; not asserted to be current Infomed revision",
+      "individual_smpc_recovered": true,
+      "current_national_revision": "UNVERIFIED",
+      "commercialization": "UNVERIFIED",
+      "local_stock": "UNVERIFIED",
+      "discrepancy": "Section4.2 not recommended for children/older people versus section4.3 contraindication; no automated clinical resolution",
+      "operational_verified": false
+    }
+  ],
+  "remaining_generics": [
+    {"drug": "nicardipine", "finding": "INFARMED referral annex in Portuguese does not establish individual PT IV product; AnnexI pp2–3 lists other countries", "url": "https://www.infarmed.pt/documents/15786/1886316/Nicardipina%2Banexo/478eef0e-f5e9-427a-aab4-c15c21f63a33?version=1.0", "operational_verified": false},
+    {"drug": "clevidipine", "finding": "Historical EMA/370887/2024 PSUSA/00010288/202311 list recovered without PT identity; later p3 query429, not full current reading", "url": "https://www.ema.europa.eu/en/documents/psusa/clevidipine-list-nationally-authorised-medicinal-products-psusa-00010288-202311_en.pdf", "operational_verified": false},
+    {"drug": "hydralazine", "finding": "Historical Hydrapress AUE acquisition/recall, Circular30/CD/100.20.200 24/02/2016 p1; no current AIM/AUE/stock; no dihydralazine substitution", "url": "https://www.infarmed.pt/documents/15786/1089098/Hydrapress%2B%28hidralazina%29%2B-%2BAlerta%2Baos%2Bprofissionais%2Bde%2Bsa%C3%BAde%2Bdecorrente%2Bda%2Brecolha%2Bde%2Bmercado/afc027dd-45a7-4c84-a805-01ff4c952838?version=1.1", "operational_verified": false},
+    {"drug": "nitroprusside", "finding": "No sufficient individual current PT primary product source recovered; secondary absence/revocation claims not accredited", "operational_verified": false}
+  ],
+  "infomed": {"url": "https://extranet.infarmed.pt/INFOMED-fo/", "reading": "Public entry recovered; authorized/marketed filters distinguished; individual interactive records not recovered", "limit": "Web form not operable; shell proxy403; CUA environment initialization failure. These failures do not prove absence."},
+  "original_labetalol_blocker": {
+    "source": "clinical/references/evidence-sources.json src-05cc8d80; clinical/qa/EVIDENCE_RENEWAL_2026-11-13.json iv-antihypertensive-selection; prior cardio05 SOURCE_FOCAL_RECEIPT.json",
+    "finding": "Composite ESC/DailyMed provenance lacks individual label setid, manufacturer and version; Onesource and Hikma references remain separate",
+    "required_artifact": "Primary individual artifact or acquisition receipt linking inherited example to exact label/version",
+    "identity": "SIN_IDENTIFICAR",
+    "no_prior_zip_used_as_new_evidence": true
+  },
+  "insulin_product": "SIN_IDENTIFICAR",
+  "no_local_hospital_stock_inferred": true,
+  "no_doses_or_parameters_added": true,
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

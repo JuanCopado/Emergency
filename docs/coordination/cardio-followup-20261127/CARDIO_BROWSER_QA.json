@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "platform": "linux",
+  "cases": [
+    {
+      "lang": "es",
+      "route": "/clinical",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "es",
+      "route": "/guides",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "pt",
+      "route": "/clinical",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "pt",
+      "route": "/guides",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "en",
+      "route": "/clinical",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "en",
+      "route": "/guides",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "zh",
+      "route": "/clinical",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    },
+    {
+      "lang": "zh",
+      "route": "/guides",
+      "width": 360,
+      "monitoringRows": 4,
+      "algorithms": 4,
+      "observation": "manual navigation PASS",
+      "ptIdentities": 3,
+      "unknownDrugs": 4,
+      "administrationControls": 0
+    }
+  ],
+  "errors": [],
+  "browser": "154.0.8037.57"
+}
