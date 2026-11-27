@@ -1,0 +1,3 @@
+# Custody receipts retain their observed raw bytes across Windows/Linux checkout.
+*.json -text
+.gitattributes -text
