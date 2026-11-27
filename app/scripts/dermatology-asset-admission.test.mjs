@@ -36,10 +36,12 @@ describe('product/repository dermatology admission contract', () => {
     const reordered = { ...policy, assets: policy.assets.map((asset) =>
       Object.fromEntries(Object.entries(asset).reverse())) };
     expect(validateManifest(reordered)).toMatchObject({ assets: 24, cases: 23, product_media_admitted: 0 });
-    expect(checkRepository(repository)).toMatchObject({ status: 'PASS', registry_assets: 24,
+    const repositoryResult = checkRepository(repository);
+    expect(repositoryResult.issues).toEqual([]);
+    expect(repositoryResult).toMatchObject({ status: 'PASS', registry_assets: 24,
       product_catalog_size: 0, product_media_admitted: 0, clinical: 'CLINICALLY_PENDING' });
     expect(productAssetCatalog(policy)).toEqual([]);
-    expect(protectedHashIndex(policy).size).toBe(26);
+    expect(protectedHashIndex(policy).size).toBe(31);
   });
 
   it('permits documentary metadata for every source while denying every product media request', () => {
@@ -51,6 +53,33 @@ describe('product/repository dermatology admission contract', () => {
       }
     }
     expect(() => authorizeAssetImport(policy, 'missing', 'product_display')).toThrow('DERM_UNKNOWN_ASSET');
+  });
+
+  it('contains all five new derivative hashes without granting their four parent assets a media purpose', () => {
+    const index = protectedHashIndex(policy);
+    expect(policy.technical_containment.derivatives).toHaveLength(5);
+    for (const row of policy.technical_containment.derivatives) {
+      expect(index.get(row.derivative_sha256)).toBe(row.asset_id);
+      expect(() => authorizeAssetImport(policy, row.asset_id, 'external_service_transfer')).toThrow('NOT_ADMITTED');
+    }
+  });
+
+  it('rejects missing, spoofed and structurally invalid containment records before scanning', () => {
+    for (const mutate of [
+      (p) => { p.technical_containment.schema_version = 'other'; },
+      (p) => { p.technical_containment.purpose = 'PRODUCT_ADMISSION'; },
+      (p) => { p.technical_containment.product_media_admitted = true; },
+      (p) => { p.technical_containment.derivatives = []; },
+      (p) => { p.technical_containment.derivatives[0].source_sha256 = '0'.repeat(64); },
+      (p) => { p.technical_containment.derivatives[0].derivative_sha256 = 'invalid'; },
+      (p) => { p.technical_containment.derivatives[0].frame_index = -1; },
+      (p) => { p.technical_containment.derivatives[0] = null; },
+      (p) => { p.technical_containment.derivatives[0].unrestricted_consent = true; },
+      (p) => { p.technical_containment.evidence_sha256 = '0'.repeat(64); },
+    ]) {
+      const changed = structuredClone(policy); mutate(changed);
+      fixture(({ root }) => expect(() => checkRepository(root)).toThrow('POLICY_INVALID'), changed);
+    }
   });
 
   it('rejects actual persisted permission escalation before scanning any media', () => {
@@ -112,5 +141,46 @@ describe('product/repository dermatology admission contract', () => {
     const result = checkRepository(root);
     expect(result).toMatchObject({ status: 'PASS', examined_raster_files: 0, product_catalog_size: 0 });
     // This explicitly documents the scan boundary; it is not a privacy certificate for ignored folders.
+  }));
+
+  it('scans artifact basenames under public and arbitrary nested directories, including extensionless files', () => fixture(({ root, put }) => {
+    const locations = ['app/public/dist/a.png', 'app/public/nested/coverage/a.png',
+      'app/public/a/b/node_modules/a.png', 'docs/.cache/a.png', 'dist', 'app/public/coverage'];
+    for (const location of locations) put(location, bytes);
+    const result = scanMediaFiles(root, new Map([[hash(bytes), 'SYNTHETIC_EXACT_BYTE_IDENTITY']]));
+    expect(result.examined_raster_files).toBe(locations.length);
+    expect(result.issues).toHaveLength(locations.length);
+    expect(result.issues.every((issue) => issue.code === 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED')).toBe(true);
+  }));
+
+  it('isolates the exact OCR dependency boundary while retaining the real repository scan and public rejection', () => fixture(({ root, put }) => {
+    const target = path.dirname(put('fixture-target/package.txt', 'synthetic package'));
+    const bins = path.join(root, 'tools/blood-gas-ocr/node_modules/.bin');
+    fs.mkdirSync(bins, { recursive: true });
+    fs.symlinkSync(target, path.join(bins, 'fixture'), process.platform === 'win32' ? 'junction' : 'dir');
+    expect(checkRepository(root).status).toBe('PASS');
+    put('app/public/tools/blood-gas-ocr/node_modules/hidden.png', bytes);
+    expect(scanMediaFiles(root, new Map([[hash(bytes), 'SYNTHETIC_ASSET']])).issues)
+      .toContainEqual({ code: 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED', asset_id: 'SYNTHETIC_ASSET' });
+  }));
+
+  it('retains reserved namespace protection below nested artifact and dependency names', () => fixture(({ root, put }) => {
+    const locations = ['app/public/dermatology/dist/a.png',
+      'app/public/dermatology/deep/node_modules/a.png',
+      'app/src/assets/dermatology/a/coverage/a.png', 'clinical/assets/dermatology/a/b/.venv/a.png'];
+    for (const location of locations) put(location, bytes);
+    const result = checkRepository(root);
+    expect(result.issues).toHaveLength(locations.length);
+    expect(result.issues.every((issue) => issue.code === 'DERM_RESERVED_MEDIA_NOT_ADMITTED')).toBe(true);
+  }));
+
+  it('rejects public artifact links and dependency junctions before path exclusions', () => fixture(({ root }) => {
+    const target = path.join(root, 'target'); fs.mkdirSync(target);
+    for (const location of ['app/public/dist', 'app/public/dermatology/coverage', 'app/node_modules']) {
+      const link = path.join(root, location); fs.mkdirSync(path.dirname(link), { recursive: true });
+      fs.symlinkSync(target, link, process.platform === 'win32' ? 'junction' : 'dir');
+    }
+    expect(checkRepository(root).issues).toEqual(
+      Array.from({ length: 3 }, () => ({ code: 'DERM_SCAN_LINK_FORBIDDEN' })));
   }));
 });

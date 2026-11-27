@@ -150,6 +150,11 @@ def secure_view(raw):
            "main{max-width:1000px;margin:auto}figure{margin:16px 0;padding:16px;border:2px solid #94a3b8}"
            ".enlarged{image-rendering:pixelated;max-width:100%;height:auto}"
            "code{overflow-wrap:anywhere}summary{cursor:pointer}img{background:#000}"
+           ".scale-views figure{display:none}.scale-controls label{margin-right:16px}"
+           ".scale-controls input:focus-visible+label{outline:3px solid #facc15;outline-offset:4px}"
+           "#scale-native:checked~.scale-views #native-pixels{display:block}"
+           "#scale-four:checked~.scale-views #four-pixels{display:block}"
+           "#scale-eight:checked~.scale-views #eight-pixels{display:block}"
            "@media print{body{background:#fff;color:#000}}")
     style_hash = base64.b64encode(hashlib.sha256(css.encode("utf8")).digest()).decode("ascii")
     policy = ("default-src 'none'; img-src data:; style-src 'sha256-"+style_hash
@@ -161,11 +166,25 @@ def secure_view(raw):
             '<title>Synthetic DICOM laboratory</title><style>'+css+'</style></head><body><main>'
             '<h1>Synthetic DICOM laboratory</h1><p><strong>No diagnostic use. CLINICALLY_PENDING.</strong></p>'
             '<p>Registered procedural phantom. 64 × 64 pixels; grayscale 8-bit; no patient image.</p>'
-            '<figure><figcaption>Native pixels, 1:1</figcaption><img width="64" height="64" '
+            '<fieldset class="scale-controls" aria-describedby="scale-help">'
+            '<legend>Display scale; source pixels unchanged</legend>'
+            '<p id="scale-help">Choose a scale with the radio controls. Arrow keys change the selection. '
+            'This changes display size only, not image contrast or source pixels. '
+            'Scales are nominal CSS sizes and may shrink to fit the viewport; no display calibration.</p>'
+            '<input type="radio" name="display-scale" id="scale-native" value="1" checked>'
+            '<label for="scale-native">1:1 native pixels</label>'
+            '<input type="radio" name="display-scale" id="scale-four" value="4">'
+            '<label for="scale-four">4× nearest-neighbour display</label>'
+            '<input type="radio" name="display-scale" id="scale-eight" value="8">'
+            '<label for="scale-eight">8× nearest-neighbour display</label>'
+            '<div class="scale-views"><figure id="native-pixels"><figcaption>Native pixels, 1:1</figcaption><img width="64" height="64" '
             'alt="Native synthetic grayscale phantom" src="data:image/png;base64,'+image+'"></figure>'
-            '<figure><figcaption>8× nearest-neighbour display; no source pixel modification</figcaption>'
-            '<img class="enlarged" width="512" height="512" alt="Enlarged synthetic grayscale phantom" '
+            '<figure id="four-pixels"><figcaption>4× nearest-neighbour display; no source pixel modification</figcaption>'
+            '<img class="enlarged" width="256" height="256" alt="Four-times synthetic grayscale phantom" '
             'src="data:image/png;base64,'+image+'"></figure>'
+            '<figure id="eight-pixels"><figcaption>8× nearest-neighbour display; no source pixel modification</figcaption>'
+            '<img class="enlarged" width="512" height="512" alt="Enlarged synthetic grayscale phantom" '
+            'src="data:image/png;base64,'+image+'"></figure></div></fieldset>'
             '<details><summary>Technical provenance and limits</summary><p>Source SHA-256: <code>'+sha
             +'</code></p><p>Explicit VR Little Endian. No PACS, hospital connection, '
             'windowing or diagnostic interpretation.</p></details></main></body></html>')

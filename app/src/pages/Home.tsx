@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Icon, type IconName } from '../components/Icon';
@@ -16,8 +16,26 @@ export default function Home() {
   const [searchParams] = useSearchParams();
   const clinicalMinimal = searchParams.get('design') === 'clinical-minimal';
   const [q, setQ] = useState('');
+  const searchInput = useRef<HTMLInputElement>(null);
+  const composing = useRef(false);
+  const clearSearch = () => {
+    setQ('');
+    searchInput.current?.focus();
+  };
+  const onSearchKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    // IME uses Enter/Escape to confirm or cancel a candidate, not to navigate.
+    if (composing.current || e.nativeEvent.isComposing || e.nativeEvent.keyCode === 229) {
+      if (e.key === 'Enter') e.preventDefault();
+      return;
+    }
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      clearSearch();
+    }
+  };
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (composing.current) return;
     navigate(q.trim() ? `/drugs?q=${encodeURIComponent(q.trim())}` : '/drugs');
   };
   return (
@@ -41,22 +59,31 @@ export default function Home() {
             </h1>
             <p className="mt-2 max-w-2xl text-muted sm:text-lg">{t('home.subtitle')}</p>
           </>}
-          <form role="search" onSubmit={onSubmit} className="mt-5 flex max-w-2xl gap-2">
+          <p id="home-search-hint" className="sr-only">{t('search.hint')}</p>
+          <form role="search" aria-label={t('search.label')} onSubmit={onSubmit} className="mt-5 flex max-w-2xl gap-2">
             <label htmlFor="home-search" className="sr-only">
               {t('search.label')}
             </label>
-            <div className="relative flex-1">
+            <div className="relative min-w-0 flex-1">
               <Icon name="search" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
               <input
                 id="home-search"
+                ref={searchInput}
                 type="search"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
+                onCompositionStart={() => { composing.current = true; }}
+                onCompositionEnd={() => { composing.current = false; }}
+                onKeyDown={onSearchKeyDown}
+                aria-describedby="home-search-hint"
                 placeholder={t('search.placeholder')}
                 className="input pl-10"
                 autoComplete="off"
               />
             </div>
+            {q.length > 0 && <button type="button" onClick={clearSearch} className="btn-ghost min-w-[44px]" aria-label={t('search.clear')}>
+              <Icon name="x" size={18} />
+            </button>}
             <button type="submit" className="btn-primary">
               {t('search.submit')}
             </button>

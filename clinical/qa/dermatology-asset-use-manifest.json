@@ -314,5 +314,44 @@
     "Thirteen local-reference preparations do not authorize public repository redistribution or product display.",
     "Known file bytes can be detected by hash even when renamed. The guard is not a forensic detector for arbitrary transcoding, archives or remote services.",
     "No image, technical derivative, original filename, personal path, raw metadata value or patient narrative is stored in this policy."
-  ]
+  ],
+  "technical_containment": {
+    "schema_version": "1.0",
+    "purpose": "NON_ADMISSION_HASH_COVERAGE_ONLY",
+    "evidence_artifact": "FASE2/DERMA/ASSET_FINALITY_UPDATE_24.json",
+    "evidence_sha256": "3b640e2da27f265766d97463815e18ad1e4a90a3eaa9389fda8e60842fd29857",
+    "identity_digest": "b3c3d2294aab934dd32fe9452b3ebe6ddea83861e1446360b04c82083be805f2",
+    "derivatives": [
+      {
+        "asset_id": "DERMA-COMMONS-5de1c08f376a",
+        "source_sha256": "5de1c08f376aedda18bc1f6253f3e3e0063822b78ed6304eafaab1626d791f2a",
+        "frame_index": 0,
+        "derivative_sha256": "08be715695027342f992d750150b9376a37ba42f3b41b107dc0d14689fad8031"
+      },
+      {
+        "asset_id": "DERMA-COMMONS-5de1c08f376a",
+        "source_sha256": "5de1c08f376aedda18bc1f6253f3e3e0063822b78ed6304eafaab1626d791f2a",
+        "frame_index": 1,
+        "derivative_sha256": "412eef2746d20479331f7d70a820eaefc8548bd13b73d4607d094980d01b3086"
+      },
+      {
+        "asset_id": "DERMA_CDC_PHIL_5153",
+        "source_sha256": "08eb130df98afdd4117746dc88dd998e7f9afd02b39906fecdec5f11dd10a9ec",
+        "frame_index": 0,
+        "derivative_sha256": "9d5a423ce759ee906ddf6296f1514f95456c7b874e5f3c3fcdc1714fd2f5d66b"
+      },
+      {
+        "asset_id": "DERMA_CDC_PHIL_6478",
+        "source_sha256": "ca622737a552f0853686b1767064db1893ce78fa2f2a6a42a97eddacf1b989a9",
+        "frame_index": 0,
+        "derivative_sha256": "04fa9604ae2250bfff4eb5ebc3dc45c9dce7b5a4c127e3537e1dbdcb97a5bb70"
+      },
+      {
+        "asset_id": "DERMA_PMC8203330_fig1",
+        "source_sha256": "6fb49b073a19c60081a27dde6c856ee2f1d9718747b7f092f10ef0f37b302466",
+        "frame_index": 0,
+        "derivative_sha256": "6bdd6f04ca94cc32b271d25ab332ebfebe64649506cf5af02af1dbccc8032fe0"
+      }
+    ]
+  }
 }

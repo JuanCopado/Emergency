@@ -39,7 +39,9 @@
   "search": {
     "label": "搜索药物",
     "placeholder": "搜索药物（如去甲肾上腺素、丙泊酚）…",
-    "submit": "搜索"
+    "submit": "搜索",
+    "hint": "输入药物名称后选择“搜索”。按 Escape 清空。",
+    "clear": "清空搜索"
   },
   "home": {
     "eyebrow": "国际项目 · 临床参考与工具",

@@ -41,10 +41,10 @@ function copyGuard(root) {
   put(root, 'app/package.json', JSON.stringify({ type: 'module' }));
 }
 
-test('24 assets/23 cases remain metadata-only, with13 local preparations and26 protected file identities', () => {
+test('24 assets/23 cases remain metadata-only, with13 local preparations and31 protected file identities', () => {
   assert.deepEqual(validateManifest(policy), { assets: 24, cases: 23,
     local_reference_prepared: 13, product_media_admitted: 0 });
-  assert.equal(protectedHashIndex(policy).size, 26);
+  assert.equal(protectedHashIndex(policy).size, 31);
   assert.deepEqual(productAssetCatalog(policy), []);
 });
 
@@ -54,6 +54,57 @@ test('all24 asset IDs deny product import, including all13 local-reference prepa
       (error) => ['DERM_FACIAL_ASSET_EXCLUDED', 'DERM_MEDIA_PURPOSE_NOT_ADMITTED'].includes(error.code));
   }
 });
+
+test('all five separately prepared PNG frames remain linked to their source asset and denied for media purposes', () => {
+  const index = protectedHashIndex(policy);
+  const derivatives = policy.technical_containment.derivatives;
+  assert.equal(derivatives.length, 5);
+  assert.equal(new Set(derivatives.map((row) => row.asset_id)).size, 4);
+  for (const row of derivatives) {
+    assert.equal(index.get(row.derivative_sha256), row.asset_id);
+    for (const purpose of ['product_display', 'repository_redistribution', 'ai_training',
+      'independent_evaluation', 'external_service_transfer']) {
+      assert.throws(() => authorizeAssetImport(policy, row.asset_id, purpose), /NOT_ADMITTED/);
+    }
+  }
+});
+
+test('missing, relinked, duplicated or altered derivative evidence fails closed', () => {
+  for (const mutate of [
+    (p) => { delete p.technical_containment; },
+    (p) => { p.technical_containment.derivatives.pop(); },
+    (p) => { p.technical_containment.derivatives[0].asset_id = p.assets[0].asset_id; },
+    (p) => { p.technical_containment.derivatives[0].source_sha256 = '0'.repeat(64); },
+    (p) => { p.technical_containment.derivatives[0].derivative_sha256 = '0'.repeat(64); },
+    (p) => { p.technical_containment.derivatives[0].frame_index = 99; },
+    (p) => { p.technical_containment.derivatives[0] = p.technical_containment.derivatives[1]; },
+    (p) => { p.technical_containment.evidence_sha256 = '0'.repeat(64); },
+    (p) => { p.technical_containment.identity_digest = '0'.repeat(64); },
+    (p) => { p.technical_containment.product_media_admitted = true; },
+    (p) => { p.technical_containment.derivatives[0].product_media_admitted = true; },
+    (p) => { p.technical_containment.derivatives[0] = null; },
+  ]) {
+    const changed = structuredClone(policy); mutate(changed);
+    assert.throws(() => validateManifest(changed), /POLICY_INVALID/);
+  }
+});
+
+test('reordering derivative metadata preserves identity without changing any admission', () => {
+  const changed = structuredClone(policy);
+  changed.technical_containment.derivatives.reverse();
+  assert.deepEqual([...protectedHashIndex(changed)].sort(), [...protectedHashIndex(policy)].sort());
+  assert.deepEqual(productAssetCatalog(changed), []);
+});
+
+test('a synthetic derived raster remains blocked outside the reserved namespace after renaming', () => temporary((root) => {
+  put(root, 'docs/renamed-derived-no-extension', fixtureBytes);
+  const indexes = protectedHashIndex(policy);
+  // Synthetic bytes exercise the same scanner path without placing corpus pixels in tests.
+  indexes.set(sha(fixtureBytes), 'SYNTHETIC_METADATA_MINIMIZED_DERIVATIVE');
+  const result = scanMediaFiles(root, indexes);
+  assert.deepEqual(result.issues, [{ code: 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED',
+    asset_id: 'SYNTHETIC_METADATA_MINIMIZED_DERIVATIVE' }]);
+}));
 
 test('metadata purpose returns no media authority; local development is not product admission', () => {
   const id = policy.assets[0].asset_id;
@@ -122,9 +173,59 @@ test('directory links cannot redirect the repository scan to another location', 
   assert.equal(scanMediaFiles(root, new Map()).issues[0].code, 'DERM_SCAN_LINK_FORBIDDEN');
 }));
 
+test('artifact basenames at arbitrary depths cannot hide protected raster bytes', () => temporary((root) => {
+  const locations = ['app/public/dist/x.png', 'app/public/nested/coverage/x.png',
+    'app/public/a/b/node_modules/x.png', 'docs/dist/x.png', 'app/public/.cache/x.png',
+    'dist', 'app/public/coverage'];
+  for (const location of locations) put(root, location, fixtureBytes);
+  const result = scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']]));
+  assert.equal(result.examined_raster_files, locations.length);
+  assert.equal(result.issues.length, locations.length);
+  assert.ok(result.issues.every((issue) => issue.code === 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED'));
+}));
+
+test('reserved media remains rejected inside nested dependency and artifact names', () => temporary((root) => {
+  const locations = ['app/public/dermatology/dist/x.png',
+    'app/public/dermatology/deep/node_modules/x.png',
+    'app/src/assets/dermatology/a/coverage/x.png',
+    'clinical/assets/dermatology/a/b/.venv/x.png'];
+  for (const location of locations) put(root, location, fixtureBytes);
+  const result = scanMediaFiles(root, new Map());
+  assert.equal(result.issues.length, locations.length);
+  assert.ok(result.issues.every((issue) => issue.code === 'DERM_RESERVED_MEDIA_NOT_ADMITTED'));
+}));
+
+test('links named like excluded directories are rejected before exclusions', () => temporary((root) => {
+  const target = path.join(root, 'target'); fs.mkdirSync(target);
+  for (const location of ['app/public/dist', 'app/public/dermatology/coverage', 'app/node_modules']) {
+    const link = path.join(root, location); fs.mkdirSync(path.dirname(link), { recursive: true });
+    fs.symlinkSync(target, link, process.platform === 'win32' ? 'junction' : 'dir');
+  }
+  assert.deepEqual(scanMediaFiles(root, new Map()).issues,
+    Array.from({ length: 3 }, () => ({ code: 'DERM_SCAN_LINK_FORBIDDEN' })));
+}));
+
+test('only exact real dependency and build directory boundaries are ignored', () => temporary((root) => {
+  for (const location of ['node_modules/x.png', 'app/node_modules/x.png', 'dist/x.png',
+    'coverage/x.png', 'app/dist/x.png', 'app/coverage/x.png']) put(root, location, fixtureBytes);
+  assert.equal(scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']])).status, 'PASS');
+}));
+
+test('the CI OCR dependency tree may contain package-bin links without hiding public media', () => temporary((root) => {
+  const target = put(root, 'fixture-target', 'synthetic package executable');
+  const bins = path.join(root, 'tools/blood-gas-ocr/node_modules/.bin');
+  fs.mkdirSync(bins, { recursive: true });
+  // A directory junction also models dependency links on Windows without requiring file-symlink privileges.
+  fs.symlinkSync(path.dirname(target), path.join(bins, 'fixture'), process.platform === 'win32' ? 'junction' : 'dir');
+  assert.equal(scanMediaFiles(root, new Map()).status, 'PASS');
+  put(root, 'app/public/tools/blood-gas-ocr/node_modules/hidden.png', fixtureBytes);
+  const result = scanMediaFiles(root, new Map([[sha(fixtureBytes), 'SYNTHETIC_ASSET']]));
+  assert.deepEqual(result.issues, [{ code: 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED', asset_id: 'SYNTHETIC_ASSET' }]);
+}));
+
 test('the actual base repository has no admitted corpus media and an empty product catalog', () => {
   const result = checkRepository(REPO);
-  assert.equal(result.status, 'PASS');
+  assert.equal(result.status, 'PASS', JSON.stringify(result.issues));
   assert.equal(result.registry_assets, 24);
   assert.equal(result.product_catalog_size, 0);
 });
