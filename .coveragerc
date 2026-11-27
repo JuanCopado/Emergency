@@ -9,6 +9,7 @@ source =
     clinical/qa
     clinical/agents
     scripts
+    tools/interop-local
 
 [report]
 show_missing = True
