@@ -54,7 +54,7 @@ export default function ClinicalLibrary() {
       <div className="space-y-6">
         <div>
           <p className="section-title">Biblioteca clínica</p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight">Patologías y módulos</h1>
+          <h1 className="catalog-title mt-2">Patologías y módulos</h1>
           <p className="mt-2 max-w-3xl text-muted">Acceso directo al contenido clínico canónico con botones de algoritmo, pantalla completa, PDF y procedimientos relacionados.</p>
         </div>
         {bundle && <Link to="/clinical" className="btn-ghost">{t('home.allReferenceGuides')}</Link>}
