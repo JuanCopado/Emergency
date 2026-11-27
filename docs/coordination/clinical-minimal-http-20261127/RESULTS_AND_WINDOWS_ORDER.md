@@ -15,6 +15,8 @@ Este incremento añade un arnés y recibos; no modifica producto, diseño, dosis
 
 `ARTIFACT_MANIFEST.json` conserva hashes de ocho capturas y seis descargas locales. No se genera ni sube otro ZIP. La inspección visual focal de ZH claro móvil permite revisar ilustración y foco; la captura completa se tomó tras enfocar búsqueda y refleja la posición de scroll de ese momento.
 
+El recibo conserva el hash exacto del arnés ejecutado. La versión portable posterior acorta únicamente `browserControl` a la tecnología usada: no atribuye el fallo de CUA del entorno de preparación a un futuro equipo Windows. No cambia navegación, aserciones, API ni controles y no justifica repetir el recorrido Linux.
+
 Tres fallos iniciales del arnés quedaron registrados en logs locales: transición React aún pendiente tras cambiar URL; nombre accesible real `Word (.docx)`; envelope de exportación distinto del de validación. Se corrigieron las comprobaciones contra las interfaces existentes, sin tocar las expectativas clínicas ni el producto. Ejecución final útil: PASS. Sintaxis Node y ESLint focal: PASS (ESLint se ejecuta desde `app`). No se repiten las suites previas de PR126.
 
 ## Orden operativa a Work — Windows real

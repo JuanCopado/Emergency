@@ -22,7 +22,7 @@ const therapy = JSON.parse(readFileSync(new URL('../src/clinical-note/therapyCop
 const report = {
   scope: 'Previously unverified Clinical Minimal integration; no clinical validity or native printing certification',
   platform: process.platform, architecture: process.arch, transport: 'REAL_LOOPBACK_HTTP_WITH_AUTHENTICATED_PYTHON_API',
-  browserControl: 'playwright-core/preinstalled browser; Browser plugin js unavailable; CUA initialization failed',
+  browserControl: 'playwright-core/preinstalled browser',
   responseInterception: false, sourceRevision: process.env.MINIMAL_HTTP_SOURCE_SHA || null,
   harnessSha256: createHash('sha256').update(readFileSync(fileURLToPath(import.meta.url))).digest('hex'),
   status: 'RUNNING', complementaryHeroStates: [], navigation: [], clinicalFlows: [], apiResponses: [], errors: [],
