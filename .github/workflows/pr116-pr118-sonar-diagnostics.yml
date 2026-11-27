@@ -1,0 +1,24 @@
+name: PR116 PR118 read-only Sonar diagnostics
+on:
+  push:
+    branches: ['diagnostic/pr116-pr118-sonar-20261127']
+permissions:
+  contents: read
+jobs:
+  diagnostics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        pr: ['116', '118']
+    steps:
+      - name: Checkout existing allowlisted diagnostic reader
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - name: Read only fixed-project sanitized Sonar metadata
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PULL_REQUEST: ${{ matrix.pr }}
+        run: python scripts/security/sonar_diagnostics.py
