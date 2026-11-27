@@ -1,23 +1,26 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Icon, type IconName } from '../components/Icon';
 import { drugs } from '../data';
 import { AVAILABLE_GROUPS, REFERENCE_GROUPS } from '../data/moduleGroups';
 import { DraftBanner } from '../components/DraftBanner';
+import './clinical-minimal.css';
 
 const GROUP_ICON: Record<string, IconName> = { vasoactive: 'heart', sedation: 'moon' };
 
 export default function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const clinicalMinimal = searchParams.get('design') === 'clinical-minimal';
   const [q, setQ] = useState('');
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     navigate(q.trim() ? `/drugs?q=${encodeURIComponent(q.trim())}` : '/drugs');
   };
   return (
-    <div className="space-y-8">
+    <div className={`space-y-8${clinicalMinimal ? ' clinical-minimal-preview' : ''}`}>
       <nav aria-label={t('home.clinicalShortcuts')} className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
         <Link to="/clinical-note" className="btn-primary">{t('nav.clinicalNote')}</Link>
         <Link to="/procedures" className="btn-ghost">{t('home.procedures')}</Link>

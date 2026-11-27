@@ -1,0 +1,19 @@
+test_all_modules_have_source_and_bundle_edges (test_project_graph.ProjectGraphTests.test_all_modules_have_source_and_bundle_edges) ... ok
+test_graph_covers_manifest_and_evidence_registry (test_project_graph.ProjectGraphTests.test_graph_covers_manifest_and_evidence_registry) ... ok
+test_graph_is_deterministic_and_does_not_promote_evidence (test_project_graph.ProjectGraphTests.test_graph_is_deterministic_and_does_not_promote_evidence) ... ok
+test_graph_rejects_incomplete_or_unresolved_source_map (test_project_graph.ProjectGraphTests.test_graph_rejects_incomplete_or_unresolved_source_map) ... ok
+test_normalized_sources_have_required_traceability_fields (test_project_graph.ProjectGraphTests.test_normalized_sources_have_required_traceability_fields) ... ok
+test_priority_source_splits_are_individualized (test_project_graph.ProjectGraphTests.test_priority_source_splits_are_individualized) ... ok
+test_priority_source_splits_batch2 (test_project_graph.ProjectGraphTests.test_priority_source_splits_batch2) ... ok
+test_priority_source_splits_batch3 (test_project_graph.ProjectGraphTests.test_priority_source_splits_batch3) ... ok
+test_priority_source_splits_batch4 (test_project_graph.ProjectGraphTests.test_priority_source_splits_batch4) ... ok
+test_priority_source_splits_batch5 (test_project_graph.ProjectGraphTests.test_priority_source_splits_batch5) ... ok
+test_priority_source_splits_batch6 (test_project_graph.ProjectGraphTests.test_priority_source_splits_batch6) ... ok
+test_priority_source_splits_batch7 (test_project_graph.ProjectGraphTests.test_priority_source_splits_batch7) ... ok
+test_source_catalog_has_no_orphan_sources (test_project_graph.ProjectGraphTests.test_source_catalog_has_no_orphan_sources) ... ok
+test_source_catalog_maps_every_module (test_project_graph.ProjectGraphTests.test_source_catalog_maps_every_module) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.157s
+
+OK
