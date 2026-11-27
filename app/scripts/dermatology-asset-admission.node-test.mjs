@@ -41,10 +41,10 @@ function copyGuard(root) {
   put(root, 'app/package.json', JSON.stringify({ type: 'module' }));
 }
 
-test('24 assets/23 cases remain metadata-only, with13 local preparations and26 protected file identities', () => {
+test('24 assets/23 cases remain metadata-only, with13 local preparations and31 protected file identities', () => {
   assert.deepEqual(validateManifest(policy), { assets: 24, cases: 23,
     local_reference_prepared: 13, product_media_admitted: 0 });
-  assert.equal(protectedHashIndex(policy).size, 26);
+  assert.equal(protectedHashIndex(policy).size, 31);
   assert.deepEqual(productAssetCatalog(policy), []);
 });
 
@@ -54,6 +54,57 @@ test('all24 asset IDs deny product import, including all13 local-reference prepa
       (error) => ['DERM_FACIAL_ASSET_EXCLUDED', 'DERM_MEDIA_PURPOSE_NOT_ADMITTED'].includes(error.code));
   }
 });
+
+test('all five separately prepared PNG frames remain linked to their source asset and denied for media purposes', () => {
+  const index = protectedHashIndex(policy);
+  const derivatives = policy.technical_containment.derivatives;
+  assert.equal(derivatives.length, 5);
+  assert.equal(new Set(derivatives.map((row) => row.asset_id)).size, 4);
+  for (const row of derivatives) {
+    assert.equal(index.get(row.derivative_sha256), row.asset_id);
+    for (const purpose of ['product_display', 'repository_redistribution', 'ai_training',
+      'independent_evaluation', 'external_service_transfer']) {
+      assert.throws(() => authorizeAssetImport(policy, row.asset_id, purpose), /NOT_ADMITTED/);
+    }
+  }
+});
+
+test('missing, relinked, duplicated or altered derivative evidence fails closed', () => {
+  for (const mutate of [
+    (p) => { delete p.technical_containment; },
+    (p) => { p.technical_containment.derivatives.pop(); },
+    (p) => { p.technical_containment.derivatives[0].asset_id = p.assets[0].asset_id; },
+    (p) => { p.technical_containment.derivatives[0].source_sha256 = '0'.repeat(64); },
+    (p) => { p.technical_containment.derivatives[0].derivative_sha256 = '0'.repeat(64); },
+    (p) => { p.technical_containment.derivatives[0].frame_index = 99; },
+    (p) => { p.technical_containment.derivatives[0] = p.technical_containment.derivatives[1]; },
+    (p) => { p.technical_containment.evidence_sha256 = '0'.repeat(64); },
+    (p) => { p.technical_containment.identity_digest = '0'.repeat(64); },
+    (p) => { p.technical_containment.product_media_admitted = true; },
+    (p) => { p.technical_containment.derivatives[0].product_media_admitted = true; },
+    (p) => { p.technical_containment.derivatives[0] = null; },
+  ]) {
+    const changed = structuredClone(policy); mutate(changed);
+    assert.throws(() => validateManifest(changed), /POLICY_INVALID/);
+  }
+});
+
+test('reordering derivative metadata preserves identity without changing any admission', () => {
+  const changed = structuredClone(policy);
+  changed.technical_containment.derivatives.reverse();
+  assert.deepEqual([...protectedHashIndex(changed)].sort(), [...protectedHashIndex(policy)].sort());
+  assert.deepEqual(productAssetCatalog(changed), []);
+});
+
+test('a synthetic derived raster remains blocked outside the reserved namespace after renaming', () => temporary((root) => {
+  put(root, 'docs/renamed-derived-no-extension', fixtureBytes);
+  const indexes = protectedHashIndex(policy);
+  // Synthetic bytes exercise the same scanner path without placing corpus pixels in tests.
+  indexes.set(sha(fixtureBytes), 'SYNTHETIC_METADATA_MINIMIZED_DERIVATIVE');
+  const result = scanMediaFiles(root, indexes);
+  assert.deepEqual(result.issues, [{ code: 'DERM_REPOSITORY_MEDIA_NOT_ADMITTED',
+    asset_id: 'SYNTHETIC_METADATA_MINIMIZED_DERIVATIVE' }]);
+}));
 
 test('metadata purpose returns no media authority; local development is not product admission', () => {
   const id = policy.assets[0].asset_id;

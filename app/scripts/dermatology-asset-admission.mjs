@@ -11,6 +11,11 @@ function compareCodeUnits(left, right) {
 }
 
 const IDENTITY_DIGEST = '938e04ec4500be994a5b0d39fa36a469c456d074c8cdf22fed813f2f0dc5fdce';
+const DERIVATIVE_DIGEST = 'b3c3d2294aab934dd32fe9452b3ebe6ddea83861e1446360b04c82083be805f2';
+const DERIVATIVE_EVIDENCE = '3b640e2da27f265766d97463815e18ad1e4a90a3eaa9389fda8e60842fd29857';
+const DERIVATIVE_KEYS = ['asset_id', 'source_sha256', 'frame_index', 'derivative_sha256'].sort(compareCodeUnits);
+const CONTAINMENT_KEYS = ['schema_version', 'purpose', 'evidence_artifact',
+  'evidence_sha256', 'identity_digest', 'derivatives'].sort(compareCodeUnits);
 const FACIAL_IDS = new Set(['DERMA_CDC_2874', 'DERMA_CDC_27799']);
 const MEDIA_ADMISSIONS = ['product_media_admitted', 'repository_media_redistribution_admitted',
   'independent_evaluation_admitted', 'ai_training_admitted', 'external_service_transfer_admitted'];
@@ -28,6 +33,31 @@ export class AssetAdmissionError extends Error {
 const requirePolicy = (condition) => {
   if (!condition) throw new AssetAdmissionError('DERM_POLICY_INVALID');
 };
+
+function validateDerivativeContainment(manifest) {
+  const containment = manifest.technical_containment;
+  requirePolicy(containment?.schema_version === '1.0'
+    && containment.purpose === 'NON_ADMISSION_HASH_COVERAGE_ONLY'
+    && containment.evidence_artifact === 'FASE2/DERMA/ASSET_FINALITY_UPDATE_24.json'
+    && containment.evidence_sha256 === DERIVATIVE_EVIDENCE
+    && containment.identity_digest === DERIVATIVE_DIGEST
+    && JSON.stringify(Object.keys(containment).sort(compareCodeUnits)) === JSON.stringify(CONTAINMENT_KEYS)
+    && Array.isArray(containment.derivatives) && containment.derivatives.length === 5);
+  const identities = [];
+  for (const derivative of containment.derivatives) {
+    requirePolicy(derivative !== null && typeof derivative === 'object' && !Array.isArray(derivative));
+    const source = manifest.assets.find((asset) => asset.asset_id === derivative.asset_id);
+    requirePolicy(JSON.stringify(Object.keys(derivative).sort(compareCodeUnits)) === JSON.stringify(DERIVATIVE_KEYS)
+      && source?.source_sha256 === derivative.source_sha256 && !FACIAL_IDS.has(derivative.asset_id)
+      && Number.isInteger(derivative.frame_index) && derivative.frame_index >= 0
+      && /^[a-f0-9]{64}$/.test(derivative.derivative_sha256));
+    identities.push([derivative.asset_id, derivative.source_sha256,
+      derivative.frame_index, derivative.derivative_sha256]);
+  }
+  identities.sort((left, right) => compareCodeUnits(left[0], right[0]) || left[2] - right[2]);
+  requirePolicy(new Set(identities.map((row) => row[3])).size === 5
+    && digest(JSON.stringify(identities)) === DERIVATIVE_DIGEST);
+}
 
 export function validateManifest(manifest) {
   requirePolicy(manifest?.schema_version === '1.0'
@@ -48,6 +78,7 @@ export function validateManifest(manifest) {
     asset.technical_derivative_sha256, asset.local_reference_scope])
     .sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
   requirePolicy(manifest.identity_digest === IDENTITY_DIGEST && digest(JSON.stringify(identity)) === IDENTITY_DIGEST);
+  validateDerivativeContainment(manifest);
   const expectedCounts = { assets: 24, cases: 23, local_reference_prepared: 13,
     privacy_context_pending: 9, facial_excluded: 2, product_media_admitted: 0, repository_media_admitted: 0 };
   requirePolicy(Object.entries(expectedCounts).every(([key, value]) => manifest.counts?.[key] === value)
@@ -92,7 +123,10 @@ export function protectedHashIndex(manifest) {
     index.set(asset.source_sha256, asset.asset_id);
     if (asset.technical_derivative_sha256) index.set(asset.technical_derivative_sha256, asset.asset_id);
   }
-  requirePolicy(index.size === 26);
+  for (const derivative of manifest.technical_containment.derivatives) {
+    index.set(derivative.derivative_sha256, derivative.asset_id);
+  }
+  requirePolicy(index.size === 31);
   return index;
 }
 
@@ -170,8 +204,10 @@ export function scanMediaFiles(repositoryRoot, protectedHashes) {
 
 export function checkRepository(repositoryRoot) {
   const manifest = loadManifest(repositoryRoot);
-  const result = scanMediaFiles(repositoryRoot, protectedHashIndex(manifest));
+  const protectedHashes = protectedHashIndex(manifest);
+  const result = scanMediaFiles(repositoryRoot, protectedHashes);
   return { ...result, registry_assets: manifest.assets.length,
     product_catalog_size: productAssetCatalog(manifest).length,
+    protected_file_identities: protectedHashes.size, additional_derivatives_contained: 5,
     clinical: manifest.clinical, release: manifest.release };
 }

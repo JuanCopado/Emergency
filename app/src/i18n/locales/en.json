@@ -39,7 +39,9 @@
   "search": {
     "label": "Search drugs",
     "placeholder": "Search a drug (e.g. norepinephrine, propofol)…",
-    "submit": "Search"
+    "submit": "Search",
+    "hint": "Enter a drug name and select Search. Press Escape to clear.",
+    "clear": "Clear search"
   },
   "home": {
     "eyebrow": "International project · clinical reference and tools",

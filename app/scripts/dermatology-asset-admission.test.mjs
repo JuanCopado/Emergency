@@ -39,7 +39,7 @@ describe('product/repository dermatology admission contract', () => {
     expect(checkRepository(repository)).toMatchObject({ status: 'PASS', registry_assets: 24,
       product_catalog_size: 0, product_media_admitted: 0, clinical: 'CLINICALLY_PENDING' });
     expect(productAssetCatalog(policy)).toEqual([]);
-    expect(protectedHashIndex(policy).size).toBe(26);
+    expect(protectedHashIndex(policy).size).toBe(31);
   });
 
   it('permits documentary metadata for every source while denying every product media request', () => {
@@ -51,6 +51,33 @@ describe('product/repository dermatology admission contract', () => {
       }
     }
     expect(() => authorizeAssetImport(policy, 'missing', 'product_display')).toThrow('DERM_UNKNOWN_ASSET');
+  });
+
+  it('contains all five new derivative hashes without granting their four parent assets a media purpose', () => {
+    const index = protectedHashIndex(policy);
+    expect(policy.technical_containment.derivatives).toHaveLength(5);
+    for (const row of policy.technical_containment.derivatives) {
+      expect(index.get(row.derivative_sha256)).toBe(row.asset_id);
+      expect(() => authorizeAssetImport(policy, row.asset_id, 'external_service_transfer')).toThrow('NOT_ADMITTED');
+    }
+  });
+
+  it('rejects missing, spoofed and structurally invalid containment records before scanning', () => {
+    for (const mutate of [
+      (p) => { p.technical_containment.schema_version = 'other'; },
+      (p) => { p.technical_containment.purpose = 'PRODUCT_ADMISSION'; },
+      (p) => { p.technical_containment.product_media_admitted = true; },
+      (p) => { p.technical_containment.derivatives = []; },
+      (p) => { p.technical_containment.derivatives[0].source_sha256 = '0'.repeat(64); },
+      (p) => { p.technical_containment.derivatives[0].derivative_sha256 = 'invalid'; },
+      (p) => { p.technical_containment.derivatives[0].frame_index = -1; },
+      (p) => { p.technical_containment.derivatives[0] = null; },
+      (p) => { p.technical_containment.derivatives[0].unrestricted_consent = true; },
+      (p) => { p.technical_containment.evidence_sha256 = '0'.repeat(64); },
+    ]) {
+      const changed = structuredClone(policy); mutate(changed);
+      fixture(({ root }) => expect(() => checkRepository(root)).toThrow('POLICY_INVALID'), changed);
+    }
   });
 
   it('rejects actual persisted permission escalation before scanning any media', () => {
