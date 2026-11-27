@@ -21,4 +21,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PULL_REQUEST: ${{ matrix.pr }}
-        run: python scripts/security/sonar_diagnostics.py
+        run: python scripts/security/pr116_pr118_sonar_readonly.py
