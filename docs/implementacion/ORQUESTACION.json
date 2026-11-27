@@ -4,7 +4,7 @@
   "version": "0.3",
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
-  "branch": "work/implementacion-coordinada-20261127",
+  "branch": "docs/implementacion-viva-20261127",
   "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
   "observed_candidate": {
     "pr": 133,
@@ -679,5 +679,6 @@
       "historical_snapshot_url": "https://drive.google.com/file/d/1r76VmJ8vrBndruR-B4r19G4WncMBgoJs/view",
       "drive_verification": "VERIFIED_BYTE_READBACK_SHA256_PRIVATE_BY_WORK"
     }
-  }
+  },
+  "local_work_branch": "work/implementacion-coordinada-20261127"
 }
