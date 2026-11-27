@@ -1,0 +1,165 @@
+{
+  "actual_scope": "T06/Q4 closed18scenario synthetic loopback; not public consumer",
+  "candidate_read": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "network": {
+    "bind": "127.0.0.1/::1",
+    "public_providers_called": false,
+    "free_queries_allowed": false
+  },
+  "field_allowlist": {
+    "pubmed": [
+      "pmid",
+      "article_url"
+    ],
+    "europe_pmc": [
+      "id",
+      "source",
+      "title",
+      "author_string",
+      "pub_year",
+      "journal",
+      "pmid",
+      "doi"
+    ],
+    "nvd": [
+      "cve_id",
+      "published",
+      "last_modified",
+      "description_en",
+      "cve_url"
+    ]
+  },
+  "excluded_fields": [
+    "patient identifiers",
+    "clinical notes",
+    "images/pixels",
+    "abstractText",
+    "article full text",
+    "provider credentials",
+    "unrestricted user search"
+  ],
+  "rights": {
+    "pubmed": {
+      "primary_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "observed": "US-government-created information generally public domain; third-party material may retain copyright. PubMed abstracts not licensed by NLM.",
+      "implication": "PMID/canonical links only in current consumer; do not add abstracts/full text under blanket permission."
+    },
+    "europe_pmc": {
+      "primary_url": "https://dev.europepmc.org/Copyright",
+      "canonical_url": "https://europepmc.org/copyright",
+      "access": "Canonical403; official dev copyright text accessible",
+      "observed": "Free reading is not uniform reuse authorization; authorized automated article subsets and item-level licenses apply.",
+      "implication": "Existing synthetic fixture fields are preserved. Before real corpus display/storage/export, record source/item/field license; no assumedCC0 metadata-wide grant."
+    },
+    "nvd": {
+      "primary_urls": [
+        "https://nvd.nist.gov/developers/terms-of-use",
+        "https://nvd.nist.gov/developers/start-here"
+      ],
+      "access": "Current retrieval empty/no readable lines; earlier official review retained inR6_G05; no new primary legal determination",
+      "implication": "Keep synthetic-only consumer. Future real-data use must preserve source notice/nonendorsement, distinguish derived content, honor API limits and credential ownership."
+    }
+  },
+  "storage": {
+    "frontend": {
+      "observed": "No T06 localStorage/sessionStorage/IndexedDB call found; fetch cache:no-store; view in memory",
+      "source": "app/src/t06/T06Lab.tsx;viewModel.ts"
+    },
+    "backend": {
+      "observed": "cache_dir=None; synthetic evidence persisted in evidence-dir:events.jsonl,request JSON,worker_network.jsonl,runtime.json,final_status.json; tempTLS material cleaned at close",
+      "source": "tools/t06-localhost-lab/lab/backend/server.py:66-84,268-270,439-454",
+      "existing_retention_period": null,
+      "existing_deletion_scheduler": false
+    },
+    "proposal": {
+      "status": "PREPARED_NOT_APPLIED",
+      "principles": [
+        "Only synthetic evidence under current authority",
+        "Private task-folder custody; no real clinical data, credentials or raw supplier bodies in transferable logs",
+        "Separate participant-identities/consent and key from blinded corpus",
+        "Set purpose-based retention end event and accountable custodian before any study/public consumer",
+        "Deletion requires a separate authorized action; this preparation deletes nothing"
+      ],
+      "retention_end_event": null,
+      "retention_owner_person_id": null,
+      "archive_legal_basis": null
+    }
+  },
+  "platform": {
+    "t05": "Windows native Job Objects",
+    "t06": "Linux/POSIX backend; Windows browser access does not certify backendWindows",
+    "joint_platform_certification": false
+  },
+  "responsibilities": {
+    "medical_owner": "Dr. Juan Copado Ceballos, already designated",
+    "engineering_person_id": null,
+    "security_person_id": null,
+    "source_rights_person_id": null,
+    "custodian_person_id": null,
+    "pharmacy_required_signoff": false
+  },
+  "canonical_G05": [
+    {
+      "id": "G05-01",
+      "area": "Consumidor y despliegue",
+      "status": "LAB_LOCAL_ONLY_PUBLIC_SCOPE_UNDEFINED"
+    },
+    {
+      "id": "G05-02",
+      "area": "Derechos y procedencia",
+      "status": "RIGHTS_BY_FIELD_AND_OWN_CODE_LICENSE_PENDING"
+    },
+    {
+      "id": "G05-03",
+      "area": "Privacidad, autenticidad y seguridad",
+      "status": "LOCAL_CONTROLS_TESTED_PUBLIC_PRIVACY_SCOPE_PENDING"
+    },
+    {
+      "id": "G05-04",
+      "area": "Integridad del contenido externo",
+      "status": "PUBLIC_RAG_NOT_IMPLEMENTED_NOT_ENABLED"
+    },
+    {
+      "id": "G05-05",
+      "area": "Liberación y trazabilidad",
+      "status": "EXACT_CANDIDATE_QA_AND_INDEPENDENT_REVIEW_REQUIRED"
+    },
+    {
+      "id": "G05-06",
+      "area": "PTBR-PIX",
+      "status": "BLOCKED_PTBR_PIX_LITERAL_CONTRACT_AND_OWNER_APPROVAL"
+    }
+  ],
+  "PTBR_PIX": {
+    "status": "BLOCKED_LITERAL_CONTRACT_AND_OWNER_APPROVAL",
+    "PTBR_MOD_approval_does_not_cover_pixels": true,
+    "minimum_contract_fields": [
+      "version and sourceSHA",
+      "scenarioID",
+      "exact pixel field and purpose",
+      "activation predicate",
+      "literalpt-BRmessage",
+      "permitted action",
+      "human override/error behavior",
+      "processor/destination",
+      "retention/privacy/minimization",
+      "negative tests and off-state",
+      "pt-PT separation",
+      "sameSHA independent audit",
+      "owner explicit acceptance"
+    ],
+    "approved_contract_version": null,
+    "approved_literal_messages": null,
+    "runtime_enabled": false
+  },
+  "future": {
+    "RAG": "DEVELOPMENT_FUTURE_NOT_IMPLEMENTED_NOT_ENABLED",
+    "clinical_graph": "DEVELOPMENT_FUTURE_NOT_EQUIVALENT_TO_PROVENANCE_CATALOG",
+    "FHIR_HL7_PACS": "DEVELOPMENT_FUTURE_NO_IMPLEMENTATION_CLAIM"
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "bank": "NOT_FROZEN_NOT_VALIDATED",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "studies_started": false,
+  "human_adjudications": 0
+}

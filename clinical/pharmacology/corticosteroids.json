@@ -1,0 +1,666 @@
+{
+  "schema_version": "1.0",
+  "version": "2026-11-26.2",
+  "module_id": "medication-selection-safety",
+  "clinical_status": "CLINICALLY_PENDING",
+  "scope": {
+    "purpose": "Approximate systemic glucocorticoid equivalence and indication-linked reference; not dose selection or prescribing.",
+    "supported_routes": [
+      "oral",
+      "iv"
+    ],
+    "unit": "mg",
+    "excluded_routes": [
+      "topical",
+      "inhaled",
+      "intranasal",
+      "ophthalmic",
+      "intra_articular",
+      "im_depot"
+    ],
+    "not_equivalent": [
+      "mineralocorticoid_replacement",
+      "pediatric_weight_based_dose",
+      "dose_interval",
+      "product_concentration",
+      "tapering_schedule"
+    ],
+    "clinical_text_language": "es"
+  },
+  "sources": [
+    {
+      "id": "endotext-2018",
+      "title": "Endotext — Glucocorticoid Therapy and Adrenal Suppression",
+      "version": "2018-10-19",
+      "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK279156/",
+      "locator": "Table 1: Glucocorticoid Equivalencies",
+      "access": "full chapter table retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ese-es-2024",
+      "title": "ESE / Endocrine Society — Glucocorticoid-induced adrenal insufficiency",
+      "version": "2024-05-08",
+      "url": "https://academic.oup.com/ejendo/article-pdf/190/5/G25/57417666/lvae029.pdf",
+      "locator": "Table 1, G28; footnotes a–c",
+      "access": "official full guideline PDF table retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "sfe-adrenal",
+      "title": "Society for Endocrinology — Adrenal crisis",
+      "version": "current online; checked 2026-11-26",
+      "url": "https://www.endocrinology.org/clinical-practice/clinical-guidance/adrenal-crisis/",
+      "locator": "Management of adrenal crisis summary",
+      "access": "official indexed recommendations; direct page returned HTTP 403",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ssc-adult-2026",
+      "title": "SCCM / ESICM — Surviving Sepsis Campaign, adults",
+      "version": "2026",
+      "url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+      "locator": "Recommendation 79: IV Corticosteroids",
+      "access": "official recommendation retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "sccm-steroids-2024",
+      "title": "SCCM — Focused update: corticosteroids in sepsis, ARDS and CAP",
+      "version": "2024",
+      "url": "https://doi.org/10.1097/CCM.0000000000006172",
+      "locator": "Recommendations 1A–1B and Table 4 (common regimens)",
+      "access": "full indexed guideline recommendations and table retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "rch-adrenal-2024",
+      "title": "Royal Children's Hospital / PIC — Adrenal crisis and acute adrenal insufficiency",
+      "version": "2024-10",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Adrenal_crisis_and_acute_adrenal_insufficiency/",
+      "locator": "Treatment → Severely unwell/in crisis → stress hydrocortisone age table (not Surgery table)",
+      "access": "full primary institutional guideline and date retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ssc-pediatric-2026",
+      "title": "SCCM — Surviving Sepsis Campaign, children",
+      "version": "2026",
+      "url": "https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-the-management-of-sepsis-and-septic-shock-in",
+      "locator": "Corticosteroid recommendations and adrenal insufficiency remark",
+      "access": "official recommendations retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "rcuk-anaphylaxis-2021",
+      "title": "Resuscitation Council UK — Emergency treatment of anaphylaxis",
+      "version": "2021-05; linked by RCUK 2025 special-circumstances guidance",
+      "url": "https://www.resus.org.uk/sites/default/files/2021-05/Emergency%20Treatment%20of%20Anaphylaxis%20May%202021_0.pdf",
+      "locator": "Section 5.5, page 33; section 6.7.4, page 39",
+      "access": "official full guideline PDF sections retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "aao-bell-2013",
+      "title": "AAO-HNSF — Clinical practice guideline: Bell's palsy",
+      "version": "2013-11; guideline still listed by AAO-HNSF on 2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24189771/",
+      "locator": "Action statements 1–6 and 11; oral steroids from age 16 within 72 hours",
+      "access": "primary guideline abstract and current society guideline listing retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "sullivan-bell-2007",
+      "title": "Sullivan et al. — Early treatment with prednisolone or acyclovir in Bell’s palsy",
+      "version": "2007-10-18",
+      "url": "https://doi.org/10.1056/NEJMoa072006",
+      "locator": "Methods: prednisolone 25 mg twice daily for 10 days; enrollment within 72 hours",
+      "access": "primary publisher indexed methods and abstract retrieved; direct publisher page returned HTTP 403",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "rch-bell-2023",
+      "title": "Royal Children's Hospital / PIC — Facial weakness and Bell palsy",
+      "version": "2023-02",
+      "url": "https://www.rch.org.au/clinicalguide/guideline_index/Facial_weakness_and_Bells_palsy/",
+      "locator": "Assessment; Treatment → Eye care / Steroids; specialist consultation and discharge",
+      "access": "full primary institutional guideline and update date retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "bellpic-2022",
+      "title": "Babl et al. — Efficacy of prednisolone for Bell palsy in children (BellPIC)",
+      "version": "2022-11-14; Neurology 99:e2241–e2252",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36008143/",
+      "locator": "Randomized trial abstract; 187 children, primary 1-month recovery outcome and precision limitation",
+      "access": "primary trial abstract retrieved; publisher PDF returned HTTP 403; no full-text review claimed",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "pontine-facial-2019",
+      "title": "Min and Jung — Patterns of pontine strokes mimicking Bell’s palsy",
+      "version": "2019-08-27",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6710861/",
+      "locator": "Primary case series: upper and lower facial involvement in pontine stroke",
+      "access": "primary published case-series text retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "idsa-lyme-2020",
+      "title": "AAN / ACR / IDSA — Lyme disease guideline",
+      "version": "2020-11-30; marked CURRENT on 2026-11-26",
+      "url": "https://www.idsociety.org/practice-guideline/lyme-disease/",
+      "locator": "Sections X and XV: acute cranial neuropathy, exposure and facial palsy corticosteroid uncertainty",
+      "access": "official guideline recommendations retrieved",
+      "checked_on": "2026-11-26"
+    },
+    {
+      "id": "ese-short-course-2024",
+      "title": "ESE / Endocrine Society — Glucocorticoid-induced adrenal insufficiency, short courses",
+      "version": "2024-05; official recommendation page dated 2024-05-13",
+      "url": "https://www.endocrine.org/clinical-practice-guidelines/glucocorticoid-induced-adrenal-insufficiency",
+      "locator": "Recommendations R2.1–R2.2 and risk context R2.9",
+      "access": "official recommendation text retrieved",
+      "checked_on": "2026-11-26"
+    }
+  ],
+  "tables": [
+    {
+      "id": "endotext-2018",
+      "source_id": "endotext-2018",
+      "label": "Endotext 2018 · tabla 1",
+      "rows": [
+        {
+          "drug_id": "hydrocortisone",
+          "equivalent_mg": 20,
+          "biological_half_life_hours": [
+            8,
+            12
+          ]
+        },
+        {
+          "drug_id": "cortisone",
+          "equivalent_mg": 25,
+          "biological_half_life_hours": [
+            8,
+            12
+          ]
+        },
+        {
+          "drug_id": "prednisone",
+          "equivalent_mg": 5,
+          "biological_half_life_hours": [
+            18,
+            36
+          ]
+        },
+        {
+          "drug_id": "prednisolone",
+          "equivalent_mg": 5,
+          "biological_half_life_hours": [
+            18,
+            36
+          ]
+        },
+        {
+          "drug_id": "methylprednisolone",
+          "equivalent_mg": 4,
+          "biological_half_life_hours": [
+            18,
+            36
+          ]
+        },
+        {
+          "drug_id": "triamcinolone",
+          "equivalent_mg": 4,
+          "biological_half_life_hours": [
+            18,
+            36
+          ]
+        },
+        {
+          "drug_id": "dexamethasone",
+          "equivalent_mg": 0.75,
+          "biological_half_life_hours": [
+            36,
+            54
+          ]
+        },
+        {
+          "drug_id": "betamethasone",
+          "equivalent_mg": 0.6,
+          "biological_half_life_hours": [
+            36,
+            54
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ese-es-2024",
+      "source_id": "ese-es-2024",
+      "label": "ESE / Endocrine Society 2024 · tabla 1",
+      "rows": [
+        {
+          "drug_id": "hydrocortisone",
+          "equivalent_mg": 20,
+          "biological_half_life_hours": [
+            8,
+            12
+          ]
+        },
+        {
+          "drug_id": "cortisone",
+          "equivalent_mg": 25,
+          "biological_half_life_hours": [
+            8,
+            12
+          ]
+        },
+        {
+          "drug_id": "prednisone",
+          "equivalent_mg": 5,
+          "biological_half_life_hours": [
+            12,
+            36
+          ]
+        },
+        {
+          "drug_id": "prednisolone",
+          "equivalent_mg": 5,
+          "biological_half_life_hours": [
+            12,
+            36
+          ]
+        },
+        {
+          "drug_id": "methylprednisolone",
+          "equivalent_mg": 4,
+          "biological_half_life_hours": [
+            12,
+            36
+          ]
+        },
+        {
+          "drug_id": "triamcinolone",
+          "equivalent_mg": 4,
+          "biological_half_life_hours": [
+            12,
+            36
+          ]
+        },
+        {
+          "drug_id": "dexamethasone",
+          "equivalent_mg": 0.5,
+          "biological_half_life_hours": [
+            36,
+            72
+          ]
+        },
+        {
+          "drug_id": "betamethasone",
+          "equivalent_mg": 0.5,
+          "biological_half_life_hours": [
+            36,
+            72
+          ]
+        }
+      ]
+    }
+  ],
+  "drugs": [
+    {
+      "id": "hydrocortisone",
+      "name": {
+        "es": "Hidrocortisona",
+        "pt": "Hidrocortisona",
+        "en": "Hydrocortisone",
+        "zh": "氢化可的松"
+      },
+      "mineralocorticoid_relative_activity": 1,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "cortisone",
+      "name": {
+        "es": "Cortisona / acetato de cortisona",
+        "pt": "Cortisona / acetato de cortisona",
+        "en": "Cortisone / cortisone acetate",
+        "zh": "可的松 / 醋酸可的松"
+      },
+      "mineralocorticoid_relative_activity": 0.8,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "prednisone",
+      "name": {
+        "es": "Prednisona",
+        "pt": "Prednisona",
+        "en": "Prednisone",
+        "zh": "泼尼松"
+      },
+      "mineralocorticoid_relative_activity": 0.3,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "prednisolone",
+      "name": {
+        "es": "Prednisolona",
+        "pt": "Prednisolona",
+        "en": "Prednisolone",
+        "zh": "泼尼松龙"
+      },
+      "mineralocorticoid_relative_activity": 0.3,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "methylprednisolone",
+      "name": {
+        "es": "Metilprednisolona",
+        "pt": "Metilprednisolona",
+        "en": "Methylprednisolone",
+        "zh": "甲泼尼龙"
+      },
+      "mineralocorticoid_relative_activity": 0,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "triamcinolone",
+      "name": {
+        "es": "Triamcinolona",
+        "pt": "Triamcinolona",
+        "en": "Triamcinolone",
+        "zh": "曲安西龙"
+      },
+      "mineralocorticoid_relative_activity": 0,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "dexamethasone",
+      "name": {
+        "es": "Dexametasona",
+        "pt": "Dexametasona",
+        "en": "Dexamethasone",
+        "zh": "地塞米松"
+      },
+      "mineralocorticoid_relative_activity": 0,
+      "mineralocorticoid_source_id": "endotext-2018"
+    },
+    {
+      "id": "betamethasone",
+      "name": {
+        "es": "Betametasona",
+        "pt": "Betametasona",
+        "en": "Betamethasone",
+        "zh": "倍他米松"
+      },
+      "mineralocorticoid_relative_activity": 0,
+      "mineralocorticoid_source_id": "endotext-2018"
+    }
+  ],
+  "hydrocortisone": {
+    "adult_adrenal_crisis": {
+      "module_id": "adrenal-crisis",
+      "source_ids": [
+        "sfe-adrenal"
+      ],
+      "initial_mg": 100,
+      "initial_routes": [
+        "iv",
+        "im"
+      ],
+      "maintenance_total_mg_per_24h": 200,
+      "maintenance_alternative_mg": 50,
+      "maintenance_interval_hours": 6,
+      "summary_es": "Crisis suprarrenal del adulto: tratamiento inmediato y reposición de volumen. No retrasar por pruebas. Vigilar perfusión, glucosa y electrolitos; revisar la pauta tras recuperación.",
+      "existing_acceptance": "references/evidence-registry.json#modules.adrenal-crisis; 2026-11-13"
+    },
+    "adult_septic_shock": {
+      "module_id": "sepsis-shock",
+      "source_ids": [
+        "ssc-adult-2026",
+        "sccm-steroids-2024"
+      ],
+      "common_regimen_total_mg_per_24h": 200,
+      "common_regimen_divided_mg": 50,
+      "common_regimen_interval_hours": 6,
+      "summary_es": "Adultos con shock séptico: corticoides IV como opción condicional (certeza baja). Hidrocortisona 200 mg/día es un régimen frecuente, no una pauta para toda sepsis. Revisar respuesta vasopresora, glucemia y sodio; duración y retirada según evolución clínica.",
+      "not_pediatric": true
+    },
+    "pediatric_adrenal_crisis": {
+      "module_id": "pediatric-adrenal-crisis",
+      "source_ids": [
+        "rch-adrenal-2024"
+      ],
+      "product": "hydrocortisone sodium succinate",
+      "initial_routes": [
+        "iv",
+        "im"
+      ],
+      "maintenance_route": "iv",
+      "maintenance_interval_hours": 6,
+      "rows": [
+        {
+          "age_label": {
+            "es": "Nacimiento–6 semanas",
+            "pt": "Nascimento–6 semanas",
+            "en": "Birth–6 weeks",
+            "zh": "出生至6周"
+          },
+          "initial_mg": 25,
+          "maintenance_mg": [
+            5,
+            10
+          ]
+        },
+        {
+          "age_label": {
+            "es": "6 semanas–2 años",
+            "pt": "6 semanas–2 anos",
+            "en": "6 weeks–2 years",
+            "zh": "6周至2岁"
+          },
+          "initial_mg": 25,
+          "maintenance_mg": [
+            10,
+            10
+          ]
+        },
+        {
+          "age_label": {
+            "es": "3–6 años",
+            "pt": "3–6 anos",
+            "en": "3–6 years",
+            "zh": "3至6岁"
+          },
+          "initial_mg": 50,
+          "maintenance_mg": [
+            12.5,
+            12.5
+          ]
+        },
+        {
+          "age_label": {
+            "es": "7–12 años",
+            "pt": "7–12 anos",
+            "en": "7–12 years",
+            "zh": "7至12岁"
+          },
+          "initial_mg": 50,
+          "maintenance_mg": [
+            25,
+            25
+          ]
+        },
+        {
+          "age_label": {
+            "es": ">12 años (pediatría)",
+            "pt": ">12 anos (pediatria)",
+            "en": ">12 years (pediatric)",
+            "zh": "12岁以上（儿科）"
+          },
+          "initial_mg": 100,
+          "maintenance_mg": [
+            25,
+            25
+          ]
+        }
+      ],
+      "summary_es": "Priorizar el plan individual del niño. Esta tabla RCH es de crisis suprarrenal, no de cirugía. Presenta las bandas de la fuente sin asignar dosis automáticamente por edad; confirmar en edades frontera. Requiere valoración pediátrica/endocrina y control de glucosa, electrolitos y circulación.",
+      "existing_acceptance": "references/evidence-registry.json#modules.pediatric-adrenal-crisis; 2026-11-14"
+    },
+    "pediatric_septic_shock": {
+      "module_id": "pediatric-sepsis",
+      "source_ids": [
+        "ssc-pediatric-2026"
+      ],
+      "summary_es": "No usar hidrocortisona de rutina si líquidos y vasoactivos restauran estabilidad. En shock persistente la evidencia es insuficiente para recomendar a favor o en contra. La insuficiencia suprarrenal sospechada o documentada sí requiere cobertura de estrés. No trasladar al niño la pauta adulta de 200 mg/día."
+    },
+    "anaphylaxis": {
+      "module_id": "anaphylaxis",
+      "source_ids": [
+        "rcuk-anaphylaxis-2021"
+      ],
+      "summary_es": "Adultos y niños: los corticoides no son tratamiento rutinario de la anafilaxia. Considerarlos tras la reanimación inicial en cuadros refractarios o asma/shock persistentes. Nunca desplazar ni retrasar la adrenalina.",
+      "existing_acceptance": "references/evidence-registry.json#modules.anaphylaxis; 2026-11-13/16"
+    }
+  },
+  "related_modules": [
+    {
+      "id": "adrenal-crisis",
+      "population": "adult",
+      "title_es": "Crisis suprarrenal",
+      "agent_ids": [
+        "hydrocortisone"
+      ]
+    },
+    {
+      "id": "thyroid-storm",
+      "population": "adult",
+      "title_es": "Tormenta tiroidea",
+      "agent_ids": [
+        "hydrocortisone"
+      ]
+    },
+    {
+      "id": "myxedema-coma",
+      "population": "adult",
+      "title_es": "Coma mixedematoso",
+      "agent_ids": [
+        "hydrocortisone"
+      ]
+    },
+    {
+      "id": "sepsis-shock",
+      "population": "adult",
+      "title_es": "Shock séptico",
+      "agent_ids": [
+        "hydrocortisone"
+      ]
+    },
+    {
+      "id": "acute-severe-asthma",
+      "population": "adult",
+      "title_es": "Asma adulta: pauta corta y tratamiento completo",
+      "agent_ids": [
+        "prednisone",
+        "prednisolone"
+      ]
+    },
+    {
+      "id": "copd-exacerbation",
+      "population": "adult",
+      "title_es": "Exacerbación de EPOC: pauta corta por indicación",
+      "agent_ids": [
+        "prednisone",
+        "prednisolone"
+      ]
+    },
+    {
+      "id": "pediatric-adrenal-crisis",
+      "population": "pediatric",
+      "title_es": "Crisis suprarrenal pediátrica",
+      "agent_ids": [
+        "hydrocortisone"
+      ]
+    },
+    {
+      "id": "pediatric-acute-asthma",
+      "population": "pediatric",
+      "title_es": "Asma pediátrica: pauta propia por edad y gravedad",
+      "agent_ids": [
+        "prednisolone",
+        "dexamethasone"
+      ]
+    },
+    {
+      "id": "croup",
+      "population": "pediatric",
+      "title_es": "Crup: pauta de dexametasona por indicación",
+      "agent_ids": [
+        "dexamethasone"
+      ]
+    },
+    {
+      "id": "pediatric-cns-infection",
+      "population": "pediatric",
+      "title_es": "Infección del SNC pediátrica",
+      "agent_ids": [
+        "dexamethasone"
+      ]
+    },
+    {
+      "id": "pediatric-sepsis",
+      "population": "pediatric",
+      "title_es": "Sepsis pediátrica: límites de corticoides",
+      "agent_ids": [
+        "hydrocortisone"
+      ]
+    }
+  ],
+  "short_courses": {
+    "bell_palsy": {
+      "module_id": "ent-emergencies",
+      "section_id": "bell-palsy",
+      "source_ids": [
+        "aao-bell-2013",
+        "sullivan-bell-2007",
+        "rch-bell-2023",
+        "bellpic-2022",
+        "pontine-facial-2019",
+        "idsa-lyme-2020"
+      ],
+      "guideline_min_age_years": 16,
+      "adult_draft_min_age_years": 18,
+      "onset_window_hours": 72,
+      "reference_regimen": {
+        "drug_id": "prednisolone",
+        "dose_mg": 25,
+        "route": "oral",
+        "interval_hours": 12,
+        "duration_days": 10,
+        "total_mg_per_day": 50,
+        "source_id": "sullivan-bell-2007"
+      },
+      "indication_es": "Parálisis facial periférica idiopática (Bell) confirmada clínicamente, tras excluir causas que cambian la conducta. AAO-HNSF recomienda corticoide oral desde los 16 años, iniciado dentro de las primeras 72 horas. El borrador adulto de esta aplicación se limita a 18 años o más; no asigna tratamiento por edad de forma automática.",
+      "regimen_scope_es": "Pauta completa del ensayo de Sullivan, no conversión de la tabla de equivalencias. No se combina con esquemas de otros ensayos. Fuera de la ventana de 72 horas, la decisión requiere valoración individual porque esta evidencia no establece el mismo beneficio.",
+      "pediatric_es": "En niños no se ha demostrado con precisión suficiente que prednisolona mejore la recuperación completa. BellPIC incluyó 187 menores de 18 años y fue insuficiente para excluir un beneficio o daño clínicamente importante. RCH señala que la transición a evidencia adulta es incierta. En menores de 18 años, incluidos los de 16–17, la ficha permite consulta y decisión individual pediátrica, sin prellenar una pauta adulta ni calcular una dosis por kg.",
+      "eye_care_es": "Si el ojo no cierra, iniciar protección corneal: lubricación durante el día y pomada con cierre/protección cuidadosa por la noche. Dolor ocular, ojo rojo, alteración visual o posible lesión corneal requieren valoración oftalmológica urgente.",
+      "differential_es": "La afectación de la frente o un patrón aparentemente periférico no descartan ictus por sí solos. Buscar focalidad neurológica asociada; ante diplopía, disartria, ataxia o déficit de extremidades, activar la valoración de ictus. Buscar vesículas/otalgia intensa (Ramsay Hunt), otitis o mastoiditis y exposición compatible con Lyme; no tratar estas causas como Bell idiopática.",
+      "safety_es": "Revisar alergias, glucemia/diabetes, infección, tolerancia previa, interacciones y exposición reciente o crónica a corticoides. Los antivirales solos no están indicados en Bell idiopática; añadirlos es una decisión individual. La parálisis asociada a Lyme tiene incertidumbre específica sobre corticoides y necesita su propia valoración.",
+      "follow_up_es": "Documentar cierre ocular y función facial, seguimiento y signos de retorno. Revalorar de inmediato si aparecen hallazgos neurológicos u oculares nuevos; derivar si la recuperación sigue incompleta a los 3 meses. En pediatría, organizar revisión en 1–2 semanas si el alta es apropiada, y consultar neurología si es menor de 2 años o la presentación es atípica."
+    },
+    "duration_withdrawal": {
+      "source_ids": [
+        "ese-short-course-2024"
+      ],
+      "summary_es": "Una pauta sistémica verdaderamente corta, de menos de 3–4 semanas, generalmente no requiere reducción progresiva para evitar supresión del eje suprarrenal (ESE/Endocrine Society 2024, R2.1). Revisar exposición acumulada y tratamiento previo; esta regla no autoriza suspender un tratamiento basal crónico, sustitución suprarrenal o una pauta individual de retirada. La duración se decide por la enfermedad, no por la equivalencia de potencia."
+    },
+    "existing_module_ids": [
+      "acute-severe-asthma",
+      "copd-exacerbation",
+      "pediatric-acute-asthma",
+      "croup"
+    ]
+  }
+}

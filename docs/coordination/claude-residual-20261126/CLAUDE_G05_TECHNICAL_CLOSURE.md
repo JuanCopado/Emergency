@@ -2,17 +2,17 @@
 
 **G05 global sigue BLOCKED.** Este expediente cierra solo lo verificable por ingeniería. No habilita consumidor público, RAG ni consultas clínicas externas. Base `87a17301…`, código `5746d3dd…`.
 
-## Los seis requisitos vigentes
-Fuente: `docs/coordination/R6_G05_20261121.md` («Pendiente congelar consumidor, campos, almacenamiento, plataforma, privacidad y responsables»). La enumeración como seis requisitos es **inferencia** de esa frase; no hay un documento que los numere.
+## Correspondencia con los seis requisitos canónicos
+Fuente vigente: `docs/coordination/r5-g05-20261126/G05_REQUISITOS.json`, derivado trazable de R88. Sus IDs G05-01 a G05-06 se conservan. Los ejes informativos de R6 no sustituyen esta matriz.
 
 | # | Requisito | Estado | Evidencia observada ahora |
 |---|---|---|---|
-| 1 | Consumidor | Implementado y verificado en el alcance del laboratorio | Ruta `T06Lab → buildT06ViewModel → T06Metadata`, catálogo local de 18 escenarios, sin búsqueda libre. Pruebas T06 dentro de la app: PASS (55 archivos / 1047). El resultado 18/18 de Q4 se reutiliza de R5, no se repitió |
-| 2 | Campos | Parcial | `T06ViewModel` es un tipo cerrado y `buildT06ViewModel` valida entradas. Derechos por campo NO VERIFICADOS (PubMed, Europe PMC, NVD) |
-| 3 | Almacenamiento | Cliente sin persistencia; servidor sin política | 0 uso de `localStorage`, `sessionStorage` o IndexedDB en `app/src/t06`. La app guarda solo preferencias (idioma, tema, µg/mcg, contexto de referencia). Retención del servidor: no definida |
-| 4 | Plataforma | Implementado con límite | Lanzador T06 solo Linux (`run_local.py:22`); T05 usa Job Objects de Windows. Una interfaz común no valida ambas plataformas |
-| 5 | Privacidad | Parcial | Catálogo sintético sin PHI. Revisión de privacidad de un consumidor público: inexistente |
-| 6 | Responsables | BLOQUEADO por decisión del propietario | Sin designación nominal de ingeniería, seguridad, titular de fuentes ni aprobador clínico (R5) |
+| G05-01 | Consumidor y despliegue | Laboratorio local conservado; consumidor público no definido | T06 usa 18 escenarios sin búsqueda libre; plataforma por adaptador y alcance público deben conservar su identidad y controles. Resultados de PR119 históricos, no transferibles al nuevo SHA |
+| G05-02 | Derechos y procedencia | Permisos por campo/uso y licencia propia pendientes | Documentos consultados no autorizan RAG o redistribución. Se conserva procedencia T06 y evidencia de dependencias |
+| G05-03 | Privacidad, autenticidad y seguridad | Controles locales implementados; alcance público pendiente | Privacidad, acceso, retención y aislamiento requieren el consumidor preciso y auditoría del mismo candidato |
+| G05-04 | Integridad del contenido externo | RAG público no implementado ni habilitado | Diseño en `rag/README.md`; sin promoción automática de fuentes ni cambio clínico |
+| G05-05 | Liberación y trazabilidad | QA y auditoría del SHA final pendientes | El aprobador clínico ya es el Dr. Juan Copado Ceballos; Farmacia es consultiva. Faltan responsables operativos nominales y recibos del candidato que se proponga liberar |
+| G05-06 | PTBR-PIX | Contrato literal específico y aceptación pendientes | PTBR-MOD no autoriza acceso a píxeles. No se activa esa función ni se extienden MED-DEC-R46-01/02 |
 
 ## Integridad
 - 19/19 archivos inmutables de `tools/t06-localhost-lab/SOURCE_PROVENANCE.json` coinciden en SHA-256 con el árbol de `87a17301…`. Los dos adaptadores declarados modificados (`server.py`, `loopback_worker.py`) no cuentan como inmutables.
@@ -22,6 +22,5 @@ Fuente: `docs/coordination/R6_G05_20261121.md` («Pendiente congelar consumidor,
 ## No verificado
 Cumplimiento de Europe PMC y NVD por campo; licencia del código propio (NO ASIGNADA); aislamiento exhaustivo del equipo; T05 Windows en esta sesión (no se repitió).
 
-## Decisión pendiente (SÍ/NO)
-**¿Designas responsables nominales de ingeniería, seguridad y titular de fuentes, y congelas el consumidor T06 de 18 escenarios como único consumidor del alcance G05, sin proveedores públicos ni RAG?**
-Un SÍ permite abrir el expediente de derechos por campo y la auditoría de privacidad. Un NO mantiene G05 bloqueado sin cambios.
+## Preparación operativa pendiente
+Designar responsables nominales de ingeniería, seguridad/privacidad y titular de fuentes; documentar finalidad, campos, plataforma, retención y destinatarios del consumidor concreto. Juan ya está designado como autoridad clínica. Este expediente no añade una decisión médica SÍ/NO ni exige firma física; prepara la información que pueda requerir una decisión material posterior. Las aceptaciones de los 19 contratos y MED-DEC-R46-01/02 se conservan en su alcance. Sin consumidores nuevos, estudio ni despliegue.

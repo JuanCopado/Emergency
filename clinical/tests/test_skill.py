@@ -12,6 +12,7 @@ ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "tests"))
 import synthetic_images
+from therapy_test_fixtures import review_synthetic_therapy
 
 from pediatric_outpatient_calculator import calculate as calculate_pediatric_outpatient, load_registry as load_pediatric_outpatient_registry, preflight as pediatric_outpatient_preflight, MedicationSafetyStop
 from pediatric_outpatient_alert_engine import evaluate as evaluate_pediatric_alerts
@@ -5625,7 +5626,7 @@ class ModularCoreTests(unittest.TestCase):
         )
         self.assertEqual(ok['dose_mg'],525)
 
-    def _clean_note_for_export(self):
+    def _clean_note_for_export(self, *, with_therapy=True):
         note=new_clinical_note(age_years=72,sex='male',language='pt-PT')
         note['history']['chief_complaint']='Dispneia e tosse com 48 horas de evolução.'
         note['history']['present_illness']='Agravamento progressivo sem identificadores diretos.'
@@ -5645,6 +5646,12 @@ class ModularCoreTests(unittest.TestCase):
         note['assessment']['disposition']=[{'action':'Reavaliar após tratamento inicial','priority':'urgent','rationale':'definir alta versus observação','source_modules':['observation-discharge']}]
         note['clinician_validation']={'reviewed':True,'reviewer_role':'physician','reviewed_at':'relative: after assessment','changes_made':None}
         note['privacy'].update({'direct_identifiers_removed':True,'free_text_screened':True,'source_metadata_checked':True,'burned_in_identifiers_checked':True,'export_allowed':True})
+        if with_therapy:
+            review_synthetic_therapy(note)
+        else:
+            # Isolate privacy/schema tests from the independent therapy receipt
+            # gate; tests exporting treatment use the reviewed fixture above.
+            note['assessment']['treatment_suggestions'] = []
         return note
 
     def test_v139_clinical_note_attachment_routing(self):
@@ -5653,7 +5660,7 @@ class ModularCoreTests(unittest.TestCase):
         self.assertIn('clinical-scores-calculators',route_clinical_attachment('laboratory_report')['modules'])
 
     def test_v139_clinical_note_privacy_blocks_direct_identifiers(self):
-        note=self._clean_note_for_export()
+        note=self._clean_note_for_export(with_therapy=False)
         note['history']['present_illness']='Nome: João da Silva; dispneia.'
         findings=scan_clinical_note_privacy(note)
         self.assertTrue(any(x['code']=='POSSIBLE_IDENTIFIER_IN_TEXT' for x in findings))
@@ -5945,6 +5952,7 @@ class ModularCoreTests(unittest.TestCase):
         reviewed['privacy']['direct_identifiers_removed'] = True
         reviewed['privacy']['free_text_screened'] = True
         reviewed['clinician_validation']['reviewed'] = True
+        review_synthetic_therapy(reviewed)
         for fmt, magic in (
             ('docx', b'PK'), ('pdf', b'%PDF-1.4'), ('json', b'{')
         ):
@@ -5968,6 +5976,7 @@ class ModularCoreTests(unittest.TestCase):
             ai_interpretation='IA: sem alterações agudas adicionais.',
             privacy_checked=True,burned_in_identifiers_checked=True
         )
+        review_synthetic_therapy(note)
         with tempfile.TemporaryDirectory() as directory:
             docx=Path(directory)/'structured-note.docx'
             export_clinical_note_docx(note,docx)
@@ -6006,6 +6015,7 @@ class ModularCoreTests(unittest.TestCase):
         sample = 'SpO₂ ≤ 92% → reevaluar; temperatura ≥ 38 °C; ± respuesta; β-bloqueo'
         extra = '← µ ₃ α – — “comillas” ‘clínicas’'
         note['history']['present_illness'] = sample + '\n' + extra
+        review_synthetic_therapy(note)
         with tempfile.TemporaryDirectory() as directory:
             pdf = Path(directory) / 'note.pdf'
             docx = Path(directory) / 'note.docx'
@@ -6027,6 +6037,7 @@ class ModularCoreTests(unittest.TestCase):
         note = self._clean_note_for_export()
         sample = 'SpO₂ ≤ 92% → reevaluar; temperatura ≥ 38 °C; ± respuesta; β-bloqueo'
         note['history']['present_illness'] = '\n'.join([sample] * 120 + ['<b>literal & final ≥</b>'])
+        review_synthetic_therapy(note)
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'note.pdf'
             export_clinical_note_pdf(note, path)
@@ -6044,6 +6055,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v142_unicode_pdf_rejects_missing_glyph_without_overwriting(self):
         note = self._clean_note_for_export()
         note['history']['present_illness'] = 'Unsupported symbol: \U0010ffff'
+        review_synthetic_therapy(note)
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'note.pdf'
             path.write_bytes(b'previous output')
@@ -6122,14 +6134,14 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual(set(module_ids)-routed,exempt-{'vasoactive-inotrope-infusions'})
 
     def test_v142_privacy_scans_direct_string_once(self):
-        note = self._clean_note_for_export()
+        note = self._clean_note_for_export(with_therapy=False)
         note['history']['present_illness'] = 'synthetic@example.invalid'
         findings = scan_clinical_note_privacy(note)
         emails = [x for x in findings if x.get('pattern_id') == 'email']
         self.assertEqual([x['path'] for x in emails], ['$.history.present_illness'])
 
     def test_v142_privacy_scans_string_lists_and_blocks_export(self):
-        note = self._clean_note_for_export()
+        note = self._clean_note_for_export(with_therapy=False)
         note['history']['past_medical_history'] = ['DPOC', 'synthetic@example.invalid']
         gate = validate_clinical_note_export(note)
         self.assertTrue(gate['blocked'])
@@ -6137,7 +6149,7 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual([x['path'] for x in emails], ['$.history.past_medical_history[1]'])
 
     def test_v142_privacy_scans_dicts_inside_lists(self):
-        note = self._clean_note_for_export()
+        note = self._clean_note_for_export(with_therapy=False)
         note['timeline'] = [{'time_label': 'admission', 'event': 'synthetic@example.invalid'}]
         emails = [x for x in scan_clinical_note_privacy(note) if x.get('pattern_id') == 'email']
         self.assertEqual([x['path'] for x in emails], ['$.timeline[0].event'])
@@ -6148,12 +6160,12 @@ class ModularCoreTests(unittest.TestCase):
         self.assertEqual([x['path'] for x in emails], ['$.outer[0].inner[0][0]'])
 
     def test_v142_privacy_notes_do_not_bypass_export_screening(self):
-        note = self._clean_note_for_export()
+        note = self._clean_note_for_export(with_therapy=False)
         note['privacy']['privacy_notes'] = ['synthetic@example.invalid']
         self.assertTrue(validate_clinical_note_export(note)['blocked'])
 
     def test_v142_privacy_nested_negative_control(self):
-        note = self._clean_note_for_export()
+        note = self._clean_note_for_export(with_therapy=False)
         note['history']['past_medical_history'] = ['DPOC', 'HTA']
         self.assertEqual(scan_clinical_note_privacy(note), [])
         self.assertFalse(validate_clinical_note_export(note)['blocked'])
@@ -6161,7 +6173,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v142_contract_real_booleans_keep_export_gates(self):
         for value in (True, False):
             with self.subTest(value=value):
-                note = self._clean_note_for_export()
+                note = self._clean_note_for_export(with_therapy=False)
                 note['clinician_validation']['reviewed'] = value
                 self.assertEqual(validate_clinical_note_export(note)['blocked'], not value)
                 self.assertEqual(validate_clinical_note_analysis(note), [])
@@ -6174,7 +6186,7 @@ class ModularCoreTests(unittest.TestCase):
         for section, field in paths:
             for value in ('true', 'false', 1, 0, None, [], {}):
                 with self.subTest(field=field, value=value):
-                    note = self._clean_note_for_export()
+                    note = self._clean_note_for_export(with_therapy=False)
                     note[section][field] = value
                     gate = validate_clinical_note_export(note)
                     self.assertTrue(gate['blocked'])
@@ -6183,7 +6195,7 @@ class ModularCoreTests(unittest.TestCase):
     def test_v142_contract_rejects_nested_boolean_coercions(self):
         for value in ('true', 'false', 1, 0):
             with self.subTest(value=value):
-                note = self._clean_note_for_export()
+                note = self._clean_note_for_export(with_therapy=False)
                 note['history']['allergies'] = [{'substance': 'synthetic', 'confirmed': value}]
                 self.assertTrue(validate_clinical_note_export(note)['blocked'])
                 note['history']['allergies'] = []
@@ -6200,10 +6212,10 @@ class ModularCoreTests(unittest.TestCase):
         for field in ('years', 'months'):
             for age in (-5, True, False, '5', float('nan'), float('inf'), -float('inf')):
                 with self.subTest(field=field, age=age):
-                    note = self._clean_note_for_export()
+                    note = self._clean_note_for_export(with_therapy=False)
                     note['encounter']['age'][field] = age
                     self.assertTrue(validate_clinical_note_export(note)['blocked'])
-        note = self._clean_note_for_export()
+        note = self._clean_note_for_export(with_therapy=False)
         note['encounter']['age']['years'] = 131
         self.assertTrue(validate_clinical_note_export(note)['blocked'])
 
@@ -6211,7 +6223,7 @@ class ModularCoreTests(unittest.TestCase):
         for value in (float('nan'), float('inf'), -float('inf')):
             for location in ('vitals', 'extension'):
                 with self.subTest(value=value, location=location):
-                    note = self._clean_note_for_export()
+                    note = self._clean_note_for_export(with_therapy=False)
                     if location == 'vitals':
                         note['exam']['vitals'] = [{'hr': value}]
                     else:
@@ -6223,7 +6235,7 @@ class ModularCoreTests(unittest.TestCase):
                         'assessment', 'privacy', 'clinician_validation'):
             for value in (None, [], 'invalid', 0):
                 with self.subTest(section=section, value=value):
-                    note = self._clean_note_for_export()
+                    note = self._clean_note_for_export(with_therapy=False)
                     note[section] = value
                     first = validate_clinical_note_export(note)
                     self.assertTrue(first['blocked'])
@@ -6245,7 +6257,7 @@ class ModularCoreTests(unittest.TestCase):
             ('assessment', 'limitations', 'limitation'),
         ):
             with self.subTest(section=section, field=field, value=value):
-                note = self._clean_note_for_export()
+                note = self._clean_note_for_export(with_therapy=False)
                 note[section][field] = value
                 self.assertTrue(validate_clinical_note_export(note)['blocked'])
 

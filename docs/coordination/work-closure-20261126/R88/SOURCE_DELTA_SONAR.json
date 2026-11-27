@@ -1,0 +1,98 @@
+{
+  "observed_UTC": "2026-11-27T00:49:56.160283+00:00",
+  "status": "PASS_READ_ONLY_SOURCE_RELATION",
+  "old_commit": "55c53dd9b3aef10ef3b09d6095382040c57f98a4",
+  "fixed_commit": "f9ba7aacbcdea2e5fa67b9ee57174b6526cb8a28",
+  "base_commit": "b9f8d14fc1439a293f786e7b8353a9923a0f1156",
+  "base_tree": "20e98a131f96549c50497c1ad95511fb2f240586",
+  "reused_source_receipt": {
+    "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\EVIDENCIA_CODEX\\localized-copy-parity.json",
+    "sha256": "08439a30164248f4af41384760b64779963667dca5fec28aeef6c875d682a91b",
+    "published_commit": "91d45525c6781c251ce22279859543b440f12190",
+    "ack_url": "https://github.com/JuanCopado/Emergency/pull/118#issuecomment-7206734539",
+    "scope": "Existing literal values parity from TypeScript55c53dd9 to JSONf9ba7aac, inherited and hash-verified; transformation not rerun",
+    "result": {
+      "status": "PASS",
+      "locales": [
+        "es",
+        "pt",
+        "en",
+        "zh"
+      ],
+      "unchanged_display_values": true,
+      "only_key_rename": "then -> maintenanceLabel",
+      "normalized_payload_sha256": "6de218679c64aee5fdd10f10c017a0ac0be1fb26d9ca9290fb0b71352abd999d"
+    }
+  },
+  "new_checks": {
+    "copies": [
+      {
+        "path": "app/src/clinical-note/therapyCopy.locales.json",
+        "fixed_git_blob": "2a5ef3f339728a5934f7ccc595eeac487d29d45f",
+        "base_git_blob": "2a5ef3f339728a5934f7ccc595eeac487d29d45f",
+        "bytes": 12046,
+        "sha256": "ad804490664a3d365fc417424c35615e178ae70642d47258a422ba96807c4460",
+        "literal_bytes_unchanged_fix_to_base": true,
+        "top_level_keys_by_language": {
+          "es": 49,
+          "en": 49,
+          "pt": 49,
+          "zh": 49
+        }
+      },
+      {
+        "path": "app/src/corticosteroids/copy.locales.json",
+        "fixed_git_blob": "75b1866db0bed9941d30c192daae4cd8ef229f10",
+        "base_git_blob": "75b1866db0bed9941d30c192daae4cd8ef229f10",
+        "bytes": 16178,
+        "sha256": "058bf3028f3c657d0155e11ceeaeb5a78e9760a0daa02f8d5533aba7f491659f",
+        "literal_bytes_unchanged_fix_to_base": true,
+        "top_level_keys_by_language": {
+          "es": 64,
+          "pt": 64,
+          "en": 64,
+          "zh": 64
+        }
+      }
+    ],
+    "all_four_languages_retained": true,
+    "only_technical_key_rename": "then -> maintenanceLabel",
+    "fix_to_b9_stable_and_snapshot_test_bytes_identical": true,
+    "canonical_sort": {
+      "old": "Default string sort, UTF-16 code-unit lexical order",
+      "new": "Explicit left===right→0; left<right→-1; otherwise1",
+      "same_string_key_order": true,
+      "locale_dependent_comparator": false,
+      "check": "Static source equivalence of string-key ordering; no test suite rerun"
+    },
+    "snapshot_version": {
+      "source_sha256": "8fb822d93d27d982d8e70de7c12ac5dfa8d3b22544a5a4046f98994bc80d3a46",
+      "test_sha256": "656ae82df20787336c317541dc6f13f930ad134df3dc14bb7c96697994fbefb8",
+      "existing_cases": [
+        "object insertion order cannot invalidate an unchanged clinical version",
+        "changed Unicode clinical text is a different version",
+        "a changed medication safety context is a different version"
+      ],
+      "receipt_and_source_revision_fields_preserved": [
+        "generation_token",
+        "source_revision",
+        "source_refs",
+        "reference_text",
+        "physician_review_of_this_version",
+        "validation_token",
+        "plan_digest",
+        "context_digest",
+        "reviewed_at"
+      ]
+    }
+  },
+  "test_execution_this_check": false,
+  "ci_reused": {
+    "source": "EVIDENCIA_CODEX/FINAL_RECEIPT.json and CI_JOBS.json",
+    "candidate_jobs_successful": 14,
+    "claim": "Inherited source CI belongs to b9f8d14 exact tree only; not transferred to later candidate"
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "candidate_modified": false,
+  "protected_branches_modified": false
+}

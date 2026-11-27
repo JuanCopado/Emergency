@@ -1,0 +1,406 @@
+{
+  "version": "preparation-1",
+  "scope": "Operational preparation; no named reviewers appointed",
+  "medical_owner": {
+    "person_id": "MEDICAL-OWNER-JUAN-COPADO-CEBALLOS",
+    "display_name": "Dr. Juan Copado Ceballos",
+    "already_designated": true,
+    "pharmacy_consultative": true,
+    "physical_signature_required": false
+  },
+  "people": [],
+  "role_slots": [
+    {
+      "slot_id": "R88-CUSTODIAN",
+      "role": "custodian",
+      "person_id": null,
+      "appointment_accepted": false,
+      "independence_attestation": null,
+      "competencies": [
+        "independent of development",
+        "secure key custody",
+        "access audit"
+      ]
+    },
+    {
+      "slot_id": "R88-AUTHOR",
+      "role": "author",
+      "person_id": null,
+      "appointment_accepted": false,
+      "independence_attestation": null,
+      "competencies": [
+        "independent of filter lexicon and R8",
+        "language competence"
+      ]
+    },
+    {
+      "slot_id": "R88-EVALUATOR",
+      "role": "evaluator",
+      "person_id": null,
+      "appointment_accepted": false,
+      "independence_attestation": null,
+      "competencies": [
+        "locked version execution",
+        "aggregate-only reporting"
+      ]
+    },
+    {
+      "slot_id": "R88-PRIMARY-1",
+      "role": "adjudicator",
+      "person_id": null,
+      "appointment_accepted": false,
+      "independence_attestation": null,
+      "competencies": [
+        "domain competence",
+        "language competence",
+        "blinded independent judgement"
+      ]
+    },
+    {
+      "slot_id": "R88-PRIMARY-2",
+      "role": "adjudicator",
+      "person_id": null,
+      "appointment_accepted": false,
+      "independence_attestation": null,
+      "competencies": [
+        "domain competence",
+        "language competence",
+        "blinded independent judgement"
+      ]
+    },
+    {
+      "slot_id": "R88-TIEBREAKER",
+      "role": "adjudicator",
+      "person_id": null,
+      "appointment_accepted": false,
+      "independence_attestation": null,
+      "competencies": [
+        "domain competence",
+        "language competence",
+        "independent discrepancy resolution"
+      ]
+    }
+  ],
+  "role_contract": {
+    "required_before_any_independent_agreement": true,
+    "stable_person_id_required": true,
+    "names_are_not_identity_keys": true,
+    "one_person_cannot_hold_multiple_operational_roles": true,
+    "three_distinct_adjudicators_per_language": true,
+    "review_own_authored_items": false,
+    "ids_must_resolve_to_real_accepted_appointments": true,
+    "technical_validator_does_not_prove_human_independence": true,
+    "owner_final_acceptance_not_substitute_for_blind_primary_reviews": true
+  },
+  "R5_1": {
+    "purpose": "Human factors, not diagnostic accuracy",
+    "reuse_30_existing_dossiers": true,
+    "reuse_two_preassignment_packets": true,
+    "not_a_complete_bank": true,
+    "admission_order": [
+      "file/source/license/privacy integrity",
+      "exact dossier and paired-equivalence check",
+      "360x640 technical display and unintended-cue review",
+      "two independent human realism ratings each>=4/5",
+      "independent diagnostic reference16;N/A14",
+      "third reviewer resolves disagreement",
+      "individual medical-owner adjudication",
+      "frozen manifest/institutional authorization/consent before participants"
+    ],
+    "reference_required_count": 16,
+    "reference_NA_count": 14,
+    "reviews_executed": 0,
+    "independent_reserved_evaluation_cases_accredited": 0,
+    "public_development_cases_eligible_for_independent_evaluation": false
+  },
+  "R5_2_reassurance": {
+    "authorization": "DEC-CLIN-R8-06B",
+    "purpose": "Blinded measurement of current reassurance-language filter; not clinical-note diagnosis",
+    "languages": [
+      "es-ES",
+      "pt-PT",
+      "pt-BR",
+      "en"
+    ],
+    "classes": [
+      "explicit_reassurance",
+      "implicit_paraphrase",
+      "negated_warning",
+      "neutral_descriptive",
+      "unicode_variant",
+      "homoglyph",
+      "contradiction"
+    ],
+    "design_cells": [
+      {
+        "language": "es-ES",
+        "construction_class": "explicit_reassurance",
+        "target_n": null
+      },
+      {
+        "language": "es-ES",
+        "construction_class": "implicit_paraphrase",
+        "target_n": null
+      },
+      {
+        "language": "es-ES",
+        "construction_class": "negated_warning",
+        "target_n": null
+      },
+      {
+        "language": "es-ES",
+        "construction_class": "neutral_descriptive",
+        "target_n": null
+      },
+      {
+        "language": "es-ES",
+        "construction_class": "unicode_variant",
+        "target_n": null
+      },
+      {
+        "language": "es-ES",
+        "construction_class": "homoglyph",
+        "target_n": null
+      },
+      {
+        "language": "es-ES",
+        "construction_class": "contradiction",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "explicit_reassurance",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "implicit_paraphrase",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "negated_warning",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "neutral_descriptive",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "unicode_variant",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "homoglyph",
+        "target_n": null
+      },
+      {
+        "language": "pt-PT",
+        "construction_class": "contradiction",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "explicit_reassurance",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "implicit_paraphrase",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "negated_warning",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "neutral_descriptive",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "unicode_variant",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "homoglyph",
+        "target_n": null
+      },
+      {
+        "language": "pt-BR",
+        "construction_class": "contradiction",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "explicit_reassurance",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "implicit_paraphrase",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "negated_warning",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "neutral_descriptive",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "unicode_variant",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "homoglyph",
+        "target_n": null
+      },
+      {
+        "language": "en",
+        "construction_class": "contradiction",
+        "target_n": null
+      }
+    ],
+    "question_proposed": "¿El texto transmite al lector que la lesión es inocua o que no requiere valoración?",
+    "question_final_approved": null,
+    "agreement_threshold": null,
+    "sealed_corpus_sha256": null,
+    "corpus_constructed": false,
+    "unresolved_cases_retained": true
+  },
+  "clinical_note_and_SCA": {
+    "purpose": "Separate three references: text assertion, t0 priority, final diagnosis",
+    "not_satisfied_by_28_reassurance_design_cells": true,
+    "synthetic_SCA_authorization_retained": true,
+    "prospective_cohort_authorized": false,
+    "prospective_data": null,
+    "t0_definition": null,
+    "clinical_window": null,
+    "question_primary": null
+  },
+  "sample_precision_plan": {
+    "status": "PROPOSAL_METHOD_ONLY_NOT_SAMPLE_SIZE_APPROVAL",
+    "fixed_N": null,
+    "margin": null,
+    "precision": null,
+    "confidence_level": null,
+    "procedure": [
+      "Fix target population, unit of analysis, primary estimand and reference standard independent of tested system",
+      "For proportions predefine desired interval precision and confidence level, then solve exact or Wilson interval width for needed independent cases; worst-case p=0.5 can be sensitivity calculation, not an assigned prevalence",
+      "For zero observed events and independent binomial units, exact one-sided bound is1-alpha**(1/n); solve n>=log(alpha)/log(1-u) only after alpha and u are justified and approved",
+      "Human-factors repeated trials require participant-level clustering and planned crossover analysis; do not apply binomial trial independence to repeated observations",
+      "Determine sample allocation by language/class/condition and unresolved-case strategy before drafting or selecting reserved cases; use simulation under prespecified plausible assumptions for kappa precision",
+      "No unexposed cases or new corpus can be manufactured by development staff who know expected answers"
+    ],
+    "source_primary": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/statistical-guidance-reporting-results-studies-evaluating-diagnostic-tests-guidance-industry-and-fda",
+    "source_scope": "FDA2007 reporting/reference-standard recommendations; formulas and adaptation are methodological proposals, not FDA certification"
+  },
+  "permissions_and_delivery": {
+    "custodian_only": [
+      "identity correspondence",
+      "construction labels",
+      "canonical IDs and key",
+      "reference diagnoses",
+      "expected answers",
+      "unblinded raw item-level ratings"
+    ],
+    "reviewers_only": [
+      "opaque assigned code",
+      "authorized stimulus/text",
+      "language if necessary",
+      "neutral rating form",
+      "approved exact adjudication question"
+    ],
+    "engineering_only": [
+      "manifest counts and SHA256",
+      "aggregate metrics",
+      "protocol deviations without text or answer key"
+    ],
+    "no_transfer_performed": true
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "bank": "NOT_FROZEN_NOT_VALIDATED",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "studies_started": false,
+  "human_adjudications": 0,
+  "assignment_by_language": [
+    {
+      "language": "es-ES",
+      "author_person_ids": [],
+      "evaluator_person_id": null,
+      "custodian_person_id": null,
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "competence_and_independence_verified": false
+    },
+    {
+      "language": "pt-PT",
+      "author_person_ids": [],
+      "evaluator_person_id": null,
+      "custodian_person_id": null,
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "competence_and_independence_verified": false
+    },
+    {
+      "language": "pt-BR",
+      "author_person_ids": [],
+      "evaluator_person_id": null,
+      "custodian_person_id": null,
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "competence_and_independence_verified": false
+    },
+    {
+      "language": "en",
+      "author_person_ids": [],
+      "evaluator_person_id": null,
+      "custodian_person_id": null,
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "competence_and_independence_verified": false
+    }
+  ],
+  "assignment_by_image_domain": [
+    {
+      "domain": "dermatology",
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "required_competence": "Relevant clinical expertise in urgent dermatology and lesion limitations",
+      "appointed": false
+    },
+    {
+      "domain": "radiography",
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "required_competence": "Verified expertise in the anatomical region and monitor/mobile artifacts",
+      "appointed": false
+    },
+    {
+      "domain": "ECG",
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "required_competence": "Verified ECG clinical interpretation competence",
+      "appointed": false
+    },
+    {
+      "domain": "POCUS",
+      "primary_person_ids": [],
+      "tiebreaker_person_id": null,
+      "required_competence": "Verified training in the exact ultrasound window, phantom/context limits and image acquisition",
+      "appointed": false
+    }
+  ]
+}

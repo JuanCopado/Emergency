@@ -1,3 +1,7 @@
+## 26/11/2026 · Revisión focal de corticoides
+
+La [referencia de corticoides](references/corticosteroids.md) y el [catálogo versionado](pharmacology/corticosteroids.json) documentan Endotext 2018, ESE/Endocrine Society 2024, Society for Endocrinology, RCH, SCCM/SSC 2024–2026 y RCUK, con localizadores y límites de acceso. El expediente focal añade la comprobación de GINA 2026, Box 9-2, para explicitar el curso de asma de 12–17 años. Las tablas de equivalencia distintas se mantienen identificadas, sin promediarlas. La proyección terapéutica utiliza los módulos canónicos y conserva su procedencia e idioma original. Esta consulta focal no renueva automáticamente todas las fechas del registro.
+
 ## 20/11/2026 · Cotejo completo de referencias de imagen y gobernanza
 
 Las nueve fichas v1 de imagen fueron aceptadas expresamente por el propietario el 20/11/2026 («si claro que si»), incluida POCUS-MODE v1, ahora aplicada. Las matrices completas y sus límites de acceso permanecen en `qa/IMAGE_REFERENCE_REVIEW_GAS_CT_EYE_20261120.md`, `qa/IMAGE_REFERENCE_REVIEW_ECG_POCUS_20261120.md` y `qa/IMAGE_REFERENCE_REVIEW_CXR_SKIN_OTHER_20261120.md`; aceptación: `qa/IMAGE_REFERENCE_OWNER_APPROVAL_20261120.md`. Se sustituyen las identidades genéricas por fuentes concretas delimitadas y se renueva la fecha solo de esos nueve módulos. GREEN acredita referencia aceptada; rendimiento diagnóstico y despliegue no establecidos. Gate PR35 preservado. Registro: 129 GREEN / 2 YELLOW / 0 RED; CLINICALLY_PENDING.

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "S1-13",
+    "checkout_sha256": "63f9fd53890212730a68ce7d393d24453708d53ffacb3e06f92df42b461ee237",
+    "git_sha256": "2c61bbdf6e1f6b002218320f17abf57a5df1d615acfc4f86899bc07f98b27aa1",
+    "expected": "2c61bbdf6e1f6b002218320f17abf57a5df1d615acfc4f86899bc07f98b27aa1",
+    "checkout_bytes": 2362,
+    "git_bytes": 2263,
+    "crlf_normalization_equals_blob": true
+  },
+  {
+    "id": "S2-14",
+    "checkout_sha256": "e97f73df20f9885895dd09965728b179c90426376b79bc7f8fce4850a7b47691",
+    "git_sha256": "281353c78416bdd33faf21b3ca1db707f8894948db1b7013b11a77286fabd745",
+    "expected": "281353c78416bdd33faf21b3ca1db707f8894948db1b7013b11a77286fabd745",
+    "checkout_bytes": 1443,
+    "git_bytes": 1371,
+    "crlf_normalization_equals_blob": true
+  },
+  {
+    "id": "S2-15",
+    "checkout_sha256": "d303ddd6be62c51893cb968e55188397678b782e3929fe7edfd82257b8508ddb",
+    "git_sha256": "01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede",
+    "expected": "01212969ab9691e1b7b44436f9b0ae54fdca9ae983dcd5ded241d06543b9cede",
+    "checkout_bytes": 1440,
+    "git_bytes": 1368,
+    "crlf_normalization_equals_blob": true
+  }
+]

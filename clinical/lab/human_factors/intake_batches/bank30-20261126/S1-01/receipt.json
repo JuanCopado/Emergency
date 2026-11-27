@@ -1,0 +1,30 @@
+{
+  "assets": [
+    {
+      "stimulus_id": "S1-01",
+      "file": "Abrasion_on_hand_20050906-original.jpg",
+      "role": "original",
+      "kind": "authorized_clinical",
+      "source": "Berteun (atribución asumida por Commons a partir de la declaración del cargador); obra propia de 2005; https://upload.wikimedia.org/wikipedia/commons/b/b7/Abrasion_on_hand_20050906.jpg",
+      "license": "Dedicación al dominio público mundial por el titular, ficha primaria Commons. Conservar procedencia.",
+      "permission_ref": "https://commons.wikimedia.org/wiki/File:Abrasion_on_hand_20050906.jpg",
+      "privacy_ref": "Inspección técnica Codex: superficie de mano sin rostro o identificadores textuales visibles. Original con EXIF de cámara y sin GPS. Revisión de píxeles y privacidad por dos revisores humanos independientes pendiente.",
+      "transformation": "Bytes originales intactos.",
+      "bytes": 1876910,
+      "sha256": "b4e6e7a62ba07eb996464fca80a0603562cb0a146a03d8bf00861d7cd12e548a"
+    },
+    {
+      "stimulus_id": "S1-01",
+      "file": "S1-01-fullres-review.jpg",
+      "role": "derivative",
+      "kind": "authorized_clinical",
+      "source": "Berteun (atribución asumida por Commons a partir de la declaración del cargador); obra propia de 2005; https://upload.wikimedia.org/wikipedia/commons/b/b7/Abrasion_on_hand_20050906.jpg",
+      "license": "Dedicación al dominio público mundial por el titular, ficha primaria Commons. Conservar procedencia.",
+      "permission_ref": "https://commons.wikimedia.org/wiki/File:Abrasion_on_hand_20050906.jpg",
+      "privacy_ref": "Inspección técnica Codex: superficie de mano sin rostro o identificadores textuales visibles. Original con EXIF de cámara y sin GPS. Revisión de píxeles y privacidad por dos revisores humanos independientes pendiente.",
+      "transformation": "Conversión RGB y recodificación JPEG calidad95, submuestreo0, sin EXIF/XMP/comentarios. Sin recorte, reescalado, recoloración, ajuste de luz o edición de anatomía. La recodificación JPEG puede cambiar valores de píxel.",
+      "bytes": 1965280,
+      "sha256": "3584e973cc0545d6207c06cf494735d018636c424bde4542ef1b9024033071d0"
+    }
+  ]
+}

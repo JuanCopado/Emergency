@@ -1,0 +1,127 @@
+{
+  "observed_UTC": "2026-11-27T00:46:21.366298+00:00",
+  "anexos": [
+    {
+      "path": "C:\\Users\\juanc\\Downloads\\ANTIGRAVITY_INFORME_INTEGRADO_FINAL.md",
+      "bytes": 11349,
+      "sha256": "886078eaddb1660e0a839b654ce6b8a76aa9230ced6fe5d89c3daf5dd5762d73",
+      "identity": "Prior documentary snapshot; not current candidate approval",
+      "mentioned_SHAs": [
+        "05c2ec1c1a8d871cfe83c05c4540e941f35d30f3",
+        "228cd21d75d14e1012beb7f5dfe82c2c920c4ccc",
+        "43d62015838d0b190869482ecde645cf86b56249",
+        "82278d37dc29fe49e6afbc8db7aafe8d7e4166c1"
+      ]
+    },
+    {
+      "path": "C:\\Users\\juanc\\Downloads\\INFORME_UNICO_FINAL.md",
+      "bytes": 15681,
+      "sha256": "e0bfd8e29cf67fca3ed8934a1e550650dde52e5f82ae027440625de98ad936d3",
+      "identity": "Prior documentary snapshot; not current candidate approval",
+      "mentioned_SHAs": [
+        "05c2ec1c1a8d871cfe83c05c4540e941f35d30f3",
+        "1fbdbe7847b4fa781fa175527848e27bbe2f49bc",
+        "1fd4e5c7733e752a780a69f0a603c8466bd23a3a",
+        "228cd21d75d14e1012beb7f5dfe82c2c920c4ccc",
+        "3d6ace67b402e5dad1f830dbea06081b68a864da",
+        "791d268ce55e239824bf12a2b17f02333085d9e8",
+        "82278d37dc29fe49e6afbc8db7aafe8d7e4166c1",
+        "9f0b14f328de98950bad241acadf02c37ac18c74",
+        "cf681c092194ae656183d35e9afdd3e00fbdf8be",
+        "f61df568945236ba0e8c6bd278c153205a6db0da"
+      ]
+    },
+    {
+      "path": "C:\\Users\\juanc\\Downloads\\CLAUDE_RESIDUAL_INFORME_INTEGRADO_20261126.md",
+      "bytes": 16288,
+      "sha256": "4ba68eef49cfac7d63e951dbcbcb8c5fb23b35c8cb1662dfcb798ac1cf32b199",
+      "identity": "Prior documentary snapshot; not current candidate approval",
+      "mentioned_SHAs": [
+        "0569bc11c72f005d4d2ab24c3b98fc83374dd278",
+        "16bf38bdae09a993c76add4651c1a98495781c80",
+        "50e1e58f4a830be23dbf5b16ad76aec4597584bb",
+        "5746d3dd103d7d66e9e4fb1ee8d6b35ed4237dd2",
+        "87a17301c395546536dce12150307a5b1474f844",
+        "8dc8cd14abce1074f8d098a39068137b3ba0b3b4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\CIERRE_BLOQUEOS_20261126\\R88\\R88_PREASIGNACION_RESUMEN.json",
+      "bytes": 774,
+      "sha256": "5373f62091f7c541aa2fc9857e489e084bb09a559effbb61dd2f5913608ea058",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\CIERRE_BLOQUEOS_20261126\\R88\\R88_PREASIGNACION_REVISOR_A_NO_ASIGNADO.zip",
+      "bytes": 346852,
+      "sha256": "9757ddf3100daac47599a608a6a7051327b58853ab7c97b25787192052088731",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\CIERRE_BLOQUEOS_20261126\\R88\\R88_PREASIGNACION_REVISOR_B_NO_ASIGNADO.zip",
+      "bytes": 346850,
+      "sha256": "8586d9c0140c9a5e54416c9ac319c29c3bc15a1f7e873c538051c6f88e886de7",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_SUPERCOORDINADOR_20261126\\R88_R89\\R88_CIRCUITO_30_ESTIMULOS.json",
+      "bytes": 79424,
+      "sha256": "5e3107f69837f686440a329b22ff1055ec7da0d0bb0001a03d4b20cc5d59566f",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\candidate\\docs\\coordination\\r5-g05-20261126\\G05_REQUISITOS.json",
+      "bytes": 8432,
+      "sha256": "83211ca70a2243592789c2847ab21d7dc579f87984137db48fe3622028f19236",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\candidate\\clinical\\references\\acute-contract-owner-acceptance-2026-11-16.json",
+      "bytes": 2294,
+      "sha256": "bc5563c6e353975b7cc4a486beda17b3896df141a8a13ec13ab2f0b339b4d267",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\WORK_CIERRE_COORDINADO_20261126\\candidate\\clinical\\qa\\R54_MEDICAL_OWNER_DECISIONS_20261124.json",
+      "bytes": 1663,
+      "sha256": "129098bfaddfd5731a303e457ee7759684cab08cdab1e50726c510449266a03f",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\Downloads\\informe_consolidado_cierre_cient_fico_residual_emergency.md",
+      "bytes": 24568,
+      "sha256": "6e98121f4cfcc152604ed4412577243655c75a757230f496b85fec9940e841e7",
+      "scope": "Historical/preparation; original not modified"
+    },
+    {
+      "path": "C:\\Users\\juanc\\Downloads\\Emergency-R5-20261121\\evidencias\\run_r5_note_shadow_study.py",
+      "bytes": 10858,
+      "sha256": "47255392cbdbe26f6ce7d92d0636be55b1f3d4b011a3d302be4854782c9e4445",
+      "scope": "Historical/preparation; original not modified"
+    }
+  ],
+  "custodian_mapping": {
+    "path": "C:\\Users\\juanc\\OneDrive\\Documentos\\ChatGPT\\PROYECTO EMERGENCY\\ChatGPT_Trabajo\\CIERRE_BLOQUEOS_20261126\\R88\\CUSTODIO\\R88_PREASIGNACION_CONTROL_CUSTODIO.json",
+    "sha256": "e5db9e740bb55ece60e55545a233f48a7bc7e29e0acd549b8d53a43599f44e85",
+    "transfer_to_reviewers": false,
+    "full_file_copied": false
+  },
+  "SCA": {
+    "executable": {
+      "path": "C:\\Users\\juanc\\Downloads\\Emergency-R5-20261121\\evidencias\\run_r5_note_shadow_study.py",
+      "bytes": 10858,
+      "sha256": "47255392cbdbe26f6ce7d92d0636be55b1f3d4b011a3d302be4854782c9e4445"
+    },
+    "executed_this_cycle": false,
+    "identity_against_research_commit": "NOT_VERIFIED_NOT_REQUIRED_FOR_CURRENT_PREPARATION",
+    "corrected_attribution": "SHA1d219bdd7ef8ca8a3f4f0fca4ad464faac4987e4ad2a0a9691fb6e986f7de44b belongs to study.json4925302B, not executable",
+    "source": "clinical/qa/R5_NOTE_SHADOW_EXTENSION_20261121.md"
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "bank": "NOT_FROZEN_NOT_VALIDATED",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "studies_started": false,
+  "human_adjudications": 0
+}

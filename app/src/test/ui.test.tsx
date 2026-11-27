@@ -245,7 +245,7 @@ describe('Clinical note diagnostic workspace', () => {
     await user.click(screen.getByRole('button', { name: 'MCDT' }));
     await user.type(screen.getByLabelText('Nome do exame'), 'TC crânio');
     const boxes=screen.getAllByRole('textbox');
-    const official=boxes.find(x=>x.parentElement?.textContent?.includes('Informe oficial / dados extraídos'));
+    const official=boxes.find(x=>x.parentElement?.textContent?.includes('Relatório oficial / dados extraídos'));
     const ai=boxes.find(x=>x.parentElement?.textContent?.includes('Interpretação IA proposta'));
     if (!official || !ai) throw new Error('MCDT textareas not found');
     await user.type(official, 'Sem hemorragia intracraniana.');
@@ -484,7 +484,7 @@ describe('Clinical note diagnostic workspace', () => {
     expect(card).toHaveFocus();
     expect(card).toHaveTextContent('PDF e DICOM ficam excluídos');
     expect(within(card).queryByRole('button',{name:'Interpretar com módulo IA'})).toBeNull();
-    expect(within(card).getByLabelText(/Informe oficial/)).toBeEnabled();
+    expect(within(card).getByLabelText(/Relatório oficial/)).toBeEnabled();
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 

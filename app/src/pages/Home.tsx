@@ -69,6 +69,7 @@ export default function Home() {
               <Icon name="heart" size={18} /> {t('home.conditions')}
             </Link>
             <Link to="/pediatrics" className="btn-ghost">{t('home.outpatientPediatrics')}</Link>
+            <Link to="/corticosteroids" className="btn-ghost">{t('home.corticosteroids')}</Link>
             <Link to="/insulin-uci" className="btn-ghost">{t('home.insulinSimulation')}</Link>
             <Link to="/blood-gas" className="btn-ghost">{t('home.bloodGasReview')}</Link>
             <Link to="/t06-lab" className="btn-ghost">{t('home.t06Lab')}</Link>

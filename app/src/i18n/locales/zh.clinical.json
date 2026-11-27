@@ -345,5 +345,7 @@
   "Restablecer búsqueda y filtros": "重置搜索和筛选",
   "Ir a los circuitos Adulto / Pediatría": "前往成人 / 儿科流程",
   "La búsqueda y el filtro se aplican a «Todos los módulos clínicos».": "搜索和筛选适用于“所有临床模块”。",
-  "Prueba otro término o restablece la búsqueda y los filtros.": "请尝试其他关键词，或重置搜索和筛选。"
+  "Prueba otro término o restablece la búsqueda y los filtros.": "请尝试其他关键词，或重置搜索和筛选。",
+  "No hay coincidencias.": "没有匹配项。",
+  "Prueba otro nombre, ID o filtro.": "请尝试其他名称、ID 或筛选条件。"
 }
