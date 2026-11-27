@@ -7,7 +7,12 @@ function stable(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`;
   if (value && typeof value === 'object') {
     const record = value as Record<string, unknown>;
-    return `{${Object.keys(record).filter(key => record[key] !== undefined).sort().map(key => `${JSON.stringify(key)}:${stable(record[key])}`).join(',')}}`;
+    // Canonical code-unit order must not change with the browser's locale.
+    const keys = Object.keys(record).filter(key => record[key] !== undefined).sort((left, right) => {
+      if (left === right) return 0;
+      return left < right ? -1 : 1;
+    });
+    return `{${keys.map(key => `${JSON.stringify(key)}:${stable(record[key])}`).join(',')}}`;
   }
   return JSON.stringify(value) ?? 'null';
 }

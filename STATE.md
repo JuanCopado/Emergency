@@ -1,3 +1,5 @@
+26/11 · Sonar: diagnóstico exacto recuperado por rama aislada de solo lectura. Los diccionarios ES/PT/EN/ZH pasan a recursos JSON con acceso tipado y valores íntegros; etiqueta then renombrada, ordenación canónica explícita sin depender de idioma. Se conservan los FAIL y se repite CI del nuevo SHA. CLINICALLY_PENDING.
+
 ## 26/11/2026 · Regresión PR116
 
 El arnés funcional usa ahora generación y revisión terapéutica reales con contenido sintético no prescriptivo; se conservan las expectativas clínicas históricas. Notas sin tratamiento siguen exportándose con los controles existentes. Nuevas regresiones de recibo ausente/falso/obsoleto y privacidad; QA completa y conciliación PR115 se registran por SHA en los recibos de cierre. CLINICALLY_PENDING; sin fusión ni despliegue.
