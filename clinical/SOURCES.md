@@ -1,3 +1,11 @@
+## 27/11/2026 - CARDIO02 focal structural provenance
+
+Reuse existing ESC/EACTS2025 valvular evidence and VHD01/VHD02 focal MR review. Separate official focal metadata from commit7478b306 covers AR sections7.4/6.5,prosthetic imaging14.2/14.4.4.2 and HeartTeam3.1.1; existing ESC2023IE section8.2.2 supports complication-specific referral. No full guideline or broad reuse permission is asserted. Six monitoring domains derive from the exact accepted owner structure,not a claimed verbatim ESC list. Detail: ../docs/coordination/cardio02-five-branches-20261127/README.md. Existing source identities,statuses and last_checked preserved.
+
+## 27/11/2026 - CARDIO04 focal implementation provenance
+
+Reuse the existing hypertensive-emergencies AHA/ACC BP2025 section6.2 source (DOI10.1161/CIR.0000000000001356), without adding an alias or renewing last_checked. The publicly downloadable official 2025 slide set was read directly, only slide XML144/145: adult nonpregnant/nonstroke population, stable subsequent phase and strict below operator. The later24-48hour phase in the source is outside this accepted implementation. Source/version/access limits, owner proposal and acceptance byte hashes: ../docs/coordination/cardio04-stable-phase-20261127/README.md. No official PPTX/PDF is redistributed.
+
 ## 26/11/2026 · Revisión focal de corticoides
 
 La [referencia de corticoides](references/corticosteroids.md) y el [catálogo versionado](pharmacology/corticosteroids.json) documentan Endotext 2018, ESE/Endocrine Society 2024, Society for Endocrinology, RCH, SCCM/SSC 2024–2026 y RCUK, con localizadores y límites de acceso. El expediente focal añade la comprobación de GINA 2026, Box 9-2, para explicitar el curso de asma de 12–17 años. Las tablas de equivalencia distintas se mantienen identificadas, sin promediarlas. La proyección terapéutica utiliza los módulos canónicos y conserva su procedencia e idioma original. Esta consulta focal no renueva automáticamente todas las fechas del registro.

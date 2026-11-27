@@ -1,3 +1,15 @@
+## 27/11/2026 - CARDIO05 informational reference selector
+
+Seven accepted reference generics and explicit manual US/ES/PT source filtering are presented only in iv-antihypertensive-selection. Source review and operational verification remain distinct; no administration profile or calculation is enabled. The canonical numerical examples are unchanged, with a product/jurisdiction guard appended for screen/raw export. Product/RCM/availability in Portugal and original compound-source labetalol identity remain unknown. States and last_checked are preserved. See ../docs/coordination/cardio05-reference-selector-20261127/README.md. PARTIAL05_INFORMATIONAL / CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
+## 27/11/2026 - CARDIO02 five approved structural branches
+
+Five owner-approved lesion contexts and six severity-dependent monitoring domains materialized in critical-valvular-disease. No new medications,numeric targets,statuses,review dates or routes. Prior CARDIO04 increment retained. Sources and limits: ../docs/coordination/cardio02-five-branches-20261127/README.md. Partial structural increment only. CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
+## 27/11/2026 - CARDIO04 approved stable subsequent phase
+
+Isolated implementation of the exact accepted MED-RES-CARDIO-04 v1 subsequent phase: only stable nonpregnant/nonstroke adults without a compelling condition, following the existing initial phase. Existing initial SBP rule, exceptions, medication regimens, evidence states and last_checked remain unchanged. Focal official AHA/ACC2025 slides144/145, original proposal and literal acceptance are traced in ../docs/coordination/cardio04-stable-phase-20261127/README.md. CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.
+
 ## 27/11/2026 · Reconciliación de decisiones del propietario
 
 MED-RES-PROT-01 v1 aplicada en su alcance documental histórico: GMA-P1-003 cerrado sin activar producto, sustituirlo ni cambiar las rutas de reversión aceptadas. Registro vigente: `references/owner-decisions-2026-11-27.json`. CARDIO-01–06 conservan SÍ estructural; falta recuperar su mensaje original para cualquier delta clínico sustantivo. 23 decisiones dermatológicas y Clinical Minimal preservados, sin conceder derechos de publicación, validación diagnóstica o despliegue. QA/CI y auditoría del candidato por SHA en `../docs/coordination/owner-decisions-20261127/`. CLINICALLY_PENDING. Los cortes siguientes son históricos.

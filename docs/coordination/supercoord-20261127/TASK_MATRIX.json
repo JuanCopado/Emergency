@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 5,
   "date": "2026-11-27",
   "receiver": "2058e97179ae793914dcd016e4fd033395dbc3e2",
   "receiver_tree": "78e27cb900f7dd901eb5aeb48026276dc48b942c",
@@ -98,7 +98,7 @@
         "B-GEMINI-LOTE2"
       ],
       "status": "PENDIENTE",
-      "execution_evidence": "Deltas previos recuperados ACEP/AAD/IFEM/AHA/CDC/WSES/AHA-ASA/src-b5e20534",
+      "execution_evidence": "Deltas previos recuperados ACEP/AAD/IFEM/AHA/CDC/WSES/AHA-ASA/src-b5e20534; direct official AHA2025PPTXslides144/145 and scoped ESCvalvular focal map now recovered for approved02/04 scope, not integral reads",
       "result": "README.md",
       "qa": "No nuevas reglas ni lecturas integrales declaradas",
       "blocker": "Derechos/edición/aclaraciones primarias y cotejos por indicación insuficientes",
@@ -265,11 +265,11 @@
         "A-CARDIO-FICHAS"
       ],
       "status": "EN EJECUCIÓN",
-      "execution_evidence": "Six exact fiches compared to canonical bodies in CARDIO_STRUCTURE_DELTA.json; manual five-link CARDIO06 increment implemented and tested separately",
-      "result": "../cardio06-manual-circuits-20261127/",
-      "qa": "Existing content distinguished from missing scope; no new clinical body or numeric treatment changes",
-      "blocker": "Remaining lesion-specific focal evidence, numerical sequence and product/jurisdiction verification; panel does not close all six fiches",
-      "next_action": "Review and CI of isolated manual navigation increment; retain remaining exact-source work"
+      "execution_evidence": "Owner-approved02fivebranches/04stablephase/05manualreference+countryguard implemented and independently reviewed;06manualpathways alreadypublished with17checksPASS",
+      "result": "../cardio02-04-review-20261127/CARDIO02_04_INDEPENDENT_REVIEW.json",
+      "qa": "Combined runtime matches independently reviewed source2da1a664;threecatalogue modules changed,128others and131states/datespreserved;dosecalculations and originalnumericparagraphs unchanged",
+      "blocker": "OwnfinalCI pending;PTproduct/RCM/availability and labetalolcompositeoriginal remain unidentified;05informational only",
+      "next_action": "Publish exact combined candidate and collect ownCI; no protectedmerge or operationalproductactivation"
     },
     {
       "id": "D-CLINICAL-MINIMAL-02",
@@ -303,12 +303,51 @@
       "dependencies": [
         "A-CARDIO-FICHAS"
       ],
-      "status": "TERMINADA",
+      "status": "AUDITADA",
       "execution_evidence": "Source e2a49e638fa329503e4f3a925de1f4026d452713;28testsPASS,lintPASS,build-securityPASS;twoindependentChromeStatesPASS",
       "result": "../cardio06-manual-circuits-20261127/QA_RESULTS.json",
-      "qa": "Five existing manual links only, two surfaces, translated labels, canonical states, no-print, unchanged clinical bodies; final candidate ownCI pending",
-      "blocker": "PartialCARDIO06: no invented modules for remaining causes; no clinical-release approval",
+      "qa": "Separate static review and two actual Chrome states PASS; exact PR124a9ce8ba6workflows17checksPASS, first setup403 preserved and targeted retry successful",
+      "blocker": "PartialCARDIO06: other causes without a canonical destination remain; no clinical release",
       "next_action": "Verify final candidate exact tree and CI; no protected merge"
+    },
+    {
+      "id": "A-CARDIO02-FIVE-BRANCHES",
+      "responsible": "Codex author; separate Codex source and technical reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Source5588a4c1d9ff63205090baf5267de85d2e0cd776;five literal approved branches and six monitoring domains; source/hash proof and independent review favorable",
+      "result": "../cardio02-five-branches-20261127/QA_RESULTS.json",
+      "qa": "After final AS wording correction:1cardiovascular+12projection tests,131module/254sourcevalidator and securitybuildPASS; no PDF02claim",
+      "blocker": "Own final candidateCI pending; no independent human validation claimed",
+      "next_action": "Verify exact combined published tree and CI; maintain globalclinicalpending"
+    },
+    {
+      "id": "A-CARDIO04-STABLE-PHASE",
+      "responsible": "Codex author; separate Codex primary and technical reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Sourcee5f788a793ad84cc46d2c5d42dd6d8d957cab292;exact subsequent stable phase in owner-approved proposal;direct officialPPTX144/145 reading",
+      "result": "../cardio04-stable-phase-20261127/IMPLEMENTATION_PROVENANCE.json",
+      "qa": "Original firstphase/exceptions preserved;1cardio+12projection,131/254validators,securitybuildPASS;twoChromePDFtextchecksPASS attributed to04 source only",
+      "blocker": "Own final candidateCI pending; no new drug dose/formula or clinical release",
+      "next_action": "Collect combined exactSHA CI; no repeat owner vote for accepted exact scope"
+    },
+    {
+      "id": "A-CARDIO05-REFERENCE-SELECTOR",
+      "responsible": "Codex UI author; separate Codex scientific and technical reviewers",
+      "dependencies": [
+        "A-CARDIO-FICHAS"
+      ],
+      "status": "TERMINADA",
+      "execution_evidence": "Codee58d33e8565e51aef9dfbdbb640c1e27a05bddb1 andQA2da1a664ee140337fdbe498703378bcb89cd029a;7manualgenerics/3manualjurisdictionsinitiallyempty;26labels4locales",
+      "result": "../cardio05-reference-selector-20261127/QA_RESULTS.json",
+      "qa": "16functionalReact+12projection/131validators,tsc/lint/buildsecurityPASS;2realChromeStatesPASS;source12/dist59fingerprints;printCSSpanelhidden/guardvisible,notnativePDFWord",
+      "blocker": "PARTIAL05_INFORMATIONAL:sourcecheckeddoesnotmeanoperationalprofile;PTandoriginalcompoundlabidentitypending;noadministrationfieldsorcalculations",
+      "next_action": "Verify finalcombinedSHA CI; keepalloperativeprofilesdisabled pendingexactproduct/protocolverification"
     }
   ],
   "scope": "Living documentary follow-up; supersedes version1 state fields without rewriting the frozen PR121 tree",
@@ -360,12 +399,25 @@
     }
   ],
   "isolated_composition": {
-    "scope": "Additional CARDIO06 manual navigation increment based on frozen PR123",
-    "status": "PREPARED_PENDING_OWN_FINAL_CI",
-    "source_commit": "e2a49e638fa329503e4f3a925de1f4026d452713",
-    "clinical_body_or_numeric_changes": false,
-    "local_tests_passed": 28,
-    "independent_browser_states_passed": 2,
+    "scope": "Owner-approved02/04 plus informationalmanual05 withproduct/countryverificationguard",
+    "status": "PREPARED_PENDING_PUBLICATION_AND_OWN_CI",
+    "base_pr": 124,
+    "base_sha": "a9ce8ba525bf23804fee8db50c7f9e88b32a1bf8",
+    "source_commits": [
+      "e5f788a793ad84cc46d2c5d42dd6d8d957cab292",
+      "5588a4c1d9ff63205090baf5267de85d2e0cd776",
+      "e58d33e8565e51aef9dfbdbb640c1e27a05bddb1",
+      "2da1a664ee140337fdbe498703378bcb89cd029a"
+    ],
+    "source_tree": "8174fc00667052383928390a7101e57bb8348db2",
+    "changed_clinical_modules": [
+      "critical-valvular-disease",
+      "hypertensive-emergencies",
+      "iv-antihypertensive-selection"
+    ],
+    "unrelated_catalogue_modules_preserved": 128,
+    "module_states_and_dates_preserved": 131,
+    "drug_dose_or_formula_changes": false,
     "new_ci_inherited_from_parents": false
   },
   "verified_previous_composition": {
@@ -387,5 +439,34 @@
     "evidence": "https://github.com/JuanCopado/Emergency/pull/123#issuecomment-7213473543",
     "new_clinical_approval": false,
     "inferred_product_concentration_or_equivalence": false
+  },
+  "verified_cardio_manual_links": {
+    "pr": 124,
+    "sha": "a9ce8ba525bf23804fee8db50c7f9e88b32a1bf8",
+    "tree": "232155f763f44a3e8aa6b66e9c8e825cb0fa2fae",
+    "workflows_pass": 6,
+    "checks_pass": 17,
+    "sonar_pr_new_coverage_percent": 92.3,
+    "sonar_pr_new_issues": 0,
+    "security_push_attempt": 2,
+    "initial_infrastructure_failure": "HTTP403 from Microsoft apt repository before tests; no controls weakened; original attempt retained",
+    "merged": false
+  },
+  "environment_recovery": {
+    "local_environment_temporarily_unavailable": true,
+    "windows_access_reverified": true,
+    "local_source_head_reverified": "83139c2a79486efae6b75ecff94558b1f48e24fc",
+    "source_tree_reverified": "9673199197aa4ccde09987685e44839c04905639",
+    "no_simulated_local_operations": true,
+    "authorized_D_path_available": false
+  },
+  "administrative_pr_cleanup": {
+    "closed_superseded_prs": [
+      121,
+      122
+    ],
+    "source_heads_preserved_as_ancestors_of_pr123": true,
+    "branches_deleted": false,
+    "protected_merge_performed": false
   }
 }

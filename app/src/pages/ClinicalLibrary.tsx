@@ -9,6 +9,7 @@ import { canonicalGuides, getCanonicalGuide, type CanonicalGuide } from '../clin
 import { getRelatedProcedures } from '../clinical-guides/relatedProcedures';
 import { ResuscitationCircuits, ResuscitationShortcut } from '../components/ResuscitationCircuits';
 import { ChestPainCircuits } from '../components/ChestPainCircuits';
+import { IvAntihypertensiveReference } from '../components/IvAntihypertensiveReference';
 
 function CanonicalContent({ guide }: { guide: CanonicalGuide }) {
   return (
@@ -111,6 +112,7 @@ export default function ClinicalLibrary() {
         <div className="mt-5"><CanonicalContent guide={guide} /></div>
         {guide.id === 'arrhythmias-cardiac-arrest' ? <ResuscitationCircuits base="/clinical" /> : null}
         <ChestPainCircuits moduleId={guide.id} base="/clinical" />
+        <IvAntihypertensiveReference moduleId={guide.id} />
 
         <section id="related-procedures" className="mt-7 border-t border-border pt-5">
           <h2 className="text-xl font-bold">Procedimientos relacionados</h2>

@@ -1,0 +1,9 @@
+# CARDIO04 - accepted stable subsequent phase
+
+This isolated increment appends only the subsequent phase explicitly included in MED-RES-CARDIO-04 v1 and accepted by the owner. It applies after the existing initial phase, only when clinically stable, in the same adult population without a compelling condition; nonpregnant/nonstroke scope is explicit. The strict below160/100 operator and next2-6hour interval are preserved. The initial SBP percentage sentence and all syndrome-specific exceptions are byte-preserved.
+
+The original proposal and404-byte literal acceptance were read directly; byte hashes and the owner record are in IMPLEMENTATION_PROVENANCE.json. The primary source is the existing AHA/ACC2025 source, DOI10.1161/CIR.0000000000001356. Direct focal XML reading of the official public slide set144/145 confirms this conditional phase. The originalPPTX stays in local custody; no redistribution, full-guideline reading or PDF reading is claimed. Earlier documentary receipts were historical evidence, not authorization by themselves.
+
+No later24-48hour sequence, drug doses, preparations, formulas, calculators or product selection is added. Existing evidence states and last_checked dates remain unchanged; there is no promotion of the module or global release. QA_RESULTS.json records 131-module validation,254-source normalization,one existing cardiovascular regression,12 projection tests,security build and focused QA-script lint PASS. BROWSER_PDF_QA.json records real headless Chrome PDFs from both route families, parsed with the existing pdfjs-dist package: strict operator, unit, interval and stability/population qualifiers retained. The initial harness cleanup/lint failures and corrections are preserved in the receipt; no new dependency installed. This is a partial phase increment, not closure of the entire CARDIO04 fiche. Independent review remains separate from this author implementation.
+
+CLINICALLY_PENDING / NO_GO_CLINICAL_RELEASE.

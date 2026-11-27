@@ -1,0 +1,88 @@
+{
+  "task": "CARDIO02-FIVE-APPROVED-STRUCTURAL-BRANCHES",
+  "observed_utc": "2026-11-27T09:02:27.358678+00:00",
+  "base_commit": "e5f788a793ad84cc46d2c5d42dd6d8d957cab292",
+  "base_tree": "e81ebfd8761f4afa81ab7d180d6014b8b0e39af2",
+  "author_role": "Implementation and author QA; independent review separate",
+  "commands": [
+    {
+      "command": "python clinical/scripts/validate_modules.py",
+      "status": "PASS",
+      "modules": 131
+    },
+    {
+      "command": "python clinical/scripts/normalize_evidence_sources.py --check",
+      "status": "PASS",
+      "sources": 254,
+      "modules": 131
+    },
+    {
+      "command": "python -m unittest clinical.tests.test_skill.ModularCoreTests.test_cardiovascular_safety_audit_is_preserved",
+      "status": "PASS",
+      "tests": 1
+    },
+    {
+      "command": "node --test app/scripts/build-clinical-guides.node-test.mjs",
+      "status": "PASS",
+      "tests": 12
+    },
+    {
+      "command": "npm run build:security (app), EMERGENCY_SECURITY_AUDIT=1",
+      "status": "PASS",
+      "exit_code": 0,
+      "containment_modules": 163,
+      "picomatch_absent": true,
+      "service_worker_maps": 2,
+      "service_worker_sources": 44,
+      "advisory_status": "OPEN",
+      "log_scope": "Command output observed directly; machine-specific transient raw log not included in public delivery",
+      "warnings": "Existing zod PURE annotations and >500kB chunk warning, nonfatal"
+    }
+  ],
+  "source_identity": [
+    {
+      "path": "clinical/modules/cardiovascular.md",
+      "workspace_raw_sha256": "6acf3825a231fc6316dcb55b2bf6d47f43ed7b8b44c2c3d03052ce3b8fd61016",
+      "git_normalized_LF_sha256": "1f8c0f42f626c3a4db684442e49c2f60614ab6714f93dec144fed430a24d498e"
+    },
+    {
+      "path": "app/src/data/generatedClinicalGuides.json",
+      "workspace_raw_sha256": "8ddeeb49b54990485d0eaff7ab3b9fa44f5b200935d7392b640c1dc68b08a1f8",
+      "git_normalized_LF_sha256": "8ddeeb49b54990485d0eaff7ab3b9fa44f5b200935d7392b640c1dc68b08a1f8"
+    },
+    {
+      "path": "clinical/references/evidence-registry.json",
+      "workspace_raw_sha256": "11c5ec73599f9363d0a166d1657eecede7740745ef4d6e6bf06457718b091b04",
+      "git_normalized_LF_sha256": "f6ac88abdc288ea3ae256449c3eb23d6688e2449b761690ff0a76a952209dd07"
+    }
+  ],
+  "scope_checks": {
+    "five_lesion_rows": true,
+    "six_domains_according_to_severity": true,
+    "prosthetic_row_limited_to_critical_presentation": true,
+    "infective_endocarditis_id_already_exists": true,
+    "no_new_routes_drugs_doses_or_numeric_targets": true,
+    "expert_echo_and_POCUS_bridge_paragraph_unchanged": true,
+    "same_global_states_and_all_review_dates": true,
+    "combined_preservation_receipt": "COMBINED_02_04_PRESERVATION.json"
+  },
+  "review_followup": {
+    "finding": "AS baseline lacked explicit hypotension and abrupt preload wording present in exact accepted owner proposal",
+    "correction": "Only those approved concepts added to retained baseline safeguards",
+    "qa_after_correction": "All commands above rerun on final text; prior passes not counted twice"
+  },
+  "historical_cardio04_export_receipt": {
+    "source_commit": "e5f788a793ad84cc46d2c5d42dd6d8d957cab292",
+    "path": "../cardio04-stable-phase-20261127/BROWSER_PDF_QA.json",
+    "attribution": "Earlier actual headless Chrome/PDF text check of CARDIO04; not a new PDF run on this final CARDIO02 build",
+    "hypertensive_module_unchanged_from_that_commit": true
+  },
+  "limits": [
+    "Partial structural CARDIO02 increment, not whole clinical closure.",
+    "No repeated CARDIO06 28tests, no measured coverage or full-suite claim.",
+    "No new PDF or native operator printing run for02; exporter/parser unchanged, projection regressions PASS.",
+    "No full primary-source reread, new source alias, date refresh or evidence promotion."
+  ],
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE"
+}

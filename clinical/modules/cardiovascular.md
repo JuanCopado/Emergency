@@ -76,7 +76,7 @@ POCUS study does not exclude time-critical disease.
 ## hypertensive-emergencies
 
 - Diagnose acute hypertension-mediated organ injury, not a number alone; severe BP without acute organ injury is not by itself a hypertensive emergency. Assess neurologic, cardiac, aortic, renal, retinal and pregnancy complications.
-- Select titratable IV therapy and the reduction target for the specific syndrome. For adults without a compelling syndrome-specific condition, AHA/ACC 2025 advises reducing SBP by no more than 25% within the first hour, followed by reassessment. Do not confuse SBP with MAP percentage targets or transfer this rule to aortic dissection, acute stroke, pulmonary edema, ACS or pre-eclampsia/eclampsia, which require their own targets and timing.
+- Select titratable IV therapy and the reduction target for the specific syndrome. For adults without a compelling syndrome-specific condition, AHA/ACC 2025 advises reducing SBP by no more than 25% within the first hour, followed by reassessment. Do not confuse SBP with MAP percentage targets or transfer this rule to aortic dissection, acute stroke, pulmonary edema, ACS or pre-eclampsia/eclampsia, which require their own targets and timing. For the same nonpregnant, nonstroke adults without a compelling condition, after that initial phase and only if clinically stable, aim for BP below 160/100 mm Hg within the next 2 to 6 hours, with continued monitoring and neurologic/perfusion reassessment.
 - Avoid abrupt uncontrolled reductions. Verify agent-specific contraindications, infusion math and local targets; use continuous monitoring and frequent neurologic/perfusion reassessment.
 
 ## iv-antihypertensive-selection
@@ -90,6 +90,7 @@ POCUS study does not exclude time-critical disease.
 - **Pregnancy/postpartum severe hypertension:** use the pregnancy pathway. First-line urgent options are IV labetalol, IV hydralazine or immediate-release oral nifedipine; do not use sublingual nifedipine. Magnesium sulfate is for seizure prevention/treatment, not BP lowering.
 - **Sympathetic/toxicologic crisis:** treat agitation, pain and the driver first; benzodiazepines and a cause-appropriate vasodilator may be required. Do not use isolated beta-blockade in acute cocaine/amphetamine toxicity or catecholamine excess without specialist/toxicology guidance.
 - Reserve sodium nitroprusside for selected monitored rescue situations when preferred agents are unavailable or ineffective. Its toxicity/monitoring burden and potential problems in raised ICP, renal/hepatic failure and pregnancy make it a poor routine substitute. Enalaprilat and hydralazine outside pregnancy have less predictable/prolonged effects and are not default choices when minute-to-minute titration is needed.
+- Product/jurisdiction guard: the numerical examples above require verification against the exact product label and jurisdiction before use. Interface language does not identify a product or jurisdiction; do not enable administration calculations for unverified products.
 
 ## non-coronary-chest-pain
 
@@ -178,7 +179,12 @@ POCUS study does not exclude time-critical disease.
 
 - Suspect acute severe regurgitation, critical stenosis, prosthetic dysfunction or endocarditis when shock/pulmonary edema is disproportionate or a new murmur is present.
 - Use ESC/EACTS 2025 valvular guidance. Obtain urgent expert echocardiography and early Heart Valve Centre/Heart Team involvement; POCUS is a bridge and cannot grade complex lesions reliably.
-- In critical aortic stenosis, avoid tachycardia, loss of sinus rhythm, abrupt vasodilation and unstructured preload reduction; preserve coronary perfusion while treating congestion cautiously. Acute severe regurgitation may instead benefit from afterload reduction when BP permits. Do not apply one valve strategy to another.
+- **Critical aortic stenosis:** avoid tachycardia, loss of sinus rhythm, abrupt vasodilation and unstructured preload reduction; preserve coronary perfusion while treating congestion cautiously. Avoid hypotension and abrupt preload reduction.
+- **Acute severe mitral regurgitation:** stabilize, consider afterload reduction only when BP permits, and obtain urgent specialist consultation.
+- **Acute severe aortic regurgitation:** stabilize and obtain urgent surgical assessment according to etiology.
+- **Prosthetic dysfunction in this critical presentation:** obtain urgent echocardiography and specialist assessment.
+- **Suspected complicated infective endocarditis:** activate the existing `infective-endocarditis` infection pathway and specialist valve assessment.
+- Do not apply one valve strategy to another. Monitor ECG, BP, oxygenation, peripheral perfusion, urine output and response to interventions according to severity.
 - Stabilize with immediate cardiology/cardiothoracic input and arrange definitive intervention; drugs and ventilation are bridges, not definitive treatment of a mechanical lesion.
 
 ## infective-endocarditis
