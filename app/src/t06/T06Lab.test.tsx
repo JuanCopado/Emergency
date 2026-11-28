@@ -6,7 +6,7 @@ import { fixture } from './fixtures';
 afterEach(() => {
   cleanup();
   vi.unstubAllGlobals();
-  document.querySelectorAll('meta[name="emergency-local-platform"]').forEach((element) => element.remove());
+  document.querySelectorAll('meta[name="emergency-local-platform"], meta[name="emergency-individual-installation"]').forEach((element) => element.remove());
 });
 
 function platformMeta(platform: string) {
@@ -56,6 +56,25 @@ describe('T06 route adapter', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Ejecutar circuito' }));
     expect(await screen.findByText('Documento sintético de prueba')).toBeVisible();
     expect(fetcher).toHaveBeenCalledOnce();
+  });
+
+  it.each([undefined, 'linux'])('disables an individual package without T06 even when platform is %j', (platform) => {
+    if (platform !== undefined) platformMeta(platform);
+    const marker = document.createElement('meta');
+    marker.name = 'emergency-individual-installation';
+    marker.content = 'enabled';
+    document.head.appendChild(marker);
+    const fetcher = vi.fn();
+    vi.stubGlobal('fetch', fetcher);
+    render(<T06Lab />);
+    const button = screen.getByRole('button', { name: 'Ejecutar circuito' });
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(fetcher).not.toHaveBeenCalled();
+    expect(screen.getByRole('alert')).toHaveTextContent('La instalación individual no incluye el backend de T06');
+    expect(screen.getByRole('status')).toHaveTextContent('No disponible en la instalación individual');
+    expect(screen.queryByText('Error controlado')).not.toBeInTheDocument();
+    expect(screen.queryByText('Recibo de esta ejecución')).not.toBeInTheDocument();
   });
 
   it('clears the earlier result before a new request and does not reflect an error body', async () => {
