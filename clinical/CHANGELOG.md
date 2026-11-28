@@ -1,3 +1,5 @@
+28/11/2026 - UI/UX: pestaña Texto libre (original inmutable, propuesta por encabezados, documento final editable, aplicar sin sobrescribir); sin cambios clínicos. CLINICALLY_PENDING.
+
 27/11/2026 - CARDIO05: partial informational manual selector for seven accepted reference generics and explicit US/ES/PT source filtering; no administration profiles or calculations. Product/jurisdiction verification guard appended to the canonical module; all numerical examples, states and review dates preserved. Portuguese operational identity/RCM/availability and compound-source labetalol identity remain unresolved. See ../docs/coordination/cardio05-reference-selector-20261127/README.md. CLINICALLY_PENDING.
 
 27/11/2026 - CARDIO02: separate five accepted lesion-specific contexts and six monitoring domains according to severity; preserve expert echo/POCUS boundary and existing criticalAS safeguards. No drug regimen,numeric target or evidence promotion. See ../docs/coordination/cardio02-five-branches-20261127/README.md.
