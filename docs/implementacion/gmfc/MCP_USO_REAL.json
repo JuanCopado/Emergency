@@ -56,5 +56,46 @@
     "sha": "2aef298dad6816176f4286162c6d1070417c8eee",
     "delta": "MCP efficiency policy only; study guide unchanged"
   },
-  "receipt_recorded_at_utc": "2026-11-28T14:45:46.559043+00:00"
+  "receipt_recorded_at_utc": "2026-11-28T14:45:46.559043+00:00",
+  "continuation": {
+    "task": "GMFC continuation from CENTRAL48",
+    "receipt_observed_at_utc": "2026-11-28 15:51:01 UTC",
+    "per_call_timestamps": "Batch observation time, not reconstructed individual call times",
+    "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6",
+    "integrated_source": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+    "calls": [
+      {
+        "tool": "GitHub MCP fetch",
+        "purpose": "Current PR143/PR142 identity and9checks; reuse prior CI and audit without rerun",
+        "result": "143a4fe/base d3f8 draft/unmerged,1422aef unchanged;9SUCCESS",
+        "limit": "Not merge authorization or clinical validation"
+      },
+      {
+        "tool": "GitHub MCP fetch rulesets/27994721 and protected branches",
+        "purpose": "Prepare exact protected integration decision",
+        "result": "Receptor d3f8 protected,6strict required contexts App15368, no bypass",
+        "limit": "Must revalidate before any future authorized operation"
+      },
+      {
+        "tool": "GitHub MCP fetch pull143 reviews/comments",
+        "purpose": "Check new inline review dependency",
+        "result": "0reviews and0inlinecomments",
+        "limit": "Does not substitute independent audit"
+      },
+      {
+        "tool": "Gmail MCP search_email_ids",
+        "purpose": "Narrow incremental inbound correspondence on already-open scientific rights/editorial channels",
+        "result": "0messages, no next page",
+        "evidence": "Private LIVE_EVIDENCE.json retains exact query/cut/result",
+        "limit": "No sends/attachments/papers; no inferred permissions or global mailbox absence"
+      }
+    ],
+    "fallbacks": [
+      "Pinned local Git blobs and prior receipts reused for documentary reconciliation; no manual source transfer needed",
+      "Two independent Codex documentary reviews completed; no new Gemini/Antigravity dispatch or scientific-reading claim"
+    ],
+    "new_product_tests": 0,
+    "new_scientific_readings": 0,
+    "savings_claimed": false
+  }
 }

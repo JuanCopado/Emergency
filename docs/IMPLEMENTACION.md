@@ -1,5 +1,11 @@
 # IMPLEMENTACION - referencia permanente de EMERGENCY
 
+## Continuación GMFC — estado vigente desde CENTRAL48
+
+[Estado vigente y aceptación de la guía](implementacion/GUIA_MAESTRA_ESTADO_VIGENTE.md) · [Decisión preparada PR143](implementacion/gmfc/DECISION_INTEGRACION_PR143.md) · [Inventario37](implementacion/gmfc/INVENTARIO_TECNICO.json).
+
+El texto v1.0 SHA5678ef permanece intacto como evidencia del corte publicado; su encabezado de propuesta no revoca la aceptación humana posterior. FASTmanual+NOTE están implementados sólo en PR143a4fe, CI9/9 y auditoría estática favorable; receptor integrado sigue d3f8. Sin fusión autorizada. TREATMENT acceso/resumen se recomienda como siguiente incremento, no se implementa. Se incorpora la política MCP exacta de PR1422aef sin sobrescribir esa PR ni crear IDs. DoceIMP y26registros clínicos preservados por el coordinador único. Las secciones siguientes conservan sus cortes históricos. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
 ## Guía Maestra — propuesta documental del 28/11/2026
 
 [Guía1.0 propuesta](implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md) · [Orquestación del estudio](implementacion/ORQUESTACION_GUIA_MAESTRA.json) · [Recibos y límites](implementacion/gmfc/RECIBOS_ESTUDIO.json).

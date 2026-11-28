@@ -5,14 +5,14 @@
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
   "branch": "integration/individual-total-20261128",
-  "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
+  "observed_receiver": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
   "observed_candidate": {
-    "pr": 137,
-    "sha": "9c64cf1ece251a24f2c2bb8cf7982822991f8403",
-    "tree": "3717482b484d81419af35a540e2243ba113e19d3",
-    "state": "DISTRIBUTION_D_VERIFIED_DRAFT_NOT_MERGED",
-    "ci": "21/21 checks and 8/8 workflows PASS on this exact source, external receipt retained",
-    "audit": "Antigravity technical D/KIT and QA acceptance scoped to exact signed distribution"
+    "PR": 143,
+    "sha": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6",
+    "base": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+    "draft": true,
+    "merged": false,
+    "scope": "Only FAST manual and NOTE interaction delta; current candidate not installed distribution"
   },
   "scope": "individual_emergency_physician",
   "parallel_to_clinical_closure": true,
@@ -28,7 +28,7 @@
   "dispatch": {
     "coordinator": "Work",
     "claude": "Existing authenticated Claude Code session through Work",
-    "method": "MCP/authorized Computer Use if available; never infer receipt",
+    "method": "Prefer useful operational authorized MCP under AGENTS.md transversal MCP policy; use authorized Computer Use or another permitted alternative when appropriate; never infer receipt",
     "states": [
       "PENDING_DISPATCH",
       "BLOCKED_DEPENDENCY",
@@ -51,9 +51,12 @@
       "acknowledgement_or_execution_evidence",
       "deliverable_path_or_commit",
       "tests",
+      "useful_mcp_calls",
       "limitations",
       "next_action"
     ],
+    "mcp_policy_reference": "AGENTS.md#política-transversal-de-optimización-mcp--28112026",
+    "mcp_receipt_rule": "Record actual useful calls only: task, agent, server/tool/purpose, UTC, applicable source SHA/version, outcome, evidence and limitations. Do not include secrets or restricted material. Do not infer dispatch, execution or clinical authorization.",
     "maintenance": "Review material deltas only. Consolidate existing implementations and relevant defects. Freeze new RAG/LLM/interoperability/platform expansion without demonstrated utility. Preserve code and evidence; never auto-dispatch by age or treat future infrastructure as universal closure blocker.",
     "state_semantics": {
       "PENDING_DISPATCH": "Prepared only; no transmission, acknowledgement or execution claimed. All applicable prerequisites must first be evidenced.",
@@ -1193,5 +1196,27 @@
     ],
     "excluded_design_commit": "16270330afabdcd79f0e5cb39111c8abb36e138b",
     "scope_rule": "Only confirmed corrections selected; no new cover, logo, icons or broader UI design"
-  }
+  },
+  "gmfc_continuation": {
+    "current_state": "GUIA_MAESTRA_ESTADO_VIGENTE.md",
+    "scope_accepted": true,
+    "integrated_source": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+    "review_candidate": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6",
+    "PR": 143,
+    "merged": false,
+    "new_task_ids": 0,
+    "next_increment_recommended_only": "E3 TREATMENT access/review summary",
+    "clinical": "CLINICALLY_PENDING",
+    "release": "NO_GO_CLINICAL_RELEASE"
+  },
+  "historical_observed_receiver_before_gmfc_continuation": "fa2381dcfe77253f575ac843860b3167125f1e1e",
+  "historical_observed_candidate_before_gmfc_continuation": {
+    "pr": 137,
+    "sha": "9c64cf1ece251a24f2c2bb8cf7982822991f8403",
+    "tree": "3717482b484d81419af35a540e2243ba113e19d3",
+    "state": "DISTRIBUTION_D_VERIFIED_DRAFT_NOT_MERGED",
+    "ci": "21/21 checks and 8/8 workflows PASS on this exact source, external receipt retained",
+    "audit": "Antigravity technical D/KIT and QA acceptance scoped to exact signed distribution"
+  },
+  "historical_reference_fields_note": "Other v0.7 delivery/package/CI records retain original cuts; current GMFC integration and authorization state is gmfc_continuation, not a new clinical release or package."
 }

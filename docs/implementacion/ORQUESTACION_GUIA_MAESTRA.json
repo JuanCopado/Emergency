@@ -2,20 +2,24 @@
   "schema": "emergency.master-workflow.study-orchestration.v1",
   "id": "GMFC-20261128",
   "version": "1.0_PROPOSED",
-  "state": "SCOPE_PROPOSAL_READY_WITH_GEMINI_DELIVERY_LIMIT_NOT_ACCEPTED",
+  "state": "SCOPE_ACCEPTED_FIRST_INCREMENT_REVIEW_PENDING_INTEGRATION",
   "guide": {
     "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
-    "version": "1.0_PROPOSED_NOT_ACCEPTED",
+    "version": "1.0_SCOPE_ACCEPTED_ORIGINAL_PUBLICATION_PRESERVED",
     "bytes": 17643,
     "sha256": "5678ef4ea926a9dbe7fdcf116943eede68a28d4f0af0b11e36c4a1447ac8b8e2",
-    "study_input_commit": "ecacffee5cdd67992e01e3913e8a0682b3b96ca3"
+    "study_input_commit": "ecacffee5cdd67992e01e3913e8a0682b3b96ca3",
+    "current_state_document": "docs/implementacion/GUIA_MAESTRA_ESTADO_VIGENTE.md"
   },
   "observed_receiver": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
   "observed_candidate": {
-    "pr": 141,
-    "sha": "6a1dcbd971c864f06d5ee66d0989d0709f51379c",
-    "merged_as": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
-    "scope": "Separate authorized installer correction; no new native QA or packaging by study"
+    "pr": 143,
+    "sha": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6",
+    "base": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+    "draft": true,
+    "merged": false,
+    "CI": "9/9checks3/3workflows8/8jobsSUCCESS reused without rerun",
+    "audit": "Antigravity exact delta static SIN_BLOQUEO_CONFIRMADO; not global regression proof"
   },
   "parent_plan": "docs/IMPLEMENTACION.md",
   "parent_orchestration": "docs/implementacion/ORQUESTACION.json",
@@ -70,9 +74,9 @@
     ],
     "receipt_rule": "Prepared is not dispatched; actual transmission/acknowledgement and returned artifact required for state transitions. No auto-dispatch by age, no new task IDs in parent clinical/implementation queue.",
     "reconcile": "One coordinator records dispositions per proposal: ADOPTAR/REFORMULAR/APLAZAR/DESCARTAR with material rationale and evidence; owner decisions only on new mature clinical questions; preserve previous approvals; if independent review unavailable, report partial, do not fabricate it.",
-    "adoption_gate": "Consolidated guide v1.0 and explicit owner acceptance of scope before new UI implementation; existing authorized technical repairs remain separate.",
+    "adoption_gate": "Owner scope acceptance recorded; only FAST manual and NOTE implementation authorized. Other increments and protected merges need their applicable explicit authorization; do not request previous medical approvals again.",
     "mcp_policy": {
-      "reference": "https://github.com/JuanCopado/Emergency/blob/2aef298dad6816176f4286162c6d1070417c8eee/AGENTS.md",
+      "reference": "../../AGENTS.md#política-transversal-de-optimización-mcp--28112026",
       "scope": "All lanes and project pending tasks",
       "preferred": [
         "Emergency MCP",
@@ -95,8 +99,9 @@
       ],
       "no_new_dispatch_or_activation_implied": true
     },
-    "current_evidence": "docs/implementacion/gmfc/RECIBOS_ESTUDIO.json",
-    "alternate_review_disposition": "Gemini remains partial and blocked. Independent Codex alternative covers only missing S04final-S10 with real attribution. Antigravity final addendum reviews exact v1 proposed guide; no complete Gemini review or owner acceptance implied."
+    "current_evidence": "docs/implementacion/GUIA_MAESTRA_ESTADO_VIGENTE.md",
+    "alternate_review_disposition": "Gemini remains partial and blocked. Independent Codex alternative covers only missing S04final-S10 with real attribution. Antigravity final addendum reviews exact v1 proposed guide; no complete Gemini review or owner acceptance implied.",
+    "original_study_evidence": "docs/implementacion/gmfc/RECIBOS_ESTUDIO.json"
   },
   "lanes": [
     {
@@ -217,7 +222,7 @@
         "No implementation, no merge or clinical authorization"
       ],
       "receipt": "docs/implementacion/gmfc/RECIBOS_ESTUDIO.json",
-      "owner_acceptance": "PENDING; publication of proposal only, no UI implementation"
+      "owner_acceptance": "ACCEPTED_SCOPE_ONLY; first increment PR143 remains draft/unmerged; no clinical release"
     }
   ],
   "metrics": {
@@ -240,5 +245,20 @@
     "publication": "Own documentary branch from integrated receiver",
     "current_head_observed": "2aef298dad6816176f4286162c6d1070417c8eee",
     "subsequent_delta": "Only owner MCP policy in AGENTS, parent orchestration and study orchestration. No same-scope completed study to duplicate."
+  },
+  "owner_scope_acceptance": {
+    "accepted": true,
+    "message": "01a222ac-1ca7-7260-b98f-4ef0c68ea3e0",
+    "accepted_content_sha256": "5678ef4ea926a9dbe7fdcf116943eede68a28d4f0af0b11e36c4a1447ac8b8e2",
+    "medical_release_approval": false,
+    "implementation_authorized_only": "FAST manual + NOTE, isolated branch; no calculations/clinical content/deployment"
+  },
+  "continuation": {
+    "inventory_requirements": 37,
+    "new_ids": 0,
+    "integration_decision": "gmfc/DECISION_INTEGRACION_PR143.md",
+    "next_increment": "gmfc/SIGUIENTE_INCREMENTO_PROPUESTO.md",
+    "science": "gmfc/COORDINACION_CIENTIFICA_RESIDUAL.md",
+    "new_increment_implemented": false
   }
 }

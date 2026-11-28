@@ -45,7 +45,12 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No constituyen una pantalla FAST universal ni clasifican intención clínica libre."
+      "risk_avoided": "No constituyen una pantalla FAST universal ni clasifican intención clínica libre.",
+      "continuation_review": {
+        "state": "CANDIDATE_EVIDENCE_ADDED_NOT_INTEGRATED",
+        "note": "PR143 mueve el acceso de calculadora y hace visible la ayuda del único buscador; no crea FAST universal.",
+        "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6"
+      }
     },
     {
       "id": "E1.02",
@@ -78,7 +83,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No existe un router clínico universal de lenguaje natural; un helper aritmético no prueba este flujo."
+      "risk_avoided": "No existe un router clínico universal de lenguaje natural; un helper aritmético no prueba este flujo.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E1.03",
@@ -107,7 +116,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No se verificó micrófono, proveedor ni soporte del navegador. No hay transcripción universal acreditada."
+      "risk_avoided": "No se verificó micrófono, proveedor ni soporte del navegador. No hay transcripción universal acreditada.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E1.04",
@@ -140,7 +153,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No exigir todos los campos a todos los casos ni inventar la preparación original de insulina/labetalol."
+      "risk_avoided": "No exigir todos los campos a todos los casos ni inventar la preparación original de insulina/labetalol.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E1.05",
@@ -177,7 +194,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "45 fórmulas implementadas no significa 45 formularios ni 135 calculadoras universales disponibles."
+      "risk_avoided": "45 fórmulas implementadas no significa 45 formularios ni 135 calculadoras universales disponibles.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E2.01",
@@ -210,7 +231,12 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Estructuración por encabezados no interpreta clínicamente todo texto libre ni completa datos ausentes."
+      "risk_avoided": "Estructuración por encabezados no interpreta clínicamente todo texto libre ni completa datos ausentes.",
+      "continuation_review": {
+        "state": "CANDIDATE_EVIDENCE_ADDED_NOT_INTEGRATED",
+        "note": "PR143 conserva las tres etapas y añade guardas de propuesta obsoleta e IME; no cambia estructuración ni contenido.",
+        "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6"
+      }
     },
     {
       "id": "E2.02",
@@ -251,7 +277,12 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "El final libre editado no es automáticamente el documento exportado. No afirmar igualdad entre ambas superficies."
+      "risk_avoided": "El final libre editado no es automáticamente el documento exportado. No afirmar igualdad entre ambas superficies.",
+      "continuation_review": {
+        "state": "CANDIDATE_EVIDENCE_ADDED_NOT_INTEGRATED",
+        "note": "PARCIAL se conserva: copy final editable y exportación canónica siguen siendo superficies distintas; no se implementó exportación del final libre.",
+        "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6"
+      }
     },
     {
       "id": "E2.03",
@@ -284,7 +315,12 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No acredita invalidación transitiva universal entre futuros módulos o episodios."
+      "risk_avoided": "No acredita invalidación transitiva universal entre futuros módulos o episodios.",
+      "continuation_review": {
+        "state": "CANDIDATE_EVIDENCE_ADDED_NOT_INTEGRATED",
+        "note": "PR143 verifica feedback de copia por versión y bloquea Apply/Generate obsoletos; no acredita invalidación clínica universal.",
+        "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6"
+      }
     },
     {
       "id": "E2.04",
@@ -317,7 +353,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No está acreditado un catálogo completo de ocho plantillas ni deshacer/restaurar histórico general."
+      "risk_avoided": "No está acreditado un catálogo completo de ocho plantillas ni deshacer/restaurar histórico general.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E2.05",
@@ -354,7 +394,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Aceptar extensión o extraer metadatos no valida estructura PDF/DICOM, diagnóstico ni admisión del activo al banco."
+      "risk_avoided": "Aceptar extensión o extraer metadatos no valida estructura PDF/DICOM, diagnóstico ni admisión del activo al banco.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E2.06",
@@ -391,7 +435,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "La guía dice deshabilitar YELLOW, pero eso no describe fielmente toda la UI existente. No ampliar a diagnóstico validado o inferencia remota ni deshabilitar por estudio capacidades limitadas ya aceptadas."
+      "risk_avoided": "La guía dice deshabilitar YELLOW, pero eso no describe fielmente toda la UI existente. No ampliar a diagnóstico validado o inferencia remota ni deshabilitar por estudio capacidades limitadas ya aceptadas.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E3.01",
@@ -424,7 +472,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Es proyección conservadora de fuente, no plan personalizado completo para cualquier diagnóstico."
+      "risk_avoided": "Es proyección conservadora de fuente, no plan personalizado completo para cualquier diagnóstico.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E3.02",
@@ -461,7 +513,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No transportar aprobación a una fuente cambiada ni extrapolar a todos los planes."
+      "risk_avoided": "No transportar aprobación a una fuente cambiada ni extrapolar a todos los planes.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E3.03",
@@ -494,7 +550,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Cobertura global de interacciones de cualquier medicamento/diagnóstico no demostrada. Ausencia de alerta no significa sin interacciones."
+      "risk_avoided": "Cobertura global de interacciones de cualquier medicamento/diagnóstico no demostrada. Ausencia de alerta no significa sin interacciones.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E3.04",
@@ -527,7 +587,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No exigir otra aprobación médica general ni tratar los 19 como nuevas dosis. No implica validación prospectiva."
+      "risk_avoided": "No exigir otra aprobación médica general ni tratar los 19 como nuevas dosis. No implica validación prospectiva.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E4.01",
@@ -564,7 +628,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No es un generador universal de alta. Peso solo no establece edad, indicación, producto, duración ni destino."
+      "risk_avoided": "No es un generador universal de alta. Peso solo no establece edad, indicación, producto, duración ni destino.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E4.02",
@@ -593,7 +661,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No consta contrato integral de dos documentos separados para toda alta, educación y signos de alarma multilingües."
+      "risk_avoided": "No consta contrato integral de dos documentos separados para toda alta, educación y signos de alarma multilingües.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E4.03",
@@ -626,7 +698,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Preparaciones no identificadas continúan bloqueadas; no inferir originales de insulina/labetalol por versiones genéricas."
+      "risk_avoided": "Preparaciones no identificadas continúan bloqueadas; no inferir originales de insulina/labetalol por versiones genéricas.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E5.01",
@@ -663,7 +739,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "PDF escaneado requiere alternativa manual; extracción no equivale a interpretación o precisión clínica validada."
+      "risk_avoided": "PDF escaneado requiere alternativa manual; extracción no equivale a interpretación o precisión clínica validada.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E5.02",
@@ -704,7 +784,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No está empaquetado en E. Esta página no demuestra calculadora manual autónoma offline: requiere ticket/sesión del servicio."
+      "risk_avoided": "No está empaquetado en E. Esta página no demuestra calculadora manual autónoma offline: requiere ticket/sesión del servicio.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E5.03",
@@ -737,7 +821,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No ampliar laboratorio opcional ni repetir control ya acreditado de indisponibilidad."
+      "risk_avoided": "No ampliar laboratorio opcional ni repetir control ya acreditado de indisponibilidad.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E5.04",
@@ -774,7 +862,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Upload/interpret no está en allowlist del backend individual. Original/miniatura/derivado, aceptación técnica y adjudicación médica son estados distintos."
+      "risk_avoided": "Upload/interpret no está en allowlist del backend individual. Original/miniatura/derivado, aceptación técnica y adjudicación médica son estados distintos.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E5.05",
@@ -807,7 +899,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No hay justificación para extender RAG a prescriptor ni incorporar originales restringidos. Cifras históricas del banco no son reconciliación nueva."
+      "risk_avoided": "No hay justificación para extender RAG a prescriptor ni incorporar originales restringidos. Cifras históricas del banco no son reconciliación nueva.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E6.01",
@@ -840,7 +936,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No consta un centro universal de alertas por episodio con deduplicación y invalidación entre todas las herramientas."
+      "risk_avoided": "No consta un centro universal de alertas por episodio con deduplicación y invalidación entre todas las herramientas.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E6.02",
@@ -877,7 +977,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No confundir guard de actualización con persistencia tras cierre del navegador o durabilidad ante fallo del SO."
+      "risk_avoided": "No confundir guard de actualización con persistencia tras cierre del navegador o durabilidad ante fallo del SO.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E6.03",
@@ -906,7 +1010,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No consta servicio universal de alertas científicas ni revisión automática autorizada. No renovar last_checked por estudio."
+      "risk_avoided": "No consta servicio universal de alertas científicas ni revisión automática autorizada. No renovar last_checked por estudio.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E6.04",
@@ -943,7 +1051,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Loopback no aísla frente a cualquier proceso del mismo usuario. Limpieza normal no equivale a borrado seguro ni a eliminar exportaciones guardadas."
+      "risk_avoided": "Loopback no aísla frente a cualquier proceso del mismo usuario. Limpieza normal no equivale a borrado seguro ni a eliminar exportaciones guardadas.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E7.01",
@@ -980,7 +1092,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No hay gestor multiepisodio acreditado. A/B/A de versiones PWA no es A/B/A de pacientes."
+      "risk_avoided": "No hay gestor multiepisodio acreditado. A/B/A de versiones PWA no es A/B/A de pacientes.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E7.02",
@@ -1013,7 +1129,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Memoria React no es recuperación durable ni almacenamiento cifrado de episodios. PostgreSQL no es requisito automático."
+      "risk_avoided": "Memoria React no es recuperación durable ni almacenamiento cifrado de episodios. PostgreSQL no es requisito automático.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E7.03",
@@ -1050,7 +1170,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Cerrar backend no deja todas las funciones operativas; offline no incorpora OCR/modelos/servicios ausentes."
+      "risk_avoided": "Cerrar backend no deja todas las funciones operativas; offline no incorpora OCR/modelos/servicios ausentes.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E7.04",
@@ -1079,7 +1203,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No hay contrato universal de transferencia selectiva a episodio activo entre todos los módulos."
+      "risk_avoided": "No hay contrato universal de transferencia selectiva a episodio activo entre todos los módulos.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E8.01",
@@ -1116,7 +1244,12 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "La portada/logo/iconos de PR139 commit1627033 se excluyeron de PR140. No están aprobados ni integrados por este estudio."
+      "risk_avoided": "La portada/logo/iconos de PR139 commit1627033 se excluyeron de PR140. No están aprobados ni integrados por este estudio.",
+      "continuation_review": {
+        "state": "CANDIDATE_EVIDENCE_ADDED_NOT_INTEGRATED",
+        "note": "PR143 cambia acceso existente, sin adoptar portada/logo excluidos ni rediseño general.",
+        "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6"
+      }
     },
     {
       "id": "E8.02",
@@ -1153,7 +1286,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Texto clínico canónico no está traducido íntegramente. Idioma no equivale a jurisdicción, hospital ni producto comercial."
+      "risk_avoided": "Texto clínico canónico no está traducido íntegramente. Idioma no equivale a jurisdicción, hospital ni producto comercial.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "E8.03",
@@ -1190,7 +1327,12 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No se ejecutó nueva auditoría WCAG, contraste, Lighthouse, WebVitals ni carga. Marcado parcial no prueba conformidad global."
+      "risk_avoided": "No se ejecutó nueva auditoría WCAG, contraste, Lighthouse, WebVitals ni carga. Marcado parcial no prueba conformidad global.",
+      "continuation_review": {
+        "state": "CANDIDATE_EVIDENCE_ADDED_NOT_INTEGRATED",
+        "note": "NO_VERIFICADO global se conserva. Evidencia puntual DevTools real512/1024 no es prueba390 ni conformidadWCAGglobal.",
+        "source": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6"
+      }
     },
     {
       "id": "E8.04",
@@ -1219,7 +1361,11 @@
       "priority": "P1",
       "recommendation": "REFORMULAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Número de clics de un recorrido previo no es benchmark universal ni prueba de beneficio clínico."
+      "risk_avoided": "Número de clics de un recorrido previo no es benchmark universal ni prueba de beneficio clínico.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "X.01",
@@ -1255,7 +1401,11 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "No lee pacientes, prescribe, escribe, lanza herramientas arbitrarias ni verifica CI/Drive en vivo; registro no prueba conexión de cada host."
+      "risk_avoided": "No lee pacientes, prescribe, escribe, lanza herramientas arbitrarias ni verifica CI/Drive en vivo; registro no prueba conexión de cada host.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     },
     {
       "id": "X.02",
@@ -1284,7 +1434,25 @@
       "priority": "P1",
       "recommendation": "ADOPTAR",
       "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
-      "risk_avoided": "Guía de flujo no autoriza servidores, proveedores, cuentas remotas ni datos de pacientes remotos."
+      "risk_avoided": "Guía de flujo no autoriza servidores, proveedores, cuentas remotas ni datos de pacientes remotos.",
+      "continuation_review": {
+        "state": "REUSED_NO_SCOPE_CHANGE",
+        "note": "Clasificación y fuentes originales reutilizadas; no se reejecutó ni releyó el requisito por esta conciliación."
+      }
     }
-  ]
+  ],
+  "continuation": {
+    "integrated_source": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+    "review_candidate": "a4fe1e2c509c188111c6216b31d6b592f8c4baa6",
+    "PR": 143,
+    "candidate_merged": false,
+    "original_inventory_commit": "76716572222653cbb0207dd0752b7e2d9fe73766",
+    "original_inventory_sha256": "7a90ca536411cfae8e0e592b3d813fdd3fe404a04014657e1162efb992f08efe",
+    "new_requirement_ids": 0,
+    "clinical_state_promotions": 0,
+    "implementation_task_ids_preserved": 12,
+    "clinical_records_preserved_by_central_writer": 26,
+    "evidence": "CI1439/9 checks,3/3 workflows,8/8jobs and scoped AG audit; no new runs by documentary continuation",
+    "next_recommended": "E3 TREATMENT access and review summary only; proposal, not implementation authorization"
+  }
 }

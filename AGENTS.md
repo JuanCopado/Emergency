@@ -22,6 +22,23 @@ Mantener un núcleo clínico global coherente y un mismo módulo/algoritmo canó
 
 Aplicar [la política de guías internacionales](clinical/references/international-guideline-policy.md): seleccionar guías de amplio reconocimiento internacional por calidad, vigencia, consenso y población/indicación. Contrastar fuentes primarias e incorporar únicamente diferencias materialmente justificadas de clínica, seguridad, regulación/producto o recursos, manteniendo pauta íntegra, procedencia, revisión clínica y estado real. El catálogo territorial permite contrastar excepciones; no impone prioridades geográficas ni protocolos completos por país. No universalizar NICE, AHA ni otra fuente por su origen.
 
+## Política transversal de optimización MCP — 28/11/2026
+
+Directriz del propietario: Work, Codex, Gemini y Antigravity (y los demás colaboradores cuando corresponda) deben priorizar MCP operativos y autorizados en PR142 y en todos los pendientes actuales y futuros de Emergency **cuando aporten una ventaja efectiva**. Reutilizar evidencias y contexto canónico por versión/SHA; evitar transferencias manuales, lecturas repetidas y duplicación de contexto. No imponer llamadas redundantes, comprobaciones preventivas ni reejecuciones sólo para acreditar uso o ahorro. Si el MCP no aporta ventaja o no está disponible/autorizado, usar una alternativa permitida y registrar el límite cuando afecte al resultado.
+
+| MCP | Uso preferente, dentro del alcance autorizado |
+|---|---|
+| Emergency MCP | Contexto, estado, fuentes y metadatos canónicos; snapshots vigentes y procedencia verificada. Servicio de laboratorio/desarrollo, no activación clínica. |
+| GitHub MCP | Repositorio, PR, SHA, CI y evidencias; ninguna escritura o fusión fuera del permiso aplicable. |
+| Chrome DevTools MCP | Navegador y pruebas funcionales sintéticas, sin eludir controles. |
+| SonarQube MCP | Calidad y seguridad, con el alcance real del análisis y sus exclusiones. |
+| Amass y conectores científicos autorizados | Investigación clínica focal; metadatos no equivalen a lectura íntegra ni a aprobación médica. |
+| Context7 | Documentación técnica actual de las dependencias relevantes. |
+
+Work aplica esta política antes de despachar cada encargo, sin crear nuevas tareas ni repetir las cerradas. Registrar las llamadas útiles efectivamente realizadas en los recibos existentes: ID de tarea, agente, servidor/herramienta y finalidad, hora UTC, versión/SHA o fuente cuando corresponda, resultado, evidencia y límites; no guardar secretos, PHI ni contenidos restringidos. Distinguir configurado, operativo, llamado, recibido y verificado; una instalación no acredita uso, una consulta no acredita despacho a otro agente y un acuse no acredita ejecución. No inventar métricas de ahorro: sólo informar mediciones existentes y beneficio neto demostrado.
+
+MCP no concede permiso para transmitir datos, originales restringidos, imágenes no admitidas o claves ciegas; preservar privacidad, derechos, separación de revisores, autorizaciones, guardas y estados clínicos. No activar nuevos servicios, conectores, despliegues o capacidades clínicas por esta directriz. Mantener `CLINICALLY_PENDING` y `NO_GO_CLINICAL_RELEASE`.
+
 ## Entrada y trabajo
 
 1. Leer esta directriz, `docs/INTERNATIONAL_SCOPE.md` y `STATE.md`.
