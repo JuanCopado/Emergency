@@ -130,3 +130,8 @@ El [resultado v0.5](implementacion/RESULTADO_INDIVIDUAL_V05.md) sustituye Ãºni
 ### v0.6 · aceptación técnica local recibida
 
 La [verificación nativa final](implementacion/VERIFICACION_NATIVA_V06.md) sucede el bloqueo del corte parcial v0.5 tras comparación controlada de perfiles y aceptación completa real. No cambian bytes de los paquetes A5/B5 ni motores clínicos; los cambios posteriores son arnés/documentación. El resultado parcial anterior permanece histórico. La custodia final se acredita por recibos externos de descarga privada y SHA exactos, no por cambiar esta versión. No se activa IMP-11 ni se promueve ningún estado clínico.
+
+
+### Cierre focal28/11/2026 · misma IMPLEMENTACIÓN v0.7
+
+La [adenda de ejecución](implementacion/CIERRE_PR137_RESIDUALES.md) conserva los doce IDs y la conciliación PR129–136. Documenta dos correcciones operativas del instalador, revisión exacta y CI recibidas externamente; no atribuye al paquete C los cambios del nuevo código ni repite su A/B/A. La propuesta98ff queda histórica por incompatibilidad, sucedida por el guard separado del código15fb. Dos recorridos prácticos pasan en contexto limpio; T06 conserva un defecto menor de explicación de disponibilidad. Gemini respondió sin nueva lectura íntegra ni decisión médica madura. No hay integración protegida, paquete nuevo firmado o despliegue autorizado. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.

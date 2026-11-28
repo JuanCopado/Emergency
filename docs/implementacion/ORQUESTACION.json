@@ -1120,5 +1120,36 @@
       "Not production gateway, user authentication, persistence or clinical release evidence"
     ]
   },
-  "previous_permanent_branch": "docs/implementacion-viva-20261127"
+  "previous_permanent_branch": "docs/implementacion-viva-20261127",
+  "residual_closure_20261128": {
+    "source_baseline": "00bf559d99f6990e73f5b0f77abd9a1d870032f6",
+    "installer_code_sha": "15fbec878ca45170fd27e4d0178ff420587792b4",
+    "installer_code_tree": "c757e12147200616dc905bc1804d0143b08c4d60",
+    "record": "docs/implementacion/CIERRE_PR137_RESIDUALES.md",
+    "scope": "Two confirmed operational installer defects; separate OS guard with ephemeral O_EXCL marker and static CLI schema guard",
+    "tests": {
+      "count": 30,
+      "pass": 29,
+      "skip": 1,
+      "runtime": "Windows ARM64/Python3.13.17",
+      "scope": "Final source regression, not signed package/PWA ABA"
+    },
+    "ci": "Exact published HEAD receipt external; never inherit baseline green",
+    "audit": "Final SHA-specific receipts external; intermediate98ff verdict superseded conditionally",
+    "package_C_unchanged": true,
+    "new_signed_package_delivered": false,
+    "practical": {
+      "source": "b54301e891110715ed9a388723155f8c354b07b6",
+      "journeys_pass": 2,
+      "journeys_partial": 1,
+      "partial": "Optional T06 lab availability explanation; controlled error, no false clinical output",
+      "viewport_360_crop_reproduced": false,
+      "context": "Clean ChromeDevTools MCP, not habitual profile or installed PWA"
+    },
+    "gemini_actual_conversation": "https://gemini.google.com/app/d506b1e741021b2d",
+    "new_mature_medical_questions": 0,
+    "clinical": "CLINICALLY_PENDING",
+    "release": "NO_GO_CLINICAL_RELEASE",
+    "merge_authorized": false
+  }
 }
