@@ -1,3 +1,5 @@
+28/11/2026 - Evaluación de imágenes: rechazar cálculo de métricas cuando el gate devuelve `metrics_eligible=false`, también con solicitud omitida/falsa. Regresión sintética RED→GREEN y controles focales; sin alterar fórmulas, motores, referencias, aprobación o estados. qa/IMAGE_METRIC_ELIGIBILITY_20261128.md. CLINICALLY_PENDING.
+
 28/11/2026 - UI/UX: pestaña Texto libre (original inmutable, propuesta por encabezados, documento final editable, aplicar sin sobrescribir); sin cambios clínicos. CLINICALLY_PENDING.
 
 27/11/2026 - CARDIO05: partial informational manual selector for seven accepted reference generics and explicit US/ES/PT source filtering; no administration profiles or calculations. Product/jurisdiction verification guard appended to the canonical module; all numerical examples, states and review dates preserved. Portuguese operational identity/RCM/availability and compound-source labetalol identity remain unresolved. See ../docs/coordination/cardio05-reference-selector-20261127/README.md. CLINICALLY_PENDING.
