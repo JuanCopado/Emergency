@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
@@ -85,4 +85,61 @@ it.each(['body', 'field', 'include'] as const)('invalidates the applied marker a
   if (change === 'field') await user.selectOptions(within(section).getByRole('combobox'), 'plan');
   if (change === 'include') await user.click(within(section).getByRole('checkbox'));
   expect(within(section).queryByText('✓')).toBeNull();
+});
+
+it('does not structure an unfinished IME composition with Ctrl+Enter', async () => {
+  const user = await open();
+  const original = screen.getByTestId('free-text-original');
+  fireEvent.change(original, { target: { value: 'Plan: texto sintético 未確定' } });
+  fireEvent.compositionStart(original);
+  fireEvent.keyDown(original, { key: 'Enter', ctrlKey: true, isComposing: true, keyCode: 229 });
+  expect(screen.queryByTestId('free-text-sections')).toBeNull();
+  fireEvent.compositionEnd(original);
+  fireEvent.keyDown(original, { key: 'Enter', ctrlKey: true });
+  expect(screen.getByTestId('free-text-sections')).toBeInTheDocument();
+  await user.click(screen.getByTestId('free-text-generate'));
+  expect((screen.getByTestId('free-text-final') as HTMLTextAreaElement).value).toContain('未確定');
+});
+
+it('requires refreshing a stale proposal without blocking the independent editable copy or export route', async () => {
+  const user = await open();
+  const original = screen.getByTestId('free-text-original');
+  fireEvent.change(original, { target: { value: 'Antecedentes: Sin asma. 1,5 mg' } });
+  await user.click(screen.getByTestId('free-text-structure'));
+  await user.click(screen.getByTestId('free-text-generate'));
+  fireEvent.change(original, { target: { value: 'Antecedentes: asma. 2 mg' } });
+  expect(screen.getByTestId('free-text-apply')).toBeDisabled();
+  expect(screen.getByTestId('free-text-generate')).toBeDisabled();
+  expect(screen.getByTestId('free-text-copy')).toBeEnabled();
+  expect(screen.getByRole('button', { name: TEXT_WORKSPACE_COPY.es.goExport })).toBeEnabled();
+  expect((screen.getByTestId('free-text-final') as HTMLTextAreaElement).value).toContain('Sin asma. 1,5 mg');
+  await user.click(screen.getByTestId('free-text-structure'));
+  expect(screen.getByTestId('free-text-apply')).toBeEnabled();
+  await user.click(screen.getByTestId('free-text-apply'));
+  await user.click(screen.getByTestId('note-tab-history'));
+  expect(screen.getByLabelText(/^Antecedentes/)).toHaveValue('asma. 2 mg');
+});
+
+it('removes copied feedback when the editable copy changes', async () => {
+  const user = await open();
+  fireEvent.change(screen.getByTestId('free-text-final'), { target: { value: 'Copia sintética 1' } });
+  vi.spyOn(navigator.clipboard, 'writeText').mockResolvedValue();
+  await user.click(screen.getByTestId('free-text-copy'));
+  expect(screen.getByTestId('free-text-status')).toHaveTextContent(TEXT_WORKSPACE_COPY.es.copied);
+  fireEvent.change(screen.getByTestId('free-text-final'), { target: { value: 'Copia sintética 2' } });
+  expect(screen.getByTestId('free-text-status')).not.toHaveTextContent(TEXT_WORKSPACE_COPY.es.copied);
+});
+
+it.each(['resolve', 'reject'] as const)('ignores late clipboard %s feedback for a previous copy version', async outcome => {
+  const user = await open();
+  fireEvent.change(screen.getByTestId('free-text-final'), { target: { value: 'Copia sintética 1' } });
+  let resolve!: () => void;
+  let reject!: () => void;
+  vi.spyOn(navigator.clipboard, 'writeText').mockImplementation(() => new Promise<void>((ok, fail) => { resolve = ok; reject = fail; }));
+  await user.click(screen.getByTestId('free-text-copy'));
+  fireEvent.change(screen.getByTestId('free-text-final'), { target: { value: 'Copia sintética 2' } });
+  await act(async () => { if (outcome === 'resolve') resolve(); else reject(); });
+  expect(screen.getByTestId('free-text-status')).not.toHaveTextContent(TEXT_WORKSPACE_COPY.es.copied);
+  expect(screen.getByTestId('free-text-status')).not.toHaveTextContent(TEXT_WORKSPACE_COPY.es.copyFailed);
+  expect(screen.getByTestId('free-text-final')).toHaveValue('Copia sintética 2');
 });

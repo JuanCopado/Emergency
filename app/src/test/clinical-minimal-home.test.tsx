@@ -72,6 +72,16 @@ async function renderSearch(lang = 'en') {
 }
 
 describe('Accessible home search', () => {
+  it('keeps one search form with visible manual guidance and a direct calculator shortcut', async () => {
+    await renderSearch('es');
+    expect(screen.getAllByRole('search')).toHaveLength(1);
+    const shortcuts = screen.getByRole('navigation', { name: 'Accesos clínicos' });
+    expect(within(shortcuts).getByRole('link', { name: 'Calculadora de perfusiones' })).toHaveAttribute('href', '/calculator');
+    expect(screen.getByRole('main').querySelectorAll('a[href="/calculator"]')).toHaveLength(1);
+    const hint = document.getElementById('home-search-hint')!;
+    expect(hint).toBeVisible();
+    expect(hint).not.toHaveClass('sr-only');
+  });
   it.each(searchCopy)('names the landmark and describes its input in %s', async (lang, label, clear, hint) => {
     await renderSearch(lang);
     const form = screen.getByRole('search', { name: label });

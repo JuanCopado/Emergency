@@ -40,8 +40,9 @@ export default function Home() {
   };
   return (
     <div className={`space-y-8${clinicalMinimal ? ' clinical-minimal-preview' : ''}`}>
-      <nav aria-label={t('home.clinicalShortcuts')} className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+      <nav aria-label={t('home.clinicalShortcuts')} className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
         <Link to="/clinical-note" className="btn-primary">{t('nav.clinicalNote')}</Link>
+        <Link to="/calculator" className="btn-ghost">{t('home.openCalculator')}</Link>
         <Link to="/procedures" className="btn-ghost">{t('home.procedures')}</Link>
         <Link to="/pediatrics" className="btn-ghost">{t('home.pediatrics')}</Link>
         <Link to="/drugs" className="btn-ghost">{t('nav.drugs')}</Link>
@@ -59,7 +60,7 @@ export default function Home() {
             </h1>
             <p className="mt-2 max-w-2xl text-muted sm:text-lg">{t('home.subtitle')}</p>
           </>}
-          <p id="home-search-hint" className="sr-only">{t('search.hint')}</p>
+          <p id="home-search-hint" className="mt-5 text-sm text-muted">{t('search.hint')}</p>
           <form role="search" aria-label={t('search.label')} onSubmit={onSubmit} className="mt-5 flex max-w-2xl gap-2">
             <label htmlFor="home-search" className="sr-only">
               {t('search.label')}
@@ -89,9 +90,6 @@ export default function Home() {
             </button>
           </form>
           <div className="mt-5 flex flex-wrap gap-2">
-            <Link to="/calculator" className="btn-primary">
-              <Icon name="calc" size={18} /> {t('home.openCalculator')}
-            </Link>
             <Link to="/drugs" className="btn-ghost">
               <Icon name="pill" size={18} /> {t('home.browseDrugs', { count: drugs.length })}
             </Link>
