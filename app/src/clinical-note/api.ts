@@ -1,4 +1,5 @@
 import type { ClinicalNotePayload, DiagnosticApiResponse, InterpretationFields, PreparedUpload, TherapeuticConfirmations, TherapeuticPlan, TherapeuticReview, TherapyCatalogEntry, TherapyContext, TherapyIssue, TherapySelection } from './types';
+import { localRevisionHeaders } from '../lib/individualTransport';
 
 const API_BASE=(import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/,'');
 
@@ -30,7 +31,7 @@ async function postJson<T>(path:string, body:unknown, timeoutMs:number=REQUEST_T
   try{
     const response=await fetch(`${API_BASE}${path}`,{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json',...localRevisionHeaders()},
       cache:'no-store',
       body:serialized,
       signal:controller.signal,

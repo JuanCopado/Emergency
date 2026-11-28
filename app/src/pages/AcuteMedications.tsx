@@ -1,4 +1,5 @@
 import CountryReferences from '../components/CountryReferences';
+import { localRevisionHeaders } from '../lib/individualTransport';
 import { useClinicalUi } from '../i18n/useClinicalUi';
 import ClinicalValue from '../components/ClinicalValue';
 import { parseFiniteDecimal } from '../lib/format';
@@ -15,7 +16,7 @@ type Report = {snapshot:Result; sections:[string,string[]][]};
 type Outcome = {blocked:boolean; alerts:{code:string;message:string}[]; result?:Result; report?:Report};
 const base = (import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/, '');
 async function post<T,>(path:string, body:unknown):Promise<T> {
-  const response = await fetch(`${base}/api/acute-medications/${path}`, {method:'POST', headers:{'Content-Type':'application/json'}, cache:'no-store', body:JSON.stringify(body)});
+  const response = await fetch(`${base}/api/acute-medications/${path}`, {method:'POST', headers:{'Content-Type':'application/json',...localRevisionHeaders()}, cache:'no-store', body:JSON.stringify(body)});
   const value = await response.json();
   if (!response.ok) throw new Error(value.error || `Error ${response.status}`);
   return value as T;

@@ -8,6 +8,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { LogoMark } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 import { BuildIdentity } from './BuildIdentity';
+import { LocalUpdateNotice } from './LocalUpdateNotice';
 
 const NAV: { to: string; key: string; icon: IconName; end?: boolean; desktopOnly?: boolean }[] = [
   { to: '/', key: 'nav.home', icon: 'home', end: true },
@@ -73,6 +74,8 @@ export function Layout() {
           </div>
         </div>
       </header>
+
+      {import.meta.env.VITE_INDIVIDUAL_INSTALLATION === '1' && <LocalUpdateNotice />}
 
       <main id="main" ref={mainRef} tabIndex={-1} className="mx-auto max-w-6xl px-4 pb-28 pt-5 outline-none sm:px-6 lg:pb-12 lg:pt-8">
         <Outlet />

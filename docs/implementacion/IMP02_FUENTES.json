@@ -1,0 +1,116 @@
+{
+  "schema": "emergency.implementation.sources.v1",
+  "author": "Work/Codex",
+  "observed_date": "2026-11-27",
+  "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "all_sources_primary": true,
+  "legal_opinion": false,
+  "sources": [
+    {
+      "id": "EU-GDPR",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng/",
+      "locator": "Articles6,9,25,28,32,35,44; Recital91",
+      "access": "OFFICIAL_INDEXED_EXCERPTS; directHTML/PDF blockedJavaScriptRobot",
+      "full_text_read": false
+    },
+    {
+      "id": "MDCG-2019-11-R1",
+      "url": "https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en?filename=mdcg_2019_11_en.pdf",
+      "edition": "June2025rev1",
+      "locator": "Sections2,3,7; pp4-9",
+      "access": "PDF_OPENED_36_PAGES; focaltextread",
+      "full_text_read": false
+    },
+    {
+      "id": "MDCG-2021-24-R1",
+      "url": "https://health.ec.europa.eu/document/download/cbb19821-a517-4e13-bf87-fdc6ddd1782e_en?filename=mdcg_2021-24_en.pdf",
+      "locator": "Rule11,p46",
+      "access": "OFFICIAL_INDEXED_EXCERPT",
+      "full_text_read": false
+    },
+    {
+      "id": "COMMISSION-AIA-CURRENT",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "locator": "Applicationtimeline;Simplification;lastupdate27Nov2026",
+      "access": "DIRECT_PAGE",
+      "full_text_read": false
+    },
+    {
+      "id": "AI-ACT-SERVICE-DESK",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
+      "locator": "02Dec2027AnnexIII;02Aug2028AnnexI",
+      "access": "DIRECT_PAGE",
+      "full_text_read": true
+    },
+    {
+      "id": "COMMISSION-GDPR-OBLIGATIONS",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/obligations_en",
+      "locator": "privacybydesign;security;notification;DPIA",
+      "access": "DIRECT_PAGE",
+      "full_text_read": false
+    },
+    {
+      "id": "COMMISSION-GDPR-LEGAL",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data_en",
+      "locator": "lawfulness;consent",
+      "access": "DIRECT_PAGE",
+      "full_text_read": false
+    },
+    {
+      "id": "EDPB-DPO",
+      "url": "https://www.edpb.europa.eu/sme/be-compliant/data-protection-officer_en",
+      "locator": "Mandatorycases;individualpractitioner;large-scalefactors",
+      "access": "DIRECT_PAGE",
+      "full_text_read": false
+    },
+    {
+      "id": "EDPB-DPIA",
+      "url": "https://www.edpb.europa.eu/topics/accountability-and-compliance-tools/data-protection-impact-assessment_en",
+      "locator": "highrisk;countrylists;priorconsultation",
+      "access": "OFFICIAL_INDEXED_EXCERPT",
+      "full_text_read": false
+    },
+    {
+      "id": "EDPB-SECURITY",
+      "url": "https://www.edpb.europa.eu/sme/be-compliant/secure-personal-data_en",
+      "locator": "risk-basedtechnicalorganisationalmeasures",
+      "access": "DIRECT_PAGE",
+      "full_text_read": false
+    },
+    {
+      "id": "EDPB-PROCESSING-CHAIN",
+      "url": "https://www.edpb.europa.eu/system/files_en?file=2026-11%2Fedpb-opinions-at-a-glance-230926-processing-chains_en.pdf",
+      "edition": "October2026;URLfolderNovember2026",
+      "locator": "p2;Section2TransfersoutsideEurope",
+      "access": "PDF_OPENED_4_PAGES;focaltextread",
+      "full_text_read": false
+    },
+    {
+      "id": "EDPB-05-2021",
+      "url": "https://www.edpb.europa.eu/system/files/documents/2023-02/edpb_guidelines_05-2021_interplay_between_the_application_of_art3-chapter_v_of_the_gdpr_v2_en_0.pdf",
+      "locator": "paragraph13;remoteaccessthreecriteria",
+      "access": "OFFICIAL_INDEXED_EXCERPT",
+      "full_text_read": false
+    },
+    {
+      "id": "GOOGLE-CDPA",
+      "url": "https://cloud.google.com/terms/data-processing-addendum",
+      "locator": "Sections10-11;service-specificcommitments;subprocessors",
+      "access": "DIRECT_PAGE_AND_OFFICIAL_INDEXED_EXCERPTS",
+      "full_text_read": false
+    },
+    {
+      "id": "HETZNER-DPA",
+      "url": "https://docs.hetzner.com/general/company-and-policy/data-protection-at-hetzner/",
+      "locator": "DPA;subcontractors;TOMs",
+      "access": "DIRECT_PAGE_AND_OFFICIAL_INDEXED_EXCERPTS",
+      "full_text_read": false
+    }
+  ],
+  "limits": [
+    "NofullconsolidatedEUR-Lexread",
+    "Nocountryspecificassessmentwithoutcountry",
+    "Noprovidercontractaccepted",
+    "Geminispecificclaimsnotautomaticallyadopted"
+  ]
+}

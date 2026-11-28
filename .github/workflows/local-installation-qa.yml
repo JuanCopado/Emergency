@@ -2,7 +2,7 @@ name: Local Installation QA
 
 on:
   push:
-    branches: ['feat/implementation-local-package-*']
+    branches: ['feat/implementation-local-package-*', 'feat/individual-runtime-*']
     paths:
       - 'tools/local-installation/**'
       - '.github/workflows/local-installation-qa.yml'
@@ -16,13 +16,9 @@ permissions:
   contents: read
 
 jobs:
-  local-installation:
-    name: local-installation (${{ matrix.os }})
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  legacy-linux:
+    name: local-installation (Linux legacy, stdlib only)
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Checkout exact candidate
@@ -31,5 +27,68 @@ jobs:
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # repository-pinned v5.6.0
         with:
           python-version: '3.12'
-      - name: Package, activation, rollback and actual HTTP negative controls
-        run: python -m unittest discover -s tools/local-installation -p "test_*.py" -v
+      - name: Legacy package, activation, rollback and HTTP controls
+        run: python -m unittest discover -s tools/local-installation -p "test_local_installation.py" -v
+
+  individual-windows:
+    name: local-installation (Windows individual, real backend fixture)
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # repository-pinned v4.4.0
+      - name: Compatible individual runtime interpreter
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # repository-pinned v5.6.0
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
+      - name: Download only hash-pinned binary wheels and bootstrap verifier
+        shell: python
+        run: |
+          import hashlib, json, os, pathlib, subprocess, sys
+          base = pathlib.Path(os.environ['RUNNER_TEMP']) / 'emergency-individual-qa'
+          wheels = base / 'wheels'
+          wheels.mkdir(parents=True)
+          subprocess.run([sys.executable, '-m', 'pip', 'download', '--only-binary=:all:', '--require-hashes',
+                          '--dest', str(wheels), '-r', 'tools/local-installation/requirements-runtime-ci.lock'], check=True)
+          lock = json.loads(pathlib.Path('tools/local-installation/bootstrap_crypto_lock.json').read_text())
+          assert lock['python'] == [3, 12] and lock['platform'] == 'win-amd64'
+          requirements = []
+          for row in lock['wheels']:
+              data = (wheels / row['file']).read_bytes()
+              assert len(data) == row['bytes'] and hashlib.sha256(data).hexdigest() == row['sha256']
+              distribution, version = row['file'].split('-')[:2]
+              requirements.append(f'{distribution}=={version} --hash=sha256:{row["sha256"]}')
+          assert len(requirements) == 3
+          verifier = base / 'verifier.lock'
+          verifier.write_text('\n'.join(requirements) + '\n')
+          subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-index', '--only-binary=:all:', '--require-hashes',
+                          '--find-links', str(wheels), '-r', str(verifier)], check=True)
+      - name: Physically bundle exact checkout and install offline backend fixture
+        shell: python
+        run: |
+          import os, pathlib, sys
+          sys.path.insert(0, str(pathlib.Path('tools/local-installation').resolve()))
+          from backend_bundle import collect_backend, install_runtime
+          base = pathlib.Path(os.environ['RUNNER_TEMP']) / 'emergency-individual-qa'
+          release = base / 'release'
+          for name, data in collect_backend(pathlib.Path.cwd(), base / 'wheels').items():
+              target = release / name
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(data)
+          python = install_runtime(release, base / 'runtime', sys.executable)
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as output:
+              output.write(f'EMERGENCY_BACKEND_RELEASE={release}\nEMERGENCY_BACKEND_PYTHON={python}\n')
+      - name: All installation, signature, supervision and actual backend tests
+        shell: python
+        run: |
+          import os, pathlib, sys, unittest
+          assert pathlib.Path(os.environ['EMERGENCY_BACKEND_RELEASE'], 'backend/wheels').is_dir()
+          assert pathlib.Path(os.environ['EMERGENCY_BACKEND_PYTHON']).is_file()
+          suite = unittest.defaultTestLoader.discover('tools/local-installation', pattern='test_*.py')
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          forbidden_skips = [(test.id(), reason) for test, reason in result.skipped
+                             if test.__class__.__module__ in {'test_backend_runtime', 'test_individual_cli'}]
+          if forbidden_skips:
+              print('Required backend/supervision tests were not executed:', forbidden_skips)
+          raise SystemExit(0 if result.wasSuccessful() and not forbidden_skips else 1)

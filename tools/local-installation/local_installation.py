@@ -23,6 +23,8 @@ import uuid
 import zipfile
 
 SCHEMA = "emergency.local-release.v1"
+INDIVIDUAL_SCHEMA = "emergency.individual-release.v2"
+INDIVIDUAL_CAPABILITIES = ["individual-local", "offline-deterministic-api", "no-remote-case-processing"]
 MAX_FILES = 2048
 MAX_FILE = 32 * 1024 * 1024
 MAX_TOTAL = 256 * 1024 * 1024
@@ -134,9 +136,15 @@ def read_manifest(data, expected):
     require(isinstance(expected, str) and bool(HEX.fullmatch(expected)), "A separately trusted manifest SHA-256 is required")
     require(len(data) <= MAX_MANIFEST and digest(data) == expected, "Manifest digest mismatch")
     value = object_json(data)
-    require(type(value) is dict and set(value) == {"schema", "source_sha", "capabilities", "files"}, "Unexpected manifest fields")
-    require(value["schema"] == SCHEMA and type(value["source_sha"]) is str and bool(SHA.fullmatch(value["source_sha"])), "Invalid source identity")
-    require(value["capabilities"] == ["static-reference-partial", "no-clinical-api", "no-remote-case-processing"], "Unexpected release capabilities")
+    require(type(value) is dict, "Invalid manifest object")
+    individual = value.get("schema") == INDIVIDUAL_SCHEMA
+    fields = {"schema", "source_sha", "capabilities", "files"} | ({"release_counter"} if individual else set())
+    require(set(value) == fields, "Unexpected manifest fields")
+    require(value["schema"] in {SCHEMA, INDIVIDUAL_SCHEMA} and type(value["source_sha"]) is str and bool(SHA.fullmatch(value["source_sha"])), "Invalid source identity")
+    expected_capabilities = INDIVIDUAL_CAPABILITIES if individual else ["static-reference-partial", "no-clinical-api", "no-remote-case-processing"]
+    require(value["capabilities"] == expected_capabilities, "Unexpected release capabilities")
+    if individual:
+        require(type(value["release_counter"]) is int and 1 <= value["release_counter"] <= 2**53 - 1, "Invalid release counter")
     files = value["files"]
     require(type(files) is list and 1 <= len(files) <= MAX_FILES, "Invalid file inventory")
     names, total, result = set(), 0, {}
@@ -476,6 +484,7 @@ def make_server(root):
     """New origin on every launch: never replace bytes under a previous PWA origin."""
     with writer(root) as root:
         directory, manifest, files, selected = active_snapshot(root)
+        require(manifest["schema"] == SCHEMA, "Individual releases require the authenticated stable launcher")
         content_policy = policy(regular_bytes(directory / "index.html"))
         ledger = root / "used-ports.json"
         used = object_json(regular_bytes(ledger, MAX_MANIFEST)) if ledger.exists() else []
