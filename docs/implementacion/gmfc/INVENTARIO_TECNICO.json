@@ -1,0 +1,1290 @@
+{
+  "task": "GMFC-20261128",
+  "lane": "CODEX_GMFC_TECH",
+  "phase": "A_INDEPENDENT",
+  "source_head": "ecacffee5cdd67992e01e3913e8a0682b3b96ca3",
+  "source_tree": "a61801d71ae5e2b1576f48c2d62d4a77d32ff5e4",
+  "app_receiver": "50ef5ee684e85dd769255445e78f2f12c40a266c",
+  "installer_patch": "6a1dcbd971c864f06d5ee66d0989d0709f51379c",
+  "clinical_status": [
+    "CLINICALLY_PENDING",
+    "NO_GO_CLINICAL_RELEASE"
+  ],
+  "local_requirement_ids_are_not_new_implementation_queue": true,
+  "new_test_runs": 0,
+  "source_writes": 0,
+  "requirements": [
+    {
+      "id": "E1.01",
+      "area": "E1",
+      "requirement": "Acceso rápido a herramientas existentes",
+      "status": "EXISTENTE",
+      "current": "Rutas separadas de fármacos, calculadora, agudos, pediatría, procedimientos, nota, gasometría y guías.",
+      "gap_or_limit": "No constituyen una pantalla FAST universal ni clasifican intención clínica libre.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/App.tsx",
+          "line": 31
+        },
+        {
+          "path": "app/src/pages/Home.tsx",
+          "line": 63
+        },
+        {
+          "path": "app/src/pages/DrugList.tsx",
+          "line": 32
+        }
+      ],
+      "acceptance_proposed_not_executed": "Comparar entradas actuales con un acceso conceptual sin duplicar motores; conservar navegación directa.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No constituyen una pantalla FAST universal ni clasifican intención clínica libre."
+    },
+    {
+      "id": "E1.02",
+      "area": "E1",
+      "requirement": "Texto libre a intención y contrato ejecutable",
+      "status": "PENDIENTE",
+      "current": "Buscador filtra catálogo; APIs aceptan identificadores y entradas explícitas.",
+      "gap_or_limit": "No existe un router clínico universal de lenguaje natural; un helper aritmético no prueba este flujo.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/DrugList.tsx",
+          "line": 32
+        },
+        {
+          "path": "clinical/scripts/acute_medication_api.py",
+          "line": 265
+        },
+        {
+          "path": "clinical/scripts/clinical_scores_api.py",
+          "line": 92
+        }
+      ],
+      "acceptance_proposed_not_executed": "Intención suficiente resuelve ID canónico/revisión/inputs; ambigüedad o dato crítico ausente bloquea cifra y muestra causa. Igual salida que entrada manual.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No existe un router clínico universal de lenguaje natural; un helper aritmético no prueba este flujo."
+    },
+    {
+      "id": "E1.03",
+      "area": "E1",
+      "requirement": "Voz con confirmación de cifras y unidades",
+      "status": "PENDIENTE",
+      "current": "Entrada manual y formularios existentes; búsqueda acotada no halló SpeechRecognition/MediaRecorder/getUserMedia en app/src ni clinical/scripts.",
+      "gap_or_limit": "No se verificó micrófono, proveedor ni soporte del navegador. No hay transcripción universal acreditada.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/Home.tsx",
+          "line": 70
+        },
+        {
+          "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
+          "line": 30
+        }
+      ],
+      "acceptance_proposed_not_executed": "Mantener entrada manual; antes de cálculo confirmar decimal, unidad, edad/peso, vía y negación; medir dispositivo real después de aceptar alcance.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No se verificó micrófono, proveedor ni soporte del navegador. No hay transcripción universal acreditada."
+    },
+    {
+      "id": "E1.04",
+      "area": "E1",
+      "requirement": "Datos mínimos y abstención por contrato",
+      "status": "EXISTENTE",
+      "current": "Agudos valida revisión, campos permitidos y requisitos; pediatría usa guardas propias.",
+      "gap_or_limit": "No exigir todos los campos a todos los casos ni inventar la preparación original de insulina/labetalol.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/acute_medication_api.py",
+          "line": 115
+        },
+        {
+          "path": "clinical/scripts/acute_medication_api.py",
+          "line": 269
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_alert_engine.py",
+          "line": 70
+        }
+      ],
+      "acceptance_proposed_not_executed": "Reutilizar contrato exacto; casos incompleto, unidad incompatible, preparación no identificada y revisión obsoleta no emiten una cifra accionable.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No exigir todos los campos a todos los casos ni inventar la preparación original de insulina/labetalol."
+    },
+    {
+      "id": "E1.05",
+      "area": "E1",
+      "requirement": "45 fórmulas disponibles desde FAST",
+      "status": "PARCIAL",
+      "current": "Registro contiene 45 fórmulas de motor y 135 escalas; API de scores expone 13 formularios aprobados.",
+      "gap_or_limit": "45 fórmulas implementadas no significa 45 formularios ni 135 calculadoras universales disponibles.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/calculators/registry.json",
+          "line": 1
+        },
+        {
+          "path": "clinical/scripts/clinical_calculator.py",
+          "line": 87
+        },
+        {
+          "path": "clinical/scripts/clinical_scores_api.py",
+          "line": 47
+        },
+        {
+          "path": "clinical/qa/CALCULATOR_DECISION_20261120.md",
+          "line": 3
+        }
+      ],
+      "acceptance_proposed_not_executed": "Mapear únicamente fórmulas/formularios existentes a inputs conocidos; identificador no expuesto o regla externa sin contrato se abstiene.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "45 fórmulas implementadas no significa 45 formularios ni 135 calculadoras universales disponibles."
+    },
+    {
+      "id": "E2.01",
+      "area": "E2",
+      "requirement": "Original / propuesta / final de texto libre",
+      "status": "EXISTENTE",
+      "current": "Workspace conserva tres etapas y propone aplicación separada a campos canónicos.",
+      "gap_or_limit": "Estructuración por encabezados no interpreta clínicamente todo texto libre ni completa datos ausentes.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/clinical-note/FreeTextWorkspace.tsx",
+          "line": 23
+        },
+        {
+          "path": "app/src/clinical-note/textStructuring.ts",
+          "line": 91
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 532
+        }
+      ],
+      "acceptance_proposed_not_executed": "Preservar original, cifras, Unicode y negación; reaplicar no elimina fragmentos por substring ni sobrescribe sin decisión.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Estructuración por encabezados no interpreta clínicamente todo texto libre ni completa datos ausentes."
+    },
+    {
+      "id": "E2.02",
+      "area": "E2",
+      "requirement": "Edición final y exportación exacta revisada",
+      "status": "PARCIAL",
+      "current": "Final editable se copia con clipboard; PDF/DOCX/JSON se generan desde campos canónicos revisados.",
+      "gap_or_limit": "El final libre editado no es automáticamente el documento exportado. No afirmar igualdad entre ambas superficies.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/clinical-note/FreeTextWorkspace.tsx",
+          "line": 78
+        },
+        {
+          "path": "app/src/clinical-note/FreeTextWorkspace.tsx",
+          "line": 191
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 505
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 634
+        },
+        {
+          "path": "clinical/scripts/clinical_note_exporter.py",
+          "line": 338
+        }
+      ],
+      "acceptance_proposed_not_executed": "Elegir contrato explícito antes de implementar: canónico revisado o nuevo final revisado. Ensayar igualdad de contenido del documento elegido y aviso inequívoco para copia en borrador.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "El final libre editado no es automáticamente el documento exportado. No afirmar igualdad entre ambas superficies."
+    },
+    {
+      "id": "E2.03",
+      "area": "E2",
+      "requirement": "Revisión invalidada por edición",
+      "status": "EXISTENTE",
+      "current": "touch invalida revisiones; cambios y regeneración exigen confirmación en workspace.",
+      "gap_or_limit": "No acredita invalidación transitiva universal entre futuros módulos o episodios.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 230
+        },
+        {
+          "path": "app/src/clinical-note/FreeTextWorkspace.tsx",
+          "line": 53
+        },
+        {
+          "path": "app/src/clinical-note/FreeTextWorkspace.tsx",
+          "line": 71
+        }
+      ],
+      "acceptance_proposed_not_executed": "Editar dato dependiente retira revisión/feedback anterior; una propuesta vieja no vuelve a figurar como aceptada.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No acredita invalidación transitiva universal entre futuros módulos o episodios."
+    },
+    {
+      "id": "E2.04",
+      "area": "E2",
+      "requirement": "Plantillas de todos los tipos de nota",
+      "status": "PARCIAL",
+      "current": "Existe nota con historia, exploración, pruebas, problemas, plan, exportación y campos de episodio.",
+      "gap_or_limit": "No está acreditado un catálogo completo de ocho plantillas ni deshacer/restaurar histórico general.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 238
+        },
+        {
+          "path": "app/src/clinical-note/draft.tsx",
+          "line": 6
+        },
+        {
+          "path": "app/src/clinical-note/textStructuring.ts",
+          "line": 131
+        }
+      ],
+      "acceptance_proposed_not_executed": "Usar mismo modelo canónico; documentar variaciones de plantilla sin inferir exploración normal ni negativos no aportados.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No está acreditado un catálogo completo de ocho plantillas ni deshacer/restaurar histórico general."
+    },
+    {
+      "id": "E2.05",
+      "area": "E2",
+      "requirement": "Adjuntos con procedencia y confirmación",
+      "status": "PARCIAL",
+      "current": "Prepare/accept de adjuntos y datos fuente; UI acepta varios formatos con revisión.",
+      "gap_or_limit": "Aceptar extensión o extraer metadatos no valida estructura PDF/DICOM, diagnóstico ni admisión del activo al banco.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 580
+        },
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 603
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 371
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 551
+        }
+      ],
+      "acceptance_proposed_not_executed": "Vincular campo confirmado a página/fecha/unidad/origen cuando exista; conflictos no se sobrescriben. No afirmar retención del binario original cuando el contrato sólo conserva recibo/referencia.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Aceptar extensión o extraer metadatos no valida estructura PDF/DICOM, diagnóstico ni admisión del activo al banco."
+    },
+    {
+      "id": "E2.06",
+      "area": "E2",
+      "requirement": "Diagnóstico determinista y módulos YELLOW",
+      "status": "RESTRINGIDO",
+      "current": "analyze y apoyo diagnóstico determinista están presentes; la API añade guarda de seguridad de medicamentos.",
+      "gap_or_limit": "La guía dice deshabilitar YELLOW, pero eso no describe fielmente toda la UI existente. No ampliar a diagnóstico validado o inferencia remota ni deshabilitar por estudio capacidades limitadas ya aceptadas.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 589
+        },
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 475
+        },
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 611
+        },
+        {
+          "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
+          "line": 21
+        }
+      ],
+      "acceptance_proposed_not_executed": "Reformular guía diferenciando apoyo determinista limitado, extracción, inferencia nueva y aprobación clínica. Mantener exactamente los gates vigentes y dos YELLOW.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "La guía dice deshabilitar YELLOW, pero eso no describe fielmente toda la UI existente. No ampliar a diagnóstico validado o inferencia remota ni deshabilitar por estudio capacidades limitadas ya aceptadas."
+    },
+    {
+      "id": "E3.01",
+      "area": "E3",
+      "requirement": "Plan para diagnóstico establecido",
+      "status": "PARCIAL",
+      "current": "Plan organiza initial_actions, medications, monitoring, reassessment, disposition desde fuentes identificadas.",
+      "gap_or_limit": "Es proyección conservadora de fuente, no plan personalizado completo para cualquier diagnóstico.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/therapeutic_plan_sources.py",
+          "line": 20
+        },
+        {
+          "path": "clinical/scripts/therapeutic_plan_sources.py",
+          "line": 286
+        },
+        {
+          "path": "clinical/scripts/therapeutic_plan_sources.py",
+          "line": 329
+        }
+      ],
+      "acceptance_proposed_not_executed": "Distinguir referencia, plan parcial y propuesta individualizada; diagnóstico establecido por médico no equivale a diagnóstico generado.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Es proyección conservadora de fuente, no plan personalizado completo para cualquier diagnóstico."
+    },
+    {
+      "id": "E3.02",
+      "area": "E3",
+      "requirement": "Procedencia y revisión del plan",
+      "status": "EXISTENTE",
+      "current": "Fuentes se atan a SHA; validación comprueba identidad, selección, alergias y confirmaciones.",
+      "gap_or_limit": "No transportar aprobación a una fuente cambiada ni extrapolar a todos los planes.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/therapeutic_plan_sources.py",
+          "line": 194
+        },
+        {
+          "path": "clinical/scripts/therapeutic_plan_workflow.py",
+          "line": 116
+        },
+        {
+          "path": "clinical/scripts/therapeutic_plan_workflow.py",
+          "line": 195
+        },
+        {
+          "path": "clinical/scripts/therapeutic_plan_workflow.py",
+          "line": 216
+        }
+      ],
+      "acceptance_proposed_not_executed": "Cambio de fuente/contexto relevante exige revalidación; IDs diagnósticos no coincidentes se rechazan.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No transportar aprobación a una fuente cambiada ni extrapolar a todos los planes."
+    },
+    {
+      "id": "E3.03",
+      "area": "E3",
+      "requirement": "Interacciones y seguridad global de medicación",
+      "status": "PARCIAL",
+      "current": "Motor pediátrico contempla alergias, conciliación y datos mínimos; existe medication/preflight central.",
+      "gap_or_limit": "Cobertura global de interacciones de cualquier medicamento/diagnóstico no demostrada. Ausencia de alerta no significa sin interacciones.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/pediatric_outpatient_alert_engine.py",
+          "line": 89
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_alert_engine.py",
+          "line": 95
+        },
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 622
+        }
+      ],
+      "acceptance_proposed_not_executed": "Mostrar evaluado/no evaluado por cobertura real; no ocultar STOP y no añadir cifras fuera de contrato.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Cobertura global de interacciones de cualquier medicamento/diagnóstico no demostrada. Ausencia de alerta no significa sin interacciones."
+    },
+    {
+      "id": "E3.04",
+      "area": "E3",
+      "requirement": "19 contratos clínicos previamente aceptados",
+      "status": "EXISTENTE",
+      "current": "Recepción explícita del propietario: seis contratos numéricos y trece de apoyo; JSON enumera 19 IDs.",
+      "gap_or_limit": "No exigir otra aprobación médica general ni tratar los 19 como nuevas dosis. No implica validación prospectiva.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+          "line": 5
+        },
+        {
+          "path": "clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+          "line": 9
+        },
+        {
+          "path": "clinical/references/acute-contract-owner-acceptance-2026-11-16.json",
+          "line": 1
+        }
+      ],
+      "acceptance_proposed_not_executed": "Conservar IDs, cifras, guardas y aceptación; comprobar equivalencia sólo si futura integración modifica su contrato.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No exigir otra aprobación médica general ni tratar los 19 como nuevas dosis. No implica validación prospectiva."
+    },
+    {
+      "id": "E4.01",
+      "area": "E4",
+      "requirement": "Alta pediátrica sobre catálogo existente",
+      "status": "PARCIAL",
+      "current": "Ruta pediátrica, calculadores, alertas y exportador propios disponibles.",
+      "gap_or_limit": "No es un generador universal de alta. Peso solo no establece edad, indicación, producto, duración ni destino.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/App.tsx",
+          "line": 39
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_api.py",
+          "line": 1
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_alert_engine.py",
+          "line": 70
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_calculator.py",
+          "line": 1
+        }
+      ],
+      "acceptance_proposed_not_executed": "Caso sintético 7 kg conserva edad desconocida y no inventa antibiótico/preparación; usar sólo régimen autorizado y revisión de datos pertinentes.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No es un generador universal de alta. Peso solo no establece edad, indicación, producto, duración ni destino."
+    },
+    {
+      "id": "E4.02",
+      "area": "E4",
+      "requirement": "Instrucciones paciente vs informe profesional",
+      "status": "PENDIENTE",
+      "current": "Nota y exportadores clínicos reutilizables; alertas por régimen.",
+      "gap_or_limit": "No consta contrato integral de dos documentos separados para toda alta, educación y signos de alarma multilingües.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/clinical_note_exporter.py",
+          "line": 128
+        },
+        {
+          "path": "clinical/scripts/pediatric_result_exporter.py",
+          "line": 1
+        }
+      ],
+      "acceptance_proposed_not_executed": "Separar documento profesional de instrucciones legibles; no asumir decisión de alta ni alta automática a partir de cálculo.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No consta contrato integral de dos documentos separados para toda alta, educación y signos de alarma multilingües."
+    },
+    {
+      "id": "E4.03",
+      "area": "E4",
+      "requirement": "Conversión segura a mL y formulaciones",
+      "status": "RESTRINGIDO",
+      "current": "Contratos exigen preparación/producto cuando corresponde y bloquean datos insuficientes.",
+      "gap_or_limit": "Preparaciones no identificadas continúan bloqueadas; no inferir originales de insulina/labetalol por versiones genéricas.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/acute_medication_api.py",
+          "line": 63
+        },
+        {
+          "path": "clinical/scripts/acute_medication_api.py",
+          "line": 115
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_alert_engine.py",
+          "line": 70
+        }
+      ],
+      "acceptance_proposed_not_executed": "Sin concentración/producto necesarios no mostrar mL accionables; conservar equivalencia dimensional y fuente.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Preparaciones no identificadas continúan bloqueadas; no inferir originales de insulina/labetalol por versiones genéricas."
+    },
+    {
+      "id": "E5.01",
+      "area": "E5",
+      "requirement": "Importación de analítica PDF textual/TXT",
+      "status": "EXISTENTE",
+      "current": "ScoreDocumentInput extrae texto PDF/TXT, muestra fuente y candidatos antes de aplicación.",
+      "gap_or_limit": "PDF escaneado requiere alternativa manual; extracción no equivale a interpretación o precisión clínica validada.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/components/ScoreDocumentInput.tsx",
+          "line": 32
+        },
+        {
+          "path": "app/src/components/ScoreDocumentInput.tsx",
+          "line": 42
+        },
+        {
+          "path": "app/src/components/ScoreDocumentInput.tsx",
+          "line": 61
+        },
+        {
+          "path": "clinical/qa/CALCULATOR_DECISION_20261120.md",
+          "line": 18
+        }
+      ],
+      "acceptance_proposed_not_executed": "Valores, unidades y muestra se revisan; discrepancia de unidad o múltiples resultados no selecciona silenciosamente.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "PDF escaneado requiere alternativa manual; extracción no equivale a interpretación o precisión clínica validada."
+    },
+    {
+      "id": "E5.02",
+      "area": "E5",
+      "requirement": "Gasometría T05 en instalación individual",
+      "status": "RESTRINGIDO",
+      "current": "Página y servicio local T05 existen; exige sesión Windows, revisión de filas, muestra y confirmación médica.",
+      "gap_or_limit": "No está empaquetado en E. Esta página no demuestra calculadora manual autónoma offline: requiere ticket/sesión del servicio.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/BloodGas.tsx",
+          "line": 69
+        },
+        {
+          "path": "app/src/pages/BloodGas.tsx",
+          "line": 73
+        },
+        {
+          "path": "app/src/pages/BloodGas.tsx",
+          "line": 143
+        },
+        {
+          "path": "app/src/pages/BloodGas.tsx",
+          "line": 261
+        },
+        {
+          "path": "tools/local-installation/backend_runtime.py",
+          "line": 23
+        }
+      ],
+      "acceptance_proposed_not_executed": "Mostrar capacidad real; no intentar servicio ausente. Si se propone alternativa manual, identificar su motor/contrato y autorización por separado.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No está empaquetado en E. Esta página no demuestra calculadora manual autónoma offline: requiere ticket/sesión del servicio."
+    },
+    {
+      "id": "E5.03",
+      "area": "E5",
+      "requirement": "T06 en paquete y plataforma incompatible",
+      "status": "RESTRINGIDO",
+      "current": "Meta de instalación individual deshabilita botón y avisa de backend ausente; Linux condicionado en otros modos.",
+      "gap_or_limit": "No ampliar laboratorio opcional ni repetir control ya acreditado de indisponibilidad.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/t06/T06Lab.tsx",
+          "line": 59
+        },
+        {
+          "path": "app/src/t06/T06Lab.tsx",
+          "line": 123
+        },
+        {
+          "path": "app/src/t06/T06Lab.tsx",
+          "line": 131
+        }
+      ],
+      "acceptance_proposed_not_executed": "Conservar aviso y cero solicitud cuando runtimeUnavailable; no presentar laboratorio listo en paquete E.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No ampliar laboratorio opcional ni repetir control ya acreditado de indisponibilidad."
+    },
+    {
+      "id": "E5.04",
+      "area": "E5",
+      "requirement": "ECG/TAC/DICOM e interpretación de imágenes",
+      "status": "RESTRINGIDO",
+      "current": "Hay recepción técnica, apoyos documentales y referencia a imágenes.",
+      "gap_or_limit": "Upload/interpret no está en allowlist del backend individual. Original/miniatura/derivado, aceptación técnica y adjudicación médica son estados distintos.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 390
+        },
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 596
+        },
+        {
+          "path": "tools/local-installation/backend_runtime.py",
+          "line": 23
+        },
+        {
+          "path": "docs/implementacion/INTEGRACION_TOTAL_V07.md",
+          "line": 41
+        }
+      ],
+      "acceptance_proposed_not_executed": "No mostrar diagnóstico validado por extensión aceptada; exponer capacidad exacta, abstención y procedencia; mantener cuarentena y admisiones previas.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Upload/interpret no está en allowlist del backend individual. Original/miniatura/derivado, aceptación técnica y adjudicación médica son estados distintos."
+    },
+    {
+      "id": "E5.05",
+      "area": "E5",
+      "requirement": "POCUS, RAG y referencias",
+      "status": "PARCIAL",
+      "current": "POCUS dispone de referencias; RAG es laboratorio de recuperación sin generación clínica ni endpoint de pacientes.",
+      "gap_or_limit": "No hay justificación para extender RAG a prescriptor ni incorporar originales restringidos. Cifras históricas del banco no son reconciliación nueva.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "docs/implementacion/INTEGRACION_TOTAL_V07.md",
+          "line": 38
+        },
+        {
+          "path": "docs/implementacion/INTEGRACION_TOTAL_V07.md",
+          "line": 41
+        },
+        {
+          "path": "docs/implementacion/INTEGRACION_TOTAL_V07.md",
+          "line": 65
+        }
+      ],
+      "acceptance_proposed_not_executed": "Acceso a referencia con fuente/estado; no promover imagen a admitida ni una recuperación documental a consejo clínico validado.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No hay justificación para extender RAG a prescriptor ni incorporar originales restringidos. Cifras históricas del banco no son reconciliación nueva."
+    },
+    {
+      "id": "E6.01",
+      "area": "E6",
+      "requirement": "Alertas clínicas existentes y revisión",
+      "status": "PARCIAL",
+      "current": "Guardas de contrato, alergias, datos mínimos y revisión de medicamentos existen en módulos.",
+      "gap_or_limit": "No consta un centro universal de alertas por episodio con deduplicación y invalidación entre todas las herramientas.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/acute_medication_api.py",
+          "line": 276
+        },
+        {
+          "path": "clinical/scripts/pediatric_outpatient_alert_engine.py",
+          "line": 64
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 670
+        }
+      ],
+      "acceptance_proposed_not_executed": "Crítica, precaución e información deben conservar texto y acción; deduplicar sin ocultar advertencia obligatoria, con alcance de episodio explícito.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No consta un centro universal de alertas por episodio con deduplicación y invalidación entre todas las herramientas."
+    },
+    {
+      "id": "E6.02",
+      "area": "E6",
+      "requirement": "Actualización PWA con borrador abierto",
+      "status": "EXISTENTE",
+      "current": "Aviso bloquea actualización con contenido; guard preserva instancia en navegación y evita rutas inéditas stale.",
+      "gap_or_limit": "No confundir guard de actualización con persistencia tras cierre del navegador o durabilidad ante fallo del SO.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/components/LocalUpdateNotice.tsx",
+          "line": 30
+        },
+        {
+          "path": "app/src/components/LocalUpdateNotice.tsx",
+          "line": 32
+        },
+        {
+          "path": "app/src/components/IndividualRouteGuard.tsx",
+          "line": 39
+        },
+        {
+          "path": "app/src/components/IndividualRouteGuard.tsx",
+          "line": 70
+        }
+      ],
+      "acceptance_proposed_not_executed": "Reutilizar evidencia C41 para código sin cambios; futuros cambios sólo verifican transición afectada y no pierden borrador/prefs.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-03",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No confundir guard de actualización con persistencia tras cierre del navegador o durabilidad ante fallo del SO."
+    },
+    {
+      "id": "E6.03",
+      "area": "E6",
+      "requirement": "Avisos de nueva guía o cambios científicos",
+      "status": "PENDIENTE",
+      "current": "Fuentes canónicas y revisiones/hash permiten reconocer identidad.",
+      "gap_or_limit": "No consta servicio universal de alertas científicas ni revisión automática autorizada. No renovar last_checked por estudio.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "clinical/scripts/therapeutic_plan_sources.py",
+          "line": 176
+        },
+        {
+          "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
+          "line": 99
+        }
+      ],
+      "acceptance_proposed_not_executed": "Nueva versión se muestra como pendiente de revisión, no reemplaza pauta vigente ni crea aprobación implícita.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No consta servicio universal de alertas científicas ni revisión automática autorizada. No renovar last_checked por estudio."
+    },
+    {
+      "id": "E6.04",
+      "area": "E6",
+      "requirement": "Privacidad local, sesiones y red",
+      "status": "PARCIAL",
+      "current": "Host/Origin/nonce, loopback, worker privado y temporales marcados; privacidad/exportación preflight.",
+      "gap_or_limit": "Loopback no aísla frente a cualquier proceso del mismo usuario. Limpieza normal no equivale a borrado seguro ni a eliminar exportaciones guardadas.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "tools/local-installation/STABLE_PWA.md",
+          "line": 29
+        },
+        {
+          "path": "tools/local-installation/backend_runtime.py",
+          "line": 46
+        },
+        {
+          "path": "tools/local-installation/backend_runtime.py",
+          "line": 71
+        },
+        {
+          "path": "clinical/scripts/clinical_note_api.py",
+          "line": 573
+        }
+      ],
+      "acceptance_proposed_not_executed": "No datos identificables remotos por defecto; reutilización de datos necesita origen, episodio, finalidad y selección explícitos.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Loopback no aísla frente a cualquier proceso del mismo usuario. Limpieza normal no equivale a borrado seguro ni a eliminar exportaciones guardadas."
+    },
+    {
+      "id": "E7.01",
+      "area": "E7",
+      "requirement": "Mi guardia: múltiples episodios y retorno A/B/A",
+      "status": "PENDIENTE",
+      "current": "Provider usa un único draft en memoria, con reset y beforeunload.",
+      "gap_or_limit": "No hay gestor multiepisodio acreditado. A/B/A de versiones PWA no es A/B/A de pacientes.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/clinical-note/draft.tsx",
+          "line": 55
+        },
+        {
+          "path": "app/src/clinical-note/draft.tsx",
+          "line": 58
+        },
+        {
+          "path": "app/src/clinical-note/draft.tsx",
+          "line": 60
+        },
+        {
+          "path": "app/src/clinical-note/draft.tsx",
+          "line": 69
+        }
+      ],
+      "acceptance_proposed_not_executed": "Modelo de episodio explícito, aislamiento A/B/A y prohibición de arrastre automático; probar cambio de paciente y consulta rápida sin episodio después de aceptación.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No hay gestor multiepisodio acreditado. A/B/A de versiones PWA no es A/B/A de pacientes."
+    },
+    {
+      "id": "E7.02",
+      "area": "E7",
+      "requirement": "Persistencia de notas entre sesiones",
+      "status": "PENDIENTE",
+      "current": "Preferencias se guardan; draft clínico se destruye al cerrar la página.",
+      "gap_or_limit": "Memoria React no es recuperación durable ni almacenamiento cifrado de episodios. PostgreSQL no es requisito automático.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/clinical-note/draft.tsx",
+          "line": 58
+        },
+        {
+          "path": "app/src/state/settings.tsx",
+          "line": 68
+        },
+        {
+          "path": "app/src/state/settings.tsx",
+          "line": 74
+        }
+      ],
+      "acceptance_proposed_not_executed": "Decidir por separado persistencia, retención y eliminación con privacidad; no almacenar pacientes en localStorage por reutilizar preferencias.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Memoria React no es recuperación durable ni almacenamiento cifrado de episodios. PostgreSQL no es requisito automático."
+    },
+    {
+      "id": "E7.03",
+      "area": "E7",
+      "requirement": "Offline de funciones compatibles",
+      "status": "PARCIAL",
+      "current": "PWA cachea frontend; APIs deterministas locales funcionan si runtime loopback sigue activo sin WAN.",
+      "gap_or_limit": "Cerrar backend no deja todas las funciones operativas; offline no incorpora OCR/modelos/servicios ausentes.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/vite.config.ts",
+          "line": 140
+        },
+        {
+          "path": "tools/local-installation/STABLE_PWA.md",
+          "line": 31
+        },
+        {
+          "path": "tools/local-installation/STABLE_PWA.md",
+          "line": 33
+        },
+        {
+          "path": "tools/local-installation/backend_runtime.py",
+          "line": 23
+        }
+      ],
+      "acceptance_proposed_not_executed": "Matriz por función: frontend cacheado, API local, dependencia externa o ausente; distinguir WAN desconectada de loopback deshabilitado.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Cerrar backend no deja todas las funciones operativas; offline no incorpora OCR/modelos/servicios ausentes."
+    },
+    {
+      "id": "E7.04",
+      "area": "E7",
+      "requirement": "Consulta rápida sin episodio y transferencia selectiva",
+      "status": "PENDIENTE",
+      "current": "Herramientas independientes accesibles; nota tiene acción explícita de aplicar propuesta.",
+      "gap_or_limit": "No hay contrato universal de transferencia selectiva a episodio activo entre todos los módulos.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/App.tsx",
+          "line": 31
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 225
+        }
+      ],
+      "acceptance_proposed_not_executed": "Consulta aislada no se añade a nota automáticamente; transferencia muestra origen, paciente/episodio destino y campos seleccionados.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No hay contrato universal de transferencia selectiva a episodio activo entre todos los módulos."
+    },
+    {
+      "id": "E8.01",
+      "area": "E8",
+      "requirement": "Clinical Minimal, navegación y componentes existentes",
+      "status": "PARCIAL",
+      "current": "Home opt-in ClinicalMinimal, Layout compartido, modos claro/oscuro y navegación responsive.",
+      "gap_or_limit": "La portada/logo/iconos de PR139 commit1627033 se excluyeron de PR140. No están aprobados ni integrados por este estudio.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/pages/Home.tsx",
+          "line": 17
+        },
+        {
+          "path": "app/src/pages/ClinicalMinimalIntro.tsx",
+          "line": 5
+        },
+        {
+          "path": "app/src/components/Layout.tsx",
+          "line": 44
+        },
+        {
+          "path": "docs/implementacion/CONCILIACION_PR138_PR139.md",
+          "line": 17
+        }
+      ],
+      "acceptance_proposed_not_executed": "Comparar misma tarea con diseño existente; reutilizar componentes, no asumir que propuesta visual equivale a funcionalidad clínica.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "La portada/logo/iconos de PR139 commit1627033 se excluyeron de PR140. No están aprobados ni integrados por este estudio."
+    },
+    {
+      "id": "E8.02",
+      "area": "E8",
+      "requirement": "Idiomas y país",
+      "status": "PARCIAL",
+      "current": "Controles y preferencias de idioma; contexto internacional por defecto no deduce país.",
+      "gap_or_limit": "Texto clínico canónico no está traducido íntegramente. Idioma no equivale a jurisdicción, hospital ni producto comercial.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/state/settings.tsx",
+          "line": 40
+        },
+        {
+          "path": "app/src/context/reference-context.ts",
+          "line": 19
+        },
+        {
+          "path": "app/src/context/reference-context.ts",
+          "line": 26
+        },
+        {
+          "path": "app/src/pages/ClinicalNote.tsx",
+          "line": 660
+        }
+      ],
+      "acceptance_proposed_not_executed": "Conservar fuente/idioma de contenido clínico; selección de país explícita y recursos desconocidos no se completan por intuición.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Texto clínico canónico no está traducido íntegramente. Idioma no equivale a jurisdicción, hospital ni producto comercial."
+    },
+    {
+      "id": "E8.03",
+      "area": "E8",
+      "requirement": "WCAG2.2AA y rendimiento global",
+      "status": "NO_VERIFICADO",
+      "current": "Existen skiplink, foco visible, main, reduced-motion y layout adaptable.",
+      "gap_or_limit": "No se ejecutó nueva auditoría WCAG, contraste, Lighthouse, WebVitals ni carga. Marcado parcial no prueba conformidad global.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "app/src/components/Layout.tsx",
+          "line": 44
+        },
+        {
+          "path": "app/src/components/Layout.tsx",
+          "line": 91
+        },
+        {
+          "path": "app/src/index.css",
+          "line": 51
+        },
+        {
+          "path": "app/src/index.css",
+          "line": 56
+        }
+      ],
+      "acceptance_proposed_not_executed": "Sobre flujo elegido: teclado completo, foco/lector/contraste/táctil, móvil y tablet sin overflow; métricas reales por tarea/dispositivo, sin porcentajes o SLA inventados.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No se ejecutó nueva auditoría WCAG, contraste, Lighthouse, WebVitals ni carga. Marcado parcial no prueba conformidad global."
+    },
+    {
+      "id": "E8.04",
+      "area": "E8",
+      "requirement": "Medición de utilidad y carga bajo interrupción",
+      "status": "PENDIENTE",
+      "current": "QA histórica contiene recorridos sintéticos y comparativo focal tablet; no ensayo de guardia global.",
+      "gap_or_limit": "Número de clics de un recorrido previo no es benchmark universal ni prueba de beneficio clínico.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "docs/implementacion/CONCILIACION_PR138_PR139.md",
+          "line": 17
+        },
+        {
+          "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
+          "line": 92
+        }
+      ],
+      "acceptance_proposed_not_executed": "Registrar tiempo de inicio/resultado útil, acciones, correcciones y errores con tareas comparables, misma configuración y coste de preparación/llamadas; no registrar PHI.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "REFORMULAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Número de clics de un recorrido previo no es benchmark universal ni prueba de beneficio clínico."
+    },
+    {
+      "id": "X.01",
+      "area": "X",
+      "requirement": "Emergency MCP como integración clínica universal",
+      "status": "RESTRINGIDO",
+      "current": "Ocho herramientas de metadatos/documentación en stdio; llamada real get_project_state reportada por coordinador y registry coincide.",
+      "gap_or_limit": "No lee pacientes, prescribe, escribe, lanza herramientas arbitrarias ni verifica CI/Drive en vivo; registro no prueba conexión de cada host.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "tools/emergency-mcp/README.md",
+          "line": 29
+        },
+        {
+          "path": "tools/emergency-mcp/README.md",
+          "line": 31
+        },
+        {
+          "path": "tools/emergency-mcp/README.md",
+          "line": 50
+        },
+        {
+          "path": "tools/emergency-mcp/README.md",
+          "line": 77
+        }
+      ],
+      "acceptance_proposed_not_executed": "Reutilizar para evidencia y estado con snapshot visible; no usar como nuevo backend clínico ni convertirlo en requisito del flujo.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "No lee pacientes, prescribe, escribe, lanza herramientas arbitrarias ni verifica CI/Drive en vivo; registro no prueba conexión de cada host."
+    },
+    {
+      "id": "X.02",
+      "area": "X",
+      "requirement": "Arquitectura local frente a remota",
+      "status": "EXISTENTE",
+      "current": "Plan permanente local principal e híbrido opcional; OIDC/DB/infra remota son condicionales.",
+      "gap_or_limit": "Guía de flujo no autoriza servidores, proveedores, cuentas remotas ni datos de pacientes remotos.",
+      "evidence_kind": "STATIC_READ",
+      "sources": [
+        {
+          "path": "docs/implementacion/ORQUESTACION.json",
+          "line": 1
+        },
+        {
+          "path": "docs/IMPLEMENTACION.md",
+          "line": 1
+        }
+      ],
+      "acceptance_proposed_not_executed": "Mantener 12 IDs; estudio en IMP00/02/09/10, paquete en IMP03 sólo si cambia, IMP04–08 condicionales e IMP11 separado.",
+      "imp_refs": [
+        "IMP-00",
+        "IMP-01",
+        "IMP-10"
+      ],
+      "priority": "P1",
+      "recommendation": "ADOPTAR",
+      "benefit": "Reutiliza contratos y componentes; reduce duplicación y afirmaciones de capacidad no acreditadas. Beneficio no cuantificado.",
+      "risk_avoided": "Guía de flujo no autoriza servidores, proveedores, cuentas remotas ni datos de pacientes remotos."
+    }
+  ]
+}

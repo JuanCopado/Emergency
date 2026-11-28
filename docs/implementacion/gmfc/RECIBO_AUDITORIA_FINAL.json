@@ -1,0 +1,116 @@
+{
+  "schema": "gmfc-audit-final-receipt-v1",
+  "task": "EMERGENCY GMFC-20261128",
+  "lane": "ANTIGRAVITY_FINAL_DOCUMENTARY_ADDENDUM",
+  "audit_type": "ADENDA_FINAL_ACOTADA_GUIA_V1_PROPUESTA",
+  "timestamp": "2026-11-28T13:41:20-01:00",
+  "source_head": "ecacffee5cdd67992e01e3913e8a0682b3b96ca3",
+  "app_receiver": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+  "git_writes_performed": 0,
+  "code_edits_performed": 0,
+  "suites_executed": 0,
+  "ui_executed": false,
+  "unnecessary_mcp_calls": 0,
+  "clinical_status": "CLINICALLY_PENDING",
+  "validation_status": "NOT_FROZEN_NOT_VALIDATED",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "merge_ready": false,
+  "owner_accepted": false,
+  "implementation_authorized": false,
+  "prior_audit_artifacts_preserved": [
+    "AG/GMFC_AUDIT_PARTIAL.md",
+    "AG/GMFC_AUDIT_PARTIAL_RECEIPT.json"
+  ],
+  "base_files_physical_bytes_corrected": [
+    {
+      "path": "COORD/SINTESIS_PROVISIONAL.md",
+      "sha256": "2f9788a6bfcffc168d87a163a5a41b790f0a49dd101bc7f4c447a5821836dc8c",
+      "bytes_physical": 6861,
+      "previous_reported_length": 4675,
+      "verified": true
+    },
+    {
+      "path": "TECH/GMFC_TECH.md",
+      "sha256": "a91034592172759d8317f001808184eae5c9099b3af48156e7485d1736c15a3b",
+      "bytes_physical": 40577,
+      "previous_reported_length": 31810,
+      "verified": true
+    },
+    {
+      "path": "TECH/GMFC_TECH_REQUIREMENTS.json",
+      "sha256": "7a90ca536411cfae8e0e592b3d813fdd3fe404a04014657e1162efb992f08efe",
+      "bytes_physical": 54410,
+      "previous_reported_length": 51520,
+      "verified": true
+    },
+    {
+      "path": "CLAUDE/GMFC_UX_ORIGINAL.md",
+      "sha256": "423cfc66ea761cfa5bffdee622af3ad0a70e0a826bfd96f1ece0cccbd082d087",
+      "bytes_physical": 24494,
+      "previous_reported_length": 18061,
+      "verified": true
+    },
+    {
+      "path": "COORD/COTEJO_CLAUDE_UX.md",
+      "sha256": "6d00dd8b4040003328fb84ebdb7d5c8b06f3684264a04de9276992f3981fa37f",
+      "bytes_physical": 4053,
+      "previous_reported_length": 2766,
+      "verified": true
+    },
+    {
+      "path": "GEMINI/CONTEXT_ERROR_RECEIPT.json",
+      "sha256": "9ef4264bf41a02bc88fbce83edbef7a093c0af497ce47786d8d38dd5d4912cba",
+      "bytes_physical": 724,
+      "previous_reported_length": 647,
+      "verified": true
+    },
+    {
+      "path": "GEMINI/PARTIAL_DELIVERY_RECEIPT.json",
+      "sha256": "099145786db513d9729259fac8e8b871faef8a2e316b6bb6d4b990a21e02952f",
+      "bytes_physical": 1001,
+      "previous_reported_length": 913,
+      "verified": true
+    }
+  ],
+  "delta_increment_files_read": [
+    {
+      "path": "COORD/GUIA_V1_PROPUESTA.md",
+      "sha256": "5678ef4ea926a9dbe7fdcf116943eede68a28d4f0af0b11e36c4a1447ac8b8e2",
+      "bytes_physical": 17643,
+      "verified": true
+    },
+    {
+      "path": "COORD/DISPOSICION_AUDITORIA_PARCIAL.md",
+      "sha256": "ef715c0869ce875a8607aa8304c0d19254ee580683f4bd0c8c68a2d7499ffb98",
+      "bytes_physical": 3576,
+      "verified": true
+    },
+    {
+      "path": "CLIN_ALTERNATIVE/GMFC_CLIN_GAP_CODEX.md",
+      "sha256": "9efe33a0aaf7157e0162a254172aa8b5869296e450aeda916ff0d2aad598f44b",
+      "bytes_physical": 11451,
+      "verified": true
+    },
+    {
+      "path": "CLIN_ALTERNATIVE/RECEIPT.json",
+      "sha256": "ea50e697e82379e6877dde6530c8929ef376438df832e56b04d57752803f2fe1",
+      "bytes_physical": 3793,
+      "verified": true
+    }
+  ],
+  "review_stream_attributions": {
+    "claude_ux": "COMPLETE_INDEPENDENT_REVIEW",
+    "codex_tech": "COMPLETE_INDEPENDENT_REVIEW",
+    "gemini_clin": "TRUNCATED_AT_S04_RECOVERY_CONCLUDED_WITHOUT_TEXT_NO_MORE_RESENDS",
+    "codex_clin_gap_alternative": "INDEPENDENT_DOCUMENTARY_COVERAGE_S04FINAL_TO_S10_ATTRIBUTED_TO_CODEX_NOT_GEMINI"
+  },
+  "guia_v1_propuesta_disposition": {
+    "material_gaps": false,
+    "scope_presentation_ready": true,
+    "verdict": "APTA_PARA_PRESENTAR_ALCANCE_AL_PROPIETARIO_SIN_ACEPTACION_NI_IMPLEMENTACION"
+  },
+  "deliverables_emitted": [
+    "AG/GMFC_AUDIT_FINAL_ADDENDUM.md",
+    "AG/GMFC_AUDIT_FINAL_RECEIPT.json"
+  ]
+}

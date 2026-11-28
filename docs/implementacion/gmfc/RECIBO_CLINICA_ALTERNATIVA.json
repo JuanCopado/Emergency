@@ -1,0 +1,105 @@
+{
+  "attribution": "Codex independent documentary alternative; not Gemini",
+  "assigned_head": "ecacffee5cdd67992e01e3913e8a0682b3b96ca3",
+  "git_identity_independently_checked": false,
+  "source_root": "C:\\Users\\juanc\\ChatGPT_Trabajo\\GMFC_20261128\\source",
+  "scope": "S04 final and S05-S10 only",
+  "status": "DOCUMENTARY_DESIGN_PROPOSAL_NOT_CLINICAL_VALIDATION",
+  "clinical_status": "CLINICALLY_PENDING",
+  "release_status": "NO_GO_CLINICAL_RELEASE",
+  "isolation": {
+    "source_writes": false,
+    "other_reviews_read": false,
+    "external_research": false,
+    "code_tests_ui_read_or_run": false,
+    "restricted_documents_or_phi": false
+  },
+  "reads": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6040,
+      "sha256": "442b152ecbb3683739929474ccfd389750446ca4c0819d49998e6085089d22b0",
+      "reading_scope": "document"
+    },
+    {
+      "path": "STATE.md",
+      "bytes": 33050,
+      "sha256": "9554b9e29e8680683bcb4d3e710b34f1abf17f4bd61cee923da3b1af76b2ce98",
+      "reading_scope": "initial section"
+    },
+    {
+      "path": "CODEX.md",
+      "bytes": 8109,
+      "sha256": "8c4665d0936623970877acfb05b32c1cc83fdf5b35600bad5bef918c6c5066ae",
+      "reading_scope": "document"
+    },
+    {
+      "path": "clinical/AGENTS.md",
+      "bytes": 2322,
+      "sha256": "9bc07b9db6fca5ce84974524132729ed1db7366cd7aea137b18d84936c946fff",
+      "reading_scope": "document"
+    },
+    {
+      "path": "docs/INTERNATIONAL_SCOPE.md",
+      "bytes": 10199,
+      "sha256": "43b8d507fd2bd6f84cfe70ad198aa7cab0efaf3c3850fb3a427e180649b2eca3",
+      "reading_scope": "initial section"
+    },
+    {
+      "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
+      "bytes": 19742,
+      "sha256": "9290d0fde76b0941d3e5158e1d7a1352379cd605053d09aeb4808a69f1cf945a",
+      "reading_scope": "document"
+    },
+    {
+      "path": "clinical/qa/REVIEWED_ACUTE_CONTRACT_RELEASE_2026-11-16.md",
+      "bytes": 13756,
+      "sha256": "3f86efadbfed6ba2446b031d7d02a0b6f0f3e3b9b93dd864ea457a7cb08ef06b",
+      "reading_scope": "document"
+    },
+    {
+      "path": "clinical/CURRENT_STATE.md",
+      "bytes": 112696,
+      "sha256": "5253f2cf05e637c300ed00c7ad43e456a2a67724ab92b7eeb235795867db1495",
+      "reading_scope": "targeted document matches only"
+    },
+    {
+      "path": "clinical/MODULES.md",
+      "bytes": 39148,
+      "sha256": "5ce22b6e09b099f062ad702305be754376553709c924548da70d05b5f9c73279",
+      "reading_scope": "targeted document matches only"
+    },
+    {
+      "path": "clinical/qa/RELEASE_GATES.md",
+      "bytes": 1229,
+      "sha256": "82517a0adbd57eb57ea374db89948962ad14c5dba3040fba0d82cb9b5290bd27",
+      "reading_scope": "document"
+    },
+    {
+      "path": "clinical/qa/THERAPEUTIC_PLAN_REVIEW_20261126.md",
+      "bytes": 12676,
+      "sha256": "b363245040ccbc93b01a75d0b28a5d33aa3ae33f86cb72157007c60e596795ff",
+      "reading_scope": "document"
+    },
+    {
+      "path": "docs/BLOOD_GAS_LOCAL.md",
+      "bytes": 7378,
+      "sha256": "8c4addc0cd1fefde0d6333b8ea955339f35fb715627d6e01057d584fba69623f",
+      "reading_scope": "lines1-140"
+    }
+  ],
+  "tools_actual": [
+    "functions.exec / exec_command: local read-only Get-Content and rg; output write restricted to CLIN_ALTERNATIVE"
+  ],
+  "output": {
+    "path": "GMFC_CLIN_GAP_CODEX.md",
+    "bytes": 11451,
+    "sha256": "9efe33a0aaf7157e0162a254172aa8b5869296e450aeda916ff0d2aad598f44b"
+  },
+  "limits": [
+    "HEAD supplied by parent, not Git-revalidated",
+    "No scenario-specific OMA contract verified",
+    "No universal gasometry minimal dataset or global interaction coverage verified",
+    "Existing delivery claims are document-attributed, not new execution evidence"
+  ]
+}

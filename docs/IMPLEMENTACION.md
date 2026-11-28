@@ -1,5 +1,13 @@
 # IMPLEMENTACION - referencia permanente de EMERGENCY
 
+## Guía Maestra — propuesta documental del 28/11/2026
+
+[Guía1.0 propuesta](implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md) · [Orquestación del estudio](implementacion/ORQUESTACION_GUIA_MAESTRA.json) · [Recibos y límites](implementacion/gmfc/RECIBOS_ESTUDIO.json).
+
+Propuesta estudiada, no aceptada ni implementada. Claude UX y Codex técnico completos; Gemini entrega parcial bloqueada, alternativa Codex independiente sólo para S04final–S10; Antigravity considera el alcance documental apto para presentarlo al propietario, sin autorización de código o clínica. Inventario37requisitos, diez escenarios sintéticos con atribución y disposiciones ADOPTAR/REFORMULAR/APLAZAR/DESCARTAR. No nueva cola:12IDs IMP y26registros clínicos se mantienen en la matriz del coordinador único. Requiere aceptación expresa del alcance antes de UI.
+
+Receptor técnico observado d3f8a792ca1cd43d022509caa5b43f38856af3ae, tras PR140 y PR141 autorizadas. Las entradas de integración, paquetes y CI siguientes conservan sus cortes históricos; el estado vivo se consulta en CENTRAL y sus recibos exactos. El estudio no reconstruyó E/H ni repitió D→E→D. Conserva IMPLEMENTACIÓNv0.7,19contratos,45fórmulas y dosYELLOW, sin nuevos algoritmos, dosis, votos o last_checked. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
 ID IMP-20261127 - v0.7 - 28/11/2026 - CANDIDATO INTEGRADO AISLADO, NO LIBERACION CLINICA.
 
 [Composicion, funciones y criterios exactos](implementacion/INTEGRACION_TOTAL_V07.md). Se conservan los doce IDs y todas las decisiones anteriores. La referencia v0.4 del encargo y los cortes v0.5/v0.6 siguientes son antecedentes; la version vigente se lee en ORQUESTACION.json. La nueva aceptacion instalada y CI deben acreditarse sobre sus SHA, sin heredar PASS.

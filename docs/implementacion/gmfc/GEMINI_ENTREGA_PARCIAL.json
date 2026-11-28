@@ -1,0 +1,44 @@
+{
+  "lane": "GMFC-CLIN",
+  "provider": "Gemini native app",
+  "conversation": "https://gemini.google.com/app/6d7171a989c819e1?hl=es_419",
+  "status": "PARTIAL_BLOCKED_DELIVERY",
+  "received": {
+    "initial_empty": "r_b742ae67893da3ab",
+    "declared_context_error": "r_9d5c24b4c09045cc",
+    "partial_review": "r_ef5417c1d7513745",
+    "complete_cases": [
+      "S01",
+      "S02",
+      "S03"
+    ],
+    "truncated_case": "S04",
+    "missing_cases": [
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10"
+    ]
+  },
+  "recovery": {
+    "complete_briefing_retransmitted": true,
+    "compact_request_transmission_observed": true,
+    "terminal_UI": "No stop control; only user-query0–2 remain; compact user-query3 no longer present; same partial response remains",
+    "result_received": false,
+    "cancel_clicked": false,
+    "further_retries": false,
+    "cause": "NOT_DETERMINED; provider had previously declared context persistence error, not independently diagnosed"
+  },
+  "other_initial_answers_shared": false,
+  "sensitive_or_restricted_material_transmitted": false,
+  "native_provider_export_available": false,
+  "alternative": {
+    "agent": "Codex gmfc_clin_gap independent",
+    "scope": "Only missing S04tail and S05–S10",
+    "attribution": "Not Gemini; no claims replacing its original response"
+  },
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

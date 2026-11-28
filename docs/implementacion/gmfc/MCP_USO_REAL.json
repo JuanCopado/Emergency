@@ -1,0 +1,60 @@
+{
+  "schema": "emergency.actual-use.receipt.v1",
+  "study": "GMFC-20261128",
+  "policy": "Only useful executed calls; no status probes, installation or savings benchmark",
+  "calls": [
+    {
+      "tool": "mcp__emergency_readonly__get_project_state",
+      "agent": "Work / Codex",
+      "source": "Pinned metadata snapshot 3cc5139b149feef390e6ceaa7358e2425d92620a",
+      "result": "131 modules,129GREEN,2YELLOW; registry UTF8LF hash matches study source",
+      "evidence": "TECH/source_manifest.json; TECH/GMFC_TECH.md",
+      "limit": "Metadata only; not current GitHub CI or new clinical validation. Not repeated for this policy.",
+      "execution_timestamp_utc": null,
+      "timestamp_limit": "Exact initial call timestamp not captured in this annex; no invented timestamp. Existing referenced receipts retain their own observed times."
+    },
+    {
+      "tool": "mcp__codex_apps__github_fetch (PR/commit/source GET)",
+      "agent": "Work / Codex",
+      "source": "PR142 ecacffee5cdd67992e01e3913e8a0682b3b96ca3",
+      "result": "Exact guide and orchestration recovered; source author lease unresolved, own isolated branch used",
+      "evidence": "source HEAD; TECH/source_manifest.json",
+      "limit": "No overwrite of PR142, no protected merge authorized by study.",
+      "execution_timestamp_utc": null,
+      "timestamp_limit": "Exact initial call timestamp not captured in this annex; no invented timestamp. Existing referenced receipts retain their own observed times."
+    },
+    {
+      "tool": "mcp__codex_apps__github_fetch; github_fetch_workflow_run_jobs; github_fetch_workflow_job_logs",
+      "agent": "Work / Codex",
+      "source": "Authorized merge d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+      "result": "Postmerge CI8checks/2workflows/7jobs SUCCESS; Sonar PASSED",
+      "evidence": "../../INTEGRACION_PR141_20261128/CI_POSTMERGE_PR141_FINAL.json",
+      "limit": "Separate authorized task, not repeated for GMFC. Sonar excludes installer/MCP sources.",
+      "execution_timestamp_utc": null,
+      "timestamp_limit": "Exact initial call timestamp not captured in this annex; no invented timestamp. Existing referenced receipts retain their own observed times."
+    }
+  ],
+  "fallbacks": [
+    {
+      "agent": "Claude Code",
+      "channel": "Installed read-only CLI",
+      "reason": "Actual local source review with Read/Grep/Glob, no equivalent direct chat connector in enabled tool inventory",
+      "evidence": "../CLAUDE/CLAUDE_EXECUTION_RECEIPT.json"
+    },
+    {
+      "agent": "Gemini",
+      "channel": "Computer Use native app",
+      "reason": "Enabled tool inventory has no Gemini chat send/read connector",
+      "evidence": "../GEMINI/EXECUTION_PROGRESS.json; ../GEMINI/CONTEXT_ERROR_RECEIPT.json",
+      "limit": "Only synthetic briefing transmitted; no private sidebar persistence or restricted originals"
+    }
+  ],
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "owner_policy_source": {
+    "pr": 142,
+    "sha": "2aef298dad6816176f4286162c6d1070417c8eee",
+    "delta": "MCP efficiency policy only; study guide unchanged"
+  },
+  "receipt_recorded_at_utc": "2026-11-28T14:45:46.559043+00:00"
+}

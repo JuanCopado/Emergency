@@ -1,0 +1,152 @@
+{
+  "study": "GMFC-20261128",
+  "guide_version": "1.0_PROPOSED_NOT_ACCEPTED",
+  "guide": {
+    "bytes": 17643,
+    "sha256": "5678ef4ea926a9dbe7fdcf116943eede68a28d4f0af0b11e36c4a1447ac8b8e2"
+  },
+  "source_input": "ecacffee5cdd67992e01e3913e8a0682b3b96ca3",
+  "proposal_base": "d3f8a792ca1cd43d022509caa5b43f38856af3ae",
+  "source_PR142_overwritten": false,
+  "owner_accepted": false,
+  "implementation_authorized": false,
+  "reviews": {
+    "Claude Code UX": "RECEIVED_REVIEWED_INDEPENDENT",
+    "Codex TECH": "RECEIVED_REVIEWED_INDEPENDENT",
+    "Gemini CLIN": "PARTIAL_BLOCKED_DELIVERY_S01_S03_COMPLETE_S04_TRUNCATED",
+    "Codex independent alternative": "RECEIVED_REVIEWED_S04FINAL_S05_S10_NOT_GEMINI",
+    "Antigravity": "RECEIVED_REVIEWED_FINAL_GUIDE_SCOPE_PRESENTATION_READY_ONLY"
+  },
+  "limits": [
+    "Not three complete provider reviews",
+    "No new clinical validation",
+    "No UI implementation",
+    "No product QA repeated",
+    "No protected merge or deployment"
+  ],
+  "clinical": "CLINICALLY_PENDING",
+  "bank": "NOT_FROZEN_NOT_VALIDATED",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "files": [
+    {
+      "origin": "TECH/GMFC_TECH.md",
+      "origin_sha256": "a91034592172759d8317f001808184eae5c9099b3af48156e7485d1736c15a3b",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/REVISION_TECNICA.md",
+      "bytes": 40577,
+      "sha256": "a91034592172759d8317f001808184eae5c9099b3af48156e7485d1736c15a3b"
+    },
+    {
+      "origin": "TECH/GMFC_TECH_REQUIREMENTS.json",
+      "origin_sha256": "7a90ca536411cfae8e0e592b3d813fdd3fe404a04014657e1162efb992f08efe",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/INVENTARIO_TECNICO.json",
+      "bytes": 54410,
+      "sha256": "7a90ca536411cfae8e0e592b3d813fdd3fe404a04014657e1162efb992f08efe"
+    },
+    {
+      "origin": "CLAUDE/GMFC_UX_ORIGINAL.md",
+      "origin_sha256": "423cfc66ea761cfa5bffdee622af3ad0a70e0a826bfd96f1ece0cccbd082d087",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/REVISION_UX_CLAUDE.md",
+      "bytes": 24494,
+      "sha256": "423cfc66ea761cfa5bffdee622af3ad0a70e0a826bfd96f1ece0cccbd082d087"
+    },
+    {
+      "origin": "CLIN_ALTERNATIVE/GMFC_CLIN_GAP_CODEX.md",
+      "origin_sha256": "9efe33a0aaf7157e0162a254172aa8b5869296e450aeda916ff0d2aad598f44b",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/REVISION_CLINICA_ALTERNATIVA.md",
+      "bytes": 11451,
+      "sha256": "9efe33a0aaf7157e0162a254172aa8b5869296e450aeda916ff0d2aad598f44b"
+    },
+    {
+      "origin": "CLIN_ALTERNATIVE/RECEIPT.json",
+      "origin_sha256": "ea50e697e82379e6877dde6530c8929ef376438df832e56b04d57752803f2fe1",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/RECIBO_CLINICA_ALTERNATIVA.json",
+      "bytes": 3793,
+      "sha256": "ea50e697e82379e6877dde6530c8929ef376438df832e56b04d57752803f2fe1"
+    },
+    {
+      "origin": "COORD/COTEJO_CLAUDE_UX.md",
+      "origin_sha256": "6d00dd8b4040003328fb84ebdb7d5c8b06f3684264a04de9276992f3981fa37f",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/DISPOSICIONES_UX.md",
+      "bytes": 4053,
+      "sha256": "6d00dd8b4040003328fb84ebdb7d5c8b06f3684264a04de9276992f3981fa37f"
+    },
+    {
+      "origin": "COORD/DISPOSICION_AUDITORIA_PARCIAL.md",
+      "origin_sha256": "ef715c0869ce875a8607aa8304c0d19254ee580683f4bd0c8c68a2d7499ffb98",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/DISPOSICIONES_AUDITORIA.md",
+      "bytes": 3576,
+      "sha256": "ef715c0869ce875a8607aa8304c0d19254ee580683f4bd0c8c68a2d7499ffb98"
+    },
+    {
+      "origin": "COORD/MCP_USO_REAL.json",
+      "origin_sha256": "555f1328d47c09cd21dd76fa375b88303e6984c377ac808f112b7f4a0db51eef",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/MCP_USO_REAL.json",
+      "bytes": 3239,
+      "sha256": "555f1328d47c09cd21dd76fa375b88303e6984c377ac808f112b7f4a0db51eef"
+    },
+    {
+      "origin": "GEMINI/FINAL_DELIVERY_DISPOSITION.json",
+      "origin_sha256": "45d18a1bef9f279983a76a5b6d11bb4ee1b48f10f574cdae3bd498e33662b644",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/GEMINI_ENTREGA_PARCIAL.json",
+      "bytes": 1421,
+      "sha256": "45d18a1bef9f279983a76a5b6d11bb4ee1b48f10f574cdae3bd498e33662b644"
+    },
+    {
+      "origin": "AG/GMFC_AUDIT_FINAL_ADDENDUM.md",
+      "origin_sha256": "6a13eea756ca6d43d1aba5454200d9e9b2269ebdf9ee32ed538ec0d085186a48",
+      "representation": "Repository derivative: UTF8 LF, trailing Markdown hardbreak spaces removed; original audit remains intact outside Git",
+      "repository_path": "docs/implementacion/gmfc/AUDITORIA_FINAL.md",
+      "bytes": 9913,
+      "sha256": "58323118096a4d0dd65ced24bbf03cb3eeafade31430c21d455b12a333b73328"
+    },
+    {
+      "origin": "AG/GMFC_AUDIT_FINAL_RECEIPT.json",
+      "origin_sha256": "3a8aeb467182bac44f2a77a424bebd500fc2ecacf302e6ec36715302c0f1b068",
+      "representation": "Physical copy identical to source; Git line-ending normalization may apply",
+      "repository_path": "docs/implementacion/gmfc/RECIBO_AUDITORIA_FINAL.json",
+      "bytes": 4041,
+      "sha256": "3a8aeb467182bac44f2a77a424bebd500fc2ecacf302e6ec36715302c0f1b068"
+    }
+  ],
+  "outside_repository_evidence": {
+    "Claude execution receipt": {
+      "path": "CLAUDE/CLAUDE_EXECUTION_RECEIPT.json",
+      "bytes": 2054,
+      "sha256": "a30e9f62926772bceb3a90a627c0ecf7cf48ce74fa52c4c0f33010337b556ef5"
+    },
+    "Gemini context error": {
+      "path": "GEMINI/CONTEXT_ERROR_RECEIPT.json",
+      "bytes": 724,
+      "sha256": "9ef4264bf41a02bc88fbce83edbef7a093c0af497ce47786d8d38dd5d4912cba"
+    },
+    "Gemini truncated review receipt": {
+      "path": "GEMINI/PARTIAL_DELIVERY_RECEIPT.json",
+      "bytes": 1001,
+      "sha256": "099145786db513d9729259fac8e8b871faef8a2e316b6bb6d4b990a21e02952f"
+    },
+    "Antigravity original partial audit": {
+      "path": "AG/GMFC_AUDIT_PARTIAL.md",
+      "bytes": 23072,
+      "sha256": "4f820401573f6a39d740995e6d37bcc34624890926d56db0bb98f32da6195fe6"
+    },
+    "Antigravity original partial receipt": {
+      "path": "AG/GMFC_AUDIT_PARTIAL_RECEIPT.json",
+      "bytes": 3759,
+      "sha256": "fe4012994f5407df26d4a148456afefeaef3b74d48da4c693a2d3e2d4232d127"
+    },
+    "Original source manifest": {
+      "path": "TECH/source_manifest.json",
+      "bytes": 23423,
+      "sha256": "d94cf7805e8e469853c2a8d1b9e5a6bb2c37a196472721700dac4ebc10c84184"
+    }
+  }
+}
