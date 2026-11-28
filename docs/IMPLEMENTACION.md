@@ -1,3 +1,9 @@
+# IMPLEMENTACION - referencia permanente de EMERGENCY
+
+ID IMP-20261127 - v0.7 - 28/11/2026 - CANDIDATO INTEGRADO AISLADO, NO LIBERACION CLINICA.
+
+[Composicion, funciones y criterios exactos](implementacion/INTEGRACION_TOTAL_V07.md). Se conservan los doce IDs y todas las decisiones anteriores. La referencia v0.4 del encargo y los cortes v0.5/v0.6 siguientes son antecedentes; la version vigente se lee en ORQUESTACION.json. La nueva aceptacion instalada y CI deben acreditarse sobre sus SHA, sin heredar PASS.
+
 # IMPLEMENTACIÃ“N â€” referencia permanente de EMERGENCY
 
 ID IMP-20261127 Â· v0.5 Â· 27/11/2026 Â· **EJECUCIÃ“N TÃ‰CNICA LOCAL ACOTADA, NO DESPLIEGUE.**

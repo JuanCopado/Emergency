@@ -1,44 +1,18 @@
 {
   "schema": "emergency.implementation.orchestration.v1",
   "plan_id": "IMP-20261127",
-  "version": "0.6",
+  "version": "0.7",
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
-  "branch": "docs/implementacion-viva-20261127",
+  "branch": "integration/individual-total-20261128",
   "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
   "observed_candidate": {
-    "pr": 133,
-    "sha": "e4d3f71975a75389bbc9df146670b5823ce4677b",
-    "tree": "68bc872874aab3dbbbc18ae0bfffa394fad23499",
-    "observed_at_utc": "2026-11-27T20:22:30Z",
-    "state": "OPEN_DRAFT_NOT_MERGED",
-    "checks": {
-      "success": 21,
-      "total": 21,
-      "source": "https://github.com/JuanCopado/Emergency/pull/133/checks"
-    },
-    "workflows": {
-      "success": 9,
-      "total": 9
-    },
-    "ci_receipt": "https://drive.google.com/file/d/1ijKcA09_9hXaca0lhYf8DrkMQ7DcTHi1/view",
-    "independent_audit": {
-      "agent": "Antigravity",
-      "verdict": "MERGE_READY",
-      "scope": "technical_only",
-      "blocking_findings_reviewed_scope": 0,
-      "source": "https://drive.google.com/file/d/1TSxnhGH39sWJIDG-9VzD_elH_Z5d3lUq/view"
-    },
-    "sonar_reported_by_audit": {
-      "quality_gate": "OK",
-      "new_coverage_pct": 97.2,
-      "new_duplication_pct": 0
-    },
-    "limits": [
-      "DICOM visual and new search controls browser verification NOT_EXECUTED_POLICY_BLOCKED",
-      "No real LLM, hospital service, or product image admissions",
-      "Not production gateway, user authentication, persistence or clinical release evidence"
-    ]
+    "pr": 137,
+    "sha": "b54301e891110715ed9a388723155f8c354b07b6",
+    "tree": "e26de7d86d9bf4277260ff4a75ab939f8e1958bd",
+    "state": "ISOLATED_DRAFT_NOT_MERGED",
+    "ci": "Exact final HEAD checked externally at https://github.com/JuanCopado/Emergency/pull/137/checks; no inherited PASS",
+    "audit": "Static composition favorable plus native C acceptance measured; original Claude FINDINGS retained and triaged"
   },
   "scope": "individual_emergency_physician",
   "parallel_to_clinical_closure": true,
@@ -358,7 +332,7 @@
       "dependencies": [
         "IMP-00"
       ],
-      "status": "DELIVERED_LAB_VERIFIED",
+      "status": "DELIVERED_INTEGRATED_LAB_VERIFIED",
       "objective": "Consolidate reproducible local installation, update and rollback using existing artifacts",
       "acceptance": "Accepted relevant IMP-00 deliverable, artifact integrity and only missing synthetic/offline/privacy checks; preserve existing engines and prior results",
       "receipt": {
@@ -552,7 +526,11 @@
           ],
           "next_action": "Resolve service-worker activation and repeat only the missing installed-PWA update/cache acceptance; no clinical re-vote"
         }
-      ]
+      ],
+      "previous_local_preparation_status": "DELIVERED_LAB_VERIFIED",
+      "integration_status": "DELIVERED_INTEGRATED_LAB_VERIFIED",
+      "integration_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
+      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external"
     },
     {
       "id": "IMP-04",
@@ -738,7 +716,7 @@
         "IMP-00",
         "IMP-03"
       ],
-      "status": "FAVORABLE_CODE_AND_LAB_SCOPE",
+      "status": "FAVORABLE_COMPOSITION_AND_LAB_SCOPE",
       "objective": "Consolidate exact-candidate QA and missing synthetic individual guard workflows",
       "acceptance": "Reuse e4d3 audit/CI; map C1-C6, run only missing or regression-justified checks; preserve DICOM/search browser policy block and accessibility limits",
       "receipt": null,
@@ -795,7 +773,11 @@
           "antigravity": "No new request/ack/verdict; current failure is native-window activation, old balance error remains historical",
           "evidence": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md; private final evidence archive"
         }
-      ]
+      ],
+      "previous_local_preparation_status": "FAVORABLE_CODE_AND_LAB_SCOPE",
+      "integration_status": "FAVORABLE_COMPOSITION_AND_LAB_SCOPE",
+      "integration_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
+      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external"
     },
     {
       "id": "IMP-10",
@@ -805,7 +787,7 @@
         "IMP-02",
         "IMP-09"
       ],
-      "status": "CONSOLIDATED_PREINTEGRATION",
+      "status": "CONSOLIDATED_ISOLATED_CANDIDATE",
       "objective": "Consolidate finite individual-scope technical closure and clinical/regulatory limits",
       "acceptance": "Accepted scope-specific evidence, explicit remaining risks and owner decision packet; conditional infrastructure not a universal gate; clinical release separate",
       "receipt": null,
@@ -859,7 +841,11 @@
           "clinical": "CLINICALLY_PENDING",
           "release": "NO_GO_CLINICAL_RELEASE"
         }
-      ]
+      ],
+      "previous_local_preparation_status": "CONSOLIDATED_PREINTEGRATION",
+      "integration_status": "CONSOLIDATED_ISOLATED_CANDIDATE",
+      "integration_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
+      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external"
     },
     {
       "id": "IMP-11",
@@ -1058,17 +1044,81 @@
     "reconciled_remote_reference": "8d92844f1d5ab505c81cb3f464e4240d99584cd5"
   },
   "historical_local_work_branch": "work/implementacion-coordinada-20261127",
-  "local_work_branch": "docs/implementacion-viva-20261127",
-  "increment_scope": "Local signed Python backend and stable-origin PWA; PR129â€“133 remain independent, not incorporated",
-  "implementation_branch": "feat/individual-runtime-20261127",
-  "implementation_pr": 136,
-  "packaged_source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
-  "verified_ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
-  "technical_delivery": "DELIVERED_LAB_VERIFIED; not clinical release, protected merge, public deployment or universal platform certification",
+  "local_work_branch": "integration/individual-total-20261128",
+  "increment_scope": "Single isolated source candidate: individual signed runtime + existing functional laboratory stack. Experimental runtime gates and zero image admissions preserved.",
+  "implementation_branch": "integration/individual-total-20261128",
+  "implementation_pr": 137,
+  "packaged_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
+  "verified_ci_source_sha": "27d46f8e452418963e62af17b402a098429e7bcb",
+  "technical_delivery": "INTEGRATED_LOCAL_LAB_VERIFIED; final exact-head CI and custody receipts external; no protected merge or clinical release",
   "central_matrix_owner": "Work coordinator; retain latest acknowledged central snapshot and its existing IDs",
   "resolved_local_blocker": {
     "id": "IMP03-SW-ACTIVATION",
     "result": "Accepted with measured short-profile native A/B/A; originals/retractions retained",
     "evidence": "RESOLUCION_SW_PERFIL_CORTO.json and BROWSER_NATIVE_FINAL_PASS.json in private delivery"
-  }
+  },
+  "integration_previous_reference": {
+    "version": "0.6",
+    "pr": 134,
+    "sha": "06ef1e030e70915e257d19576f25ae8dbd37f19e",
+    "runtime_pr": 136,
+    "runtime_head": "27d46f8e452418963e62af17b402a098429e7bcb"
+  },
+  "integration_candidate": {
+    "branch": "integration/individual-total-20261128",
+    "product_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
+    "receiver_unchanged": "fa2381dcfe77253f575ac843860b3167125f1e1e",
+    "source_prs": [
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136
+    ],
+    "state": "LAB_ACCEPTED_ISOLATED_DRAFT",
+    "source_prs_not_merged": true,
+    "source_dependencies_preserved": true,
+    "classification": "docs/implementacion/INTEGRACION_TOTAL_V07.md",
+    "pr": 137
+  },
+  "integration_ci": "Collect exact final documentary HEAD from PR137/checks; no status inherited from b543 source or previous PRs",
+  "integration_audit": "FAVORABLE_STATIC_COMPOSITION_AND_NATIVE_LAB_SCOPE; Claude FINDINGS triaged; no new Antigravity verdict",
+  "historical_observed_candidate_v06": {
+    "pr": 133,
+    "sha": "e4d3f71975a75389bbc9df146670b5823ce4677b",
+    "tree": "68bc872874aab3dbbbc18ae0bfffa394fad23499",
+    "observed_at_utc": "2026-11-27T20:22:30Z",
+    "state": "OPEN_DRAFT_NOT_MERGED",
+    "checks": {
+      "success": 21,
+      "total": 21,
+      "source": "https://github.com/JuanCopado/Emergency/pull/133/checks"
+    },
+    "workflows": {
+      "success": 9,
+      "total": 9
+    },
+    "ci_receipt": "https://drive.google.com/file/d/1ijKcA09_9hXaca0lhYf8DrkMQ7DcTHi1/view",
+    "independent_audit": {
+      "agent": "Antigravity",
+      "verdict": "MERGE_READY",
+      "scope": "technical_only",
+      "blocking_findings_reviewed_scope": 0,
+      "source": "https://drive.google.com/file/d/1TSxnhGH39sWJIDG-9VzD_elH_Z5d3lUq/view"
+    },
+    "sonar_reported_by_audit": {
+      "quality_gate": "OK",
+      "new_coverage_pct": 97.2,
+      "new_duplication_pct": 0
+    },
+    "limits": [
+      "DICOM visual and new search controls browser verification NOT_EXECUTED_POLICY_BLOCKED",
+      "No real LLM, hospital service, or product image admissions",
+      "Not production gateway, user authentication, persistence or clinical release evidence"
+    ]
+  },
+  "previous_permanent_branch": "docs/implementacion-viva-20261127"
 }
