@@ -6,6 +6,9 @@ import { hasLocalIdentifierLabel } from '../clinical-note/privacy';
 import { parseFiniteDecimal, formatCanonicalNumber } from '../lib/format';
 import { useFormat } from '../lib/useFormat';
 import TherapeuticPlanPanel from '../clinical-note/TherapeuticPlanPanel';
+import FreeTextWorkspace from '../clinical-note/FreeTextWorkspace';
+import { useTextWorkspaceCopy } from '../clinical-note/textWorkspaceCopy';
+import type { NoteField } from '../clinical-note/textStructuring';
 import { useTherapyCopy } from '../clinical-note/therapyCopy';
 import { hasTherapeuticReceipt, THERAPEUTIC_SECTION_KEYS, therapyContextSnapshot, therapyReviewSnapshot, therapySourceSnapshot } from '../clinical-note/therapeuticReview';
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
@@ -59,7 +62,7 @@ function CandidateHeading({ candidate }: { candidate: DiagnosticCandidate }) {
 }
 
 const tabs:[NoteTab,string][]=[
- ['history','História'],['exam','Exame'],['mcdt','MCDT'],['problems','Problemas'],
+ ['text','Texto livre'],['history','História'],['exam','Exame'],['mcdt','MCDT'],['problems','Problemas'],
  ['diagnostic','Apoio diagnóstico'],['plan','Plano'],['export','Exportar'],
 ];
 const mcdtKinds=['Analítica','Gasometria','ECG','Rx','TC/RM','Ecografia/POCUS','Microbiologia','Pele/ferida','Outro'];
@@ -101,6 +104,8 @@ function ClinicalNoteEditor(){
   const therapyCopy = useTherapyCopy();
   const noteLanguage = noteLanguages[i18n.resolvedLanguage as LangCode] ?? 'en';
  const [tab,setTab]=useNoteDraftField('tab');
+ const workspaceCopy=useTextWorkspaceCopy();
+ const [workspaceText]=useNoteDraftField('workspaceText'); const [workspaceFinal]=useNoteDraftField('workspaceFinal');
  const [age,setAge]=useNoteDraftField('age'); const [sex,setSex]=useNoteDraftField('sex');
  const [ageUnit,setAgeUnit]=useNoteDraftField('ageUnit');
  const [origin,setOrigin]=useNoteDraftField('origin'); const [chief,setChief]=useNoteDraftField('chief'); const [hpi,setHpi]=useNoteDraftField('hpi');
@@ -181,7 +186,7 @@ function ClinicalNoteEditor(){
  // Only exact source strings returned by the service avoid the local free-text
  // heuristic. Edits are scanned normally; the server re-verifies source/token.
  const therapyTextToScreen=therapeuticPlan?THERAPEUTIC_SECTION_KEYS.filter(key=>!therapySourceUnchanged||therapeuticPlan.sections[key]!==therapyOriginalSections?.[key]).map(key=>therapeuticPlan.sections[key]):[];
- const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,therapySelection.label,
+ const freeText=[origin,chief,hpi,pmh,meds,allergies,exam,problems,plan,therapySelection.label,workspaceText,workspaceFinal,
    ...therapyTextToScreen,
    ...allAccepted.flatMap(x=>[x.official_report||'',x.ai_interpretation||'',x.findings||'',x.impression||'']),
    ...mcdt.flatMap(x=>[x.official,x.ai,x.findings,x.impression])].join('\n');
@@ -217,6 +222,11 @@ function ClinicalNoteEditor(){
    setClinicianReviewed(false);
  }
 
+ function applyWorkspace(next:Record<NoteField,string>,changed:NoteField[]){
+   const setters:Record<NoteField,(value:string)=>void>={chief:setChief,hpi:setHpi,pmh:setPmh,meds:setMeds,allergies:setAllergies,exam:setExam,problems:setProblems,plan:setPlan};
+   changed.forEach(field=>setters[field](next[field]));
+   if(changed.length) touch();
+ }
  function touch(){
    noteRevision.current+=1;
    // The previous request is obsolete; allow analysis of the edited note.
@@ -519,6 +529,7 @@ function ClinicalNoteEditor(){
  const timelineItems=timeline.slice().reverse();
 
  const content=<>
+   {tab==='text'&&<FreeTextWorkspace current={{chief,hpi,pmh,meds,allergies,exam,problems,plan}} onApply={applyWorkspace} onGoExport={()=>setTab('export')} hasIdentifier={hasLocalIdentifierLabel}/>}
    {tab==='history'&&<section className={card}><h2 className="text-lg font-bold">{ui("História clínica")}</h2><div className="mt-4 grid gap-4">
     <label><span className="label">{ui("Motivo de consulta")}</span><textarea className="input min-h-20" value={chief} onChange={e=>{setChief(e.target.value);touch()}}/></label>
     <label><span className="label">{ui("História da doença atual")}</span><textarea className="input min-h-32" value={hpi} onChange={e=>{setHpi(e.target.value);touch()}}/></label>
@@ -660,7 +671,7 @@ function ClinicalNoteEditor(){
    {apiError&&<div ref={errorElement} tabIndex={-1} role="alert" className="rounded-xl border border-danger bg-surface p-4 text-sm text-danger">{apiError}</div>}
 
    <nav className="overflow-x-auto" aria-label={ui("Secções da nota")}><div className="flex min-w-max gap-1 rounded-xl border border-border bg-surface p-1">
-    {tabs.map(([id,label])=><button key={id} data-testid={`note-tab-${id}`} onClick={()=>setTab(id)} className={`min-h-[44px] rounded-lg px-3 py-2 text-sm font-semibold ${tab===id?'bg-primary text-primary-fg':'text-muted hover:bg-surface-2'}`} aria-current={tab===id?'page':undefined}>{ui(label)}{id==='mcdt'&&pending>0?` (${pending})`:''}</button>)}
+    {tabs.map(([id,label])=><button key={id} data-testid={`note-tab-${id}`} onClick={()=>setTab(id)} className={`min-h-[44px] rounded-lg px-3 py-2 text-sm font-semibold ${tab===id?'bg-primary text-primary-fg':'text-muted hover:bg-surface-2'}`} aria-current={tab===id?'page':undefined}>{id==='text'?workspaceCopy.tab:ui(label)}{id==='mcdt'&&pending>0?` (${pending})`:''}</button>)}
    </div></nav>
 
    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
