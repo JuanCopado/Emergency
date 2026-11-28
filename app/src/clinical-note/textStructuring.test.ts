@@ -4,6 +4,11 @@ import { appendToField, assembleDocument, planApplication, structureText, SECTIO
 const labels = Object.fromEntries(SECTION_FIELDS.map(field => [field, field.toUpperCase()])) as Record<SectionField, string>;
 const empty = (): Record<NoteField, string> => ({ chief: '', hpi: '', pmh: '', meds: '', allergies: '', exam: '', problems: '', plan: '' });
 const joinRaw = (text: string) => structureText(text).map(section => section.raw).join('');
+const ecmaWhitespace = [
+  0x0009, 0x000a, 0x000b, 0x000c, 0x000d, 0x0020, 0x00a0, 0x1680,
+  0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, 0x2006, 0x2007,
+  0x2008, 0x2009, 0x200a, 0x2028, 0x2029, 0x202f, 0x205f, 0x3000, 0xfeff,
+].map(code => String.fromCodePoint(code));
 
 const SYNTHETIC_ES = `Paciente sintético sin datos reales.
 Motivo de consulta: disnea de 2 días
@@ -16,6 +21,21 @@ Hb 12 g/dL
 Plan: observación y reevaluación`;
 
 describe('structureText', () => {
+  it('preserves Unicode whitespace behaviour when trimming heading punctuation', () => {
+    // CR/LF delimit input lines; the other ECMAScript whitespace characters can
+    // occur inside a heading suffix, including NBSP, em space and BOM.
+    for (const whitespace of ecmaWhitespace.filter(character => character !== '\r' && character !== '\n')) {
+      for (const heading of [`Plan${whitespace}*_`, `Plan*${whitespace}_:`]) {
+        const text = `${heading}\nobservación sintética`;
+        const sections = structureText(text);
+        expect(sections).toHaveLength(1);
+        expect(sections[0]).toMatchObject({ field: 'plan', body: 'observación sintética' });
+        expect(joinRaw(text)).toBe(text);
+      }
+    }
+    expect(structureText('Plan\u200b*_\ntexto sintético')[0]!.field).toBe('unassigned');
+  });
+
   it('splits at the headings the clinician wrote and keeps their wording verbatim', () => {
     const sections = structureText(SYNTHETIC_ES);
     expect(sections.map(section => section.field)).toEqual(['unassigned', 'chief', 'pmh', 'allergies', 'exam', 'tests', 'plan']);
@@ -78,6 +98,15 @@ describe('assembleDocument', () => {
 });
 
 describe('appendToField / planApplication', () => {
+  it('trims every ECMAScript trailing whitespace character without dropping non-whitespace', () => {
+    for (const whitespace of ecmaWhitespace) {
+      expect(appendToField(`texto sintético${whitespace}`, 'sección nueva')).toEqual({
+        value: 'texto sintético\nsección nueva', changed: true,
+      });
+    }
+    expect(appendToField('texto sintético\u200b', 'sección nueva').value).toBe('texto sintético\u200b\nsección nueva');
+  });
+
   it.each([
     ['Sin asma', 'asma'],
     ['Sin alergia a penicilina', 'alergia a penicilina'],

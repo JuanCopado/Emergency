@@ -1185,6 +1185,13 @@
     "new_control": "MCP locked-wheel installation and stdio Windows/Ubuntu Python3.12",
     "new_features": false,
     "clinical": "CLINICALLY_PENDING",
-    "release": "NO_GO_CLINICAL_RELEASE"
+    "release": "NO_GO_CLINICAL_RELEASE",
+    "source_pr139_later_cut": "21f5eb9c878b8b8eeb61e3a37d9bf88e0f8c5b8d",
+    "selected_upstream_corrections": [
+      "1f031d6cb50420795cf626ce88a1c258be9fe3b4",
+      "21f5eb9c878b8b8eeb61e3a37d9bf88e0f8c5b8d"
+    ],
+    "excluded_design_commit": "16270330afabdcd79f0e5cb39111c8abb36e138b",
+    "scope_rule": "Only confirmed corrections selected; no new cover, logo, icons or broader UI design"
   }
 }

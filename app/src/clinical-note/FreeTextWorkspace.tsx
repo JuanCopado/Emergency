@@ -106,14 +106,14 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
         {identifierWarning && <p role="alert" className="mt-3 rounded-xl border border-danger p-3 text-sm font-semibold text-danger" data-testid="free-text-privacy">{copy.privacy}</p>}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <div className={card}>
           <h3 className="font-bold">{copy.originalTitle}</h3>
           <label className="mt-3 block">
             <span className="label">{copy.originalLabel}</span>
             <textarea
               data-testid="free-text-original"
-              className="input mt-1 min-h-[16rem] resize-y font-mono text-sm leading-relaxed lg:min-h-[26rem]"
+              className="input mt-1 min-h-[16rem] resize-y font-mono text-sm leading-relaxed xl:min-h-[26rem]"
               value={text}
               autoComplete="off"
               spellCheck
@@ -149,9 +149,9 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
                         <input type="checkbox" checked={section.include} onChange={event => update(section.id, { include: event.target.checked })} />
                         {copy.include}
                       </label>
-                      <label className="flex w-full items-center gap-2 text-sm sm:w-auto">
+                      <label className="flex w-full items-center gap-2 text-sm">
                         <span className="label !mb-0 whitespace-nowrap">{copy.destination}</span>
-                        <select className="input min-w-0 flex-1 sm:!w-auto sm:flex-none" value={section.field} onChange={event => update(section.id, { field: event.target.value as SectionField })}>
+                        <select className="input min-w-0 flex-1" value={section.field} onChange={event => update(section.id, { field: event.target.value as SectionField })}>
                           {SECTION_FIELDS.map(field => <option key={field} value={field}>{labels[field]}</option>)}
                         </select>
                       </label>
