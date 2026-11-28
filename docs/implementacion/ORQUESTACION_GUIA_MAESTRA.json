@@ -38,7 +38,7 @@
     "preflight": [
       "Read AGENTS.md, STATE.md, current IMPLEMENTACION and ORQUESTACION, clinical QA gates and latest central matrix",
       "Verify receiver, candidate and guide blob; recover prior exact evidence before new research",
-      "Use own Emergency MCP with fresh authorized metadata snapshots if useful; mark historical and verify provenance",
+      "Apply the owner MCP policy in AGENTS.md to PR142 and each study lane: prefer authorized operational MCP only where effective; reuse exact evidence; no unnecessary calls or transfers",
       "Share the same guide version and exact scope with all primary reviewers"
     ],
     "dispatch_rule": "Parallel independent reviews by Claude, Gemini and Codex; do not share other first-pass answers until collected. Antigravity studies consolidated version after primary reviews. Missing channel or response = record blocker, not fictional execution.",
@@ -62,8 +62,10 @@
       "response_artifact",
       "response_sha256_if_measured",
       "evidence_scope",
+      "useful_mcp_calls",
       "limitations"
     ],
+    "mcp_policy": {"reference": "AGENTS.md#política-transversal-de-optimización-mcp--28112026", "scope": "All lanes and project pending tasks", "preferred": ["Emergency MCP", "GitHub MCP", "Chrome DevTools MCP", "SonarQube MCP", "Amass and authorized scientific connectors", "Context7"], "rule": "Prefer where effectively useful and authorized; preserve exact source identity, independence and privacy; use permitted alternative if needed; configuration is not execution.", "useful_call_receipt": ["task_id", "agent", "server_tool_purpose", "timestamp_utc", "source_sha_or_version_if_applicable", "result", "evidence", "limitations"], "no_new_dispatch_or_activation_implied": true},
     "receipt_rule": "Prepared is not dispatched; actual transmission/acknowledgement and returned artifact required for state transitions. No auto-dispatch by age, no new task IDs in parent clinical/implementation queue.",
     "reconcile": "One coordinator records dispositions per proposal: ADOPTAR/REFORMULAR/APLAZAR/DESCARTAR with material rationale and evidence; owner decisions only on new mature clinical questions; preserve previous approvals; if independent review unavailable, report partial, do not fabricate it.",
     "adoption_gate": "Consolidated guide v1.0 and explicit owner acceptance of scope before new UI implementation; existing authorized technical repairs remain separate."
