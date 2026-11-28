@@ -219,23 +219,23 @@ def package(dist, source_root, output):
 def writer(root):
     root = no_links(root)
     root.mkdir(parents=True, exist_ok=True)
-    lock = root / "writer.lock"
-    no_links(lock)
-    marker = b"emergency.os-writer.v1\n"
+    # Separate OS lease allows the legacy O_EXCL marker to disappear on clean
+    # return. Old launchers can then use the same installation without changes.
+    guard = no_links(root / "writer.guard")
+    marker = b"emergency.os-guard.v1\n"
     flags = os.O_RDWR | getattr(os, "O_BINARY", 0) | getattr(os, "O_NOFOLLOW", 0)
     try:
-        descriptor = os.open(lock, flags | os.O_CREAT | os.O_EXCL, 0o600)
+        descriptor = os.open(guard, flags | os.O_CREAT | os.O_EXCL, 0o600)
         created = True
     except FileExistsError:
-        descriptor = os.open(lock, flags)
+        descriptor = os.open(guard, flags)
         created = False
     try:
-        require(stat.S_ISREG(os.fstat(descriptor).st_mode), "Invalid writer lease file")
+        require(stat.S_ISREG(os.fstat(descriptor).st_mode), "Invalid writer guard file")
         try:
             if os.name == "nt":
                 import msvcrt
-                # A fixed byte beyond EOF avoids Windows read-all buffers touching
-                # the mandatory lock when tools inspect the small marker file.
+                # Keep mandatory locks outside read-all buffers for the marker.
                 os.lseek(descriptor, 1 << 30, os.SEEK_SET)
                 msvcrt.locking(descriptor, msvcrt.LK_NBLCK, 1)
                 os.lseek(descriptor, 0, os.SEEK_SET)
@@ -245,15 +245,41 @@ def writer(root):
         except OSError as exc:
             raise ReleaseError("Another writer holds the OS lease") from exc
         if created:
-            require(os.write(descriptor, marker) == len(marker), "Incomplete writer lease initialization")
+            require(os.write(descriptor, marker) == len(marker), "Incomplete writer guard initialization")
             os.fsync(descriptor)
         else:
             require(os.fstat(descriptor).st_size == len(marker) and os.read(descriptor, len(marker)) == marker,
-                    "Legacy or uncertain writer lease requires reviewed recovery; never remove an active lease")
-        yield root
+                    "Uncertain writer guard requires reviewed recovery")
+        lock = no_links(root / "writer.lock")
+        if lock.exists():
+            # Only a complete marker from this OS-guard protocol is reclaimable.
+            # PID, empty, partial and the former persistent format stay closed.
+            require(re.fullmatch(rb"emergency.writer.v2:[a-f0-9]{32}\n", regular_bytes(lock, 128)) is not None,
+                    "Legacy or uncertain writer lease requires reviewed recovery")
+            lock.unlink()
+        token = ("emergency.writer.v2:" + uuid.uuid4().hex + "\n").encode("ascii")
+        try:
+            lease = os.open(lock, flags | os.O_CREAT | os.O_EXCL, 0o600)
+        except FileExistsError as exc:
+            # A legacy writer may win after reclaim. Never unlink its marker.
+            raise ReleaseError("Another legacy writer acquired the lease") from exc
+        identity = None
+        try:
+            try:
+                require(os.write(lease, token) == len(token), "Incomplete writer lease initialization")
+                os.fsync(lease)
+                info = os.fstat(lease)
+                identity = (info.st_dev, info.st_ino)
+            finally:
+                os.close(lease)
+            yield root
+        finally:
+            if identity is not None:
+                info = no_links(lock).stat()
+                require((info.st_dev, info.st_ino) == identity and regular_bytes(lock, 128) == token,
+                        "Writer marker changed; refusing to remove another lease")
+                lock.unlink()
     finally:
-        # Closing releases the OS lease even after process death. Keep the marker:
-        # an old O_EXCL writer must not enter concurrently using a different lease.
         os.close(descriptor)
 
 

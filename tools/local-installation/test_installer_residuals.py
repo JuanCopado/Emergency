@@ -6,6 +6,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 
 import local_installation as local
 
@@ -57,16 +58,17 @@ with local.writer(sys.argv[1]):
             process.kill()
         process.communicate(timeout=5)
 
-    def test_process_crash_releases_os_lease_without_deleting_marker(self):
+    def test_process_crash_releases_guard_and_reclaims_only_complete_marker(self):
         process = self.holder()
         marker = (self.root / "writer.lock").read_bytes()
         process.kill()
         process.communicate(timeout=5)
         self.assertEqual((self.root / "writer.lock").read_bytes(), marker)
+        self.assertTrue((self.root / "writer.guard").is_file())
         result = self.attempt()
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.strip(), "ACQUIRED")
-        self.assertEqual((self.root / "writer.lock").read_bytes(), marker)
+        self.assertFalse((self.root / "writer.lock").exists())
 
     def test_real_competing_process_cannot_enter_or_remove_live_lease(self):
         self.holder()
@@ -85,9 +87,14 @@ with local.writer(sys.argv[1]):
                 self.assertEqual(result.returncode, 3, result.stderr)
                 self.assertEqual((self.root / "writer.lock").read_bytes(), marker)
 
-    def test_marker_prevents_old_exclusive_create_writer_after_release(self):
+    def test_clean_return_allows_legacy_writer_without_changing_root_or_selection(self):
         with local.writer(self.root):
             pass
+        guard = (self.root / "writer.guard").read_bytes()
+        active = b'{"synthetic":"unchanged"}\n'
+        sequence = b'{"maximum":2}\n'
+        (self.root / "active.json").write_bytes(active)
+        (self.root / "release-sequence.json").write_bytes(sequence)
         result = subprocess.run([sys.executable, "-c", """
 import os,sys
 try:
@@ -95,10 +102,50 @@ try:
 except FileExistsError:
     sys.exit(3)
 else:
+    os.write(fd,str(os.getpid()).encode())
     os.close(fd)
+    os.unlink(sys.argv[1])
 """, str(self.root / "writer.lock")], capture_output=True, timeout=5)
-        self.assertEqual(result.returncode, 3)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual((self.root / "writer.guard").read_bytes(), guard)
+        self.assertEqual((self.root / "active.json").read_bytes(), active)
+        self.assertEqual((self.root / "release-sequence.json").read_bytes(), sequence)
         self.assertEqual(self.attempt().returncode, 0)
+
+    def test_legacy_wins_reclaim_gap_new_writer_preserves_its_live_marker(self):
+        self.root.mkdir()
+        lock = self.root / "writer.lock"
+        lock.write_bytes(b"emergency.writer.v2:" + b"a" * 32 + b"\n")
+        ready = self.base / "legacy-ready"
+        original_open = local.os.open
+        processes = []
+
+        def interleave(path, flags, mode=0o777, **kwargs):
+            if Path(path) == lock and flags & local.os.O_EXCL:
+                process = subprocess.Popen([sys.executable, "-c", """
+import os,sys,time
+from pathlib import Path
+fd=os.open(sys.argv[1],os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
+os.write(fd,b'LEGACY_LIVE_PID_FIXTURE');os.close(fd)
+Path(sys.argv[2]).write_text('ready')
+time.sleep(30)
+""", str(lock), str(ready)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                processes.append(process)
+                self.addCleanup(self.stop, process)
+                deadline = time.monotonic() + 5
+                while not ready.exists() and process.poll() is None and time.monotonic() < deadline:
+                    time.sleep(.02)
+                self.assertTrue(ready.exists(), "legacy process did not win O_EXCL")
+            return original_open(path, flags, mode, **kwargs)
+
+        with patch.object(local.os, "open", side_effect=interleave):
+            with self.assertRaisesRegex(local.ReleaseError, "legacy writer"):
+                with local.writer(self.root):
+                    self.fail("new writer entered after legacy won")
+        self.assertIsNone(processes[0].poll())
+        self.assertEqual(lock.read_bytes(), b"LEGACY_LIVE_PID_FIXTURE")
+        self.assertEqual(self.attempt().returncode, 3)
+        self.assertEqual(lock.read_bytes(), b"LEGACY_LIVE_PID_FIXTURE")
 
     def release(self, counter, *, individual=True):
         content = b"<html>INVENTED NONCLINICAL FIXTURE</html>"
