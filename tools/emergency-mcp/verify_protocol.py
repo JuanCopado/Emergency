@@ -74,7 +74,7 @@ def verify(receipt):
             "calls": [{key: row[key] for key in ("tool", "is_error", "response_bytes", "response_sha256")}
                       for row in receipt["calls"]],
             "server_info": receipt["server_info"], "elapsed_ms": receipt["elapsed_ms"],
-            "canonical_source_commit": "3cc5139b149feef390e6ceaa7358e2425d92620a",
+            "canonical_source_commit": "a4e84b008e08ef67f41ff1645832b88821d3bb92",
             "clinical": "CLINICALLY_PENDING", "release": "NO_GO_CLINICAL_RELEASE",
             "receipt_scope": "Protocol and metadata only; not clinical validation or live CI certification."}
 

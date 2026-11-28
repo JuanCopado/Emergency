@@ -18,7 +18,7 @@ Verificación focal recibida: 21/21 pruebas de los dos archivos afectados, TypeS
 
 ## Control pendiente que se ejecuta
 
-El workflow MCP existente pasa a comprobar Windows y Ubuntu con Python 3.12 y el mismo lock `--require-hashes --only-binary=:all:`; los artefactos se identifican por sistema operativo. Cubre la ausencia de instalación Linux en la CI previa. No cambia exclusiones, umbrales ni reglas de Sonar, Semgrep o Trivy. La CI final del nuevo SHA se recoge externamente, sin trasladar el PASS de las PR fuente a otra composición.
+El workflow MCP existente pasa a comprobar Windows y Ubuntu con Python 3.12 y el mismo lock `--require-hashes --only-binary=:all:`; los artefactos se identifican por sistema operativo. Cubre la ausencia de instalación Linux en la CI previa. El primer control instaló correctamente el lock y después rechazó STATE.md: la entrada nueva de PR139 hacía obsoleto ese único pin. El FAIL se conserva. El snapshot se referencia ahora al commit revisado `a4e84b008e08ef67f41ff1645832b88821d3bb92`, con 26 fuentes obtenidas mediante `git show` de ese commit; sólo cambia el hash de STATE.md. El manifiesto y su hash esperado se actualizan de forma conjunta, manteniendo el rechazo ante cualquier alteración. No cambia exclusiones, umbrales ni reglas de Sonar, Semgrep o Trivy. La CI final del nuevo SHA se recoge externamente, sin trasladar el PASS de las PR fuente a otra composición.
 
 No se repiten firma, instalación, PWA instalada ni rollback de D. El código conciliado no se declara incluido en el paquete D existente; si se selecciona posteriormente para distribuirlo, requerirá sus propios bytes y aceptación aplicable. No se empaqueta ahora otro instalador.
 

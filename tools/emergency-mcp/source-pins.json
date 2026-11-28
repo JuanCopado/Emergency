@@ -1,11 +1,11 @@
 {
   "schema": "emergency-mcp-source-pins-v1",
-  "source_commit": "3cc5139b149feef390e6ceaa7358e2425d92620a",
+  "source_commit": "a4e84b008e08ef67f41ff1645832b88821d3bb92",
   "hash_mode": "UTF8 LF-normalized source bytes",
   "files": {
     "STATE.md": {
-      "sha256_lf": "9f865169880b4630001721d7f04f3806f8172f04f8ebc6bacf7faeb0ddf6cd1e",
-      "bytes_lf": 32358
+      "sha256_lf": "d59d96579d8726c550c5019db20a472653c8096e907901c0928324b314e31834",
+      "bytes_lf": 32862
     },
     "clinical/modules/cardiovascular.md": {
       "sha256_lf": "bb4a7ff6179f2a55fd73133c217ad3ba50839b5fdfee42f3458a46d34d75ebab",

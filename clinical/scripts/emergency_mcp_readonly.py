@@ -11,9 +11,9 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE_COMMIT = "3cc5139b149feef390e6ceaa7358e2425d92620a"
+SOURCE_COMMIT = "a4e84b008e08ef67f41ff1645832b88821d3bb92"
 PINS = "tools/emergency-mcp/source-pins.json"
-PINS_SHA256 = "fbca7a4b6fff24a3513e4be5654fe6c2a228276529b466f22939bddb5951f3d0"
+PINS_SHA256 = "8a530f4c5bda9c067dbb3126c344a6c90ce0e0e94fec04235a627c6fa7b07003"
 INDEX = "clinical/references/module-index.md"
 REGISTRY = "clinical/references/evidence-registry.json"
 SOURCES = "clinical/references/evidence-sources.json"
