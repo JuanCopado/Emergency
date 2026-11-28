@@ -6,12 +6,14 @@ import { drugs } from '../data';
 import { AVAILABLE_GROUPS, REFERENCE_GROUPS } from '../data/moduleGroups';
 import { DraftBanner } from '../components/DraftBanner';
 import { ClinicalMinimalIntro } from './ClinicalMinimalIntro';
+import homeCoverCopy from './homeCover.locales.json';
 import './clinical-minimal.css';
 
 const GROUP_ICON: Record<string, IconName> = { vasoactive: 'heart', sedation: 'moon' };
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const cover = homeCoverCopy[i18n.resolvedLanguage as keyof typeof homeCoverCopy] ?? homeCoverCopy.en;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const clinicalMinimal = searchParams.get('design') === 'clinical-minimal';
@@ -22,13 +24,30 @@ export default function Home() {
   };
   return (
     <div className={`space-y-8${clinicalMinimal ? ' clinical-minimal-preview' : ''}`}>
-      <nav aria-label={t('home.clinicalShortcuts')} className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-        <Link to="/clinical-note" className="btn-primary">{t('nav.clinicalNote')}</Link>
-        <Link to="/procedures" className="btn-ghost">{t('home.procedures')}</Link>
-        <Link to="/pediatrics" className="btn-ghost">{t('home.pediatrics')}</Link>
-        <Link to="/drugs" className="btn-ghost">{t('nav.drugs')}</Link>
-        <Link to="/scores" className="btn-ghost">{t('home.scores')}</Link>
-        <Link to="/guides" className="btn-ghost">{t('home.guides')}</Link>
+      <nav aria-label={t('home.clinicalShortcuts')} className="space-y-2">
+        <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+          <Link to="/clinical-note" data-testid="quick-note" className="flex min-h-[104px] flex-col justify-between rounded-2xl bg-fg p-4 text-bg shadow-card transition hover:opacity-90">
+            <span className="font-bold">{t('nav.clinicalNote')}</span>
+            <span className="text-xs opacity-75">{cover.noteHint}</span>
+          </Link>
+          <Link to="/calculator" data-testid="quick-calculator" className="flex min-h-[104px] flex-col justify-between rounded-2xl border border-border bg-surface-2 p-4 transition hover:border-primary">
+            <span className="font-bold">{t('nav.calculator')}</span>
+            <span className="text-xs text-muted">{cover.calcHint}</span>
+          </Link>
+          <Link to="/drugs" data-testid="quick-drugs" className="flex min-h-[104px] flex-col justify-between rounded-2xl border border-border bg-surface-2 p-4 transition hover:border-primary">
+            <span className="font-bold">{t('nav.drugs')}</span>
+            <span className="text-xs text-muted">{cover.drugsHint}</span>
+          </Link>
+          <Link to="/scores" data-testid="quick-scores" className="flex min-h-[104px] flex-col justify-between rounded-2xl border-2 border-fg p-4 transition hover:border-primary">
+            <span className="font-bold">{t('home.scores')}</span>
+          </Link>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wide text-muted">{cover.more}</span>
+          <Link to="/procedures" className="btn-ghost">{t('home.procedures')}</Link>
+          <Link to="/pediatrics" className="btn-ghost">{t('home.pediatrics')}</Link>
+          <Link to="/guides" className="btn-ghost">{t('home.guides')}</Link>
+        </div>
       </nav>
       <section aria-labelledby="home-title" className="relative overflow-hidden rounded-3xl border border-border bg-surface p-5 shadow-card sm:p-8">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />

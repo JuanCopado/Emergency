@@ -1,0 +1,26 @@
+{
+  "es": {
+    "noteHint": "Pega, ordena, revisa",
+    "calcHint": "mL/h · dosis · diluyente",
+    "drugsHint": "Fichas y dosis",
+    "more": "Más herramientas"
+  },
+  "en": {
+    "noteHint": "Paste, structure, review",
+    "calcHint": "mL/h · dose · diluent",
+    "drugsHint": "Sheets and doses",
+    "more": "More tools"
+  },
+  "pt": {
+    "noteHint": "Cole, organize, reveja",
+    "calcHint": "mL/h · dose · diluente",
+    "drugsHint": "Fichas e doses",
+    "more": "Mais ferramentas"
+  },
+  "zh": {
+    "noteHint": "粘贴、整理、复核",
+    "calcHint": "mL/h · 剂量 · 稀释液",
+    "drugsHint": "资料与剂量",
+    "more": "更多工具"
+  }
+}
