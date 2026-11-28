@@ -1,0 +1,5 @@
+These invented nonclinical fixtures were created for the owner's authorized local RAG laboratory on 2026-11-27.
+Permission within this task covers local indexing, retrieval, quotation and tests of these fixtures.
+This task-limited RAG consumption permission does not change the repository license, grant redistribution of the generated corpus or training rights, or authorize clinical use or external processing.
+The owner separately authorizes publication of the laboratory code and these original synthetic fixture source files for review and CI. Corpus/extract redistribution flags apply to generated RAG artifacts and consumption; they do not revoke publication of original project documents already public or change external licenses.
+The international-scope and G05 governance documents have a separate owner permission for the same local laboratory; external source originals do not inherit it.

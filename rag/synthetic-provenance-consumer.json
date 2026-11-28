@@ -1,0 +1,24 @@
+{
+  "schema": "emergency-synthetic-provenance-consumer-v1",
+  "task_id": "F4-RAG-FHIR-HL7-PACS-AGENTES-G05",
+  "consumer": "offline-synthetic-provenance-cli",
+  "source_commit": "1f0fed8d731f65168ac338b5ddb18f451fccc6d6",
+  "synthetic_only": true,
+  "allowed_metadata_fields": [
+    "source_id", "title", "organization", "source_type", "url", "persistent_id",
+    "version", "publication_date", "last_verified", "language", "jurisdiction",
+    "license_status", "compound_identity"
+  ],
+  "licensed_source_content_fields": [],
+  "external_consumers_enabled": false,
+  "clinical_generation_enabled": false,
+  "production_rights_granted": false,
+  "G05_closed": [],
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "snapshot_sha256": {
+    "catalog": "e4627a58a35a59d99d699668b2d230020bd78e6f23d351a1aa5440dfc9c37c2a",
+    "registry": "3a60b719633ed49c16d9b05758711d5eab9e954986012625abc58d492d6d6f8c",
+    "graph": "78c3fd153c44bebf4434a6456fb320819a1bfa3cf1e7ade160eddb52afd0112d"
+  }
+}

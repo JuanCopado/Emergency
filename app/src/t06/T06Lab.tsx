@@ -56,7 +56,11 @@ async function boundedJson(response: Response): Promise<unknown> {
 
 export default function T06Lab() {
   const [localPlatform] = useState(() => document.querySelector<HTMLMetaElement>('meta[name="emergency-local-platform"]')?.content);
+  const [individualInstallation] = useState(() => document.querySelector<HTMLMetaElement>('meta[name="emergency-individual-installation"]')?.content === 'enabled');
   const platformUnavailable = localPlatform !== undefined && localPlatform !== 'linux';
+  // This existing build marker identifies the packaged runtime, which does not
+  // include T06. A Linux platform alone cannot grant a capability it lacks.
+  const runtimeUnavailable = individualInstallation || platformUnavailable;
   const [selected, setSelected] = useState('success');
   const [view, setView] = useState<View>({ phase: 'idle' });
   const active = useRef<{ serial: number; controller?: AbortController }>({ serial: 0 });
@@ -74,7 +78,7 @@ export default function T06Lab() {
   }
 
   async function run() {
-    if (platformUnavailable) return;
+    if (runtimeUnavailable) return;
     active.current.controller?.abort();
     const serial = active.current.serial + 1;
     const controller = new AbortController();
@@ -116,18 +120,20 @@ export default function T06Lab() {
   return <section className="t06-lab" lang="es" aria-label="Laboratorio T06">
     <header><p className="eyebrow">EMERGENCY / PAR-02</p><h1>Laboratorio T06 en localhost</h1><p>R6 → B1 → JSON → consumidor React Q4</p><span className="badge">CLINICALLY_PENDING</span></header>
     <aside className="scope">Datos, respuestas y certificados sintéticos. Prueba técnica local. La revisión clínica, RAG y el cierre global G05 permanecen pendientes.</aside>
-    <p role={platformUnavailable ? 'alert' : undefined}>Este circuito requiere el backend local de T06 en Linux.{platformUnavailable && ' La plataforma declarada por el modo local no es compatible; el circuito está desactivado.'}</p>
+    <p role={runtimeUnavailable ? 'alert' : undefined}>{individualInstallation
+      ? 'La instalación individual no incluye el backend de T06. Este laboratorio está desactivado en este paquete; no se ha ejecutado ninguna consulta.'
+      : <>Este circuito requiere el backend local de T06 en Linux.{platformUnavailable && ' La plataforma declarada por el modo local no es compatible; el circuito está desactivado.'}</>}</p>
     <div className="layout"><section className="controls" aria-label="Control del laboratorio">
       <h2>Escenario de prueba</h2>
       <label htmlFor="scenario">Caso sintético</label>
       <select id="scenario" value={selected} onChange={(event) => clearForSelection(event.target.value)}>{scenarios.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select>
       <p>{scenario.description}</p>
-      <button onClick={() => void run()} disabled={platformUnavailable || view.phase === 'loading'}>Ejecutar circuito</button>
+      <button onClick={() => void run()} disabled={runtimeUnavailable || view.phase === 'loading'}>Ejecutar circuito</button>
       {view.phase === 'loading' && <button className="secondary" onClick={cancel}>Cancelar</button>}
       <dl className="parameters"><dt>Proveedor esperado</dt><dd>{scenario.service}</dd><dt>Límite del navegador</dt><dd>{scenario.clientTimeout} ms</dd><dt>Entrada</dt><dd>Catálogo cerrado de escenarios</dd></dl>
     </section><section className="output" aria-label="Resultado del circuito" aria-busy={view.phase === 'loading'}>
       <h2>Resultado observado</h2>
-      <p className={`state state-${view.phase}`} role="status">{platformUnavailable ? 'No disponible en esta plataforma' : view.phase === 'idle' ? 'Preparado para ejecutar' : view.phase === 'loading' ? 'Ejecutando circuito local…' : view.phase === 'success' ? 'Respuesta recibida y aceptada por Q4' : view.phase === 'rejected' ? 'Contrato rechazado por Q4' : view.phase === 'timeout' ? 'Plazo del navegador agotado' : view.phase === 'cancelled' ? 'Consulta cancelada' : 'Error controlado'}</p>
+      <p className={`state state-${view.phase}`} role="status">{individualInstallation ? 'No disponible en la instalación individual' : platformUnavailable ? 'No disponible en esta plataforma' : view.phase === 'idle' ? 'Preparado para ejecutar' : view.phase === 'loading' ? 'Ejecutando circuito local…' : view.phase === 'success' ? 'Respuesta recibida y aceptada por Q4' : view.phase === 'rejected' ? 'Contrato rechazado por Q4' : view.phase === 'timeout' ? 'Plazo del navegador agotado' : view.phase === 'cancelled' ? 'Consulta cancelada' : 'Error controlado'}</p>
       {view.message && <p role="alert">{view.message}</p>}
       {(view.phase === 'success' || view.phase === 'rejected') && view.service && <T06Metadata expectedService={view.service} result={view.payload} />}
       {view.receipt && <details open><summary>Recibo de esta ejecución</summary><pre id="receipt">{JSON.stringify(view.receipt, null, 2)}</pre></details>}

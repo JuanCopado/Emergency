@@ -39,7 +39,9 @@
   "search": {
     "label": "Buscar fármacos",
     "placeholder": "Buscar un fármaco (p. ej. noradrenalina, propofol)…",
-    "submit": "Buscar"
+    "submit": "Buscar",
+    "hint": "Escribe un nombre de fármaco y pulsa Buscar. Pulsa Escape para borrar.",
+    "clear": "Borrar búsqueda"
   },
   "home": {
     "eyebrow": "Proyecto internacional · referencia y herramientas clínicas",

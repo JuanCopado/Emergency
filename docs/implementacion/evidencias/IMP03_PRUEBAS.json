@@ -1,0 +1,55 @@
+{
+  "schema": "emergency.implementation.local-package-tests.v1",
+  "observed_at_utc": "2026-11-27T21:10:18.407520+00:00",
+  "agent": "Work/Codex parent execution",
+  "source_commit": "8699cdc4f34bff378ae5ef69498bcfd1d944e3bd",
+  "command": [
+    "C:\\Users\\juanc\\AppData\\Local\\Programs\\Python\\Python313-arm64\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools/local-installation",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 5.196,
+  "tests_run": 23,
+  "passed": 22,
+  "skipped": 1,
+  "skip_reason": "Native Windows symlink privilege 1314; NTFS junction and ZIP symlink independently executed",
+  "log": "EVIDENCIAS/IMP03_TESTS.log",
+  "log_sha256": "85f572c06cbad364f99cdc7a7e9693040629c189a6dadcfa2645f5e1e57c14af",
+  "files": [
+    {
+      "path": "tools/local-installation/local_installation.py",
+      "bytes": 27025,
+      "sha256": "3079b98ccf9900da7044178a52896eddd2ee755bcae21a3ed545de0a880fb42f"
+    },
+    {
+      "path": "tools/local-installation/test_local_installation.py",
+      "bytes": 22587,
+      "sha256": "c06788d2e1bc923409dd84dda1d5a2ce607a1fd51a31d7929b40ad608e951270"
+    },
+    {
+      "path": "tools/local-installation/README.md",
+      "bytes": 9281,
+      "sha256": "d48917d157b7728c8c25ff17b6629fe3b12b773455aa144e714d99b48c9d7291"
+    }
+  ],
+  "previous_ci_failure": {
+    "head": "be35743b750a1fc0e9dd62dcca838f0eaa1fd249",
+    "windows_job": 140737854678,
+    "linux": "success",
+    "windows": "failure",
+    "cause": "Native Windows 8.3 path spelling differs from Git canonical long name; samefile check preserves no-reparse and own-checkout guards"
+  },
+  "limits": [
+    "Partial static package; not clinical API, production, external audit or release evidence",
+    "CI of final exact commit collected separately"
+  ],
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

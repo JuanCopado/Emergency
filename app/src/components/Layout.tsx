@@ -8,6 +8,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { LogoMark } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 import { BuildIdentity } from './BuildIdentity';
+import { LocalUpdateNotice } from './LocalUpdateNotice';
 
 const NAV: { to: string; key: string; icon: IconName; end?: boolean; desktopOnly?: boolean }[] = [
   { to: '/', key: 'nav.home', icon: 'home', end: true },
@@ -44,13 +45,13 @@ export function Layout() {
             <LogoMark size={34} />
             <span className="flex flex-col leading-tight">
               <span className="text-base font-extrabold tracking-tight">{BRAND.name}</span>
-              <span className="hidden text-[11px] font-medium text-muted sm:block">{t('brand.tagline')}</span>
+              <span className="hidden whitespace-nowrap text-[11px] font-medium text-muted 2xl:block">{t('brand.tagline')}</span>
             </span>
           </Link>
-          <span className="hidden sm:inline-flex">
+          <span className="hidden shrink-0 sm:inline-flex lg:hidden xl:inline-flex">
             <DraftPill />
           </span>
-          <nav aria-label={t('a11y.mainNav')} className="ml-4 hidden lg:block">
+          <nav aria-label={t('a11y.mainNav')} className="ml-2 hidden min-w-0 flex-1 overflow-x-auto lg:block">
             <ul className="flex items-center gap-1">
               {NAV.map((n) => (
                 <li key={n.to}>
@@ -58,7 +59,7 @@ export function Layout() {
                     to={n.to}
                     end={n.end}
                     className={({ isActive }) =>
-                      `rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${isActive ? 'bg-surface-2 text-fg' : 'text-muted hover:text-fg'}`
+                      `whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-semibold transition-colors ${isActive ? 'bg-surface-2 text-fg' : 'text-muted hover:text-fg'}`
                     }
                   >
                     {t(n.key)}
@@ -67,12 +68,14 @@ export function Layout() {
               ))}
             </ul>
           </nav>
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
         </div>
       </header>
+
+      {import.meta.env.VITE_INDIVIDUAL_INSTALLATION === '1' && <LocalUpdateNotice />}
 
       <main id="main" ref={mainRef} tabIndex={-1} className="mx-auto max-w-6xl px-4 pb-28 pt-5 outline-none sm:px-6 lg:pb-12 lg:pt-8">
         <Outlet />

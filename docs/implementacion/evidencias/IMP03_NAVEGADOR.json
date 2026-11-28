@@ -1,0 +1,55 @@
+{
+  "synthetic_only": true,
+  "installer_source_sha256": "3079b98ccf9900da7044178a52896eddd2ee755bcae21a3ed545de0a880fb42f",
+  "scope": "static partial, new launch in one installation root, no existing installed-PWA upgrade guarantee",
+  "steps": [
+    {
+      "label": "A_INICIAL",
+      "url": "http://127.0.0.1:53531",
+      "version": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b-5bb25135543e237b",
+      "source_sha": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+      "worker_controlled": true,
+      "api_status": 503,
+      "local_infusion": "5.3",
+      "external_requests": 0,
+      "page_errors": 0,
+      "csp_errors": 0
+    },
+    {
+      "label": "B_ACTIVADA",
+      "url": "http://127.0.0.1:50716",
+      "version": "1703435de7002172d14ed32b94df1dc6b07f4314-e62cc42f020246b7",
+      "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+      "worker_controlled": true,
+      "api_status": 503,
+      "local_infusion": "5.3",
+      "external_requests": 0,
+      "page_errors": 0,
+      "csp_errors": 0
+    },
+    {
+      "label": "A_ROLLBACK",
+      "url": "http://127.0.0.1:56027",
+      "version": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b-5bb25135543e237b",
+      "source_sha": "81b231ca250a9f61d81a702dff0ef4f4dd58ea0b",
+      "worker_controlled": true,
+      "api_status": 503,
+      "local_infusion": "5.3",
+      "external_requests": 0,
+      "page_errors": 0,
+      "csp_errors": 0
+    }
+  ],
+  "errors": [],
+  "browser": "158.0.8127.37",
+  "executable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "offline": {
+    "server_stopped": true,
+    "browser_offline": true,
+    "local_infusion": "5.3",
+    "api": {
+      "rejected": true
+    }
+  },
+  "status": "PASS"
+}

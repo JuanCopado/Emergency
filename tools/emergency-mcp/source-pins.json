@@ -1,0 +1,111 @@
+{
+  "schema": "emergency-mcp-source-pins-v1",
+  "source_commit": "a4e84b008e08ef67f41ff1645832b88821d3bb92",
+  "hash_mode": "UTF8 LF-normalized source bytes",
+  "files": {
+    "STATE.md": {
+      "sha256_lf": "d59d96579d8726c550c5019db20a472653c8096e907901c0928324b314e31834",
+      "bytes_lf": 32862
+    },
+    "clinical/modules/cardiovascular.md": {
+      "sha256_lf": "bb4a7ff6179f2a55fd73133c217ad3ba50839b5fdfee42f3458a46d34d75ebab",
+      "bytes_lf": 66835
+    },
+    "clinical/modules/clinical-images.md": {
+      "sha256_lf": "ec1e12141ee3cdc864f1c2e1071a1877dd859634ac1157bf882448db1167780a",
+      "bytes_lf": 9354
+    },
+    "clinical/modules/clinical-scores-calculators.md": {
+      "sha256_lf": "c7830fc5f6a7b81a49feb23c73240deceafd0c5753579a83452911997ad14d47",
+      "bytes_lf": 6020
+    },
+    "clinical/modules/disposition-crosscutting.md": {
+      "sha256_lf": "966f22446bcffe44b6fe19d76833bd8f42728be5c83fbdc2a52a61155dcf61fd",
+      "bytes_lf": 21984
+    },
+    "clinical/modules/documentation-governance.md": {
+      "sha256_lf": "688befc192106a8c0d56a47fe7b6c371c4c9e26a591c39d9b9b02bbc3ea9c733",
+      "bytes_lf": 7902
+    },
+    "clinical/modules/image-modalities.md": {
+      "sha256_lf": "ffebf0f6e20201b2d52c5d614ef8853bebb3abe95dbd6f9134c8ad1e9d6a98a0",
+      "bytes_lf": 16337
+    },
+    "clinical/modules/infection-respiratory.md": {
+      "sha256_lf": "51088118b8ece034b010c9a0b90c3680eee1b116889e42691120a5b73b6f50d3",
+      "bytes_lf": 43359
+    },
+    "clinical/modules/neurologic.md": {
+      "sha256_lf": "f66db1dc92f5c4b7cbf149b080223a97920eb9448ddd7249f0fd32f418420d4d",
+      "bytes_lf": 31986
+    },
+    "clinical/modules/procedures-pharmacology.md": {
+      "sha256_lf": "600e37e3bf2780d9eaee225777fdeb8719bbbc2abee85909c2d17fdb8575ad95",
+      "bytes_lf": 52549
+    },
+    "clinical/modules/renal-metabolic.md": {
+      "sha256_lf": "455f3006c1ab3279e164701433d433fbbc9f4cf966995c7e7d5b53f6eefab12c",
+      "bytes_lf": 73050
+    },
+    "clinical/modules/special-populations.md": {
+      "sha256_lf": "4a9240a93d96993dc750bcb1060f9e01e8abab557812b8667b1d57ad847db025",
+      "bytes_lf": 146304
+    },
+    "clinical/modules/trauma-surgical.md": {
+      "sha256_lf": "0eb5059e3cc2d80a0fbe6caad2b93c9e9331a24cd8882af6552ca993bb5a3928",
+      "bytes_lf": 41388
+    },
+    "clinical/pharmacology/corticosteroids.json": {
+      "sha256_lf": "48a87025fcf2484dd5c8b4d2d4a701ab107b2042671e4a031770faa6c2ffe499",
+      "bytes_lf": 23809
+    },
+    "clinical/qa/R54_MEDICAL_OWNER_DECISIONS_20261124.json": {
+      "sha256_lf": "7012db3ef3be84e5b992b2d16521d19ec490dc9e03cfad4f9ce5cf073cf704c6",
+      "bytes_lf": 1640
+    },
+    "clinical/qa/global-medication-audit-v144/entity-inventory.json": {
+      "sha256_lf": "e6fc1b280e66a97b9efad0ca8c8ce15689ceabf9b9eac9580138a5ff93b864c6",
+      "bytes_lf": 777638
+    },
+    "clinical/qa/global-medication-audit-v144/products.json": {
+      "sha256_lf": "437f2ec33c7fed29ac57f405e4851401f210fedcfdd1dd5d49e186bdf478dce7",
+      "bytes_lf": 86317
+    },
+    "clinical/qa/global-medication-audit-v144/regimens.json": {
+      "sha256_lf": "da18ebb3c4c0f7aab52063e6e76700ed9e76ba79f1618579dbdc802e5215ea2a",
+      "bytes_lf": 1298521
+    },
+    "clinical/references/acute-contract-owner-acceptance-2026-11-16.json": {
+      "sha256_lf": "af66b72e6c5fe0367f4b18b5cb4382ee0b43dcefe7b4815c1f88f8b74bdc1ea0",
+      "bytes_lf": 2248
+    },
+    "clinical/references/evidence-registry.json": {
+      "sha256_lf": "3a60b719633ed49c16d9b05758711d5eab9e954986012625abc58d492d6d6f8c",
+      "bytes_lf": 271730
+    },
+    "clinical/references/evidence-sources.json": {
+      "sha256_lf": "e4627a58a35a59d99d699668b2d230020bd78e6f23d351a1aa5440dfc9c37c2a",
+      "bytes_lf": 247034
+    },
+    "clinical/references/module-index.md": {
+      "sha256_lf": "1e06e639bb7e89487b4ac6dfbdc4ea534ef1f2cf59f161eb75f937657ac52301",
+      "bytes_lf": 18781
+    },
+    "clinical/references/owner-decisions-2026-11-27.json": {
+      "sha256_lf": "97c888151f9b224af5b29fbf307051a4b8f987221e420fb413f89c0a5baae489",
+      "bytes_lf": 20703
+    },
+    "clinical/scripts/build_project_graph.py": {
+      "sha256_lf": "79bc26c2bc2eee0a5ce9b0fc32741cc891f20ba78c59714037a54759241b686f",
+      "bytes_lf": 6320
+    },
+    "docs/coordination/clinical-minimal-http-20261127/CLINICAL_MINIMAL_HTTP_QA.json": {
+      "sha256_lf": "88ed458b964f50f7e335f20de8b926bc1183628e2ba038935994d1cb804b80b3",
+      "bytes_lf": 29489
+    },
+    "docs/coordination/supercoord-20261127/TASK_MATRIX.json": {
+      "sha256_lf": "fb377914528f955467fa098488743752ec8336800da9fcabf80137126befd46c",
+      "bytes_lf": 24943
+    }
+  }
+}

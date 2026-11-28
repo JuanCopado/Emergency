@@ -1,7 +1,9 @@
 import { createContext, Fragment, useCallback, useContext, useEffect, useRef, useState, type Dispatch, type ReactNode, type SetStateAction } from 'react';
 import type { ClinicalAssessment, ClinicalNotePayload, PreparedUpload, ReviewState, TherapeuticConfirmations, TherapeuticPlan, TherapeuticReview, TherapeuticSections, TherapySelection } from './types';
 
-export type NoteTab = 'history'|'exam'|'mcdt'|'problems'|'diagnostic'|'plan'|'export';
+import type { WorkspaceSection } from './textStructuring';
+
+export type NoteTab = 'text'|'history'|'exam'|'mcdt'|'problems'|'diagnostic'|'plan'|'export';
 export type McdtCard = {
   id:string;kind:string;name:string;official:string;ai:string;state:ReviewState;
   provenance:string;prepared?:PreparedUpload;sourceFile?:File;privacyChecked:boolean;burnedChecked:boolean;
@@ -24,6 +26,9 @@ type Draft = {
   therapyGeneratedContext: string|null; therapyValidatedSnapshot: string|null;
   therapyOriginalSections: TherapeuticSections|null; therapyOriginalMetadata: string|null;
   therapyConfirmations: TherapeuticConfirmations; therapyEditing: boolean; therapyIncludePrevious: boolean;
+  // Free-text workspace: original text, the text it was structured from, the proposal and the reviewed copy.
+  workspaceText: string; workspaceSource: string|null; workspaceSections: WorkspaceSection[]|null;
+  workspaceFinal: string; workspaceFinalEdited: boolean;
 };
 let sequence = 0;
 function emptyDraft(): Draft {
@@ -38,11 +43,12 @@ function emptyDraft(): Draft {
     therapeuticPlan:null,therapeuticReview:null,therapyGeneratedContext:null,therapyValidatedSnapshot:null,
     therapyOriginalSections:null,therapyOriginalMetadata:null,
     therapyConfirmations:{individualized:false,medication_safety_reviewed:false},therapyEditing:false,therapyIncludePrevious:false,
+    workspaceText:'',workspaceSource:null,workspaceSections:null,workspaceFinal:'',workspaceFinalEdited:false,
   };
 }
 function hasContent(draft: Draft) {
   return [draft.age,draft.origin,draft.chief,draft.hpi,draft.pmh,draft.meds,draft.allergies,draft.exam,
-    draft.problems,draft.plan,draft.draftName,draft.draftOfficial,draft.draftAi,...Object.values(draft.vitalDraft)]
+    draft.problems,draft.plan,draft.draftName,draft.draftOfficial,draft.draftAi,draft.workspaceText,draft.workspaceFinal,...Object.values(draft.vitalDraft)]
     .some(Boolean) || draft.sex!=='unknown' || draft.vitalSets.length>0 || draft.mcdt.length>0 || draft.assessment!==null ||
     draft.therapySelection.label.trim()!=='' || draft.therapyWeight!=='' || draft.therapeuticPlan!==null;
 }

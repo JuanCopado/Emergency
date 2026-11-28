@@ -1,0 +1,141 @@
+{
+  "schema": "emergency.implementation.adr-proposals.v1",
+  "source_sha": "1703435de7002172d14ed32b94df1dc6b07f4314",
+  "claude_session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+  "proposals_accepted": false,
+  "provider_selected": false,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE",
+  "host_cotejo": "CLAUDE_COMPARATIVA.md#cotejo-de-work",
+  "records": [
+    {
+      "id": "ADR-IMP-001",
+      "title": "Local artifact with verified manifest and atomic current pointer",
+      "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+      "dependencies": [
+        "IMP-00"
+      ],
+      "decision": "Preserve frontend and engines; releases/<revision>-<digest>, verify before activation and retain N-1.",
+      "alternatives": [
+        "Windows symlink requiring privileges",
+        "Docker Desktop as compulsory local dependency",
+        "Application rewrite in Electron/Tauri"
+      ],
+      "verification_criteria": [
+        "Tampered files refused",
+        "Interrupted pointer switch leaves previous version",
+        "Rollback digest checked",
+        "Same-origin browser/cache rollback verified"
+      ],
+      "source": "Claude consultation, structured by Work with bounds in host cotejo",
+      "technical_prototype": "Selected by Work for authorized synthetic partial local increment only; no clinical/production acceptance",
+      "implemented_candidate": "https://github.com/JuanCopado/Emergency/pull/135",
+      "same_origin_browser_upgrade": "NOT_DELIVERED; controlled new-origin launcher measured, limits explicit"
+    },
+    {
+      "id": "ADR-IMP-002",
+      "title": "Separate future production gateway from loopback handler",
+      "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+      "dependencies": [
+        "IMP-00",
+        "IMP-01"
+      ],
+      "decision": "ASGI adapter over existing routing/motors; no public developer server or clinical rule rewrite.",
+      "alternatives": [
+        "Expose existing local HTTPServer",
+        "Rewrite clinical engines"
+      ],
+      "verification_criteria": [
+        "Golden outputs preserved",
+        "Negative method/size/time/host tests",
+        "No exposure before TLS and actual user authorization"
+      ],
+      "source": "Claude consultation, structured by Work with bounds in host cotejo"
+    },
+    {
+      "id": "ADR-IMP-003",
+      "title": "OIDC provider-independent server session",
+      "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+      "dependencies": [
+        "IMP-01",
+        "IMP-02",
+        "IMP-04"
+      ],
+      "decision": "Authorization Code+PKCE with issuer/audience/nonce/state verification; exact provider and callback cookie policy pending.",
+      "alternatives": [
+        "Long-lived browser tokens",
+        "Process-token presented as physician identity"
+      ],
+      "verification_criteria": [
+        "Synthetic provider",
+        "Callback/cross-site cookie test",
+        "Cross-user refusal",
+        "Logout/revocation",
+        "IdP outage fails closed remotely"
+      ],
+      "source": "Claude consultation, structured by Work with bounds in host cotejo"
+    },
+    {
+      "id": "ADR-IMP-004",
+      "title": "Minimal PostgreSQL metadata only when remote account function needs it",
+      "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+      "dependencies": [
+        "IMP-01",
+        "IMP-02",
+        "IMP-04"
+      ],
+      "decision": "Accounts/preferences/technical audit only, identity issuer+subject; no default patient-record storage.",
+      "alternatives": [
+        "Local preferences without remote database",
+        "Vector database without demonstrated function"
+      ],
+      "verification_criteria": [
+        "Restore into empty DB",
+        "Cross-account authorization",
+        "Schema/retention checked",
+        "No unrestricted clinical text fields"
+      ],
+      "source": "Claude consultation, structured by Work with bounds in host cotejo"
+    },
+    {
+      "id": "ADR-IMP-005",
+      "title": "Parameterized staging and no Kubernetes without measured need",
+      "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+      "dependencies": [
+        "IMP-04",
+        "IMP-05",
+        "IMP-06"
+      ],
+      "decision": "Declarative container configuration and local dry-run first, before any external provisioning.",
+      "alternatives": [
+        "Manual irreproducible VPS",
+        "Kubernetes without dependency"
+      ],
+      "verification_criteria": [
+        "Dry-run creates no resources",
+        "Synthetic restore",
+        "Version-pinned rollback",
+        "Cost limits and authorization packet"
+      ],
+      "source": "Claude consultation, structured by Work with bounds in host cotejo"
+    },
+    {
+      "id": "ADR-IMP-006",
+      "title": "Defer new RAG/vector infrastructure",
+      "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+      "dependencies": [
+        "IMP-02"
+      ],
+      "decision": "Do not expand RAG/vector services without an approved useful function and evaluation/rights scope.",
+      "alternatives": [
+        "Add pgvector or model hosting preemptively"
+      ],
+      "verification_criteria": [
+        "No restricted-source indexing",
+        "No new remote clinical processing",
+        "Separate functional evidence before activation"
+      ],
+      "source": "Claude consultation, structured by Work with bounds in host cotejo"
+    }
+  ]
+}

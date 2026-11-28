@@ -1,0 +1,109 @@
+{
+  "schema": "emergency.implementation.residual-decisions.v1",
+  "task_id": "IMP-01",
+  "source_sha": "63f4d4d10b3325b62dc8975992896ca462f9f920",
+  "timestamp_utc": "2026-11-27T22:33:28.464896+00:00",
+  "claude_session_id": "ba19e14b-a86a-4975-8739-8876245e35f1",
+  "status": "TECHNICAL_DIRECTION_DELIVERED_FOR_WORK_COTEJO",
+  "primary": "LOCAL_PWA_AND_PACKAGED_PYTHON",
+  "alternative": "OPTIONAL_EU_MANAGED_MODULAR_CONTAINER",
+  "provider_selected": false,
+  "purchases_or_provisioning_authorized": false,
+  "additional_task_ids_created": false,
+  "records": [
+    {
+      "id": "IMP01-D1",
+      "decision": "Local PWA plus packaged, version-coupled Python companion is the primary individual architecture",
+      "activation": "Current authorized synthetic implementation scope",
+      "acceptance": [
+        "Existing engines retained without arithmetic or dose changes",
+        "Exact compatible frontend/Python/content release",
+        "Runtime and dependencies physically present and tested offline"
+      ],
+      "remote_required": false
+    },
+    {
+      "id": "IMP01-D2",
+      "decision": "Stable controlled loopback origin, explicit PWA update, typed nonclinical preferences",
+      "activation": "Current IMP-03",
+      "acceptance": [
+        "Preferences survive real A/B/rollback at the same origin",
+        "No forced reload or loss of an active episode",
+        "Page/worker and API versions are coherent; stale clients rejected"
+      ],
+      "remote_required": false
+    },
+    {
+      "id": "IMP01-D3",
+      "decision": "Canonical release manifest signed with Ed25519; trust key pinned outside the package",
+      "activation": "Current package authenticity preparation; enrollment and custody scope explicit",
+      "acceptance": [
+        "Tampered bytes/manifest/signature and an unknown key are refused",
+        "Owner-authorized rollback to a compatible trusted release remains possible",
+        "No private signing key or credentials in shipped package"
+      ],
+      "remote_required": false
+    },
+    {
+      "id": "IMP01-D4",
+      "decision": "Separate modular production BFF/API in a managed EU OCI container is the provisional hybrid alternative; VPS only with demonstrated operations capacity",
+      "activation": "An explicit remote capability adds measurable individual benefit and applicable authorization exists",
+      "acceptance": [
+        "Do not expose the desktop loopback server",
+        "Reuse pure engines/contracts rather than rewrite them",
+        "Synthetic identity, boundary, capacity, restore and cost checks before provisioning"
+      ],
+      "implemented_now": false
+    },
+    {
+      "id": "IMP01-D5",
+      "decision": "OIDC and remote user accounts are conditional, not mandatory for local reference/calculation",
+      "activation": "Selected synchronization, remote accounts or licensed service actually needs identity",
+      "acceptance": [
+        "Issuer/audience/state/nonce/PKCE and server sessions validated",
+        "User isolation, revocation and outage behavior tested",
+        "Login is not professional qualification or clinical approval"
+      ],
+      "implemented_now": false
+    },
+    {
+      "id": "IMP01-D6",
+      "decision": "PostgreSQL and private objects only for a selected persistence need; no remote case history by default",
+      "activation": "Structured account/preferences/audit metadata or permitted artifacts actually need shared storage",
+      "acceptance": [
+        "Minimal structured schema and user isolation",
+        "Restore and retention measured",
+        "No free clinical text/case uploads, restricted sources or hidden patient backups"
+      ],
+      "implemented_now": false
+    },
+    {
+      "id": "IMP01-D7",
+      "decision": "Local scale distributes computation to devices; cost and operational planning remain explicit",
+      "activation": "Maintain local software; quote remote services only when their capability is selected",
+      "acceptance": [
+        "Reuse dated 10/100/1000 scenarios as hypotheses, not benchmark or full invoice",
+        "Separate hosting, identity, DB/backups, egress, observability and hours",
+        "No fabricated FX, free-tier guarantee, capacity or provider selection"
+      ],
+      "provider_selected": false
+    }
+  ],
+  "host_reservations": [
+    "Claude did not execute runtime tests, browse current tariffs or audit the concurrent implementation; its response is architectural consultation.",
+    "Do not delete the episode after export or delete the user-chosen exported document. Clean only owned temporary files; browser downloads/spool/OS surfaces remain distinct.",
+    "Prefer one canonical transport header. X-Emergency-Revision selected by implementation is equivalent to Claude proposed X-Emergency-Build if bound and negatively tested.",
+    "A monotonic anti-rollback proposal must not prevent the requested owner-authorized rollback. Refuse untrusted/revoked/incompatible releases; do not infer an implemented revocation service.",
+    "Do not adopt documented loss of preferences as completion if same-origin update fails. Preserve the requirement and mark the implementation pending.",
+    "The exact bundled/checked Python runtime may differ from the model hypothetical Python3.12 preinstallation; do not impose a needless global installation.",
+    "CSP connect-src self bounds browser fetch, not Python or all OS egress. Runtime provider/environment/network controls need their own tests.",
+    "Do not exclude deterministic blood-gas functions solely because T05 OCR is a lab adapter. Existing required individual routes determine the bundle; lab/LLM/MCP product capabilities remain separately scoped.",
+    "An Emergency MCP tool may be operational for the coordinator while not bundled in the individual clinical application; source absence is not tool unavailability.",
+    "BitLocker/FileVault and device ACL observations are risk safeguards, not a newly imposed universal blocker for synthetic installation. No unmeasured encryption or zero-disk-write claim.",
+    "The newer Work cost cotejo confirms CloudRun Madrid/Belgium tier1 while SQL EU tariff remains unconfirmed. Claude repeats older uncertainty; no new price was verified by this consultation.",
+    "Cloud technical portability does not mean public deployment of the local BFF: the future production boundary/authentication is separate."
+  ],
+  "implementation_acceptance_inferred": false,
+  "clinical": "CLINICALLY_PENDING",
+  "release": "NO_GO_CLINICAL_RELEASE"
+}

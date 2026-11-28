@@ -1,4 +1,5 @@
 import i18n from '../i18n';
+import { localRevisionHeaders } from '../lib/individualTransport';
 import { parseFiniteDecimal } from '../lib/format';
 import type { PediatricReport } from './PediatricExport';
 import generated from '../data/generatedPediatricOutpatient.json';
@@ -27,7 +28,7 @@ export type Calculation = { blocked: boolean; export_report?: PediatricReport; r
 export async function calculatePediatric(body: Fields): Promise<Calculation> {
   const base = (import.meta.env.VITE_CLINICAL_NOTE_API_BASE ?? '').replace(/\/$/, '');
   const response = await fetch(`${base}/api/pediatric-outpatient/calculate`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store',
+    method: 'POST', headers: { 'Content-Type': 'application/json', ...localRevisionHeaders() }, cache: 'no-store',
     body: JSON.stringify({ ...body, source_revision: pediatricCatalog.source_revision }),
   });
   const result = await response.json();

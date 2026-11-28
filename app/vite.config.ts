@@ -14,6 +14,13 @@ const entryOverride = process.env.VITE_LAB_LAYER7 === '1'
   : fileURLToPath(new URL('./src/clinical-note/noEntryOverride.tsx', import.meta.url));
 
 const sourceIdentity = readBuildIdentity(fileURLToPath(new URL('..', import.meta.url)));
+const individualInstallation = process.env.EMERGENCY_INDIVIDUAL_BUILD === '1';
+if (individualInstallation && process.env.VITE_CLINICAL_NOTE_API_BASE) {
+  throw new Error('Individual installation requires its same-origin local API');
+}
+if (individualInstallation && (process.env.VITE_LAB_LAYER7 === '1' || process.env.EMERGENCY_LOCAL_REVIEW === '1')) {
+  throw new Error('Individual installation cannot include laboratory entry points');
+}
 
 const loopbackHost = '127.0.0.1';
 const localPeers = new Set([loopbackHost, `::ffff:${loopbackHost}`, '::1']);
@@ -28,6 +35,7 @@ export default defineConfig(({ mode }) => ({
   define: {
     'import.meta.env.VITE_BUILD_REVISION': JSON.stringify(sourceIdentity.revision),
     'import.meta.env.VITE_BUILD_DIRTY': JSON.stringify(String(sourceIdentity.dirty)),
+    'import.meta.env.VITE_INDIVIDUAL_INSTALLATION': JSON.stringify(individualInstallation ? '1' : '0'),
   },
   build: { sourcemap: auditBuild ? 'hidden' : false },
   server: {
@@ -66,6 +74,12 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [
+    {
+      name: 'individual-installation-marker',
+      transformIndexHtml: () => individualInstallation ? [{
+        tag: 'meta', attrs: { name: 'emergency-individual-installation', content: 'enabled' }, injectTo: 'head' as const,
+      }] : [],
+    },
     clinicalApiBoundary(),
     productionDependencyGuard(),
     react(),
@@ -97,7 +111,7 @@ export default defineConfig(({ mode }) => ({
       }],
     }] : []),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: individualInstallation ? 'prompt' : 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: BRAND.name,
@@ -119,11 +133,14 @@ export default defineConfig(({ mode }) => ({
         ],
       },
       workbox: {
+        // Initial installation controls its matching page. Later versions wait for per-tab user consent.
+        clientsClaim: true,
+        skipWaiting: !individualInstallation,
         sourcemap: auditBuild,
         globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
         navigateFallback: '/index.html',
         // A navigation to an API path must fail or reach the server; it must never be answered with the app shell.
-        navigateFallbackDenylist: [/^\/api\//],
+        navigateFallbackDenylist: [individualInstallation ? /^\/api(?:\/|$)/ : /^\/api\//, ...(individualInstallation ? [/^\/__local_release__(?:$|\?)/] : [])],
       },
     }),
   ],
