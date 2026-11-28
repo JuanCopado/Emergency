@@ -1,0 +1,39 @@
+name: Synthetic local interoperability
+on:
+  pull_request:
+    paths:
+      - 'tools/interop-local/**'
+      - '.github/workflows/interop-local.yml'
+  push:
+    branches: ['codex/**']
+    paths:
+      - 'tools/interop-local/**'
+      - '.github/workflows/interop-local.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-contracts:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Test strict synthetic contracts and negative controls
+        run: python -B -X utf8 -m unittest discover -s tools/interop-local -v
+      - name: Materialize deterministic local exchange
+        run: python -B -X utf8 tools/interop-local/interop_lab.py demo interop-demo
+      - name: Receive generated HL7 message
+        run: python -B -X utf8 tools/interop-local/interop_lab.py hl7 interop-hl7 --input interop-demo/synthetic-oru.hl7
+      - name: Receive generated FHIR bundle
+        run: python -B -X utf8 tools/interop-local/interop_lab.py fhir interop-fhir --input interop-demo/synthetic-bundle.json
+      - name: Receive and render registered DICOM phantom
+        run: python -B -X utf8 tools/interop-local/interop_lab.py dicom interop-dicom --input interop-demo/synthetic-phantom.dcm

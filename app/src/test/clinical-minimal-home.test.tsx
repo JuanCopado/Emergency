@@ -1,4 +1,4 @@
-import { screen, within } from '@testing-library/react';
+import { fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it } from 'vitest';
@@ -54,5 +54,102 @@ describe('Clinical Minimal home opt-in', () => {
     expect(destination.searchParams.get('q')).toBe(query);
     expect(destination.hash).toBe('');
     expect(within(screen.getByRole('main')).queryByRole('img')).not.toBeInTheDocument();
+  });
+});
+
+const searchCopy = [
+  ['en', 'Search drugs', 'Clear search', 'Enter a drug name and select Search. Press Escape to clear.'],
+  ['es', 'Buscar fármacos', 'Borrar búsqueda', 'Escribe un nombre de fármaco y pulsa Buscar. Pulsa Escape para borrar.'],
+  ['pt', 'Pesquisar fármacos', 'Limpar pesquisa', 'Introduza o nome de um fármaco e selecione Pesquisar. Prima Escape para limpar.'],
+  ['zh', '搜索药物', '清空搜索', '输入药物名称后选择“搜索”。按 Escape 清空。'],
+] as const;
+
+async function renderSearch(lang = 'en') {
+  return renderAt('/?design=clinical-minimal', [
+    { path: '/', element: <><Home /><SearchDestination /></> },
+    { path: '/drugs', element: <SearchDestination /> },
+  ], lang);
+}
+
+describe('Accessible home search', () => {
+  it.each(searchCopy)('names the landmark and describes its input in %s', async (lang, label, clear, hint) => {
+    await renderSearch(lang);
+    const form = screen.getByRole('search', { name: label });
+    const input = within(form).getByRole('searchbox', { name: label });
+    expect(input).toHaveAccessibleDescription(hint);
+    expect(within(form).queryByRole('button', { name: clear })).not.toBeInTheDocument();
+    expect(screen.getByLabelText('Search destination')).toHaveTextContent('/?design=clinical-minimal');
+  });
+
+  it.each(searchCopy)('clears with an accessible button and returns focus in %s', async (lang, label, clear) => {
+    const user = userEvent.setup();
+    await renderSearch(lang);
+    const form = screen.getByRole('search', { name: label });
+    const input = within(form).getByRole('searchbox');
+    await user.type(input, 'synthetic query');
+    const button = within(form).getByRole('button', { name: clear });
+    expect(button).toHaveAttribute('type', 'button');
+    await user.click(button);
+    expect(input).toHaveValue('');
+    expect(input).toHaveFocus();
+    expect(within(form).queryByRole('button', { name: clear })).not.toBeInTheDocument();
+    expect(screen.getByLabelText('Search destination')).toHaveTextContent('/?design=clinical-minimal');
+  });
+
+  it('Escape clears without changing the current route, then a fresh Enter uses the existing destination', async () => {
+    const user = userEvent.setup();
+    await renderSearch();
+    const input = screen.getByRole('searchbox');
+    await user.type(input, 'discard');
+    await user.keyboard('{Escape}');
+    expect(input).toHaveValue('');
+    expect(input).toHaveFocus();
+    expect(screen.getByLabelText('Search destination')).toHaveTextContent('/?design=clinical-minimal');
+    await user.type(input, 'reserved & / ?');
+    await user.keyboard('{Enter}');
+    const destination = new URL(screen.getByLabelText('Search destination').textContent!, 'https://emergency.test');
+    expect(destination.pathname).toBe('/drugs');
+    expect([...destination.searchParams.keys()]).toEqual(['q']);
+    expect(destination.searchParams.get('q')).toBe('reserved & / ?');
+  });
+
+  it('does not clear or submit the Chinese input while IME composition is active', async () => {
+    const user = userEvent.setup();
+    await renderSearch('zh');
+    const form = screen.getByRole('search', { name: '搜索药物' });
+    const input = within(form).getByRole('searchbox');
+    input.focus();
+    fireEvent.compositionStart(input);
+    fireEvent.change(input, { target: { value: '中文测试' } });
+    expect(fireEvent.keyDown(input, { key: 'Enter', code: 'Enter', isComposing: true })).toBe(false);
+    fireEvent.submit(form);
+    fireEvent.keyDown(input, { key: 'Escape', isComposing: true });
+    expect(input).toHaveValue('中文测试');
+    expect(screen.getByLabelText('Search destination')).toHaveTextContent('/?design=clinical-minimal');
+    fireEvent.compositionEnd(input);
+    await user.keyboard('{Enter}');
+    const destination = new URL(screen.getByLabelText('Search destination').textContent!, 'https://emergency.test');
+    expect(destination.pathname).toBe('/drugs');
+    expect(destination.searchParams.get('q')).toBe('中文测试');
+  });
+
+  it('prevents the native isComposing and legacy229 Enter cases even without an active React composition ref', async () => {
+    await renderSearch('zh');
+    const input = screen.getByRole('searchbox');
+    fireEvent.change(input, { target: { value: '中文测试' } });
+    expect(fireEvent.keyDown(input, { key: 'Enter', code: 'Enter', isComposing: true })).toBe(false);
+    expect(fireEvent.keyDown(input, { key: 'Enter', code: 'Enter', keyCode: 229 })).toBe(false);
+    expect(screen.getByRole('search')).toBeInTheDocument();
+    expect(screen.getByLabelText('Search destination')).toHaveTextContent('/?design=clinical-minimal');
+  });
+
+  it('preserves empty submission to the drug catalog after clearing', async () => {
+    const user = userEvent.setup();
+    await renderSearch();
+    const input = screen.getByRole('searchbox');
+    await user.type(input, 'discard');
+    await user.click(screen.getByRole('button', { name: 'Clear search' }));
+    await user.keyboard('{Enter}');
+    expect(screen.getByLabelText('Search destination').textContent).toBe('/drugs');
   });
 });

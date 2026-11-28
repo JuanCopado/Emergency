@@ -18,7 +18,15 @@ class R3IntegrationTests(unittest.TestCase):
         self.assertIn('build:security', products)
         for name in products:
             with self.subTest(command=name):
-                self.assertEqual(scripts.get('pre' + name), 'node scripts/picomatch-mitigation.mjs --check')
+                expected = ('node scripts/check-dermatology-asset-admission.mjs && '
+                            'node scripts/picomatch-mitigation.mjs --check'
+                            if name in ('dev', 'build')
+                            else 'node scripts/picomatch-mitigation.mjs --check')
+                self.assertEqual(scripts.get('pre' + name), expected)
+        self.assertEqual(scripts['security:dermatology:check'],
+                         'node scripts/check-dermatology-asset-admission.mjs')
+        self.assertEqual(scripts['security:dermatology:test'],
+                         'node --test scripts/dermatology-asset-admission.node-test.mjs')
 
     def test_rollup_extension_uses_the_exact_reviewed_lock_and_policy(self):
         config = json.loads((ROOT / 'security/picomatch-mitigation.json').read_text(encoding='utf-8'))

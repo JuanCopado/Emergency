@@ -1,0 +1,67 @@
+name: Emergency read-only MCP protocol
+on:
+  pull_request:
+    paths:
+      - 'tools/emergency-mcp/**'
+      - 'clinical/scripts/emergency_mcp_readonly.py'
+      - 'clinical/tests/test_emergency_mcp_readonly.py'
+      - 'clinical/modules/**'
+      - 'clinical/references/**'
+      - 'clinical/qa/R54_MEDICAL_OWNER_DECISIONS_20261124.json'
+      - 'clinical/qa/global-medication-audit-v144/**'
+      - 'clinical/pharmacology/corticosteroids.json'
+      - 'clinical/scripts/build_project_graph.py'
+      - 'docs/coordination/supercoord-20261127/TASK_MATRIX.json'
+      - 'docs/coordination/clinical-minimal-http-20261127/CLINICAL_MINIMAL_HTTP_QA.json'
+      - 'STATE.md'
+      - '.github/workflows/emergency-mcp.yml'
+  push:
+    branches: ['codex/**']
+    paths:
+      - 'tools/emergency-mcp/**'
+      - 'clinical/scripts/emergency_mcp_readonly.py'
+      - 'clinical/tests/test_emergency_mcp_readonly.py'
+      - 'clinical/modules/**'
+      - 'clinical/references/**'
+      - 'clinical/qa/R54_MEDICAL_OWNER_DECISIONS_20261124.json'
+      - 'clinical/qa/global-medication-audit-v144/**'
+      - 'clinical/pharmacology/corticosteroids.json'
+      - 'clinical/scripts/build_project_graph.py'
+      - 'docs/coordination/supercoord-20261127/TASK_MATRIX.json'
+      - 'docs/coordination/clinical-minimal-http-20261127/CLINICAL_MINIMAL_HTTP_QA.json'
+      - 'STATE.md'
+      - '.github/workflows/emergency-mcp.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: pwsh
+jobs:
+  stdio-contract:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - name: Set up Python3.12
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
+      - name: Install Windows SDK runtime from locked binary wheels
+        run: |
+          python -m pip install --disable-pip-version-check --no-input --only-binary=:all: --require-hashes -r tools/emergency-mcp/requirements-lock.txt
+      - name: Verify canonical readers and source protection
+        run: python -B -X utf8 -m unittest discover -s clinical/tests -p test_emergency_mcp_readonly.py -v
+      - name: Verify real stdio initialize, tools and semantic results
+        run: python -B -X utf8 tools/emergency-mcp/verify_protocol.py --output mcp-protocol-receipt.json
+      - name: Upload verified metadata receipt only
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: emergency-mcp-protocol-${{ github.run_id }}-${{ github.run_attempt }}
+          path: mcp-protocol-receipt.json
+          if-no-files-found: error
+          retention-days: 7

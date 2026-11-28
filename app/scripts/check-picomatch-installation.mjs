@@ -33,7 +33,10 @@ if (mode === 'explicit-apply') {
   const scripts = JSON.parse(fs.readFileSync(path.join(app, 'package.json'), 'utf8')).scripts;
   for (const name of Object.keys(scripts).filter(name => !(name.startsWith('pre') && Object.hasOwn(scripts, name.slice(3))) && name !== 'postinstall' && !name.startsWith('security:'))) {
     const hook = `pre${name}`;
-    assert.equal(scripts[hook], 'node scripts/picomatch-mitigation.mjs --check', `Missing guard for ${name}`);
+    const expectedGuard = ['dev', 'build'].includes(name)
+      ? 'node scripts/check-dermatology-asset-admission.mjs && node scripts/picomatch-mitigation.mjs --check'
+      : 'node scripts/picomatch-mitigation.mjs --check';
+    assert.equal(scripts[hook], expectedGuard, `Missing guard for ${name}`);
     run(`${hook} refuses unguarded dependencies`, [process.env.npm_execpath, 'run', hook], 1, /Guard absent/);
   }
   run('explicit apply', [controller, '--apply'], 0);
