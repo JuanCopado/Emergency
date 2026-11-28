@@ -33,6 +33,8 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
   const [finalEdited, setFinalEdited] = useNoteDraftField('workspaceFinalEdited');
   const [status, setStatus] = useState('');
   const proposalHeading = useRef<HTMLHeadingElement>(null);
+  const composing = useRef(false);
+  const copyRevision = useRef(0);
 
   const labels = copy.labels as Record<SectionField, string>;
   const stale = source !== null && source !== text;
@@ -69,23 +71,26 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
   }
 
   function generate() {
-    if (!sections) return;
+    if (!sections || stale) return;
     if (finalEdited && !window.confirm(copy.regenerateConfirm)) return;
     setFinalText(assembleDocument(sections, labels));
     setFinalEdited(false);
+    copyRevision.current += 1;
+    setStatus('');
   }
 
   async function copyFinal() {
+    const revision = copyRevision.current;
     try {
       await navigator.clipboard.writeText(finalText);
-      setStatus(copy.copied);
+      if (revision === copyRevision.current) setStatus(copy.copied);
     } catch {
-      setStatus(copy.copyFailed);
+      if (revision === copyRevision.current) setStatus(copy.copyFailed);
     }
   }
 
   function apply() {
-    if (!sections) return;
+    if (!sections || stale) return;
     const plan = planApplication(sections, current);
     const changed = (Object.keys(plan.next) as NoteField[]).filter(field => plan.next[field] !== current[field]);
     if (!plan.appliedIds.length && !plan.alreadyPresentIds.length) {
@@ -118,8 +123,11 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
               autoComplete="off"
               spellCheck
               placeholder={copy.originalPlaceholder}
-              onChange={event => setText(event.target.value)}
+              onChange={event => { setText(event.target.value); setStatus(''); }}
+              onCompositionStart={() => { composing.current = true; }}
+              onCompositionEnd={() => { composing.current = false; }}
               onKeyDown={event => {
+                if (composing.current || event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) return;
                 if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); structure(); }
               }}
             />
@@ -172,7 +180,7 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
             </div>
           )}
           <div className="mt-3">
-            <button type="button" className="btn-ghost min-h-11" disabled={!sections?.length} onClick={apply} data-testid="free-text-apply">{copy.apply}</button>
+            <button type="button" className="btn-ghost min-h-11" disabled={!sections?.length || stale} onClick={apply} data-testid="free-text-apply">{copy.apply}</button>
             <p className="mt-2 text-xs text-muted">{copy.applyHint}</p>
           </div>
         </div>
@@ -180,9 +188,10 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
 
       <div className={card}>
         <h3 className="font-bold">{copy.finalTitle}</h3>
+        {finalEdited && <span className="chip">{copy.edited}</span>}
         <p className="mt-1 text-sm text-muted">{copy.finalHint}</p>
         <div className="mt-3 flex flex-wrap gap-2">
-          <button type="button" className="btn-primary min-h-11" disabled={!sections?.length} onClick={generate} data-testid="free-text-generate">
+          <button type="button" className="btn-primary min-h-11" disabled={!sections?.length || stale} onClick={generate} data-testid="free-text-generate">
             {finalText ? copy.regenerate : copy.generate}
           </button>
           <button type="button" className="btn-ghost min-h-11" disabled={!finalText.trim()} onClick={() => void copyFinal()} data-testid="free-text-copy">{copy.copy}</button>
@@ -195,7 +204,7 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
             data-testid="free-text-final"
             className="input mt-1 min-h-[14rem] resize-y leading-relaxed"
             value={finalText}
-            onChange={event => { setFinalText(event.target.value); setFinalEdited(true); }}
+            onChange={event => { setFinalText(event.target.value); setFinalEdited(true); copyRevision.current += 1; setStatus(''); }}
           />
         </label>
       </div>
