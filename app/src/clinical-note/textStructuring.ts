@@ -61,6 +61,13 @@ const LOOKUP = new Map<string, SectionField>(
   (Object.entries(ALIASES) as [SectionField, string[]][]).flatMap(([field, names]) => names.map(name => [fold(name), field] as const)),
 );
 
+/** Linear-time trim of trailing characters (avoids backtracking-prone `+$` patterns). */
+function trimEndChars(text: string, chars: string): string {
+  let end = text.length;
+  while (end > 0 && chars.includes(text.charAt(end - 1))) end -= 1;
+  return text.slice(0, end);
+}
+
 type Heading = { field: SectionField; label: string; rest: string };
 
 function detectHeading(line: string): Heading | null {
@@ -68,10 +75,10 @@ function detectHeading(line: string): Heading | null {
   const stripped = noEol.replace(/^[\s#*_>\-•·\d.)(]*/u, '');
   const colon = stripped.search(/[:：]/);
   if (colon > 0 && colon <= 60) {
-    const field = LOOKUP.get(fold(stripped.slice(0, colon).replace(/[*_\s]+$/u, '')));
+    const field = LOOKUP.get(fold(trimEndChars(stripped.slice(0, colon), '*_ \t\r\n\f\v\u00a0')));
     if (field) return { field, label: stripped.slice(0, colon + 1), rest: stripped.slice(colon + 1).replace(/^[*_\s]+/u, '') };
   }
-  const whole = fold(stripped.replace(/[*_\s:：.\-–—]+$/u, ''));
+  const whole = fold(trimEndChars(stripped, '*_ \t\r\n\f\v\u00a0:：.-–—'));
   const field = whole ? LOOKUP.get(whole) : undefined;
   return field ? { field, label: stripped.trim(), rest: '' } : null;
 }
@@ -128,7 +135,7 @@ export function assembleDocument(sections: WorkspaceSection[], labels: Record<Se
 export function appendToField(current: string, addition: string): { value: string; changed: boolean } {
   const text = addition.trim();
   if (!text || current.includes(text)) return { value: current, changed: false };
-  return { value: current.trim() ? `${current.replace(/\s+$/, '')}\n${text}` : text, changed: true };
+  return { value: current.trim() ? `${trimEndChars(current, ' \t\r\n\f\v\u00a0')}\n${text}` : text, changed: true };
 }
 
 export type ApplicationPlan = {
