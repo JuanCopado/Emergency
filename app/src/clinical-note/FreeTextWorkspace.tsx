@@ -41,7 +41,13 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
   const identifierWarning = hasIdentifier(text) || hasIdentifier(finalText);
 
   function update(id: string, patch: Partial<WorkspaceSection>) {
-    setSections(previous => (previous ?? []).map(section => (section.id === id ? { ...section, ...patch } : section)));
+    setSections(previous => (previous ?? []).map(section => {
+      if (section.id !== id) return section;
+      const changed = (patch.body !== undefined && patch.body !== section.body)
+        || (patch.field !== undefined && patch.field !== section.field)
+        || (patch.include !== undefined && patch.include !== section.include);
+      return { ...section, ...patch, ...(changed ? { applied: false } : {}) };
+    }));
   }
 
   function structure() {
@@ -165,6 +171,10 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
               })}
             </div>
           )}
+          <div className="mt-3">
+            <button type="button" className="btn-ghost min-h-11" disabled={!sections?.length} onClick={apply} data-testid="free-text-apply">{copy.apply}</button>
+            <p className="mt-2 text-xs text-muted">{copy.applyHint}</p>
+          </div>
         </div>
       </div>
 
@@ -176,10 +186,9 @@ export default function FreeTextWorkspace({ current, onApply, onGoExport, hasIde
             {finalText ? copy.regenerate : copy.generate}
           </button>
           <button type="button" className="btn-ghost min-h-11" disabled={!finalText.trim()} onClick={() => void copyFinal()} data-testid="free-text-copy">{copy.copy}</button>
-          <button type="button" className="btn-ghost min-h-11" disabled={!sections?.length} onClick={apply} data-testid="free-text-apply">{copy.apply}</button>
           <button type="button" className="btn-ghost min-h-11" onClick={onGoExport}>{copy.goExport}</button>
         </div>
-        <p className="mt-2 text-xs text-muted">{copy.applyHint}</p>
+        <p className="mt-2 text-xs text-muted">{copy.finalExportHint}</p>
         <label className="mt-3 block">
           <span className="label">{copy.finalLabel}</span>
           <textarea

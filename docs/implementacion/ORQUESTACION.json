@@ -8,11 +8,11 @@
   "observed_receiver": "fa2381dcfe77253f575ac843860b3167125f1e1e",
   "observed_candidate": {
     "pr": 137,
-    "sha": "b54301e891110715ed9a388723155f8c354b07b6",
-    "tree": "e26de7d86d9bf4277260ff4a75ab939f8e1958bd",
-    "state": "ISOLATED_DRAFT_NOT_MERGED",
-    "ci": "Exact final HEAD checked externally at https://github.com/JuanCopado/Emergency/pull/137/checks; no inherited PASS",
-    "audit": "Static composition favorable plus native C acceptance measured; original Claude FINDINGS retained and triaged"
+    "sha": "9c64cf1ece251a24f2c2bb8cf7982822991f8403",
+    "tree": "3717482b484d81419af35a540e2243ba113e19d3",
+    "state": "DISTRIBUTION_D_VERIFIED_DRAFT_NOT_MERGED",
+    "ci": "21/21 checks and 8/8 workflows PASS on this exact source, external receipt retained",
+    "audit": "Antigravity technical D/KIT and QA acceptance scoped to exact signed distribution"
   },
   "scope": "individual_emergency_physician",
   "parallel_to_clinical_closure": true,
@@ -530,7 +530,9 @@
       "previous_local_preparation_status": "DELIVERED_LAB_VERIFIED",
       "integration_status": "DELIVERED_INTEGRATED_LAB_VERIFIED",
       "integration_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
-      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external"
+      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external",
+      "delta_review_reference": "docs/implementacion/CONCILIACION_PR138_PR139.md",
+      "baseline_acceptance_scope": "Signed D source9c64 retained; new note/MCP deltas require their own exact-source receipts"
     },
     {
       "id": "IMP-04",
@@ -777,7 +779,9 @@
       "previous_local_preparation_status": "FAVORABLE_CODE_AND_LAB_SCOPE",
       "integration_status": "FAVORABLE_COMPOSITION_AND_LAB_SCOPE",
       "integration_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
-      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external"
+      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external",
+      "delta_review_reference": "docs/implementacion/CONCILIACION_PR138_PR139.md",
+      "baseline_acceptance_scope": "Signed D source9c64 retained; new note/MCP deltas require their own exact-source receipts"
     },
     {
       "id": "IMP-10",
@@ -845,7 +849,9 @@
       "previous_local_preparation_status": "CONSOLIDATED_PREINTEGRATION",
       "integration_status": "CONSOLIDATED_ISOLATED_CANDIDATE",
       "integration_source_sha": "b54301e891110715ed9a388723155f8c354b07b6",
-      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external"
+      "integration_evidence": "docs/implementacion/INTEGRACION_TOTAL_V07.md; TOTAL_NATIVE_CANONICAL_FINAL.json; exact final HEAD CI receipt external",
+      "delta_review_reference": "docs/implementacion/CONCILIACION_PR138_PR139.md",
+      "baseline_acceptance_scope": "Signed D source9c64 retained; new note/MCP deltas require their own exact-source receipts"
     },
     {
       "id": "IMP-11",
@@ -1151,5 +1157,34 @@
     "clinical": "CLINICALLY_PENDING",
     "release": "NO_GO_CLINICAL_RELEASE",
     "merge_authorized": false
+  },
+  "historical_observed_candidate_before_pr138_139": {
+    "pr": 137,
+    "sha": "b54301e891110715ed9a388723155f8c354b07b6",
+    "tree": "e26de7d86d9bf4277260ff4a75ab939f8e1958bd",
+    "state": "ISOLATED_DRAFT_NOT_MERGED",
+    "ci": "Exact final HEAD checked externally at https://github.com/JuanCopado/Emergency/pull/137/checks; no inherited PASS",
+    "audit": "Static composition favorable plus native C acceptance measured; original Claude FINDINGS retained and triaged"
+  },
+  "delta_conciliation_20261128": {
+    "source_prs": {
+      "138": "28aff2f6f56ab26373bea0fd2eb0f39196ffc215",
+      "139": "49a417bad01a35aa46ce909d3c948d0093c8554e"
+    },
+    "review_branch": "work/conciliate-pr138-pr139-20261128",
+    "document": "docs/implementacion/CONCILIACION_PR138_PR139.md",
+    "source_prs_modified": false,
+    "protected_merge_authorized": false,
+    "new_package_created": false,
+    "ci_and_audit": "Exact final source results recorded externally; no inherited PASS",
+    "confirmed_fixes": [
+      "Whole-line block duplicate comparison preserves negations and numbers",
+      "Proposal application explicitly separate from editable copy and canonical exports",
+      "Applied indicator invalidated after section edit"
+    ],
+    "new_control": "MCP locked-wheel installation and stdio Windows/Ubuntu Python3.12",
+    "new_features": false,
+    "clinical": "CLINICALLY_PENDING",
+    "release": "NO_GO_CLINICAL_RELEASE"
   }
 }

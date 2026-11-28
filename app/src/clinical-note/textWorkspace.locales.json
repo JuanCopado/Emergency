@@ -33,11 +33,11 @@
   "copy": "Copiar documento",
   "copied": "Documento copiado al portapapeles.",
   "copyFailed": "No se pudo copiar. Seleccione el texto y cópielo manualmente.",
-  "apply": "Aplicar a la nota",
-  "applyHint": "Añade cada sección a su campo de la nota. Nunca sobrescribe lo ya escrito.",
+  "apply": "Aplicar propuesta a la nota",
+  "applyHint": "Añade las secciones de esta propuesta a los campos de la nota, sin sobrescribir. No aplica las ediciones del documento libre de abajo.",
   "applyDone": "{{applied}} secciones añadidas a la nota; {{same}} ya estaban; {{none}} sin campo de destino (permanecen solo en el documento).",
   "applyNothing": "No hay secciones con destino que añadir.",
-  "goExport": "Ir a Exportar",
+  "goExport": "Ver exportación de la nota",
   "privacy": "Posible identificador directo en el texto. Revíselo antes de copiar, aplicar o exportar.",
   "labels": {
    "chief": "Motivo de consulta",
@@ -51,7 +51,8 @@
    "tests": "Pruebas complementarias",
    "evolution": "Evolución",
    "unassigned": "Sin clasificar"
-  }
+  },
+  "finalExportHint": "Esta copia editable solo se copia al portapapeles. PDF y Word exportan los campos de la nota; no incluyen esta copia ni sus ediciones."
  },
  "en": {
   "tab": "Free text",
@@ -87,11 +88,11 @@
   "copy": "Copy document",
   "copied": "Document copied to the clipboard.",
   "copyFailed": "Copy failed. Select the text and copy it manually.",
-  "apply": "Apply to the note",
-  "applyHint": "Adds each section to its note field. It never overwrites what is already written.",
+  "apply": "Apply proposal to the note",
+  "applyHint": "Adds the sections of this proposal to the note fields without overwriting. It does not apply edits made in the free document below.",
   "applyDone": "{{applied}} sections added to the note; {{same}} were already there; {{none}} have no destination field (they stay in the document only).",
   "applyNothing": "There are no sections with a destination to add.",
-  "goExport": "Go to Export",
+  "goExport": "View note export",
   "privacy": "Possible direct identifier in the text. Review it before copying, applying or exporting.",
   "labels": {
    "chief": "Chief complaint",
@@ -105,7 +106,8 @@
    "tests": "Investigations",
    "evolution": "Course",
    "unassigned": "Unclassified"
-  }
+  },
+  "finalExportHint": "This editable copy can only be copied to the clipboard. PDF and Word export the note fields; they do not include this copy or its edits."
  },
  "pt": {
   "tab": "Texto livre",
@@ -141,11 +143,11 @@
   "copy": "Copiar documento",
   "copied": "Documento copiado para a área de transferência.",
   "copyFailed": "Não foi possível copiar. Selecione o texto e copie-o manualmente.",
-  "apply": "Aplicar à nota",
-  "applyHint": "Acrescenta cada secção ao respetivo campo da nota. Nunca substitui o que já está escrito.",
+  "apply": "Aplicar proposta à nota",
+  "applyHint": "Acrescenta as secções desta proposta aos campos da nota, sem substituir. Não aplica as edições do documento livre abaixo.",
   "applyDone": "{{applied}} secções acrescentadas à nota; {{same}} já lá estavam; {{none}} sem campo de destino (ficam só no documento).",
   "applyNothing": "Não há secções com destino para acrescentar.",
-  "goExport": "Ir para Exportar",
+  "goExport": "Ver exportação da nota",
   "privacy": "Possível identificador direto no texto. Reveja-o antes de copiar, aplicar ou exportar.",
   "labels": {
    "chief": "Motivo de consulta",
@@ -159,7 +161,8 @@
    "tests": "Exames complementares",
    "evolution": "Evolução",
    "unassigned": "Sem classificação"
-  }
+  },
+  "finalExportHint": "Esta cópia editável destina-se apenas a copiar para a área de transferência. PDF e Word exportam os campos da nota; não incluem esta cópia nem as suas edições."
  },
  "zh": {
   "tab": "自由文本",
@@ -195,11 +198,11 @@
   "copy": "复制文档",
   "copied": "文档已复制到剪贴板。",
   "copyFailed": "复制失败。请选中文本后手动复制。",
-  "apply": "应用到记录",
-  "applyHint": "将每个部分添加到记录的对应字段。绝不覆盖已写内容。",
+  "apply": "将结构建议应用到记录",
+  "applyHint": "将此建议的各部分添加到记录字段，不覆盖已有内容。不会应用对下方自由文档所做的编辑。",
   "applyDone": "已向记录添加 {{applied}} 个部分；{{same}} 个已存在；{{none}} 个没有目标字段（仅保留在文档中）。",
   "applyNothing": "没有可添加的带目标字段的部分。",
-  "goExport": "前往导出",
+  "goExport": "查看记录导出",
   "privacy": "文本中可能含有直接标识符。复制、应用或导出前请先检查。",
   "labels": {
    "chief": "主诉",
@@ -213,6 +216,7 @@
    "tests": "辅助检查",
    "evolution": "病程",
    "unassigned": "未分类"
-  }
+  },
+  "finalExportHint": "此可编辑副本仅可复制到剪贴板。PDF 和 Word 导出记录字段，不包含此副本或其编辑。"
  }
 }

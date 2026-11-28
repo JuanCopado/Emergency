@@ -127,7 +127,15 @@ export function assembleDocument(sections: WorkspaceSection[], labels: Record<Se
 /** Adds text to a note field without ever overwriting or duplicating what is already there. */
 export function appendToField(current: string, addition: string): { value: string; changed: boolean } {
   const text = addition.trim();
-  if (!text || current.includes(text)) return { value: current, changed: false };
+  if (!text) return { value: current, changed: false };
+  // Only complete consecutive lines establish that this exact block is present.
+  // A substring can reverse context ("asma" inside "sin asma") or change a number.
+  const existing = current.split(/\r?\n/);
+  const incoming = text.split(/\r?\n/);
+  const alreadyPresent = existing.some((_, start) =>
+    incoming.every((line, offset) => existing[start + offset] === line),
+  );
+  if (alreadyPresent) return { value: current, changed: false };
   return { value: current.trim() ? `${current.replace(/\s+$/, '')}\n${text}` : text, changed: true };
 }
 

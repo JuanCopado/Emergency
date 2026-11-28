@@ -78,6 +78,39 @@ describe('assembleDocument', () => {
 });
 
 describe('appendToField / planApplication', () => {
+  it.each([
+    ['Sin asma', 'asma'],
+    ['Sin alergia a penicilina', 'alergia a penicilina'],
+    ['Observación 24 horas', '4 horas'],
+    ['prefijo HTA sufijo', 'HTA'],
+  ])('does not suppress a substring in a different context: %s / %s', (current, addition) => {
+    expect(appendToField(current, addition)).toEqual({ value: `${current}\n${addition}`, changed: true });
+  });
+
+  it('recognises only complete consecutive multiline blocks, including CRLF', () => {
+    expect(appendToField('Antes\nprimera\nsegunda\nDespués', 'primera\nsegunda')).toEqual({
+      value: 'Antes\nprimera\nsegunda\nDespués', changed: false,
+    });
+    expect(appendToField('Antes\r\nprimera\r\nsegunda\r\nDespués', 'primera\nsegunda')).toEqual({
+      value: 'Antes\r\nprimera\r\nsegunda\r\nDespués', changed: false,
+    });
+    expect(appendToField('primera\nintermedio\nsegunda', 'primera\nsegunda').changed).toBe(true);
+    expect(appendToField('prefijo primera\nsegunda sufijo', 'primera\nsegunda').changed).toBe(true);
+  });
+
+  it('preserves a new affirmative section after a negation and remains idempotent on reapplication', () => {
+    const sections = structureText('Alergias: alergia a penicilina');
+    const current = { ...empty(), allergies: 'Sin alergia a penicilina' };
+    const first = planApplication(sections, current);
+    expect(first.next.allergies).toBe('Sin alergia a penicilina\nalergia a penicilina');
+    expect(first.appliedIds).toEqual(['s0']);
+    expect(first.alreadyPresentIds).toEqual([]);
+    const second = planApplication(sections, first.next);
+    expect(second.next).toEqual(first.next);
+    expect(second.appliedIds).toEqual([]);
+    expect(second.alreadyPresentIds).toEqual(['s0']);
+  });
+
   it('appends without overwriting and never duplicates', () => {
     expect(appendToField('', ' HTA ')).toEqual({ value: 'HTA', changed: true });
     expect(appendToField('DM2\n', 'HTA')).toEqual({ value: 'DM2\nHTA', changed: true });
