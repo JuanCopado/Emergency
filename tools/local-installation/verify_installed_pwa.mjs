@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {spawn,execFileSync} from 'node:child_process';
 import readline from 'node:readline';
 import {randomUUID} from 'node:crypto';
+import {tmpdir} from 'node:os';
 import {chromium} from '../../app/node_modules/playwright-core/index.mjs';
 const repository=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const root=path.resolve(process.argv[2]);
@@ -18,6 +19,15 @@ const result={synthetic_only:true,steps:[],errors:[],native_pwa:{status:'NOT_EXE
 let context,session,owned,manifestId,nativeInstalled=false,diagnosticPage;
 result.console_errors=[];result.request_failures=[];result.worker_fetches=[];
 result.worker_checkpoints=[];
+result.external_request_provenance=[];
+result.blocked_external_attempts=[];
+const externallyBlockedRequests=new WeakSet(),requestProvenance=new WeakMap();
+function isChromeNewTabBackground(row){
+ return row.topURL==='chrome://new-tab-page/'
+  &&row.frameURL==='chrome-untrusted://new-tab-page/one-google-bar'
+  &&row.serviceWorkerProvenanceKnown===true
+  &&row.serviceWorkerURL===null;
+}
 result.startup_evidence_note='Prior async waitForFunction boolean startup claims are invalid: installed Playwright polls Promise truthiness without awaiting the predicate. This run uses strict resolved Node polling.';
 result.worker_startup_polls=[];
 function progress(phase){
@@ -206,7 +216,8 @@ try{
  result.executable='C:/Program Files/Google/Chrome/Application/chrome.exe';
  // Fresh profile per attempt; the same profile is retained throughout A/B/A.
  // Previous attempts and their waiting service workers remain untouched.
- result.owned_profile=path.resolve(proof.installer_root,'../OWNED_BROWSER_PROFILE_'+a.source_sha.slice(0,12)+'_'+randomUUID());
+ result.owned_profile=path.join(tmpdir(),'emg-pwa-'+randomUUID().slice(0,12));
+ assert.equal(fs.existsSync(result.owned_profile),false,'Native acceptance requires a fresh, short owned profile');
  context=await chromium.launchPersistentContext(result.owned_profile,{executablePath:result.executable,headless:false,viewport:{width:1280,height:900},args:['--no-first-run','--no-default-browser-check']});
  result.browser=context.browser().version();
  context.setDefaultTimeout(35000);context.setDefaultNavigationTimeout(45000);
@@ -214,7 +225,19 @@ try{
  context.on('page',page=>{observe(page);page.on('pageerror',e=>errors.push(e.message));});
  context.on('requestfailed',request=>{if(result.request_failures.length<100)result.request_failures.push({url:safeAddress(request.url()),failure:request.failure()?.errorText});});
  context.on('response',response=>{if(/\/(?:sw\.js|workbox[^/]*)/.test(new URL(response.url()).pathname)&&result.worker_fetches.length<100)result.worker_fetches.push({url:safeAddress(response.url()),status:response.status()});});
- context.on('request',request=>{const u=request.url();if(/^https?:/.test(u)&&new URL(u).origin!==origin)externals.push(u)});
+ context.on('request',request=>{
+  const u=request.url();if(!/^https?:/.test(u)||new URL(u).origin===origin)return;
+  externals.push(u); // Preserve the existing strict nonlocal-request assertion.
+  const provenance={url:safeAddress(u),frameURL:null,topURL:null,serviceWorkerURL:null,serviceWorkerProvenanceKnown:false,resourceType:request.resourceType(),navigation:request.isNavigationRequest(),blocked:externallyBlockedRequests.has(request)};
+  try{const frame=request.frame();provenance.frameURL=frame.url().split(/[?#]/,1)[0];provenance.topURL=frame.page().url().split(/[?#]/,1)[0];}catch{/* Service worker requests do not have a Frame. */}
+  try{
+   const worker=request.serviceWorker();
+   provenance.serviceWorkerURL=worker===null?null:worker.url().split(/[?#]/,1)[0];
+   provenance.serviceWorkerProvenanceKnown=true;
+  }catch(error){provenance.serviceWorkerProvenanceError=String(error).slice(0,300);}
+  result.external_request_provenance.push(provenance);
+  requestProvenance.set(request,provenance);
+ });
  let page=context.pages()[0]??await context.newPage();
  diagnosticPage=page;observe(page);progress('initial-navigation-A');
  page.on('pageerror',e=>errors.push(e.message));
@@ -227,7 +250,14 @@ try{
  progress('local-api-A');
  assert.equal((await api(page,a.source_sha)).status,200);
  // WAN is blocked while localhost remains available: local deterministic API works.
- await context.route('**/*',route=>/^https?:/.test(route.request().url())&&new URL(route.request().url()).origin!==origin?route.abort():route.continue());
+ await context.route('**/*',route=>{
+  const request=route.request(),url=request.url();
+  if(/^https?:/.test(url)&&new URL(url).origin!==origin){
+   externallyBlockedRequests.add(request);const provenance=requestProvenance.get(request);if(provenance)provenance.blocked=true;
+   result.blocked_external_attempts.push(safeAddress(url));return route.abort();
+  }
+  return route.continue();
+ });
  assert.equal((await api(page,a.source_sha,'/api/clinical-scores/catalog',{})).status,200);
  assert.equal((await api(page,a.source_sha,'/api/blood-gas/session',{})).status,503);
  for(const p of ['/backend/runtime.json','/backend/launcher/individual_cli.py'])assert.notEqual((await page.request.get(origin+p)).status(),200);
@@ -356,7 +386,17 @@ try{
  assert.equal(outage.network_failed,true);
  await page.screenshot({path:path.join(root,'EVIDENCIAS/A_ROLLBACK_OFFLINE.png'),fullPage:true});
  result.steps.push({test:'Explicit B→A rollback, preferences retained; server stopped and browser offline, cached calculator5.3, API fails explicitly',status:'PASS',outage});
- assert.deepEqual(errors,[]);assert.deepEqual(externals,[]);result.page_errors=errors;result.external_requests=externals;
+ result.page_errors=errors;
+ result.all_session_external_attempts=externals;
+ result.browser_background_requests=result.external_request_provenance.filter(isChromeNewTabBackground);
+ result.application_or_unknown_external_requests=result.external_request_provenance.filter(row=>!isChromeNewTabBackground(row));
+ result.external_requests=result.application_or_unknown_external_requests.map(row=>row.url);
+ result.network_assertion_scope='Application, unknown-frame and service-worker external requests must be zero; exact Chrome New Tab UI provenance is recorded separately, including route blocking.';
+ assert.deepEqual(errors,[]);assert.deepEqual(result.application_or_unknown_external_requests,[]);
+ assert.ok(result.browser_background_requests.every(row=>row.blocked===true),'Chrome background attempts must also be blocked');
+ // Every observed external attempt must have provenance; an unknown remains a failure.
+ assert.equal(result.external_request_provenance.length,externals.length);
+ result.full_update_rollback={status:'PASS',scope:'NATIVE_PWA_A_B_A_AND_CACHED_FRONTEND_OFFLINE'};
  }
  }
 }catch(error){result.failure_phase=result.progress;result.errors.push(String(error));await workerDiagnostic();progress('FAILED');process.exitCode=1;}

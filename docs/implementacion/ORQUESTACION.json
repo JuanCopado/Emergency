@@ -1,7 +1,7 @@
 {
   "schema": "emergency.implementation.orchestration.v1",
   "plan_id": "IMP-20261127",
-  "version": "0.5",
+  "version": "0.6",
   "plan": "docs/IMPLEMENTACION.md",
   "review": "docs/implementacion/CLAUDE_REVIEW.md",
   "branch": "docs/implementacion-viva-20261127",
@@ -222,7 +222,7 @@
           "Installed target is explicitly Python3.12 win-amd64, interpreter not redistributed",
           "CSP is not OS egress isolation; worker controls and same-user limits separately tested",
           "Temporary cleanup is not secure erasure; user-saved exports are preserved",
-          "RAG/PR129–133 are not cancelled or incorporated by excluding them from this package",
+          "RAG/PR129â€“133 are not cancelled or incorporated by excluding them from this package",
           "No clinical, regulatory or runtime audit approval by Claude"
         ]
       },
@@ -358,48 +358,54 @@
       "dependencies": [
         "IMP-00"
       ],
-      "status": "DELIVERED_PARTIAL_SW_ACTIVATION_UNVERIFIED",
+      "status": "DELIVERED_LAB_VERIFIED",
       "objective": "Consolidate reproducible local installation, update and rollback using existing artifacts",
       "acceptance": "Accepted relevant IMP-00 deliverable, artifact integrity and only missing synthetic/offline/privacy checks; preserve existing engines and prior results",
       "receipt": {
         "task_id": "IMP-03",
         "agent": "Codex / Work",
-        "timestamp_utc": "2026-11-27T23:49:14.606630+00:00",
+        "timestamp_utc": "2026-11-28T00:08:23.147224+00:00",
         "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
         "pr": 136,
-        "deliverable_path_or_commit": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md",
-        "measured": {
-          "local_tests": 94,
-          "local_passed": 93,
-          "local_skipped": 1,
-          "skip": "Native symlink privilege1314",
-          "windows_ci_tests": 94,
-          "windows_ci_passed": 94,
-          "ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
-          "ci_jobs_passed": 10,
-          "react_tests_passed": 1186,
-          "clinical_tests_run": 1779,
-          "clinical_skipped": 21,
-          "fresh_install_seconds": 23.297,
-          "signed_payload_files": 138,
-          "native_opening": "PASS by same target, new OS window, standalone and exact A SHA",
-          "manual_documents": "PASS A/B/A only; same origin, preferences, open draft, stale API409, denied unseen routes",
-          "installed_pwa_upgrade": "NOT_VERIFIED",
-          "cached_offline": "NOT_VERIFIED"
+        "acceptance": "DELIVERED_LAB_VERIFIED",
+        "integrity": "Ed25519 owner pin and official same-Git wheel pins;138payload files",
+        "installation": "Fresh Windows Python3.12x64 verifier/runtime offline install23.297s; interpreter prerequisite not redistributed",
+        "tests": {
+          "local_run": 94,
+          "local_pass": 93,
+          "local_skip": 1,
+          "windows_ci_pass": 94,
+          "ci_complete_source": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+          "ci_jobs_pass": 10,
+          "react_pass": 1186
         },
-        "blocker": {
-          "id": "IMP03-SW-ACTIVATION",
-          "observed": "No activated registration/controller within35seconds,316 resolved probes; sw.js/workbox HTTP200",
-          "cause": "NO_DETERMINADA",
-          "category": "TECHNICAL; not asserted to be an external dependency"
+        "native_acceptance": {
+          "status": "PASS",
+          "method": "PWA.openCurrentPageInApp",
+          "same_profile_A_B_A": true,
+          "strict_registration_and_controller": true,
+          "preferences_retained": true,
+          "old_draft_document_encounter_retained": true,
+          "old_api_409": true,
+          "unseen_old_routes_blocked": true,
+          "rollback": true,
+          "cached_infusion_calculator": true,
+          "api_not_shell_when_server_offline": true,
+          "application_or_unknown_external_requests": 0
         },
-        "limits": [
-          "Windows Python3.12x64 prerequisite; interpreter not redistributed",
-          "OCR/T05/T06 and remote inference are explicitly unavailable in this package",
-          "Worker audit hooks are not an OS sandbox or protection against malicious same-user processes",
-          "Publisher key DPAPI private material is outside repository/OneDrive/delivery; trust fingerprint obtained independently"
+        "evidence": [
+          "RESOLUCION_SW_PERFIL_CORTO.json",
+          "BROWSER_NATIVE_FINAL_PASS.json",
+          "INSTALL_FRESH_B5.json",
+          "CI_90ba359.json"
         ],
-        "next_action": "Resolve service-worker activation and repeat only the missing installed-PWA update/cache acceptance; no clinical re-vote"
+        "limits": [
+          "Measured on JUAN-C Windows/Chrome158 with short owned profile, not a universal browser/path guarantee",
+          "OCR/T05/T06 and remote inference not packaged; compatible local functions only",
+          "Temporary cleanup is not secure erasure; same-user malicious process is outside this trust boundary",
+          "Earlier asynchronous startup claims and global Chrome-background assertion failures remain preserved/retracted in their scope"
+        ],
+        "next_action": "No repeated baseline tests or medical re-vote; future integration/deployment follows its existing gates"
       },
       "closure_criteria": [
         "C2",
@@ -426,46 +432,52 @@
       ],
       "blocker": "Full intended local installation and existing installed-PWA update scope not yet delivered; technical delta remains isolated in PR135",
       "expected_artifact": "Existing local package plus reproducible install/update/rollback receipt",
-      "review_state": "TECHNICAL_DELIVERY_PARTIAL_NOT_INSTALLATION_CLOSURE",
+      "review_state": "NATIVE_LOCAL_LAB_SCOPE_VERIFIED",
       "current_increment": {
         "task_id": "IMP-03",
         "agent": "Codex / Work",
-        "timestamp_utc": "2026-11-27T23:49:14.606630+00:00",
+        "timestamp_utc": "2026-11-28T00:08:23.147224+00:00",
         "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
         "pr": 136,
-        "deliverable_path_or_commit": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md",
-        "measured": {
-          "local_tests": 94,
-          "local_passed": 93,
-          "local_skipped": 1,
-          "skip": "Native symlink privilege1314",
-          "windows_ci_tests": 94,
-          "windows_ci_passed": 94,
-          "ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
-          "ci_jobs_passed": 10,
-          "react_tests_passed": 1186,
-          "clinical_tests_run": 1779,
-          "clinical_skipped": 21,
-          "fresh_install_seconds": 23.297,
-          "signed_payload_files": 138,
-          "native_opening": "PASS by same target, new OS window, standalone and exact A SHA",
-          "manual_documents": "PASS A/B/A only; same origin, preferences, open draft, stale API409, denied unseen routes",
-          "installed_pwa_upgrade": "NOT_VERIFIED",
-          "cached_offline": "NOT_VERIFIED"
+        "acceptance": "DELIVERED_LAB_VERIFIED",
+        "integrity": "Ed25519 owner pin and official same-Git wheel pins;138payload files",
+        "installation": "Fresh Windows Python3.12x64 verifier/runtime offline install23.297s; interpreter prerequisite not redistributed",
+        "tests": {
+          "local_run": 94,
+          "local_pass": 93,
+          "local_skip": 1,
+          "windows_ci_pass": 94,
+          "ci_complete_source": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+          "ci_jobs_pass": 10,
+          "react_pass": 1186
         },
-        "blocker": {
-          "id": "IMP03-SW-ACTIVATION",
-          "observed": "No activated registration/controller within35seconds,316 resolved probes; sw.js/workbox HTTP200",
-          "cause": "NO_DETERMINADA",
-          "category": "TECHNICAL; not asserted to be an external dependency"
+        "native_acceptance": {
+          "status": "PASS",
+          "method": "PWA.openCurrentPageInApp",
+          "same_profile_A_B_A": true,
+          "strict_registration_and_controller": true,
+          "preferences_retained": true,
+          "old_draft_document_encounter_retained": true,
+          "old_api_409": true,
+          "unseen_old_routes_blocked": true,
+          "rollback": true,
+          "cached_infusion_calculator": true,
+          "api_not_shell_when_server_offline": true,
+          "application_or_unknown_external_requests": 0
         },
-        "limits": [
-          "Windows Python3.12x64 prerequisite; interpreter not redistributed",
-          "OCR/T05/T06 and remote inference are explicitly unavailable in this package",
-          "Worker audit hooks are not an OS sandbox or protection against malicious same-user processes",
-          "Publisher key DPAPI private material is outside repository/OneDrive/delivery; trust fingerprint obtained independently"
+        "evidence": [
+          "RESOLUCION_SW_PERFIL_CORTO.json",
+          "BROWSER_NATIVE_FINAL_PASS.json",
+          "INSTALL_FRESH_B5.json",
+          "CI_90ba359.json"
         ],
-        "next_action": "Resolve service-worker activation and repeat only the missing installed-PWA update/cache acceptance; no clinical re-vote"
+        "limits": [
+          "Measured on JUAN-C Windows/Chrome158 with short owned profile, not a universal browser/path guarantee",
+          "OCR/T05/T06 and remote inference not packaged; compatible local functions only",
+          "Temporary cleanup is not secure erasure; same-user malicious process is outside this trust boundary",
+          "Earlier asynchronous startup claims and global Chrome-background assertion failures remain preserved/retracted in their scope"
+        ],
+        "next_action": "No repeated baseline tests or medical re-vote; future integration/deployment follows its existing gates"
       },
       "prior_receipts": [
         {
@@ -499,6 +511,46 @@
           "accepted_prerequisite": false,
           "accepted_delivered_subscope": "Unit-tested static custody/launcher and controlled-root browser A/B/A proof; not full IMP-03 closure",
           "next_action": "Review the finite static increment; define backend/local-runtime delivery and persistent-origin PWA upgrade requirements before declaring complete individual installation"
+        },
+        {
+          "task_id": "IMP-03",
+          "agent": "Codex / Work",
+          "timestamp_utc": "2026-11-27T23:49:14.606630+00:00",
+          "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+          "pr": 136,
+          "deliverable_path_or_commit": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md",
+          "measured": {
+            "local_tests": 94,
+            "local_passed": 93,
+            "local_skipped": 1,
+            "skip": "Native symlink privilege1314",
+            "windows_ci_tests": 94,
+            "windows_ci_passed": 94,
+            "ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+            "ci_jobs_passed": 10,
+            "react_tests_passed": 1186,
+            "clinical_tests_run": 1779,
+            "clinical_skipped": 21,
+            "fresh_install_seconds": 23.297,
+            "signed_payload_files": 138,
+            "native_opening": "PASS by same target, new OS window, standalone and exact A SHA",
+            "manual_documents": "PASS A/B/A only; same origin, preferences, open draft, stale API409, denied unseen routes",
+            "installed_pwa_upgrade": "NOT_VERIFIED",
+            "cached_offline": "NOT_VERIFIED"
+          },
+          "blocker": {
+            "id": "IMP03-SW-ACTIVATION",
+            "observed": "No activated registration/controller within35seconds,316 resolved probes; sw.js/workbox HTTP200",
+            "cause": "NO_DETERMINADA",
+            "category": "TECHNICAL; not asserted to be an external dependency"
+          },
+          "limits": [
+            "Windows Python3.12x64 prerequisite; interpreter not redistributed",
+            "OCR/T05/T06 and remote inference are explicitly unavailable in this package",
+            "Worker audit hooks are not an OS sandbox or protection against malicious same-user processes",
+            "Publisher key DPAPI private material is outside repository/OneDrive/delivery; trust fingerprint obtained independently"
+          ],
+          "next_action": "Resolve service-worker activation and repeat only the missing installed-PWA update/cache acceptance; no clinical re-vote"
         }
       ]
     },
@@ -686,7 +738,7 @@
         "IMP-00",
         "IMP-03"
       ],
-      "status": "FAVORABLE_CODE_SCOPED_RUNTIME_ACCEPTANCE_PENDING",
+      "status": "FAVORABLE_CODE_AND_LAB_SCOPE",
       "objective": "Consolidate exact-candidate QA and missing synthetic individual guard workflows",
       "acceptance": "Reuse e4d3 audit/CI; map C1-C6, run only missing or regression-justified checks; preserve DICOM/search browser policy block and accessibility limits",
       "receipt": null,
@@ -722,14 +774,28 @@
       "blocker": "IMP-03 delivered only in static partial scope; no new Antigravity verdict on PR135; prior credit-limit block is historical, not a new execution",
       "expected_artifact": "Individual-flow C1-C6 evidence map and exact-SHA audit delta if needed",
       "current_increment": {
-        "security": "Independent reviewed official pins, staged verifier and Job gate corrections favorably",
-        "privacy_pwa": "Independent counter regression PASS after stable boundary identity; no remaining static blocker in that scope",
+        "status": "FAVORABLE_CODE_AND_LAB_SCOPE",
         "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
-        "equivalence_reviewed_to": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
-        "runtime_acceptance": "PARTIAL; installed-PWA upgrade and cached offline not verified",
-        "antigravity": "No new request/ack/verdict; current failure is native-window activation, old balance error remains historical",
-        "evidence": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md; private final evidence archive"
-      }
+        "independent_reviewers": "Codex/Work security and privacy/PWA reviewers, separate from implementers",
+        "verified": "Official wheel pins, staged verifier, Job gates, form/draft retention, signed installation and native A/B/A acceptance",
+        "antigravity": "No new verdict; native-window activation failed, historical credit error not adopted as current status",
+        "limits": [
+          "No clinical approval, full WCAG certification, Lighthouse/CoreWebVitals score or universal OS sandbox claim",
+          "Sonar sources exclude tools/local-installation; do not attribute installer coverage"
+        ],
+        "evidence": "Final independent scope annexes and native receipt in private evidence delivery"
+      },
+      "prior_receipts": [
+        {
+          "security": "Independent reviewed official pins, staged verifier and Job gate corrections favorably",
+          "privacy_pwa": "Independent counter regression PASS after stable boundary identity; no remaining static blocker in that scope",
+          "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+          "equivalence_reviewed_to": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+          "runtime_acceptance": "PARTIAL; installed-PWA upgrade and cached offline not verified",
+          "antigravity": "No new request/ack/verdict; current failure is native-window activation, old balance error remains historical",
+          "evidence": "docs/implementacion/RESULTADO_INDIVIDUAL_V05.md; private final evidence archive"
+        }
+      ]
     },
     {
       "id": "IMP-10",
@@ -739,7 +805,7 @@
         "IMP-02",
         "IMP-09"
       ],
-      "status": "DELIVERED_PARTIAL_PENDING_SW_ACCEPTANCE",
+      "status": "CONSOLIDATED_PREINTEGRATION",
       "objective": "Consolidate finite individual-scope technical closure and clinical/regulatory limits",
       "acceptance": "Accepted scope-specific evidence, explicit remaining risks and owner decision packet; conditional infrastructure not a universal gate; clinical release separate",
       "receipt": null,
@@ -771,17 +837,29 @@
       "blocker": "No accepted new IMP-09 audit; partial local scope and applicable activation decisions remain open",
       "expected_artifact": "Finite scope-specific closure/decision packet",
       "current_increment": {
+        "status": "CONSOLIDATED_PREINTEGRATION",
         "pr": 136,
-        "scope": "Same12implementation IDs, existing clinical matrix preserved",
         "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
-        "complete_ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
-        "final_head_ci": "Check PR136 current head; never inherit PASS across new code",
-        "blocker": "IMP03-SW-ACTIVATION technical cause not determined",
-        "external_delivery": "Private FUNCIONAL_20261127 Drive folder; separate byte readback receipts",
-        "PR129_133": "Still open/draft/unmerged; no integration inferred",
+        "permanent_plan": "PR134, version0.6, same12IDs",
+        "dependencies": "PR129–135 remain open/draft/unmerged; protected receiver unchanged",
+        "delivery": "Verified B5 in private FUNCIONAL_20261127; final consolidated archive/readback receipt separate",
         "clinical": "CLINICALLY_PENDING",
         "release": "NO_GO_CLINICAL_RELEASE"
-      }
+      },
+      "prior_receipts": [
+        {
+          "pr": 136,
+          "scope": "Same12implementation IDs, existing clinical matrix preserved",
+          "source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
+          "complete_ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
+          "final_head_ci": "Check PR136 current head; never inherit PASS across new code",
+          "blocker": "IMP03-SW-ACTIVATION technical cause not determined",
+          "external_delivery": "Private FUNCIONAL_20261127 Drive folder; separate byte readback receipts",
+          "PR129_133": "Still open/draft/unmerged; no integration inferred",
+          "clinical": "CLINICALLY_PENDING",
+          "release": "NO_GO_CLINICAL_RELEASE"
+        }
+      ]
     },
     {
       "id": "IMP-11",
@@ -836,33 +914,33 @@
   "closure_criteria": [
     {
       "id": "C1",
-      "criterion": "Alcance individual delimitado y funciones futuras separadas sin exigir sus dependencias al nÃºcleo.",
-      "acceptance": "Cada pendiente tiene finalidad, artefacto, evidencia y dependencia aplicable; una ampliaciÃ³n aplazada no se contabiliza como terminada."
+      "criterion": "Alcance individual delimitado y funciones futuras separadas sin exigir sus dependencias al nÃƒÂºcleo.",
+      "acceptance": "Cada pendiente tiene finalidad, artefacto, evidencia y dependencia aplicable; una ampliaciÃƒÂ³n aplazada no se contabiliza como terminada."
     },
     {
       "id": "C2",
-      "criterion": "Cero defectos crÃ­ticos o altos abiertos que afecten al alcance individual.",
+      "criterion": "Cero defectos crÃƒÂ­ticos o altos abiertos que afecten al alcance individual.",
       "acceptance": "Identidad exacta del candidato, CI y seguridad obligatoria favorables; reutilizar resultados del mismo SHA sin repetirlos sin causa."
     },
     {
       "id": "C3",
-      "criterion": "Integridad clÃ­nica conservada.",
-      "acceptance": "CÃ¡lculos, dosis, unidades, advertencias y contratos coinciden con los canÃ³nicos aprobados; incertidumbres clÃ­nicas materiales permanecen restringidas o pendientes de decisiÃ³n fundada."
+      "criterion": "Integridad clÃƒÂ­nica conservada.",
+      "acceptance": "CÃƒÂ¡lculos, dosis, unidades, advertencias y contratos coinciden con los canÃƒÂ³nicos aprobados; incertidumbres clÃƒÂ­nicas materiales permanecen restringidas o pendientes de decisiÃƒÂ³n fundada."
     },
     {
       "id": "C4",
-      "criterion": "Flujos de guardia sintÃ©ticos ejecutables y trazables.",
-      "acceptance": "En cada flujo: completar la tarea, conservar cifras/unidades, mostrar alertas y fuentes aplicables; cero errores crÃ­ticos observados; registrar incidencias, pasos y tiempo realmente medidos. No equivale a eficacia clÃ­nica."
+      "criterion": "Flujos de guardia sintÃƒÂ©ticos ejecutables y trazables.",
+      "acceptance": "En cada flujo: completar la tarea, conservar cifras/unidades, mostrar alertas y fuentes aplicables; cero errores crÃƒÂ­ticos observados; registrar incidencias, pasos y tiempo realmente medidos. No equivale a eficacia clÃƒÂ­nica."
     },
     {
       "id": "C5",
       "criterion": "Uso individual seguro y comprensible.",
-      "acceptance": "Documentar funcionamiento offline previsto, privacidad local, exportaciÃ³n y limitaciones de accesibilidad; corregir impedimentos relevantes. No exigir impresiÃ³n fÃ­sica o conformidad completa no acreditada como si ya estuvieran comprobadas."
+      "acceptance": "Documentar funcionamiento offline previsto, privacidad local, exportaciÃƒÂ³n y limitaciones de accesibilidad; corregir impedimentos relevantes. No exigir impresiÃƒÂ³n fÃƒÂ­sica o conformidad completa no acreditada como si ya estuvieran comprobadas."
     },
     {
       "id": "C6",
-      "criterion": "Cierre tÃ©cnico separado del clÃ­nico y regulatorio.",
-      "acceptance": "Publicar limitaciones y evidencia del alcance; mantener CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE hasta satisfacer los controles clÃ­nicos/regulatorios realmente aplicables. Aplazar multicÃ©ntricos no valida un mÃ³dulo YELLOW."
+      "criterion": "Cierre tÃƒÂ©cnico separado del clÃƒÂ­nico y regulatorio.",
+      "acceptance": "Publicar limitaciones y evidencia del alcance; mantener CLINICALLY_PENDING y NO_GO_CLINICAL_RELEASE hasta satisfacer los controles clÃƒÂ­nicos/regulatorios realmente aplicables. Aplazar multicÃƒÂ©ntricos no valida un mÃƒÂ³dulo YELLOW."
     }
   ],
   "coordination_observations": {
@@ -981,11 +1059,16 @@
   },
   "historical_local_work_branch": "work/implementacion-coordinada-20261127",
   "local_work_branch": "docs/implementacion-viva-20261127",
-  "increment_scope": "Local signed Python backend and stable-origin PWA; PR129–133 remain independent, not incorporated",
+  "increment_scope": "Local signed Python backend and stable-origin PWA; PR129â€“133 remain independent, not incorporated",
   "implementation_branch": "feat/individual-runtime-20261127",
   "implementation_pr": 136,
   "packaged_source_sha": "ff8f9090e85d48a684e5f9911a2dce0f0c5eddec",
   "verified_ci_source_sha": "90ba359bf5b0595f5d62d5ca195039ab90d29d3c",
-  "technical_delivery": "PARTIAL; actual package installation verified, installed-PWA update/cache acceptance remains blocked",
-  "central_matrix_owner": "Work coordinator; retain latest acknowledged central snapshot and its existing IDs"
+  "technical_delivery": "DELIVERED_LAB_VERIFIED; not clinical release, protected merge, public deployment or universal platform certification",
+  "central_matrix_owner": "Work coordinator; retain latest acknowledged central snapshot and its existing IDs",
+  "resolved_local_blocker": {
+    "id": "IMP03-SW-ACTIVATION",
+    "result": "Accepted with measured short-profile native A/B/A; originals/retractions retained",
+    "evidence": "RESOLUCION_SW_PERFIL_CORTO.json and BROWSER_NATIVE_FINAL_PASS.json in private delivery"
+  }
 }
