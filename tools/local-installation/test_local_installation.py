@@ -294,7 +294,9 @@ class LocalReleaseTests(unittest.TestCase):
             local.install(archive, self.root, expected)
         with local.writer(self.root), self.assertRaises(local.ReleaseError):
             local.select(self.root, version, expected)
-        self.assertFalse((self.root / "writer.lock").exists())
+        self.assertTrue((self.root / "writer.lock").exists())
+        with local.writer(self.root):
+            pass  # Persistent marker is not a held OS lease.
 
     def test_activation_rehash_and_atomic_pointer_failure(self):
         expected, version = self.receive()

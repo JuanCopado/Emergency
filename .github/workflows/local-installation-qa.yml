@@ -29,6 +29,8 @@ jobs:
           python-version: '3.12'
       - name: Legacy package, activation, rollback and HTTP controls
         run: python -m unittest discover -s tools/local-installation -p "test_local_installation.py" -v
+      - name: Process lease and legacy activation regressions
+        run: python -m unittest discover -s tools/local-installation -p "test_installer_residuals.py" -v
 
   individual-windows:
     name: local-installation (Windows individual, real backend fixture)

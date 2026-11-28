@@ -221,16 +221,40 @@ def writer(root):
     root.mkdir(parents=True, exist_ok=True)
     lock = root / "writer.lock"
     no_links(lock)
+    marker = b"emergency.os-writer.v1\n"
+    flags = os.O_RDWR | getattr(os, "O_BINARY", 0) | getattr(os, "O_NOFOLLOW", 0)
     try:
-        descriptor = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-    except FileExistsError as exc:
-        raise ReleaseError("Another writer or unreviewed stale lock exists") from exc
+        descriptor = os.open(lock, flags | os.O_CREAT | os.O_EXCL, 0o600)
+        created = True
+    except FileExistsError:
+        descriptor = os.open(lock, flags)
+        created = False
     try:
-        os.write(descriptor, str(os.getpid()).encode())
-        os.close(descriptor)
+        require(stat.S_ISREG(os.fstat(descriptor).st_mode), "Invalid writer lease file")
+        try:
+            if os.name == "nt":
+                import msvcrt
+                # A fixed byte beyond EOF avoids Windows read-all buffers touching
+                # the mandatory lock when tools inspect the small marker file.
+                os.lseek(descriptor, 1 << 30, os.SEEK_SET)
+                msvcrt.locking(descriptor, msvcrt.LK_NBLCK, 1)
+                os.lseek(descriptor, 0, os.SEEK_SET)
+            else:
+                import fcntl
+                fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            raise ReleaseError("Another writer holds the OS lease") from exc
+        if created:
+            require(os.write(descriptor, marker) == len(marker), "Incomplete writer lease initialization")
+            os.fsync(descriptor)
+        else:
+            require(os.fstat(descriptor).st_size == len(marker) and os.read(descriptor, len(marker)) == marker,
+                    "Legacy or uncertain writer lease requires reviewed recovery; never remove an active lease")
         yield root
     finally:
-        lock.unlink()
+        # Closing releases the OS lease even after process death. Keep the marker:
+        # an old O_EXCL writer must not enter concurrently using a different lease.
+        os.close(descriptor)
 
 
 def atomic_json(path, value):
@@ -353,10 +377,12 @@ def install(archive_path, root, expected):
         return {"version": version, "manifest_sha256": expected, "activated": False}
 
 
-def select(root, version, expected):
+def select(root, version, expected, *, expected_schema=None):
     require(isinstance(version, str) and bool(VERSION.fullmatch(version)), "Invalid release version")
     with writer(root) as root:
         manifest, _ = verify_directory(root / "releases" / version, expected)
+        require(expected_schema is None or manifest["schema"] == expected_schema,
+                "Individual releases require the authenticated individual activation/rollback route")
         require(version == version_id(manifest, expected), "Version/manifest identity mismatch")
         atomic_json(root / "active.json", {"version": version, "manifest_sha256": expected})
     return {"version": version, "active_for_next_launch": True, "open_episodes_changed": False}
@@ -533,7 +559,7 @@ def main():
         elif args.command == "install":
             result = install(args.archive, args.root, args.expected_manifest_sha256)
         elif args.command in {"activate", "rollback"}:
-            result = select(args.root, args.version, args.expected_manifest_sha256)
+            result = select(args.root, args.version, args.expected_manifest_sha256, expected_schema=SCHEMA)
         else:
             with make_server(args.root) as server:
                 print(json.dumps({"url": f"http://127.0.0.1:{server.server_port}", **server.identity}), flush=True)
