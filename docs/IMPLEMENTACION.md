@@ -4,6 +4,10 @@ ID IMP-20261127 - v0.7 - 28/11/2026 - CANDIDATO INTEGRADO AISLADO, NO LIBERACION
 
 [Composicion, funciones y criterios exactos](implementacion/INTEGRACION_TOTAL_V07.md). Se conservan los doce IDs y todas las decisiones anteriores. La referencia v0.4 del encargo y los cortes v0.5/v0.6 siguientes son antecedentes; la version vigente se lee en ORQUESTACION.json. La nueva aceptacion instalada y CI deben acreditarse sobre sus SHA, sin heredar PASS.
 
+## Guía Maestra de Flujo Clínico — estudio del 28/11/2026
+
+[Guía Maestra v0.1](implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md) · [Orquestación del estudio multiagente](implementacion/ORQUESTACION_GUIA_MAESTRA.json). Directriz del propietario: estudiar la experiencia asistencial de guardia (FAST, notas clínicas, tratamiento de diagnóstico establecido, alta, pruebas y alertas) antes de continuar desarrollos de interfaz. Claude, Gemini y Codex tienen encargos de estudio independientes preparados; Work consolida y Antigravity contrasta la síntesis cuando esté disponible. Los encargos están preparados, no se afirma transmisión ni acuse. No constituyen nuevas tareas de implementación: conservan los doce IDs IMP y la matriz clínica existente. Sin activación, cambio de código clínico o autorización asistencial; la reparación técnica autorizada se mantiene separada.
+
 ## Corte focal 28/11/2026 — PR138/139
 
 La [conciliación y correcciones confirmadas](implementacion/CONCILIACION_PR138_PR139.md) conserva IMPLEMENTACIÓN v0.7 y sus doce IDs. PR137 `9c64cf1` y D siguen siendo la referencia distribuida y auditada. PR138 corrige exclusivamente el marcador de plataforma del lock MCP; PR139 requiere las correcciones de pérdida de texto y claridad de aplicación descritas en la adenda. La nueva CI Linux MCP y los controles del flujo de nota se acreditan por SHA en los recibos externos; no heredan instalación, firma, rollback, auditoría o CI de D. No hay nueva funcionalidad, fusión protegida, empaquetado ni liberación clínica autorizados.
