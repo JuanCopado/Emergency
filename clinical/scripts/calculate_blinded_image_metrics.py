@@ -24,6 +24,9 @@ def calculate(data):
     gate = validate(data)
     if gate["errors"]:
         return {"errors": gate["errors"], "metrics": None, "gate": gate}
+    if gate["metrics_eligible"] is not True:
+        return {"errors": ["dataset is not eligible for blinded performance metrics"],
+                "metrics": None, "gate": gate}
 
     tp = fp = tn = fn = abstain = nondiagnostic = 0
     unresolved_positive = unresolved_negative = 0

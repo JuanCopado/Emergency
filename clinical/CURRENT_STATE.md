@@ -1,3 +1,5 @@
+28/11 · Corrección aislada del instrumento de evaluación de imágenes: el calculador respeta `metrics_eligible=false` aunque el solicitante omita/desactive `metrics_requested`. Cuatro negativos fallan antes y pasan después; cuatro controles existentes y CLI sintético observados. Sin cambios de motores, fórmulas, fuentes, estados YELLOW ni `last_checked`; no validación clínica. [Alcance y evidencia](qa/IMAGE_METRIC_ELIGIBILITY_20261128.md). CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
+
 27/11 · Laboratorio funcional aislado sobre receptor fa2381dc (PR127 integrada por autorización expresa). RAG extractivo de gobernanza propia/fixtures separados; FHIR/HL7/DICOM sintéticos sin red hospitalaria; guarda de finalidad dermatológica sin admisión de píxeles. QA focal observada, CI/auditoría del candidato por registrar. Sin dosis, cálculos, last_checked ni validación clínica nueva. docs/coordination/functional-lab-20261127/README.md. CLINICALLY_PENDING · NO_GO_CLINICAL_RELEASE.
 
 ## 27/11/2026 - Consolidación residual verificada
