@@ -1,0 +1,201 @@
+{
+  "schema": "emergency.master-workflow.study-orchestration.v1",
+  "id": "GMFC-20261128",
+  "version": "0.1",
+  "state": "PREPARED_FOR_STUDY_NOT_DISPATCHED",
+  "guide": {
+    "path": "docs/implementacion/GUIA_MAESTRA_FLUJO_CLINICO.md",
+    "commit": "c549dc0e13d9dfe2f2479dcb240c9d3c4fbda605",
+    "blob": "652ad199c28e85799a3306cccd5c6039e70d175a"
+  },
+  "observed_receiver": "50ef5ee684e85dd769255445e78f2f12c40a266c",
+  "observed_candidate": {
+    "pr": 141,
+    "sha": "6a1dcbd971c864f06d5ee66d0989d0709f51379c",
+    "scope": "installer correction; not prerequisite for study"
+  },
+  "parent_plan": "docs/IMPLEMENTACION.md",
+  "parent_orchestration": "docs/implementacion/ORQUESTACION.json",
+  "clinical_matrix": "Existing central Work registry; use current version, not a duplicate",
+  "scope": "Documentary study before further interface implementation; individual emergency clinician; synthetic cases only",
+  "constraints": {
+    "clinical": "CLINICALLY_PENDING",
+    "bank": "NOT_FROZEN_NOT_VALIDATED",
+    "release": "NO_GO_CLINICAL_RELEASE",
+    "new_clinical_approval": false,
+    "clinical_code_changes": false,
+    "new_development_authorized": false,
+    "real_patient_data_authorized": false,
+    "protected_merge_authorized": false,
+    "deployment_authorized": false,
+    "purchases_authorized": false,
+    "existing_imp_task_ids_preserved": 12,
+    "preserve_accepted_contracts": 19,
+    "preserve_formulas": 45
+  },
+  "coordination": {
+    "owner": "Work",
+    "preflight": [
+      "Read AGENTS.md, STATE.md, current IMPLEMENTACION and ORQUESTACION, clinical QA gates and latest central matrix",
+      "Verify receiver, candidate and guide blob; recover prior exact evidence before new research",
+      "Use own Emergency MCP with fresh authorized metadata snapshots if useful; mark historical and verify provenance",
+      "Share the same guide version and exact scope with all primary reviewers"
+    ],
+    "dispatch_rule": "Parallel independent reviews by Claude, Gemini and Codex; do not share other first-pass answers until collected. Antigravity studies consolidated version after primary reviews. Missing channel or response = record blocker, not fictional execution.",
+    "status_vocabulary": [
+      "PREPARED",
+      "DISPATCHED",
+      "ACKNOWLEDGED",
+      "RECEIVED",
+      "REVIEWED",
+      "BLOCKED",
+      "SUPERSEDED"
+    ],
+    "receipt_fields": [
+      "lane_id",
+      "agent",
+      "channel",
+      "guide_commit_or_version",
+      "source_sha",
+      "dispatch_timestamp_utc",
+      "actual_acknowledgement",
+      "response_artifact",
+      "response_sha256_if_measured",
+      "evidence_scope",
+      "limitations"
+    ],
+    "receipt_rule": "Prepared is not dispatched; actual transmission/acknowledgement and returned artifact required for state transitions. No auto-dispatch by age, no new task IDs in parent clinical/implementation queue.",
+    "reconcile": "One coordinator records dispositions per proposal: ADOPTAR/REFORMULAR/APLAZAR/DESCARTAR with material rationale and evidence; owner decisions only on new mature clinical questions; preserve previous approvals; if independent review unavailable, report partial, do not fabricate it.",
+    "adoption_gate": "Consolidated guide v1.0 and explicit owner acceptance of scope before new UI implementation; existing authorized technical repairs remain separate."
+  },
+  "lanes": [
+    {
+      "id": "GMFC-UX",
+      "agent": "Claude Code",
+      "status": "PREPARED",
+      "dependencies": [],
+      "parent_refs": [
+        "IMP-00",
+        "IMP-09"
+      ],
+      "focus": "Workflow and UX from arrival to end of shift; FAST/NOTE first, TREATMENT/DISCHARGE/TESTS, accessibility, interruption, cover and visual hierarchy",
+      "read": "Guide sections 1–3, 5 Claude, 6; PR139/140 and ClinicalMinimal prior evidence",
+      "deliverables": [
+        "Workflow map and screen/state inventory",
+        "Prioritized design delta and layout proposals",
+        "Measured UX criteria to test, not invented results"
+      ],
+      "receipt": null
+    },
+    {
+      "id": "GMFC-CLIN",
+      "agent": "Gemini",
+      "status": "PREPARED",
+      "dependencies": [],
+      "parent_refs": [
+        "IMP-02"
+      ],
+      "focus": "Clinical safety, minimum required inputs by scenario, diagnosis established vs suspicion, decision branches, alerts, abstention and evidence gaps",
+      "read": "Guide sections 2–3, 5 Gemini, 6; existing clinical contracts, owner decisions and source restrictions",
+      "deliverables": [
+        "Scenario/required-input/allowed-output/guard/source matrix",
+        "Evidence-based material gaps and prioritization",
+        "Only genuinely new mature owner decisions; no new dosing or clinical claims"
+      ],
+      "receipt": null
+    },
+    {
+      "id": "GMFC-TECH",
+      "agent": "Codex",
+      "status": "PREPARED",
+      "dependencies": [],
+      "parent_refs": [
+        "IMP-00",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "focus": "Map existing components, engines, exports, OCR/voice capability, episode guards, local/web/PWA/offline availability and negative test gaps; no implementation",
+      "read": "Guide sections 2–4, 5 Codex, 6; exact current tree and QA receipts",
+      "deliverables": [
+        "Requirement-to-code/evidence matrix with available/partial/absent/restricted/unverified",
+        "Reuse-first incremental technical proposal",
+        "Synthetic acceptance and negative test coverage gaps"
+      ],
+      "receipt": null
+    },
+    {
+      "id": "GMFC-SYNTH",
+      "agent": "Work",
+      "status": "PREPARED",
+      "dependencies": [
+        "GMFC-UX",
+        "GMFC-CLIN",
+        "GMFC-TECH"
+      ],
+      "parent_refs": [
+        "IMP-00",
+        "IMP-02",
+        "IMP-09",
+        "IMP-10"
+      ],
+      "focus": "Resolve conflicts and preserve evidence; prioritize high-value changes, one synthesis, no parallel backlog",
+      "deliverables": [
+        "Versioned draft synthesis",
+        "Disposition matrix with reasons and traceability",
+        "Explicit incomplete review boundaries and remaining owner decisions"
+      ],
+      "receipt": null
+    },
+    {
+      "id": "GMFC-AUDIT",
+      "agent": "Antigravity",
+      "status": "PREPARED",
+      "dependencies": [
+        "GMFC-SYNTH"
+      ],
+      "parent_refs": [
+        "IMP-09",
+        "IMP-10"
+      ],
+      "focus": "Independent review of exact synthesis: workflow, patient mix-up, data loss, clinical boundaries, units, alerts, provenance and privacy",
+      "deliverables": [
+        "Scoped findings with severity, evidence and corrective proposal",
+        "Guide-only verdict and limitations"
+      ],
+      "receipt": null
+    },
+    {
+      "id": "GMFC-CLOSE",
+      "agent": "Work",
+      "status": "PREPARED",
+      "dependencies": [
+        "GMFC-SYNTH",
+        "GMFC-AUDIT"
+      ],
+      "parent_refs": [
+        "IMP-10"
+      ],
+      "focus": "Publish consolidated study guide; record actual reviewer responses, owner scope decisions and accepted increments, or partial state if evidence incomplete",
+      "deliverables": [
+        "Guide v1.0 if acceptance requirements satisfied; otherwise identified partial version",
+        "Traceability/disposition record, precise links and commits",
+        "No implementation, no merge or clinical authorization"
+      ],
+      "receipt": null
+    }
+  ],
+  "metrics": {
+    "measured": false,
+    "proposed": [
+      "time to first useful response",
+      "actions to complete task",
+      "re-entry avoided",
+      "text/numeric/unit fidelity",
+      "critical errors in synthetic cases",
+      "episode isolation",
+      "availability/abstention",
+      "accessibility and perceived workload"
+    ],
+    "rule": "Measure during existing real project work; no invented comparisons, time savings or token savings. Keep accepted contracts and controls intact."
+  }
+}
