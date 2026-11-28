@@ -28,7 +28,7 @@
   "dispatch": {
     "coordinator": "Work",
     "claude": "Existing authenticated Claude Code session through Work",
-    "method": "MCP/authorized Computer Use if available; never infer receipt",
+    "method": "Prefer useful operational authorized MCP under AGENTS.md transversal MCP policy; use authorized Computer Use or another permitted alternative when appropriate; never infer receipt",
     "states": [
       "PENDING_DISPATCH",
       "BLOCKED_DEPENDENCY",
@@ -51,9 +51,12 @@
       "acknowledgement_or_execution_evidence",
       "deliverable_path_or_commit",
       "tests",
+      "useful_mcp_calls",
       "limitations",
       "next_action"
     ],
+    "mcp_policy_reference": "AGENTS.md#política-transversal-de-optimización-mcp--28112026",
+    "mcp_receipt_rule": "Record actual useful calls only: task, agent, server/tool/purpose, UTC, applicable source SHA/version, outcome, evidence and limitations. Do not include secrets or restricted material. Do not infer dispatch, execution or clinical authorization.",
     "maintenance": "Review material deltas only. Consolidate existing implementations and relevant defects. Freeze new RAG/LLM/interoperability/platform expansion without demonstrated utility. Preserve code and evidence; never auto-dispatch by age or treat future infrastructure as universal closure blocker.",
     "state_semantics": {
       "PENDING_DISPATCH": "Prepared only; no transmission, acknowledgement or execution claimed. All applicable prerequisites must first be evidenced.",
