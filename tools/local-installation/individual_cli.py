@@ -16,6 +16,27 @@ import local_installation as local
 from backend_bundle import clean_environment, install_runtime, runtime_fingerprint, verify_runtime
 
 
+def _runtime_stage(base, directory, fingerprint, python_executable):
+    stage = local.no_links(base / ("runtime-stage-" + uuid.uuid4().hex))
+    install_runtime(directory, stage, python_executable)
+    verify_runtime(stage, fingerprint)
+    return stage
+
+
+def _check_runtime_paths(directory):
+    local.no_links(directory)
+    for path in directory.rglob('*'):
+        local.no_links(path)
+
+
+def _retained_runtime_path(directory, prefix="retained-"):
+    # Keep the old fingerprint directory's length: no deeper Windows paths.
+    name = prefix + uuid.uuid4().hex + uuid.uuid4().hex[:64-len(prefix)-32]
+    result = local.no_links(directory.parent / name)
+    local.require(not result.exists(), "Runtime retention path already exists")
+    return result
+
+
 def prepare_runtime(root, version, python_executable):
     directory, _, _, _ = auth.verify_version(root, version)
     fingerprint = runtime_fingerprint(directory)
@@ -24,13 +45,52 @@ def prepare_runtime(root, version, python_executable):
         runtimes.mkdir(exist_ok=True)
         target = local.no_links(runtimes / fingerprint)
         if target.exists():
+            try:
+                return verify_runtime(target, fingerprint)
+            except local.ReleaseError:
+                # Keep strict file-set/hash checks. Never repair a path-boundary
+                # failure or turn an unmanifested cache into trusted content.
+                _check_runtime_paths(target)
+        else:
+            stage = _runtime_stage(base, directory, fingerprint, python_executable)
+            os.replace(stage, target)
             return verify_runtime(target, fingerprint)
-        # Interrupted bootstrap is kept separately and never poisons a final
-        # runtime name or the active release. No patient data exists here.
-        stage = base / ("runtime-stage-" + uuid.uuid4().hex)
-        install_runtime(directory, stage, python_executable)
-        os.replace(stage, target)
-        return verify_runtime(target, fingerprint)
+
+    # A shared cache may be used by the selected older release. Require runtime
+    # downtime BEFORE taking the writer and revalidate after acquiring both.
+    from stable_launcher import RuntimeLease
+    lease = RuntimeLease(root)
+    try:
+        with local.writer(root) as base:
+            directory, _, _, _ = auth.verify_version(root, version)
+            local.require(runtime_fingerprint(directory) == fingerprint,
+                          "Runtime dependency identity changed during preparation")
+            runtimes = local.no_links(base / "runtimes")
+            target = local.no_links(runtimes / fingerprint)
+            if target.exists():
+                try:
+                    return verify_runtime(target, fingerprint)
+                except local.ReleaseError:
+                    _check_runtime_paths(target)
+            # Reconstruct only from the already authenticated release's pinned
+            # wheels. A failed stage leaves the previous cache untouched.
+            stage = _runtime_stage(base, directory, fingerprint, python_executable)
+            retained = None
+            if target.exists():
+                retained = _retained_runtime_path(target)
+                os.replace(target, retained)
+            try:
+                os.replace(stage, target)
+                return verify_runtime(target, fingerprint)
+            except BaseException:
+                if retained is not None:
+                    if target.exists():
+                        local.no_links(target)
+                        os.replace(target, _retained_runtime_path(target, "rejected-"))
+                    os.replace(retained, target)
+                raise
+    finally:
+        lease.close()
 
 
 def _serve(root, expected_version):
